@@ -1,4 +1,4 @@
-23338000548657176
+23350023222713961
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -95340,12 +95340,61 @@ Varistor VF
 2
 2
 libtpms
+8-SOIC-DIP-8-ADAPTER
+
+
+0
+8
+8
+libtpms
+500SSP1S1M6QEB
+500SSP1S1M6QEB-1
+Switch
+0
+5
+5
+libtpms
+CAPPRD1000W200D3550H4700
+Cornell Dubilier A45
+Capacitor Polarised
+0
+2
+2
+libtpms
+CONN_73251-1150_MOL
+
+732511150 
+0
+3
+3
+libtpms
+FME0H473ZF
+FME0H473ZF-2
+Capacitor
+0
+2
+2
+libtpms
+LINX_CONSMA020.062-G
+
+
+0
+5
+5
+libtpms
 LQFP64_STM
 
 STM32U031R8T6 
 0
 64
 64
+libtpms
+P2110B
+P2110B-1
+Power Supply
+0
+14
+14
 libtpms
 SOIC127P610X280-8N
 NPP-301A-100A-
