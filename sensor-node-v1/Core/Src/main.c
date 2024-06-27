@@ -19,8 +19,9 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "adc.h"
-#include "spi.h"
 #include "gpio.h"
+#include "rng.h"
+#include "spi.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -39,8 +40,15 @@
 /* USER CODE BEGIN PD */
 
 #define SINGLE_TRANSMISSION 1
-#define TX_DELAY_MS 200
+#define TX_DELAY_MS 25
 #define NUM_MSGS 1
+
+#define BURST_MSG_NUM 1
+
+#define START_DELAY_MS 0
+#define STOP_DELAY_MS 0
+
+#define CONSECUTIVE_BURST_DELAY_MS 0
 
 /* USER CODE END PD */
 
@@ -69,11 +77,10 @@ void read_back_config(void);
 /* USER CODE END 0 */
 
 /**
-  * @brief  The application entry point.
-  * @retval int
-  */
-int main(void)
-{
+ * @brief  The application entry point.
+ * @retval int
+ */
+int main(void) {
 
   /* USER CODE BEGIN 1 */
 
@@ -88,7 +95,8 @@ int main(void)
 
   /* MCU Configuration--------------------------------------------------------*/
 
-  /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
+  /* Reset of all peripherals, Initializes the Flash interface and the Systick.
+   */
   HAL_Init();
 
   /* USER CODE BEGIN Init */
@@ -106,11 +114,19 @@ int main(void)
   MX_GPIO_Init();
   MX_SPI1_Init();
   MX_ADC1_Init();
+  MX_RNG_Init();
   /* USER CODE BEGIN 2 */
+
+  // make sure RESET signal to power harvester is low
+  HAL_GPIO_WritePin(P2110B_RESET_GPIO_Port, P2110B_RESET_Pin, GPIO_PIN_RESET);
+
+  HAL_PWREx_EnableLowPowerRunMode();
 
   HAL_ADC_Start(&hadc1);
 
   tx_spi_cmd(R_REGISTER(CONFIG_REGISTER), NULL, 0);
+
+  HAL_Delay(START_DELAY_MS);
 
   // [REQUIRED] make sure to power on the device
   tx_payload[0] = 0b00001110;
@@ -128,6 +144,9 @@ int main(void)
   tx_payload[0] = 0x0;
   tx_spi_cmd(W_REGISTER(SETUP_RETR), tx_payload, 1);
 
+  // tx_payload[0] = 0x3;
+  // tx_spi_cmd(W_REGISTER(SETUP_RETR), tx_payload, 1);
+
   // [REQUIRED] enable `W_TX_PAYLOAD_NOACK` command
   tx_payload[0] = 0x1;
   tx_spi_cmd(W_REGISTER(FEATURE), tx_payload, 1);
@@ -136,6 +155,32 @@ int main(void)
   tx_spi_cmd(FLUSH_TX, NULL, 0);
 
   read_back_config();
+
+  // required when MCU clock speed is more than or equal to 24MHz
+  HAL_Delay(STOP_DELAY_MS);
+
+  uint32_t pressure_val = HAL_ADC_GetValue(&hadc1);
+  uint16_t pressure_val_lo = pressure_val & 0xffff;
+
+  // generate random number so that each burst message has an ID
+  uint32_t random_id = 0;
+  HAL_RNG_GenerateRandomNumber(&hrng, &random_id);
+
+  // TEMP: first 4 bytes is the random ID
+  *(((uint32_t *)rf_payload) + 0) = random_id;
+  // second four bytes is the pressure value
+  *(((uint32_t *)rf_payload) + 1) = pressure_val_lo;
+
+  // send burst of RF messages
+  for (int i = 0; i < BURST_MSG_NUM; i++) {
+    send_status = nrf24l01_send_msg_noack(rf_payload, PAYLOAD_SZ_BYTES);
+    HAL_Delay(CONSECUTIVE_BURST_DELAY_MS);
+  }
+
+  // TODO: add a delay here
+
+  // reset the power harvester so we don't consume all the stored power
+  HAL_GPIO_WritePin(P2110B_RESET_GPIO_Port, P2110B_RESET_Pin, GPIO_PIN_SET);
 
   /* USER CODE END 2 */
 
@@ -147,56 +192,45 @@ int main(void)
     /* USER CODE BEGIN 3 */
 
     // load pressure value into the RF payload
-    // TODO: remove this
-    uint32_t pressure_val = HAL_ADC_GetValue(&hadc1);
 
-    uint16_t pressure_val_lo = pressure_val & 0xffff;
-    *((uint16_t *)rf_payload) = pressure_val_lo;
-
-    send_status = nrf24l01_send_msg_noack(rf_payload, PAYLOAD_SZ_BYTES);
-
-    HAL_GPIO_TogglePin(USER_LED_GPIO_Port, USER_LED_Pin);
-    HAL_Delay(TX_DELAY_MS);
+    // HAL_GPIO_TogglePin(USER_LED_GPIO_Port, USER_LED_Pin);
   }
   /* USER CODE END 3 */
 }
 
 /**
-  * @brief System Clock Configuration
-  * @retval None
-  */
-void SystemClock_Config(void)
-{
+ * @brief System Clock Configuration
+ * @retval None
+ */
+void SystemClock_Config(void) {
   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
 
   /** Configure the main internal regulator output voltage
-  */
+   */
   HAL_PWREx_ControlVoltageScaling(PWR_REGULATOR_VOLTAGE_SCALE2);
 
   /** Initializes the RCC Oscillators according to the specified parameters
-  * in the RCC_OscInitTypeDef structure.
-  */
+   * in the RCC_OscInitTypeDef structure.
+   */
   RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_MSI;
   RCC_OscInitStruct.MSIState = RCC_MSI_ON;
   RCC_OscInitStruct.MSICalibrationValue = RCC_MSICALIBRATION_DEFAULT;
   RCC_OscInitStruct.MSIClockRange = RCC_MSIRANGE_8;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_NONE;
-  if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
-  {
+  if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK) {
     Error_Handler();
   }
 
   /** Initializes the CPU, AHB and APB buses clocks
-  */
-  RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
-                              |RCC_CLOCKTYPE_PCLK1;
+   */
+  RCC_ClkInitStruct.ClockType =
+      RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_SYSCLK | RCC_CLOCKTYPE_PCLK1;
   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_MSI;
   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
 
-  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_1) != HAL_OK)
-  {
+  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_1) != HAL_OK) {
     Error_Handler();
   }
 }
@@ -248,11 +282,10 @@ void read_back_config(void) {
 /* USER CODE END 4 */
 
 /**
-  * @brief  This function is executed in case of error occurrence.
-  * @retval None
-  */
-void Error_Handler(void)
-{
+ * @brief  This function is executed in case of error occurrence.
+ * @retval None
+ */
+void Error_Handler(void) {
   /* USER CODE BEGIN Error_Handler_Debug */
   /* User can add his own implementation to report the HAL error return state */
   __disable_irq();
@@ -261,16 +294,15 @@ void Error_Handler(void)
   /* USER CODE END Error_Handler_Debug */
 }
 
-#ifdef  USE_FULL_ASSERT
+#ifdef USE_FULL_ASSERT
 /**
-  * @brief  Reports the name of the source file and the source line number
-  *         where the assert_param error has occurred.
-  * @param  file: pointer to the source file name
-  * @param  line: assert_param error line source number
-  * @retval None
-  */
-void assert_failed(uint8_t *file, uint32_t line)
-{
+ * @brief  Reports the name of the source file and the source line number
+ *         where the assert_param error has occurred.
+ * @param  file: pointer to the source file name
+ * @param  line: assert_param error line source number
+ * @retval None
+ */
+void assert_failed(uint8_t *file, uint32_t line) {
   /* USER CODE BEGIN 6 */
   /* USER CODE END 6 */
 }

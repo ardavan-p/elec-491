@@ -1,0 +1,31 @@
+buildbin := "sensor-node-v1.elf"
+targetbin := "sensor-node-v1.bin"
+
+serialnum := "43004800050000383036544E"
+
+all: clean generate build convert
+
+generate:
+    cmake -S . -B ./build
+
+build:
+    cmake --build ./build
+    cp ./build/compile_commands.json .
+    just convert
+
+clean:
+    rm -rf ./build
+
+convert:
+    arm-none-eabi-objcopy -O binary ./build/{{buildbin}} ./build/{{targetbin}}
+
+debug:
+    echo "Starting ST-Link GDB server!"
+    /opt/st/stm32cubeide_1.15.1/plugins/com.st.stm32cube.ide.mcu.externaltools.stlink-gdb-server.linux64_2.1.300.202403291623/tools/bin/ST-LINK_gdbserver -p 61234 --serial-number {{serialnum}} -l 1 -d -s -cp /opt/st/stm32cubeide_1.15.1/plugins/com.st.stm32cube.ide.mcu.externaltools.cubeprogrammer.linux64_2.1.201.202404072231/tools/bin -m 0 -k
+
+attach:
+    arm-none-eabi-gdb --eval-command="file ./build/{{buildbin}}" --eval-command="target remote localhost:61234"
+
+flash:
+    /opt/st/stm32cubeide_1.15.1/plugins/com.st.stm32cube.ide.mcu.externaltools.cubeprogrammer.linux64_2.1.201.202404072231/tools/bin/STM32_Programmer_CLI -c port=SWD sn={{serialnum}} -d ./build/{{targetbin}} 0x8000000 --verify
+    

@@ -57,10 +57,6 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define PSENSE_MINUS_Pin GPIO_PIN_0
-#define PSENSE_MINUS_GPIO_Port GPIOC
-#define PSENSE_PLUS_Pin GPIO_PIN_1
-#define PSENSE_PLUS_GPIO_Port GPIOC
 #define NRF_IRQ_Pin GPIO_PIN_4
 #define NRF_IRQ_GPIO_Port GPIOA
 #define NRF_SCK_Pin GPIO_PIN_5

@@ -38,7 +38,7 @@ extern "C" {
 #define MAX_DATA_BYTES 32
 
 // size of payload sent wirelessly
-#define PAYLOAD_SZ_BYTES 2
+#define PAYLOAD_SZ_BYTES 8
 
 #define SPI_TIMEOUT_MS  200
 #define UART_TIMEOUT_MS 500
