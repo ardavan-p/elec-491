@@ -43,12 +43,14 @@
 #define TX_DELAY_MS 25
 #define NUM_MSGS 1
 
-#define BURST_MSG_NUM 1
+#define BURST_MSG_NUM 3
 
 #define START_DELAY_MS 0
 #define STOP_DELAY_MS 0
 
 #define CONSECUTIVE_BURST_DELAY_MS 0
+
+#define SETUP_TO_TX_DELAY_MS 3
 
 /* USER CODE END PD */
 
@@ -177,7 +179,7 @@ int main(void) {
     HAL_Delay(CONSECUTIVE_BURST_DELAY_MS);
   }
 
-  // TODO: add a delay here
+  HAL_Delay(SETUP_TO_TX_DELAY_MS);
 
   // reset the power harvester so we don't consume all the stored power
   HAL_GPIO_WritePin(P2110B_RESET_GPIO_Port, P2110B_RESET_Pin, GPIO_PIN_SET);
