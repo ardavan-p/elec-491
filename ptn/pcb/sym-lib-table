@@ -5,4 +5,5 @@
   (lib (name "ADP150AUJZ-3_3-R7")(type "KiCad")(uri "${KIPRJMOD}/libraries/symbol_libraries/ADP150AUJZ-3_3-R7.kicad_sym")(options "")(descr ""))
   (lib (name "16MHz_830108288709")(type "KiCad")(uri "${KIPRJMOD}/libraries/symbol_libraries/16MHz_830108288709.kicad_sym")(options "")(descr ""))
   (lib (name "AZ1084CD-5_0TRG1_LDO_5V")(type "KiCad")(uri "${KIPRJMOD}/libraries/symbol_libraries/AZ1084CD-5_0TRG1_LDO_5V.kicad_sym")(options "")(descr ""))
+  (lib (name "TB002-500-04BE_SCREW_TERMINAL")(type "KiCad")(uri "${KIPRJMOD}/libraries/symbol_libraries/TB002-500-04BE_SCREW_TERMINAL.kicad_sym")(options "")(descr ""))
 )
