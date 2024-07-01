@@ -12830,6 +12830,17 @@
 		)
 		(uuid "cd631f3a-ba17-43e8-a59e-37b9d5547552")
 	)
+	(text "No indicator LED added\nfor 3.3VA, as it is only\nallocated for ADF4351."
+		(exclude_from_sim no)
+		(at 151.892 139.192 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "d1983f44-8591-48f2-9b74-f079550d3810")
+	)
 	(text "Note: Check SW is needed or not."
 		(exclude_from_sim no)
 		(at 122.936 269.494 0)
@@ -17093,7 +17104,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "500R"
+		(property "Value" "100R"
 			(at 327.66 99.0599 0)
 			(effects
 				(font
@@ -22938,7 +22949,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "500R"
+		(property "Value" "100R"
 			(at 162.56 101.5999 0)
 			(effects
 				(font
@@ -23233,7 +23244,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Light emitting diode"
+		(property "Description" "Light emitting diode 150060VS55040"
 			(at 160.02 76.2 0)
 			(effects
 				(font
@@ -26432,7 +26443,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Light emitting diode"
+		(property "Description" "Light emitting diode 150060VS55040"
 			(at 330.2 107.95 0)
 			(effects
 				(font
@@ -28275,7 +28286,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Light emitting diode"
+		(property "Description" "Light emitting diode 150060VS55040"
 			(at 160.02 110.49 0)
 			(effects
 				(font
