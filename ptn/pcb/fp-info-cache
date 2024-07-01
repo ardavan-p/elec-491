@@ -1,4 +1,4 @@
-23338005069844982
+23351761448461793
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -95340,8 +95340,36 @@ Varistor VF
 2
 2
 project_footprint_library
+16MHz_830108288709
+830108288709-1
+Crystal or Oscillator
+0
+4
+4
+project_footprint_library
 142-0701-851
 142-0701-851
+Connector
+0
+3
+3
+project_footprint_library
+ATXH11F25000MHzF25T_ABRACON25MHz
+3.20x2.50x1.20mm
+Crystal or Oscillator
+0
+4
+4
+project_footprint_library
+AZ1084CD50TRG1_LDO_5V
+AZ1084CD-5.0TRG1-1
+Integrated Circuit
+0
+3
+3
+project_footprint_library
+BARREL_694106301002_1
+694106301002
 Connector
 0
 3
@@ -95353,3 +95381,31 @@ Integrated Circuit
 0
 17
 17
+project_footprint_library
+RF302LAM2STR_DIODE
+RF302LAM2STR-4
+Diode
+0
+2
+2
+project_footprint_library
+SIT5000AICGE33E025000000X
+SIT5000AICGE-33N0-25.000000X-2
+Crystal or Oscillator
+0
+4
+4
+project_footprint_library
+SOT95P280X100-5N
+TSOT-23 5 lead
+Integrated Circuit
+0
+5
+5
+project_footprint_library
+TB00250004BE_SCREW_TERMINAL
+TB002-500-04BE-1
+Connector
+0
+4
+4

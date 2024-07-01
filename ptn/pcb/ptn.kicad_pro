@@ -216,6 +216,7 @@
   },
   "erc": {
     "erc_exclusions": [
+      "lib_symbol_issues|3746500|1092200|a6f31fa1-b8e3-43cd-a769-e752cc1a5e0c|00000000-0000-0000-0000-000000000000|||",
       "lib_symbol_issues|4076700|1092200|a6f31fa1-b8e3-43cd-a769-e752cc1a5e0c|00000000-0000-0000-0000-000000000000|||",
       "lib_symbol_issues|5118100|1143000|a6f31fa1-b8e3-43cd-a769-e752cc1a5e0c|00000000-0000-0000-0000-000000000000|||"
     ],
@@ -569,6 +570,18 @@
           "group_by": false,
           "label": "Mouser Price/Stock",
           "name": "Mouser Price/Stock",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Sim.Pins",
+          "name": "Sim.Pins",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Sim.Device",
+          "name": "Sim.Device",
           "show": false
         }
       ],
