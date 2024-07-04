@@ -3636,151 +3636,6 @@
 				)
 			)
 		)
-		(symbol "Jumper:Jumper_2_Bridged"
-			(pin_numbers hide)
-			(pin_names
-				(offset 0) hide)
-			(exclude_from_sim yes)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "JP"
-				(at 0 1.905 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "Jumper_2_Bridged"
-				(at 0 -2.54 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" "~"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "Jumper, 2-pole, closed/bridged"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_keywords" "Jumper SPST"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_fp_filters" "Jumper* TestPoint*2Pads* TestPoint*Bridge*"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "Jumper_2_Bridged_0_0"
-				(circle
-					(center -2.032 0)
-					(radius 0.508)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(circle
-					(center 2.032 0)
-					(radius 0.508)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "Jumper_2_Bridged_0_1"
-				(arc
-					(start 1.524 0.254)
-					(mid 0 0.762)
-					(end -1.524 0.254)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "Jumper_2_Bridged_1_1"
-				(pin passive line
-					(at -5.08 0 0)
-					(length 2.54)
-					(name "A"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 5.08 0 180)
-					(length 2.54)
-					(name "B"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-		)
 		(symbol "Jumper:Jumper_3_Bridged12"
 			(pin_names
 				(offset 0) hide)
@@ -7905,7 +7760,7 @@
 	)
 	(wire
 		(pts
-			(xy 220.98 86.36) (xy 223.52 86.36)
+			(xy 238.76 86.36) (xy 236.22 86.36)
 		)
 		(stroke
 			(width 0)
@@ -8035,7 +7890,7 @@
 	)
 	(wire
 		(pts
-			(xy 238.76 76.2) (xy 236.22 76.2)
+			(xy 220.98 76.2) (xy 223.52 76.2)
 		)
 		(stroke
 			(width 0)
@@ -8175,7 +8030,7 @@
 	)
 	(wire
 		(pts
-			(xy 222.25 105.41) (xy 224.79 105.41)
+			(xy 220.98 113.03) (xy 223.52 113.03)
 		)
 		(stroke
 			(width 0)
@@ -8185,7 +8040,7 @@
 	)
 	(wire
 		(pts
-			(xy 238.76 78.74) (xy 236.22 78.74)
+			(xy 220.98 78.74) (xy 223.52 78.74)
 		)
 		(stroke
 			(width 0)
@@ -8275,7 +8130,7 @@
 	)
 	(wire
 		(pts
-			(xy 234.95 113.03) (xy 237.49 113.03)
+			(xy 236.22 118.11) (xy 238.76 118.11)
 		)
 		(stroke
 			(width 0)
@@ -8285,7 +8140,7 @@
 	)
 	(wire
 		(pts
-			(xy 222.25 132.08) (xy 224.79 132.08)
+			(xy 220.98 130.81) (xy 223.52 130.81)
 		)
 		(stroke
 			(width 0)
@@ -8335,7 +8190,7 @@
 	)
 	(wire
 		(pts
-			(xy 234.95 143.51) (xy 237.49 143.51)
+			(xy 236.22 138.43) (xy 238.76 138.43)
 		)
 		(stroke
 			(width 0)
@@ -8365,7 +8220,7 @@
 	)
 	(wire
 		(pts
-			(xy 234.95 101.6) (xy 237.49 101.6)
+			(xy 236.22 110.49) (xy 238.76 110.49)
 		)
 		(stroke
 			(width 0)
@@ -8475,7 +8330,7 @@
 	)
 	(wire
 		(pts
-			(xy 234.95 128.27) (xy 237.49 128.27)
+			(xy 236.22 128.27) (xy 238.76 128.27)
 		)
 		(stroke
 			(width 0)
@@ -8545,7 +8400,7 @@
 	)
 	(wire
 		(pts
-			(xy 234.95 116.84) (xy 237.49 116.84)
+			(xy 236.22 120.65) (xy 238.76 120.65)
 		)
 		(stroke
 			(width 0)
@@ -8575,7 +8430,7 @@
 	)
 	(wire
 		(pts
-			(xy 222.25 101.6) (xy 224.79 101.6)
+			(xy 220.98 110.49) (xy 223.52 110.49)
 		)
 		(stroke
 			(width 0)
@@ -8925,7 +8780,7 @@
 	)
 	(wire
 		(pts
-			(xy 220.98 81.28) (xy 223.52 81.28)
+			(xy 238.76 81.28) (xy 236.22 81.28)
 		)
 		(stroke
 			(width 0)
@@ -8955,7 +8810,7 @@
 	)
 	(wire
 		(pts
-			(xy 220.98 93.98) (xy 223.52 93.98)
+			(xy 238.76 93.98) (xy 236.22 93.98)
 		)
 		(stroke
 			(width 0)
@@ -9035,7 +8890,7 @@
 	)
 	(wire
 		(pts
-			(xy 234.95 120.65) (xy 237.49 120.65)
+			(xy 236.22 123.19) (xy 238.76 123.19)
 		)
 		(stroke
 			(width 0)
@@ -9065,7 +8920,7 @@
 	)
 	(wire
 		(pts
-			(xy 238.76 88.9) (xy 236.22 88.9)
+			(xy 220.98 88.9) (xy 223.52 88.9)
 		)
 		(stroke
 			(width 0)
@@ -9175,7 +9030,7 @@
 	)
 	(wire
 		(pts
-			(xy 234.95 124.46) (xy 237.49 124.46)
+			(xy 236.22 125.73) (xy 238.76 125.73)
 		)
 		(stroke
 			(width 0)
@@ -9245,7 +9100,7 @@
 	)
 	(wire
 		(pts
-			(xy 234.95 105.41) (xy 237.49 105.41)
+			(xy 236.22 113.03) (xy 238.76 113.03)
 		)
 		(stroke
 			(width 0)
@@ -9255,7 +9110,7 @@
 	)
 	(wire
 		(pts
-			(xy 220.98 83.82) (xy 223.52 83.82)
+			(xy 238.76 83.82) (xy 236.22 83.82)
 		)
 		(stroke
 			(width 0)
@@ -9615,7 +9470,7 @@
 	)
 	(wire
 		(pts
-			(xy 222.25 124.46) (xy 224.79 124.46)
+			(xy 220.98 125.73) (xy 223.52 125.73)
 		)
 		(stroke
 			(width 0)
@@ -9695,7 +9550,7 @@
 	)
 	(wire
 		(pts
-			(xy 220.98 88.9) (xy 223.52 88.9)
+			(xy 238.76 88.9) (xy 236.22 88.9)
 		)
 		(stroke
 			(width 0)
@@ -9825,7 +9680,7 @@
 	)
 	(wire
 		(pts
-			(xy 234.95 139.7) (xy 237.49 139.7)
+			(xy 236.22 135.89) (xy 238.76 135.89)
 		)
 		(stroke
 			(width 0)
@@ -10135,7 +9990,7 @@
 	)
 	(wire
 		(pts
-			(xy 222.25 128.27) (xy 224.79 128.27)
+			(xy 220.98 128.27) (xy 223.52 128.27)
 		)
 		(stroke
 			(width 0)
@@ -10425,7 +10280,7 @@
 	)
 	(wire
 		(pts
-			(xy 222.25 135.89) (xy 224.79 135.89)
+			(xy 220.98 133.35) (xy 223.52 133.35)
 		)
 		(stroke
 			(width 0)
@@ -10515,7 +10370,7 @@
 	)
 	(wire
 		(pts
-			(xy 238.76 81.28) (xy 236.22 81.28)
+			(xy 220.98 81.28) (xy 223.52 81.28)
 		)
 		(stroke
 			(width 0)
@@ -10565,7 +10420,7 @@
 	)
 	(wire
 		(pts
-			(xy 234.95 135.89) (xy 237.49 135.89)
+			(xy 236.22 133.35) (xy 238.76 133.35)
 		)
 		(stroke
 			(width 0)
@@ -10785,7 +10640,7 @@
 	)
 	(wire
 		(pts
-			(xy 222.25 109.22) (xy 224.79 109.22)
+			(xy 220.98 115.57) (xy 223.52 115.57)
 		)
 		(stroke
 			(width 0)
@@ -10805,7 +10660,7 @@
 	)
 	(wire
 		(pts
-			(xy 238.76 86.36) (xy 236.22 86.36)
+			(xy 220.98 86.36) (xy 223.52 86.36)
 		)
 		(stroke
 			(width 0)
@@ -11175,7 +11030,7 @@
 	)
 	(wire
 		(pts
-			(xy 222.25 113.03) (xy 224.79 113.03)
+			(xy 220.98 118.11) (xy 223.52 118.11)
 		)
 		(stroke
 			(width 0)
@@ -11235,6 +11090,16 @@
 	)
 	(wire
 		(pts
+			(xy 88.9 454.66) (xy 88.9 455.93)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "aa3e83d1-4159-44ff-8bd7-c4bef32ef8bb")
+	)
+	(wire
+		(pts
 			(xy 392.43 83.82) (xy 394.97 83.82)
 		)
 		(stroke
@@ -11265,7 +11130,7 @@
 	)
 	(wire
 		(pts
-			(xy 238.76 83.82) (xy 236.22 83.82)
+			(xy 220.98 83.82) (xy 223.52 83.82)
 		)
 		(stroke
 			(width 0)
@@ -11485,7 +11350,7 @@
 	)
 	(wire
 		(pts
-			(xy 234.95 132.08) (xy 237.49 132.08)
+			(xy 236.22 130.81) (xy 238.76 130.81)
 		)
 		(stroke
 			(width 0)
@@ -11525,7 +11390,7 @@
 	)
 	(wire
 		(pts
-			(xy 238.76 91.44) (xy 236.22 91.44)
+			(xy 220.98 91.44) (xy 223.52 91.44)
 		)
 		(stroke
 			(width 0)
@@ -11735,7 +11600,7 @@
 	)
 	(wire
 		(pts
-			(xy 234.95 109.22) (xy 237.49 109.22)
+			(xy 236.22 115.57) (xy 238.76 115.57)
 		)
 		(stroke
 			(width 0)
@@ -11775,7 +11640,7 @@
 	)
 	(wire
 		(pts
-			(xy 220.98 91.44) (xy 223.52 91.44)
+			(xy 238.76 91.44) (xy 236.22 91.44)
 		)
 		(stroke
 			(width 0)
@@ -11795,7 +11660,7 @@
 	)
 	(wire
 		(pts
-			(xy 222.25 139.7) (xy 224.79 139.7)
+			(xy 220.98 135.89) (xy 223.52 135.89)
 		)
 		(stroke
 			(width 0)
@@ -11815,7 +11680,7 @@
 	)
 	(wire
 		(pts
-			(xy 222.25 116.84) (xy 224.79 116.84)
+			(xy 220.98 120.65) (xy 223.52 120.65)
 		)
 		(stroke
 			(width 0)
@@ -11845,7 +11710,7 @@
 	)
 	(wire
 		(pts
-			(xy 220.98 76.2) (xy 223.52 76.2)
+			(xy 238.76 76.2) (xy 236.22 76.2)
 		)
 		(stroke
 			(width 0)
@@ -12175,7 +12040,7 @@
 	)
 	(wire
 		(pts
-			(xy 220.98 78.74) (xy 223.52 78.74)
+			(xy 238.76 78.74) (xy 236.22 78.74)
 		)
 		(stroke
 			(width 0)
@@ -12295,7 +12160,7 @@
 	)
 	(wire
 		(pts
-			(xy 238.76 93.98) (xy 236.22 93.98)
+			(xy 220.98 93.98) (xy 223.52 93.98)
 		)
 		(stroke
 			(width 0)
@@ -12432,6 +12297,16 @@
 			(type default)
 		)
 		(uuid "eeefe9ea-a927-4c45-8218-bd3f70451a3e")
+	)
+	(wire
+		(pts
+			(xy 88.9 463.55) (xy 88.9 464.82)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ef549c77-300e-48c3-b0da-cb71c0c87e3d")
 	)
 	(wire
 		(pts
@@ -12635,7 +12510,7 @@
 	)
 	(wire
 		(pts
-			(xy 222.25 143.51) (xy 224.79 143.51)
+			(xy 220.98 138.43) (xy 223.52 138.43)
 		)
 		(stroke
 			(width 0)
@@ -12645,7 +12520,7 @@
 	)
 	(wire
 		(pts
-			(xy 222.25 120.65) (xy 224.79 120.65)
+			(xy 220.98 123.19) (xy 223.52 123.19)
 		)
 		(stroke
 			(width 0)
@@ -13455,22 +13330,22 @@
 	)
 	(global_label "ADF4351_MUXOUT"
 		(shape input)
-		(at 220.98 91.44 180)
+		(at 238.76 91.44 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.016 1.016)
 			)
-			(justify right)
+			(justify left)
 		)
 		(uuid "090a5957-6d9a-49fb-a786-bd01cacbbc69")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 204.7128 91.44 0)
+			(at 255.0272 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 				(hide yes)
 			)
 		)
@@ -13521,22 +13396,22 @@
 	)
 	(global_label "NRF24L01P_SCK"
 		(shape input)
-		(at 238.76 76.2 0)
+		(at 220.98 76.2 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.016 1.016)
 			)
-			(justify left)
+			(justify right)
 		)
 		(uuid "10b0bd22-164d-45e3-a946-91398f3896af")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 253.5818 76.2 0)
+			(at 206.1582 76.2 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(justify right)
 				(hide yes)
 			)
 		)
@@ -13587,7 +13462,7 @@
 	)
 	(global_label "NRF24L01P_SCK"
 		(shape input)
-		(at 237.49 120.65 0)
+		(at 238.76 123.19 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -13597,7 +13472,7 @@
 		)
 		(uuid "1496c27a-cbbf-4c5d-a8f6-08cdcf68c6bf")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 252.3118 120.65 0)
+			(at 253.5818 123.19 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13609,22 +13484,22 @@
 	)
 	(global_label "ADF4351_LD"
 		(shape input)
-		(at 220.98 88.9 180)
+		(at 238.76 88.9 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.016 1.016)
 			)
-			(justify right)
+			(justify left)
 		)
 		(uuid "18a24c03-012f-4e66-9311-41572a7332ff")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 208.9703 88.9 0)
+			(at 250.7697 88.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 				(hide yes)
 			)
 		)
@@ -13653,7 +13528,7 @@
 	)
 	(global_label "NRF24L01P_MISO"
 		(shape input)
-		(at 237.49 124.46 0)
+		(at 238.76 125.73 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -13663,7 +13538,7 @@
 		)
 		(uuid "2074a027-87ce-4d66-8b2a-e17f1273bcae")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 252.9891 124.46 0)
+			(at 254.2591 125.73 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13697,29 +13572,29 @@
 	)
 	(global_label "MCP2551_CANRX"
 		(shape input)
-		(at 238.76 93.98 0)
+		(at 220.98 93.98 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.016 1.016)
 			)
-			(justify left)
+			(justify right)
 		)
 		(uuid "28b60f47-71c1-4e5f-b27d-125f2ae0672d")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 253.9204 93.98 0)
+			(at 205.8196 93.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(justify right)
 				(hide yes)
 			)
 		)
 	)
 	(global_label "NRF24L01P_MOSI"
 		(shape input)
-		(at 237.49 128.27 0)
+		(at 238.76 128.27 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -13729,7 +13604,7 @@
 		)
 		(uuid "28e44179-f7b1-47b8-b8bc-99c3bd087a50")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 252.9891 128.27 0)
+			(at 254.2591 128.27 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13829,7 +13704,7 @@
 	)
 	(global_label "STM32_SPI1_SCK"
 		(shape input)
-		(at 222.25 101.6 180)
+		(at 220.98 110.49 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -13839,7 +13714,7 @@
 		)
 		(uuid "32405cef-1b40-4106-a1d3-82bce7a29656")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 207.0413 101.6 0)
+			(at 205.7713 110.49 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13851,7 +13726,7 @@
 	)
 	(global_label "ADF4351_SCK"
 		(shape input)
-		(at 237.49 101.6 0)
+		(at 238.76 110.49 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -13861,7 +13736,7 @@
 		)
 		(uuid "32a1aae2-653d-41c3-b286-0003fd429379")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 250.2798 101.6 0)
+			(at 251.5498 110.49 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13917,22 +13792,22 @@
 	)
 	(global_label "NRF24L01P_MISO"
 		(shape input)
-		(at 238.76 78.74 0)
+		(at 220.98 78.74 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.016 1.016)
 			)
-			(justify left)
+			(justify right)
 		)
 		(uuid "356413eb-3917-4d1d-8a1f-a1157ff92a88")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 254.2591 78.74 0)
+			(at 205.4809 78.74 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(justify right)
 				(hide yes)
 			)
 		)
@@ -13983,7 +13858,7 @@
 	)
 	(global_label "MCP2551_CANTX"
 		(shape input)
-		(at 237.49 139.7 0)
+		(at 238.76 135.89 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -13993,7 +13868,7 @@
 		)
 		(uuid "41c19278-0819-4c54-8414-640354edeb47")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 252.4085 139.7 0)
+			(at 253.6785 135.89 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14005,7 +13880,7 @@
 	)
 	(global_label "ADF4351_MOSI"
 		(shape input)
-		(at 237.49 105.41 0)
+		(at 238.76 113.03 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -14015,7 +13890,7 @@
 		)
 		(uuid "43108271-859c-42e4-b6ad-80137d261099")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 250.9571 105.41 0)
+			(at 252.2271 113.03 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14159,7 +14034,7 @@
 	)
 	(global_label "STM32_SPI2_SCK"
 		(shape input)
-		(at 222.25 120.65 180)
+		(at 220.98 123.19 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -14169,7 +14044,7 @@
 		)
 		(uuid "54dff0a0-3fb6-4a0e-875f-021a80102a2b")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 207.0413 120.65 0)
+			(at 205.7713 123.19 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14181,7 +14056,7 @@
 	)
 	(global_label "ADF4351_SSN"
 		(shape input)
-		(at 237.49 109.22 0)
+		(at 238.76 115.57 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -14191,7 +14066,29 @@
 		)
 		(uuid "55a69ed0-3614-486c-8773-0beef15a6e37")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 250.2798 109.22 0)
+			(at 251.5498 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "CANL"
+		(shape input)
+		(at 48.26 68.58 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.016 1.016)
+			)
+			(justify left)
+		)
+		(uuid "56dadbee-09a1-48a0-80bf-ee180c400cc8")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 54.4217 68.58 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14203,29 +14100,29 @@
 	)
 	(global_label "NRF24L01P_SSN"
 		(shape input)
-		(at 238.76 83.82 0)
+		(at 220.98 83.82 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.016 1.016)
 			)
-			(justify left)
+			(justify right)
 		)
 		(uuid "58837792-21d8-4e2c-9b5f-10f43816286a")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 253.5818 83.82 0)
+			(at 206.1582 83.82 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(justify right)
 				(hide yes)
 			)
 		)
 	)
 	(global_label "STM32_NRF_CE"
 		(shape input)
-		(at 222.25 135.89 180)
+		(at 220.98 133.35 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -14235,7 +14132,7 @@
 		)
 		(uuid "59288741-8c44-4f49-b272-296f402798c0")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 208.5894 135.89 0)
+			(at 207.3194 133.35 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14269,29 +14166,7 @@
 	)
 	(global_label "ADF4351_CE"
 		(shape input)
-		(at 220.98 83.82 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.016 1.016)
-			)
-			(justify right)
-		)
-		(uuid "5cf43b26-3fbf-4e5e-83c3-cc5e092ba7b0")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 209.2546 83.82 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "MCP2551_CANTX"
-		(shape input)
-		(at 238.76 91.44 0)
+		(at 238.76 83.82 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -14299,9 +14174,9 @@
 			)
 			(justify left)
 		)
-		(uuid "5d4655fa-ae4f-4531-886a-8e793cd58027")
+		(uuid "5cf43b26-3fbf-4e5e-83c3-cc5e092ba7b0")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 253.6785 91.44 0)
+			(at 250.4854 83.82 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14311,9 +14186,31 @@
 			)
 		)
 	)
+	(global_label "MCP2551_CANTX"
+		(shape input)
+		(at 220.98 91.44 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.016 1.016)
+			)
+			(justify right)
+		)
+		(uuid "5d4655fa-ae4f-4531-886a-8e793cd58027")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 206.0615 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
 	(global_label "STM32_SPI2_MOSI"
 		(shape input)
-		(at 222.25 128.27 180)
+		(at 220.98 128.27 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -14323,7 +14220,7 @@
 		)
 		(uuid "6115c6eb-d9df-4e05-a9a2-3387a1f9aeb0")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 206.364 128.27 0)
+			(at 205.094 128.27 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14335,7 +14232,7 @@
 	)
 	(global_label "STM32_ADF_PDBRF"
 		(shape input)
-		(at 222.25 116.84 180)
+		(at 220.98 120.65 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -14345,7 +14242,7 @@
 		)
 		(uuid "6664e360-97e7-4683-b8a0-dbfb948019fe")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 205.7832 116.84 0)
+			(at 204.5132 120.65 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14445,7 +14342,7 @@
 	)
 	(global_label "NRF24L01P_SSN"
 		(shape input)
-		(at 237.49 132.08 0)
+		(at 238.76 130.81 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -14455,7 +14352,7 @@
 		)
 		(uuid "730eaa9a-62f9-4372-86c7-00d3efbfe143")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 252.3118 132.08 0)
+			(at 253.5818 130.81 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14467,29 +14364,7 @@
 	)
 	(global_label "STM32_ADC1_IN0"
 		(shape input)
-		(at 220.98 93.98 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.016 1.016)
-			)
-			(justify right)
-		)
-		(uuid "7a7075c9-2045-48cf-b339-15dad1d9bf7e")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 205.8196 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "CANH"
-		(shape input)
-		(at 48.26 68.58 0)
+		(at 238.76 93.98 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -14497,9 +14372,9 @@
 			)
 			(justify left)
 		)
-		(uuid "801b3504-e49d-4c27-9f46-77d6da1f2611")
+		(uuid "7a7075c9-2045-48cf-b339-15dad1d9bf7e")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 54.6636 68.58 0)
+			(at 253.9204 93.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14511,29 +14386,29 @@
 	)
 	(global_label "ADF4351_MOSI"
 		(shape input)
-		(at 220.98 78.74 180)
+		(at 238.76 78.74 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.016 1.016)
 			)
-			(justify right)
+			(justify left)
 		)
 		(uuid "83fceef8-00d3-48e2-9673-a1e583f12350")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 207.5129 78.74 0)
+			(at 252.2271 78.74 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 				(hide yes)
 			)
 		)
 	)
 	(global_label "STM32_SPI1_SSN"
 		(shape input)
-		(at 222.25 109.22 180)
+		(at 220.98 115.57 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -14543,7 +14418,7 @@
 		)
 		(uuid "88651514-0a4b-4a22-aeae-f3d1a034e443")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 207.0413 109.22 0)
+			(at 205.7713 115.57 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14555,7 +14430,7 @@
 	)
 	(global_label "ADF4351_PDBRF"
 		(shape input)
-		(at 237.49 116.84 0)
+		(at 238.76 120.65 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -14565,7 +14440,7 @@
 		)
 		(uuid "890f5750-c914-4498-8207-7b1aa3c479b9")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 252.2151 116.84 0)
+			(at 253.4851 120.65 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14599,7 +14474,7 @@
 	)
 	(global_label "STM32_CANTX"
 		(shape input)
-		(at 222.25 139.7 180)
+		(at 220.98 135.89 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -14609,7 +14484,7 @@
 		)
 		(uuid "8ff78582-8420-4a42-aaad-5caaa7ef5867")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 209.557 139.7 0)
+			(at 208.287 135.89 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14665,22 +14540,22 @@
 	)
 	(global_label "NRF24L01P_CE"
 		(shape input)
-		(at 238.76 86.36 0)
+		(at 220.98 86.36 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.016 1.016)
 			)
-			(justify left)
+			(justify right)
 		)
 		(uuid "94af2fa9-5ff2-4188-86ce-7475b5c44dd7")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 252.5174 86.36 0)
+			(at 207.2226 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(justify right)
 				(hide yes)
 			)
 		)
@@ -14709,22 +14584,22 @@
 	)
 	(global_label "NRF24L01P_MOSI"
 		(shape input)
-		(at 238.76 81.28 0)
+		(at 220.98 81.28 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.016 1.016)
 			)
-			(justify left)
+			(justify right)
 		)
 		(uuid "98d928ae-569b-4d4c-99b9-4f0f9864f4cb")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 254.2591 81.28 0)
+			(at 205.4809 81.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(justify right)
 				(hide yes)
 			)
 		)
@@ -14775,7 +14650,7 @@
 	)
 	(global_label "STM32_SPI2_MISO"
 		(shape input)
-		(at 222.25 124.46 180)
+		(at 220.98 125.73 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -14785,7 +14660,7 @@
 		)
 		(uuid "9e5bc5d9-dd93-45f4-8dcb-e9537ce90f47")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 206.364 124.46 0)
+			(at 205.094 125.73 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14819,7 +14694,7 @@
 	)
 	(global_label "STM32_SPI2_SSN"
 		(shape input)
-		(at 222.25 132.08 180)
+		(at 220.98 130.81 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -14829,7 +14704,7 @@
 		)
 		(uuid "aab81279-c8b0-47d4-b485-459ce07378ba")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 207.0413 132.08 0)
+			(at 205.7713 130.81 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14883,28 +14758,6 @@
 			)
 		)
 	)
-	(global_label "CANL"
-		(shape input)
-		(at 48.26 71.12 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.016 1.016)
-			)
-			(justify left)
-		)
-		(uuid "b0863244-aada-46e1-9a8b-7d502c478150")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 54.4217 71.12 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
 	(global_label "ADF4351_RFOUTA+"
 		(shape input)
 		(at 107.95 241.3 0)
@@ -14929,7 +14782,7 @@
 	)
 	(global_label "STM32_CANRX"
 		(shape input)
-		(at 222.25 143.51 180)
+		(at 220.98 138.43 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -14939,7 +14792,7 @@
 		)
 		(uuid "b5054dcb-93ba-4da1-9bbf-ef4205acd97f")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 209.3151 143.51 0)
+			(at 208.0451 138.43 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14971,24 +14824,46 @@
 			)
 		)
 	)
-	(global_label "ADF4351_PDBRF"
+	(global_label "CANH"
 		(shape input)
-		(at 220.98 86.36 180)
+		(at 48.26 71.12 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.016 1.016)
 			)
-			(justify right)
+			(justify left)
 		)
-		(uuid "bfcf803c-9217-460a-9cdf-3cb5112b306a")
+		(uuid "be8e04a1-a37e-430a-b6b7-a106db06924d")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 206.2549 86.36 0)
+			(at 54.6636 71.12 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "ADF4351_PDBRF"
+		(shape input)
+		(at 238.76 86.36 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.016 1.016)
+			)
+			(justify left)
+		)
+		(uuid "bfcf803c-9217-460a-9cdf-3cb5112b306a")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 253.4851 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
 				(hide yes)
 			)
 		)
@@ -15017,22 +14892,22 @@
 	)
 	(global_label "NRF24L01P_IRQ"
 		(shape input)
-		(at 238.76 88.9 0)
+		(at 220.98 88.9 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.016 1.016)
 			)
-			(justify left)
+			(justify right)
 		)
 		(uuid "c18e17f5-0451-4cee-9228-344577c87267")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 253.1464 88.9 0)
+			(at 206.5936 88.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(justify right)
 				(hide yes)
 			)
 		)
@@ -15127,7 +15002,7 @@
 	)
 	(global_label "MCP2551_CANRX"
 		(shape input)
-		(at 237.49 143.51 0)
+		(at 238.76 138.43 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -15137,7 +15012,7 @@
 		)
 		(uuid "c9506ec8-1372-47e8-b2d8-3579e411eb17")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 252.6504 143.51 0)
+			(at 253.9204 138.43 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15215,7 +15090,7 @@
 	)
 	(global_label "STM32_ADF_CE"
 		(shape input)
-		(at 222.25 113.03 180)
+		(at 220.98 118.11 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -15225,7 +15100,29 @@
 		)
 		(uuid "cc54e5f9-9c44-4d83-8892-8acbc3a6cf2e")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 208.7829 113.03 0)
+			(at 207.5129 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "CANL"
+		(shape input)
+		(at 88.9 464.82 270)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.016 1.016)
+			)
+			(justify right)
+		)
+		(uuid "ccdade0f-0460-4145-b2ec-b74b8ddd4055")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 88.9 470.9817 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15259,7 +15156,7 @@
 	)
 	(global_label "NRF24L01P_CE"
 		(shape input)
-		(at 237.49 135.89 0)
+		(at 238.76 133.35 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -15269,7 +15166,7 @@
 		)
 		(uuid "ce512295-25dd-4bd9-b25a-a2e3eaf9bb92")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 251.2474 135.89 0)
+			(at 252.5174 133.35 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15347,22 +15244,44 @@
 	)
 	(global_label "ADF4351_SCK"
 		(shape input)
-		(at 220.98 76.2 180)
+		(at 238.76 76.2 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.016 1.016)
 			)
-			(justify right)
+			(justify left)
 		)
 		(uuid "ddaabfda-5590-4ced-8670-88cda302de67")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 208.1902 76.2 0)
+			(at 251.5498 76.2 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "CANH"
+		(shape input)
+		(at 88.9 454.66 90)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.016 1.016)
+			)
+			(justify left)
+		)
+		(uuid "e2d799d8-b791-4ad4-ade3-85b4df16a33f")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 88.9 448.2564 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
 				(hide yes)
 			)
 		)
@@ -15391,7 +15310,7 @@
 	)
 	(global_label "STM32_SPI1_MOSI"
 		(shape input)
-		(at 222.25 105.41 180)
+		(at 220.98 113.03 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -15401,7 +15320,7 @@
 		)
 		(uuid "e6e50a55-65cf-4485-bb04-70a675bdc6c3")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 206.364 105.41 0)
+			(at 205.094 113.03 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15413,7 +15332,7 @@
 	)
 	(global_label "ADF4351_CE"
 		(shape input)
-		(at 237.49 113.03 0)
+		(at 238.76 118.11 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -15423,7 +15342,7 @@
 		)
 		(uuid "e78efaf4-abae-4dba-b828-fd9d487105d0")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 249.2154 113.03 0)
+			(at 250.4854 118.11 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15523,22 +15442,22 @@
 	)
 	(global_label "ADF4351_SSN"
 		(shape input)
-		(at 220.98 81.28 180)
+		(at 238.76 81.28 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.016 1.016)
 			)
-			(justify right)
+			(justify left)
 		)
 		(uuid "f287c7eb-ddd9-43fa-ba1d-0da63d856432")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 208.1902 81.28 0)
+			(at 251.5498 81.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 				(hide yes)
 			)
 		)
@@ -15975,82 +15894,6 @@
 			(project "ptn"
 				(path "/f6dc6ba8-ba24-44c4-ae5c-62116a1feb4b"
 					(reference "J4")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Jumper:Jumper_2_Bridged")
-		(at 229.87 109.22 0)
-		(unit 1)
-		(exclude_from_sim yes)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "0acfaf71-dad1-48a3-a432-933a99d933cb")
-		(property "Reference" "JP3"
-			(at 254.762 109.22 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "Jumper_2_Bridged"
-			(at 266.7 109.22 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical"
-			(at 229.87 109.22 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 229.87 109.22 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Jumper, 2-pole, closed/bridged"
-			(at 229.87 109.22 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Guerrila ID" ""
-			(at 229.87 109.22 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "3af0862e-5e34-4a25-ac5b-75bad22fb122")
-		)
-		(pin "1"
-			(uuid "93e28ee2-ae12-4a11-befa-7aca4b5dd1c7")
-		)
-		(instances
-			(project "ptn"
-				(path "/f6dc6ba8-ba24-44c4-ae5c-62116a1feb4b"
-					(reference "JP3")
 					(unit 1)
 				)
 			)
@@ -17844,6 +17687,149 @@
 		)
 	)
 	(symbol
+		(lib_id "Connector_Generic:Conn_02x12_Counter_Clockwise")
+		(at 228.6 123.19 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "1c36b593-fee4-4df8-84b6-e3140b92fc9d")
+		(property "Reference" "J6"
+			(at 229.87 104.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "IO_CTRL_JP_BANK"
+			(at 229.87 106.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_2x12_P2.54mm_Vertical"
+			(at 228.6 123.19 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 228.6 123.19 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Generic connector, double row, 02x12, counter clockwise pin numbering scheme (similar to DIP package numbering), script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 228.6 123.19 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Guerrila ID" ""
+			(at 228.6 123.19 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "21"
+			(uuid "e9567910-390d-4971-8401-b8a4427c66fb")
+		)
+		(pin "22"
+			(uuid "9765fa95-ed89-4227-acde-dc6828d0ea3f")
+		)
+		(pin "23"
+			(uuid "bae7b6ab-3236-4f82-bb62-8f0d087b6d61")
+		)
+		(pin "14"
+			(uuid "2b50a688-7bed-4514-a03b-e4154fdccce2")
+		)
+		(pin "16"
+			(uuid "040e1249-850f-4e76-9a08-297f0e3c444c")
+		)
+		(pin "12"
+			(uuid "9e772c96-4d5f-4cbc-ae5d-38b84a7d1b9d")
+		)
+		(pin "1"
+			(uuid "3d386c66-d92a-4c43-b8ed-19b05966f1ca")
+		)
+		(pin "10"
+			(uuid "a4291eb4-26f4-422d-8166-5fc2faa075c8")
+		)
+		(pin "11"
+			(uuid "dbdbdb4d-0bb2-4d19-993c-e006bccee807")
+		)
+		(pin "13"
+			(uuid "97f97123-5cff-41e6-b913-aa591880e568")
+		)
+		(pin "17"
+			(uuid "9004baa7-e629-4791-ad40-68717d54b250")
+		)
+		(pin "18"
+			(uuid "2593d3e9-677e-4d4f-8d31-ed6b4fa759d0")
+		)
+		(pin "19"
+			(uuid "618affd9-9fa7-4cc4-9053-0340a1484845")
+		)
+		(pin "15"
+			(uuid "a2df33a3-fa8c-4a18-a841-40322635f3e2")
+		)
+		(pin "2"
+			(uuid "3ec82642-df05-4c33-90e3-2f4910b05fd1")
+		)
+		(pin "20"
+			(uuid "4ac005c3-9cb5-47f7-babe-ec477a918e21")
+		)
+		(pin "5"
+			(uuid "3f6b25b8-3866-4e58-8620-fa9b3396fd70")
+		)
+		(pin "24"
+			(uuid "18f947e2-25db-4767-9d32-791d04bf7456")
+		)
+		(pin "4"
+			(uuid "f87943dc-f7e7-4361-85ec-681e1dc409f0")
+		)
+		(pin "7"
+			(uuid "d8e63112-f053-4faa-bed2-9f5e5ba61ece")
+		)
+		(pin "9"
+			(uuid "e1bbdfbf-52d0-426c-947a-e1c437e4f884")
+		)
+		(pin "3"
+			(uuid "e4bc2bdf-ccf1-4c3e-859a-80ee499c3dbb")
+		)
+		(pin "6"
+			(uuid "e46c2e0c-f7a6-47cd-b743-60f9465fce49")
+		)
+		(pin "8"
+			(uuid "6f61c907-0d62-4452-8716-f96ca1bc7dcb")
+		)
+		(instances
+			(project "ptn"
+				(path "/f6dc6ba8-ba24-44c4-ae5c-62116a1feb4b"
+					(reference "J6")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 251.46 238.76 0)
 		(unit 1)
@@ -19422,82 +19408,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Jumper:Jumper_2_Bridged")
-		(at 229.87 120.65 0)
-		(unit 1)
-		(exclude_from_sim yes)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "3b30db41-596a-48d6-a146-7a00265dfbb2")
-		(property "Reference" "JP6"
-			(at 254.762 120.65 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "Jumper_2_Bridged"
-			(at 266.7 120.65 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical"
-			(at 229.87 120.65 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 229.87 120.65 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Jumper, 2-pole, closed/bridged"
-			(at 229.87 120.65 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Guerrila ID" ""
-			(at 229.87 120.65 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "7f058650-1198-4b13-9591-f122d904a175")
-		)
-		(pin "1"
-			(uuid "5586ed6e-3aa6-4298-a345-6a82e4def05f")
-		)
-		(instances
-			(project "ptn"
-				(path "/f6dc6ba8-ba24-44c4-ae5c-62116a1feb4b"
-					(reference "JP6")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:C")
 		(at 238.76 257.81 0)
 		(unit 1)
@@ -20430,32 +20340,35 @@
 		)
 	)
 	(symbol
-		(lib_id "Jumper:Jumper_2_Bridged")
-		(at 229.87 116.84 0)
+		(lib_id "Device:R")
+		(at 88.9 459.74 0)
 		(unit 1)
-		(exclude_from_sim yes)
+		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "46eca627-018d-4b0b-9bc3-95a10a843d67")
-		(property "Reference" "JP5"
-			(at 254.762 116.84 0)
+		(fields_autoplaced yes)
+		(uuid "45f39c6e-278a-452c-b70d-ad5b52b7e823")
+		(property "Reference" "R17"
+			(at 91.44 458.4699 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
-		(property "Value" "Jumper_2_Bridged"
-			(at 266.7 116.84 0)
+		(property "Value" "120R"
+			(at 91.44 461.0099 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical"
-			(at 229.87 116.84 0)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 87.122 459.74 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -20464,7 +20377,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 229.87 116.84 0)
+			(at 88.9 459.74 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -20472,8 +20385,8 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Jumper, 2-pole, closed/bridged"
-			(at 229.87 116.84 0)
+		(property "Description" "Resistor"
+			(at 88.9 459.74 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -20481,8 +20394,8 @@
 				(hide yes)
 			)
 		)
-		(property "Guerrila ID" ""
-			(at 229.87 116.84 0)
+		(property "Manufacturer_Name" "YAGEO"
+			(at 88.9 459.74 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -20490,16 +20403,34 @@
 				(hide yes)
 			)
 		)
-		(pin "2"
-			(uuid "e675c677-bdac-433f-9aa9-1922eccd0b78")
+		(property "Manufacturer_Part_Number" "RC0603FR-10120RL"
+			(at 88.9 459.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Mouser Part Number" "603-RC0603FR-10120RL"
+			(at 88.9 459.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
 		)
 		(pin "1"
-			(uuid "62e12050-5c19-4413-b148-866db7eecd38")
+			(uuid "9cdb4782-83a2-45ff-9da7-254d28f663a9")
+		)
+		(pin "2"
+			(uuid "747393e9-0246-4bd3-b6f6-8a75fd8cb6fd")
 		)
 		(instances
 			(project "ptn"
 				(path "/f6dc6ba8-ba24-44c4-ae5c-62116a1feb4b"
-					(reference "JP5")
+					(reference "R17")
 					(unit 1)
 				)
 			)
@@ -20567,82 +20498,6 @@
 			(project "ptn"
 				(path "/f6dc6ba8-ba24-44c4-ae5c-62116a1feb4b"
 					(reference "#PWR067")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Jumper:Jumper_2_Bridged")
-		(at 229.87 105.41 0)
-		(unit 1)
-		(exclude_from_sim yes)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "4834019a-1302-4744-bef7-33dba008432f")
-		(property "Reference" "JP2"
-			(at 254.762 105.41 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "Jumper_2_Bridged"
-			(at 266.7 105.41 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical"
-			(at 229.87 105.41 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 229.87 105.41 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Jumper, 2-pole, closed/bridged"
-			(at 229.87 105.41 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Guerrila ID" ""
-			(at 229.87 105.41 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "6db6a0c3-d391-4a6f-884c-eb9d6b224579")
-		)
-		(pin "1"
-			(uuid "6b4a1b97-ab6f-4275-a885-92981474b012")
-		)
-		(instances
-			(project "ptn"
-				(path "/f6dc6ba8-ba24-44c4-ae5c-62116a1feb4b"
-					(reference "JP2")
 					(unit 1)
 				)
 			)
@@ -21755,82 +21610,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Jumper:Jumper_2_Bridged")
-		(at 229.87 143.51 0)
-		(unit 1)
-		(exclude_from_sim yes)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "59cd887a-d2d5-40b4-baf0-4c9077318a03")
-		(property "Reference" "JP12"
-			(at 254.762 143.51 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "Jumper_2_Bridged"
-			(at 266.7 143.51 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical"
-			(at 229.87 143.51 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 229.87 143.51 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Jumper, 2-pole, closed/bridged"
-			(at 229.87 143.51 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Guerrila ID" ""
-			(at 229.87 143.51 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "7b8a35af-1db8-41f5-b3d1-b7e6c22237ca")
-		)
-		(pin "1"
-			(uuid "dcb0af43-9c23-4553-9aeb-6015e97e5bac")
-		)
-		(instances
-			(project "ptn"
-				(path "/f6dc6ba8-ba24-44c4-ae5c-62116a1feb4b"
-					(reference "JP12")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
 		(at 554.99 130.81 0)
 		(mirror y)
@@ -22065,82 +21844,6 @@
 			(project "ptn"
 				(path "/f6dc6ba8-ba24-44c4-ae5c-62116a1feb4b"
 					(reference "C4")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Jumper:Jumper_2_Bridged")
-		(at 229.87 132.08 0)
-		(unit 1)
-		(exclude_from_sim yes)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "5dd69cce-fb52-4bb0-abc0-50983bd774c6")
-		(property "Reference" "JP9"
-			(at 254.762 132.08 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "Jumper_2_Bridged"
-			(at 266.7 132.08 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical"
-			(at 229.87 132.08 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 229.87 132.08 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Jumper, 2-pole, closed/bridged"
-			(at 229.87 132.08 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Guerrila ID" ""
-			(at 229.87 132.08 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "8ae594d2-4a38-459b-bf49-7ac1419f732f")
-		)
-		(pin "1"
-			(uuid "f28823a5-b5b0-4bdc-a57e-609889144f68")
-		)
-		(instances
-			(project "ptn"
-				(path "/f6dc6ba8-ba24-44c4-ae5c-62116a1feb4b"
-					(reference "JP9")
 					(unit 1)
 				)
 			)
@@ -22685,82 +22388,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Jumper:Jumper_2_Bridged")
-		(at 229.87 135.89 0)
-		(unit 1)
-		(exclude_from_sim yes)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "66886663-5ea8-42d7-a2e4-6fe84720e62f")
-		(property "Reference" "JP10"
-			(at 254.762 135.89 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "Jumper_2_Bridged"
-			(at 266.7 135.89 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical"
-			(at 229.87 135.89 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 229.87 135.89 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Jumper, 2-pole, closed/bridged"
-			(at 229.87 135.89 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Guerrila ID" ""
-			(at 229.87 135.89 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "53d768af-f4d1-4247-8e4e-88cb15166645")
-		)
-		(pin "1"
-			(uuid "990a5080-b5c1-4bb8-9137-8e447653a6b2")
-		)
-		(instances
-			(project "ptn"
-				(path "/f6dc6ba8-ba24-44c4-ae5c-62116a1feb4b"
-					(reference "JP10")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:+3.3V")
 		(at 624.84 71.12 0)
 		(unit 1)
@@ -23134,82 +22761,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Jumper:Jumper_2_Bridged")
-		(at 229.87 128.27 0)
-		(unit 1)
-		(exclude_from_sim yes)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "6c3b07bd-2c90-4f87-b4ad-dc1fb323e1b1")
-		(property "Reference" "JP8"
-			(at 254.762 128.27 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "Jumper_2_Bridged"
-			(at 266.7 128.27 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical"
-			(at 229.87 128.27 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 229.87 128.27 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Jumper, 2-pole, closed/bridged"
-			(at 229.87 128.27 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Guerrila ID" ""
-			(at 229.87 128.27 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "848a8ecb-55a8-4004-85f9-dded8d46ec16")
-		)
-		(pin "1"
-			(uuid "78401402-c962-4dc4-b647-d8cbdcadd3cf")
-		)
-		(instances
-			(project "ptn"
-				(path "/f6dc6ba8-ba24-44c4-ae5c-62116a1feb4b"
-					(reference "JP8")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:C")
 		(at 82.55 72.39 0)
 		(unit 1)
@@ -23511,82 +23062,6 @@
 			(project "ptn"
 				(path "/f6dc6ba8-ba24-44c4-ae5c-62116a1feb4b"
 					(reference "#PWR051")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Jumper:Jumper_2_Bridged")
-		(at 229.87 113.03 0)
-		(unit 1)
-		(exclude_from_sim yes)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "716c6cc4-f0de-41e3-8c86-ab3f904f06d4")
-		(property "Reference" "JP4"
-			(at 254.762 113.03 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "Jumper_2_Bridged"
-			(at 266.7 113.03 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical"
-			(at 229.87 113.03 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 229.87 113.03 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Jumper, 2-pole, closed/bridged"
-			(at 229.87 113.03 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Guerrila ID" ""
-			(at 229.87 113.03 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "9587b822-d488-4839-b3ba-9b29e869d85d")
-		)
-		(pin "1"
-			(uuid "961f5a49-5088-4740-bdb0-d89f7e13ad1e")
-		)
-		(instances
-			(project "ptn"
-				(path "/f6dc6ba8-ba24-44c4-ae5c-62116a1feb4b"
-					(reference "JP4")
 					(unit 1)
 				)
 			)
@@ -26248,82 +25723,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Jumper:Jumper_2_Bridged")
-		(at 229.87 101.6 0)
-		(unit 1)
-		(exclude_from_sim yes)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "973bccba-d1c5-4e43-9dca-7a588f57b6b0")
-		(property "Reference" "JP1"
-			(at 254.762 101.6 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "Jumper_2_Bridged"
-			(at 266.7 101.6 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical"
-			(at 229.87 101.6 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 229.87 101.6 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Jumper, 2-pole, closed/bridged"
-			(at 229.87 101.6 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Guerrila ID" ""
-			(at 229.87 101.6 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "d54cbe53-3c1c-4f93-94d8-5bd8f0642f2a")
-		)
-		(pin "1"
-			(uuid "00f9c4e7-03cd-4095-ad77-46589e0529cd")
-		)
-		(instances
-			(project "ptn"
-				(path "/f6dc6ba8-ba24-44c4-ae5c-62116a1feb4b"
-					(reference "JP1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:R")
 		(at 40.64 464.82 90)
 		(unit 1)
@@ -28174,7 +27573,7 @@
 				)
 			)
 		)
-		(property "Value" "Conn_02x12_Counter_Clockwise"
+		(property "Value" "IO_BREAKOUT_CONN"
 			(at 229.87 62.23 0)
 			(effects
 				(font
@@ -29583,82 +28982,6 @@
 			(project "ptn"
 				(path "/f6dc6ba8-ba24-44c4-ae5c-62116a1feb4b"
 					(reference "#PWR060")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Jumper:Jumper_2_Bridged")
-		(at 229.87 139.7 0)
-		(unit 1)
-		(exclude_from_sim yes)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "c272cc94-2ce6-4989-a0d6-10fb6425a2ca")
-		(property "Reference" "JP11"
-			(at 254.762 139.7 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "Jumper_2_Bridged"
-			(at 266.7 139.7 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical"
-			(at 229.87 139.7 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 229.87 139.7 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Jumper, 2-pole, closed/bridged"
-			(at 229.87 139.7 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Guerrila ID" ""
-			(at 229.87 139.7 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "9c1b0bae-ad97-459c-828c-cd85657e6177")
-		)
-		(pin "1"
-			(uuid "7bc63b48-cf33-4d69-9c9e-745d610a3080")
-		)
-		(instances
-			(project "ptn"
-				(path "/f6dc6ba8-ba24-44c4-ae5c-62116a1feb4b"
-					(reference "JP11")
 					(unit 1)
 				)
 			)
@@ -33164,82 +32487,6 @@
 			(project "ptn"
 				(path "/f6dc6ba8-ba24-44c4-ae5c-62116a1feb4b"
 					(reference "#PWR078")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Jumper:Jumper_2_Bridged")
-		(at 229.87 124.46 0)
-		(unit 1)
-		(exclude_from_sim yes)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "f4741c17-dcd3-4fa3-95a1-304904703e49")
-		(property "Reference" "JP7"
-			(at 254.762 124.46 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "Jumper_2_Bridged"
-			(at 266.7 124.46 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical"
-			(at 229.87 124.46 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 229.87 124.46 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Jumper, 2-pole, closed/bridged"
-			(at 229.87 124.46 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Guerrila ID" ""
-			(at 229.87 124.46 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "6f9a18fe-4c01-4875-b7ac-820ffa559b20")
-		)
-		(pin "1"
-			(uuid "1c30bc59-566e-408b-8c7c-989a858aa217")
-		)
-		(instances
-			(project "ptn"
-				(path "/f6dc6ba8-ba24-44c4-ae5c-62116a1feb4b"
-					(reference "JP7")
 					(unit 1)
 				)
 			)
