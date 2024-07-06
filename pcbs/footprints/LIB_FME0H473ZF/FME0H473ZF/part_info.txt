@@ -1,0 +1,9 @@
+Manufacturer=KEMET
+PartNumber=FME0H473ZF
+PartCategory=Capacitor
+PackageCategory=Other
+PinCount=2
+Version=3.3
+Released=2022-08-26 12:30:36
+Downloaded=2024-06-04 07:11:48
+3D=Y

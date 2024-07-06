@@ -1,0 +1,144 @@
+;Proteus Design Interchange Format
+(PDIF
+ (vendor "SamacSys Limited")
+ (version 1 0)
+ (library
+  (part "NPP-301A-700AT"
+   (description "Board Mount Pressure Sensors 100 PSIA Non-Ported")
+   (family "ANA")
+   (package "SOIC127P610X280-8N")
+   (attribute "Datasheet Link" "https://www.arrow.com/en/products/npp-301a-700at/amphenol")
+   (attribute "Geometry.Height" "2.8mm")
+   (attribute "Mouser Part Number" "527-NPP-301A-700AT")
+   (attribute "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/Amphenol-Advanced-Sensors/NPP-301A-700AT?qs=7H2Jq%252ByxpJLx2e5J%2Fo8aXg%3D%3D")
+   (attribute "Manufacturer_Name" "Amphenol")
+   (attribute "Manufacturer_Part_Number" "NPP-301A-700AT")
+   (gate
+    (symbol "NPP-301A-700AT")
+    (pin "N/C_1" 1 PS)
+    (pin "+OUT" 2 PS)
+    (pin "N/C_2" 3 PS)
+    (pin "-IN_1" 4 PS)
+    (pin "+IN" 8 PS)
+    (pin "N/C_3" 7 PS)
+    (pin "-OUT" 6 PS)
+    (pin "-IN_2" 5 PS)
+   )
+  )
+  (symbol "NPP-301A-700AT"
+   (units THOU)
+   (origin (pt 0 0))
+   (graphic
+    (stroke 10)
+    (path (pt 200 100) (pt 1000 100) (pt 1000 -400) (pt 200 -400) (pt 200 100) (closed))
+   )
+   (terminal
+    (body (symbol "PIN") (pt 0 0) (rot 0) (mir 0) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 0 -100) (rot 0) (mir 0) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 0 -200) (rot 0) (mir 0) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 0 -300) (rot 0) (mir 0) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 1200 0) (rot 0) (mir X) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 1200 -100) (rot 0) (mir X) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 1200 -200) (rot 0) (mir X) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 1200 -300) (rot 0) (mir X) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+  )
+  (symbol "PIN"
+   (units THOU)
+   (origin (pt 0 0))
+   (graphic
+    (stroke 10)
+    (path (pt 0 0) (pt 200 0))))
+  (symbol "PINSHORT"
+   (units THOU)
+   (origin (pt 0 0))
+   (graphic
+    (stroke 10)
+    (path (pt 0 0) (pt 100 0))))
+  (package "SOIC127P610X280-8N"
+   (units MM)
+   (layer OCCA
+    (graphic
+     (stroke 0.05)
+     (path
+      (closed true)
+      (pt -3.775 2.8)
+      (pt 3.775 2.8)
+      (pt 3.775 -2.8)
+      (pt -3.775 -2.8)
+      (pt -3.775 2.8))))
+   (layer TASM
+    (graphic
+     (stroke 0.1)
+     (path
+      (closed true)
+      (pt -2.05 2.55)
+      (pt 2.05 2.55)
+      (pt 2.05 -2.55)
+      (pt -2.05 -2.55)
+      (pt -2.05 2.55))))
+   (layer TASM
+    (graphic
+     (stroke 0.1)
+     (path
+      (closed false)
+      (pt -2.05 1.28)
+      (pt -0.78 2.55))))
+   (layer TSLK
+    (graphic
+     (stroke 0.2)
+     (path
+      (closed true)
+      (pt -1.725 2.55)
+      (pt 1.725 2.55)
+      (pt 1.725 -2.55)
+      (pt -1.725 -2.55)
+      (pt -1.725 2.55))))
+   (layer TSLK
+    (graphic
+     (stroke 0.2)
+     (path
+      (closed false)
+      (pt -3.525 2.605)
+      (pt -2.075 2.605))))
+   (leg 1 (pt -2.8 1.905) (padstack 0))
+   (leg 2 (pt -2.8 0.635) (padstack 0))
+   (leg 3 (pt -2.8 -0.635) (padstack 0))
+   (leg 4 (pt -2.8 -1.905) (padstack 0))
+   (leg 5 (pt 2.8 -1.905) (padstack 0))
+   (leg 6 (pt 2.8 -0.635) (padstack 0))
+   (leg 7 (pt 2.8 0.635) (padstack 0))
+   (leg 8 (pt 2.8 1.905) (padstack 0))
+   (padstack 0
+    (plated false)
+    (pad (layer TCOP) (rectf 0.7 1.45 0 0 0))
+   )
+   (model "NPP-301A-700AT.stp"
+    (euler 0 0 0)
+    (offset 0 0 0)
+   )
+  )
+ )
+)

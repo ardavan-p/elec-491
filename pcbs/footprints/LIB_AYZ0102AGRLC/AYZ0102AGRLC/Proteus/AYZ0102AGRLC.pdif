@@ -1,0 +1,154 @@
+;Proteus Design Interchange Format
+(PDIF
+ (vendor "SamacSys Limited")
+ (version 1 0)
+ (library
+  (part "AYZ0102AGRLC"
+   (description "Switch slide 100mA 12VDC SPDT PCB Slide Switch SPDT On-On 100 mA Slide")
+   (family "SWI")
+   (package "AYZ0102AGRLC")
+   (attribute "Datasheet Link" "https://www.ckswitches.com/media/1431/ayz.pdf")
+   (attribute "Geometry.Height" "1mm")
+   (attribute "Mouser Part Number" "611-AYZ0102AGRLC")
+   (attribute "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/CK/AYZ0102AGRLC?qs=dJbzCyn%252BCFYWKwcWEToS6A%3D%3D")
+   (attribute "Manufacturer_Name" "C & K COMPONENTS")
+   (attribute "Manufacturer_Part_Number" "AYZ0102AGRLC")
+   (gate
+    (symbol "AYZ0102AGRLC")
+    (pin "1" 1 PS)
+    (pin "2" 2 PS)
+    (pin "3" 3 PS)
+    (pin "4" 4 PS)
+    (pin "5" 5 PS)
+   )
+  )
+  (symbol "AYZ0102AGRLC"
+   (units THOU)
+   (origin (pt 0 0))
+   (graphic
+    (stroke 10)
+    (path (pt 200 100) (pt 600 100) (pt 600 -300) (pt 200 -300) (pt 200 100) (closed))
+   )
+   (terminal
+    (body (symbol "PIN") (pt 800 0) (rot 0) (mir X) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 800 -100) (rot 0) (mir X) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 800 -200) (rot 0) (mir X) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 0 0) (rot 0) (mir 0) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 0 -100) (rot 0) (mir 0) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+  )
+  (symbol "PIN"
+   (units THOU)
+   (origin (pt 0 0))
+   (graphic
+    (stroke 10)
+    (path (pt 0 0) (pt 200 0))))
+  (symbol "PINSHORT"
+   (units THOU)
+   (origin (pt 0 0))
+   (graphic
+    (stroke 10)
+    (path (pt 0 0) (pt 100 0))))
+  (package "AYZ0102AGRLC"
+   (units MM)
+   (layer TASM
+    (graphic
+     (stroke 0.2)
+     (path
+      (closed true)
+      (pt -3.6 0.95)
+      (pt 3.6 0.95)
+      (pt 3.6 -2.05)
+      (pt -3.6 -2.05)
+      (pt -3.6 0.95))))
+   (layer TSLK
+    (graphic
+     (stroke 0.1)
+     (path
+      (closed true)
+      (pt -3.6 0.95)
+      (pt 3.6 0.95)
+      (pt 3.6 -2.05)
+      (pt -3.6 -2.05)
+      (pt -3.6 0.95))))
+   (layer OCCA
+    (graphic
+     (stroke 0.1)
+     (path
+      (closed true)
+      (pt -4.6 4.05)
+      (pt 4.6 4.05)
+      (pt 4.6 -4.05)
+      (pt -4.6 -4.05)
+      (pt -4.6 4.05))))
+   (layer TSLK
+    (graphic
+     (stroke 0.2)
+     (path
+      (closed false)
+      (pt -2.6 2.95)
+      (arc (pt -2.600 2.950) (pt -2.600 2.850) (pt -2.400 3.050) (start -180.0) (sweep 180.0))
+      (pt -2.4 2.95)
+      (arc (pt -2.400 2.950) (pt -2.600 2.850) (pt -2.400 3.050) (start -180.0) (sweep .0))
+      (pt -2.6 2.95))))
+   (layer TASM
+    (graphic
+     (stroke 0.2)
+     (path
+      (closed false)
+      (pt 0 -2.05)
+      (pt 0 -3.05)
+      (pt -1.5 -3.05)
+      (pt -1.5 -2.05))))
+   (layer TSLK
+    (graphic
+     (stroke 0.1)
+     (path
+      (closed false)
+      (pt -1.5 -2.05)
+      (pt -1.5 -3.05)
+      (pt 0 -3.05)
+      (pt 0 -2.05))))
+   (leg 1 (pt -2.500 2.050) (padstack 0))
+   (leg 2 (pt 0.000 2.050) (padstack 0))
+   (leg 3 (pt 2.500 2.050) (padstack 0))
+   (leg 4 (pt -1.500 -0.550) (padstack 4))
+   (leg 5 (pt 1.500 -0.550) (padstack 5))
+   (padstack 0
+    (plated false)
+    (pad (layer TCOP) (rectf 1.000 1.200 0 0 90.000))
+   )
+   (padstack 4
+    (hole 0.85)
+    (plated true)
+    (pad (layer TCOP) (round 1.381))
+    (pad (layer INNER) (round 1.381))
+    (pad (layer BCOP) (round 1.381))
+   )
+   (padstack 5
+    (hole 0.85)
+    (plated true)
+    (pad (layer TCOP) (round 1.381))
+    (pad (layer INNER) (round 1.381))
+    (pad (layer BCOP) (round 1.381))
+   )
+   (model "AYZ0102AGRLC.stp"
+    (euler 0 0 0)
+    (offset 0 -0.5299999713897705 0.75)
+   )
+  )
+ )
+)

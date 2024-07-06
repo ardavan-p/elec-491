@@ -1,0 +1,11 @@
+FILE_TYPE = MULTI_PHYS_TABLE;
+
+PART 'STM32U031K8U6'
+CLASS = IC
+{========================================================================================}
+:"MANUFACTURER_NAME", "MANUFACTURER_PART_NUMBER"= "PART_NUMBER", "JEDEC_TYPE", "PACK_TYPE", "MOUSER_PART_NUMBER", "MOUSER_PRICE/STOCK", "ARROW_PART_NUMBER", "ARROW_PRICE/STOCK", "DESCRIPTION", "DATASHEET", "HEIGHT";
+{========================================================================================}
+ "STMicroelectronics", "STM32U031K8U6" (!) = "", "QFN50P500X500X60-33N-D", "Quad Flat No-Lead", "511-STM32U031K8U6", "https://www.mouser.co.uk/ProductDetail/STMicroelectronics/STM32U031K8U6?qs=dbcCsuKDzFUeNQ2GzBLCmw%3D%3D", "", "", "Ultra-low-power features (ultra-low-power devices)  1.71 V to 3.6 V power supply  -40 C to 85/125 C temperature range  VBAT mode: 130 nA (with RTC and 9 x 32-bit backup registers)  Shutdown mode (4 wake-up pins): 16 nA  Standby mode (4 wake-up pins): 160 nA with RTC, 30 nA without RTC  Stop 2 mode: 630 nA with RTC, 515 nA without RTC  Run mode (LDO mode): 52 uA/MHz  Batch acquisition mode (BAM)  4 us wake-up from Stop mode  Brownout reset (BOR)", "https://www.st.com/resource/en/datasheet/stm32u031f4.pdf", "0.6 mm"
+END_PART
+
+END.

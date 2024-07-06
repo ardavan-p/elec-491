@@ -1,0 +1,9 @@
+Manufacturer=Amphenol
+PartNumber=NPP-301A-700AT
+PartCategory=Integrated Circuit
+PackageCategory=Small Outline Packages
+PinCount=8
+Version=1.1
+Released=2020-12-01 04:38:46
+Downloaded=2024-06-03 08:07:40
+3D=Y

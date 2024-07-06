@@ -1,0 +1,16 @@
+.nRF24L01P :1 ;Single Chip 2.4GHz Transceiver
+QFN50P400X400X95-21N-D
+*STM IC
+*NGS
+*PLB 1="CE" 2="CSN" 3="SCK" 4="MOSI" 5="MISO" 6="IRQ" 7="VDD_1" 8="VSS_1" 9="XC2" 10="XC1" 11="VDD_PA" 12="ANT1" 13="ANT2" 14="VSS_2" 15="VDD_2" 16="IREF" 17="VSS_3" 18="VDD_3" 19="DVDD" 20="VSS_4" 21="EP"
+*MXP 21
+*DFN nRF24L01P
+~!Mouser Part Number (949-NRF24L01P)
+~!Link Mouser Price/Stock (https://www.mouser.co.uk/ProductDetail/Nordic-Semiconductor/NRF24L01P?qs=yqaQSyyJnNiKlgjT8AqoOw%3D%3D)
+~!Manufacturer_Name (Nordic Semiconductor)
+~!Manufacturer_Part_Number (nRF24L01P)
+~!Link Datasheet (-)
+~!Height (0.95mm)
+~!3D_Model (nRF24L01P)
+nRF24L01P
+1.1!U 2.1!I 3.1!U 4.1!U 5.1!U 6.1!U 7.1!P 8.1!G 9.1!U 10.1!U 15.1!P 14.1!G 13.1!U 12.1!U 11.1!P 21.1!U 20.1!G 19.1!P 18.1!P 17.1!G 16.1!I 

@@ -1,0 +1,65 @@
+(Japanese_coding: sjis)
+(function "ECS_13391133"
+    (uver 1)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (ctime 2021-09-29-22:02:41)
+    (utime 2023-03-07-16:10:32)
+    (interface
+        (port "1" (symbPinId 1) (portType INOUT))
+        (port "2" (symbPinId 2) (portType INOUT))
+    )
+    (property "symbolName" "EEE-FP0J102AL")
+)
+
+
+(pinAssign "ECS_13391133"
+    (uver 1)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (ctime 2021-09-29-22:02:41)
+    (utime 2023-03-07-16:10:32)
+    (interface
+        (port "1" (symbPinId 1) (portName "+") (portType INOUT))
+        (port "2" (symbPinId 2) (portName "-") (portType INOUT))
+    )
+    (internal
+        (funcInst (functionRef "ECS_13391133")
+                (port "1" (match "1"))
+                (port "2" (match "2"))
+        )
+    )
+    (property "usePowerBox" "No")
+    (property "symbolName" "EEE-FP0J102AL")
+)
+
+
+(part "EEE-FP0J102AL"
+    (uver 1)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (ctime 2021-09-29-22:02:41)
+    (utime 2023-03-07-16:10:32)
+    (packageRef "EEE-FP0J102AL")
+    (pinAssignRef "ECS_13391133")
+    (interface
+        (port "1" (symbPinId 1) (portName "+") (portType INOUT))
+        (port "2" (symbPinId 2) (portName "-") (portType INOUT))
+    )
+    (partClass UNDEF)
+    (useInSchema Y)
+    (useInLayout Y)
+    (inPartsList Y)
+    (partType NORMAL)
+    (placeRestriction FREE)
+    (property "enetNonSeries" "NO")
+    (property "refDesPrefix" "C")
+    (property "description" "Aluminium Electroyltic Capacitor, Radial")
+    (property "Mouser_Part_Number" "667-EEE-FP0J102AL")
+    (property "Mouser_Price/Stock" "https://www.mouser.co.uk/ProductDetail/Panasonic/EEE-FP0J102AL?qs=vmHwEFxEFR%252Bryl7N1%2FXlYg%3D%3D")
+    (property "Manufacturer_Name" "Panasonic")
+    (property "Manufacturer_Part_Number" "EEE-FP0J102AL")
+    (property "Datasheet_Link" "http://industrial.panasonic.com/cdbs/www-data/pdf/RDE0000/RDE0000C1272.pdf")
+)
+
+

@@ -1,0 +1,103 @@
+;Proteus Design Interchange Format
+(PDIF
+ (vendor "SamacSys Limited")
+ (version 1 0)
+ (library
+  (part "B3FS-1002P"
+   (description "Tactile Switches 6x6x3.1mm Flat 150OF PhosphorBronze Ag TR")
+   (family "SWI")
+   (package "B3FS-1000P")
+   (attribute "Datasheet Link" "")
+   (attribute "Mouser Part Number" "653-B3FS-1002P")
+   (attribute "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/Omron-Electronics/B3FS-1002P?qs=ImaqFqjHA4mR4r86JYSSCA%3D%3D")
+   (attribute "Manufacturer_Name" "Omron Electronics")
+   (attribute "Manufacturer_Part_Number" "B3FS-1002P")
+   (gate
+    (symbol "B3FS-1002P")
+    (pin "1" 1 PS)
+    (pin "2" 2 PS)
+    (pin "3" 3 PS)
+    (pin "4" 4 PS)
+   )
+  )
+  (symbol "B3FS-1002P"
+   (units THOU)
+   (origin (pt 0 0))
+   (graphic
+    (stroke 10)
+    (path (pt 200 100) (pt 600 100) (pt 600 -200) (pt 200 -200) (pt 200 100) (closed))
+   )
+   (terminal
+    (body (symbol "PIN") (pt 800 -100) (rot 0) (mir X) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 0 -100) (rot 0) (mir 0) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 800 0) (rot 0) (mir X) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 0 0) (rot 0) (mir 0) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+  )
+  (symbol "PIN"
+   (units THOU)
+   (origin (pt 0 0))
+   (graphic
+    (stroke 10)
+    (path (pt 0 0) (pt 200 0))))
+  (symbol "PINSHORT"
+   (units THOU)
+   (origin (pt 0 0))
+   (graphic
+    (stroke 10)
+    (path (pt 0 0) (pt 100 0))))
+  (package "B3FS-1000P"
+   (units MM)
+   (layer TASM
+    (graphic
+     (stroke 0.254)
+     (path
+      (closed true)
+      (pt -3 3.15)
+      (pt 3 3.15)
+      (pt 3 -3.15)
+      (pt -3 -3.15)
+      (pt -3 3.15))))
+   (layer TSLK
+    (graphic
+     (stroke 0.254)
+     (path
+      (closed false)
+      (pt -3 3.15)
+      (pt 3 3.15)
+      (pt 3 -3.15)
+      (pt -3 -3.15)
+      (pt -3 3.15))))
+   (layer TSLK
+    (graphic
+     (stroke 0.254)
+     (circle
+      (pt 4.81208 -3.232) (pt 4.92592 -3.232)
+     )
+    )
+   )
+   (leg 1 (pt 4 -2.25) (padstack 0))
+   (leg 2 (pt -4 -2.25) (padstack 0))
+   (leg 3 (pt 4 2.25) (padstack 0))
+   (leg 4 (pt -4 2.25) (padstack 0))
+   (padstack 0
+    (plated false)
+    (pad (layer TCOP) (rectf 1.4 1.6 0 0 0))
+   )
+   (model "B3FS-1002P.stp"
+    (euler 90 0 0)
+    (offset 0 0 2.0999999046325684)
+   )
+  )
+ )
+)

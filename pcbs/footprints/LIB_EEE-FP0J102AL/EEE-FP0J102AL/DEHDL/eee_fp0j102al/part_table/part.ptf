@@ -1,0 +1,11 @@
+FILE_TYPE = MULTI_PHYS_TABLE;
+
+PART 'EEE_FP0J102AL'
+CLASS = DISCRETE
+{========================================================================================}
+:"MANUFACTURER_NAME", "MANUFACTURER_PART_NUMBER"= "PART_NUMBER", "JEDEC_TYPE", "PACK_TYPE", "MOUSER_PART_NUMBER", "MOUSER_PRICE/STOCK", "DESCRIPTION", "DATASHEET";
+{========================================================================================}
+ "Panasonic", "EEE-FP0J102AL" (!) = "", "EEETC1V470P", "Other", "667-EEE-FP0J102AL", "https://www.mouser.co.uk/ProductDetail/Panasonic/EEE-FP0J102AL?qs=vmHwEFxEFR%252Bryl7N1%2FXlYg%3D%3D", "Aluminium Electroyltic Capacitor, Radial", "http://industrial.panasonic.com/cdbs/www-data/pdf/RDE0000/RDE0000C1272.pdf"
+END_PART
+
+END.

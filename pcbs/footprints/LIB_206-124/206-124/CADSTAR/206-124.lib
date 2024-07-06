@@ -1,0 +1,16 @@
+.206-124 :1 ;4 Way Through Hole DIP Switch Single Pole Double Throw (SPDT), Standard Actuator
+"206124"
+*STM S
+*NGS
+*PLB 1="1" 2="2" 3="3" 4="4" 5="5" 6="6" 7="7" 8="8" 9="9" 10="10" 11="11" 12="12" 13="13" 14="14" 15="15" 16="16"
+*MXP 16
+*DFN 206-124
+~!Mouser Part Number (774-206124)
+~!Link Mouser Price/Stock (https://www.mouser.co.uk/ProductDetail/CTS-Electronic-Components/206-124?qs=YquLqel%252BdSwQ37OnMfpodQ%3D%3D)
+~!Manufacturer_Name (CTS)
+~!Manufacturer_Part_Number (206-124)
+~!Link Datasheet (https://datasheet.datasheetarchive.com/originals/distributors/SFDatasheet-0/sf-0002828.pdf)
+~!Height (8.49mm)
+~!3D_Model (206-124)
+"206-124"
+1.1!U 2.1!U 3.1!U 4.1!U 5.1!U 6.1!U 7.1!U 8.1!U 9.1!U 10.1!U 11.1!U 12.1!U 13.1!U 14.1!U 15.1!U 16.1!U 

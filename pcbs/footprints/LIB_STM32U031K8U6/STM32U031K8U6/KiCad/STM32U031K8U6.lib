@@ -1,0 +1,56 @@
+EESchema-LIBRARY Version 2.3
+#encoding utf-8
+#SamacSys ECAD Model STM32U031K8U6
+#/19296426/1411720/2.50/33/2/Integrated Circuit
+DEF STM32U031K8U6 IC 0 30 Y Y 1 F N
+F0 "IC" 1850 900 50 H V L CNN
+F1 "STM32U031K8U6" 1850 800 50 H V L CNN
+F2 "QFN50P500X500X60-33N-D" 1850 700 50 H I L CNN
+F3 "https://www.st.com/resource/en/datasheet/stm32u031f4.pdf" 1850 600 50 H I L CNN
+F4 "Ultra-low-power features (ultra-low-power devices)  1.71 V to 3.6 V power supply  -40 C to 85/125 C temperature range  VBAT mode: 130 nA (with RTC and 9 x 32-bit backup registers)  Shutdown mode (4 wake-up pins): 16 nA  Standby mode (4 wake-up pins): 160 nA with RTC, 30 nA without RTC  Stop 2 mode: 630 nA with RTC, 515 nA without RTC  Run mode (LDO mode): 52 uA/MHz  Batch acquisition mode (BAM)  4 us wake-up from Stop mode  Brownout reset (BOR)" 1850 500 50 H I L CNN "Description"
+F5 "0.6" 1850 400 50 H I L CNN "Height"
+F6 "STMicroelectronics" 1850 300 50 H I L CNN "Manufacturer_Name"
+F7 "STM32U031K8U6" 1850 200 50 H I L CNN "Manufacturer_Part_Number"
+F8 "511-STM32U031K8U6" 1850 100 50 H I L CNN "Mouser Part Number"
+F9 "https://www.mouser.co.uk/ProductDetail/STMicroelectronics/STM32U031K8U6?qs=dbcCsuKDzFUeNQ2GzBLCmw%3D%3D" 1850 0 50 H I L CNN "Mouser Price/Stock"
+F10 "" 1850 -100 50 H I L CNN "Arrow Part Number"
+F11 "" 1850 -200 50 H I L CNN "Arrow Price/Stock"
+DRAW
+X VDD_1 1 0 0 200 R 50 50 0 0 P
+X PC14-OSC32_IN 2 0 -100 200 R 50 50 0 0 P
+X PC15-OSC32_OUT 3 0 -200 200 R 50 50 0 0 P
+X PF2-NRST 4 0 -300 200 R 50 50 0 0 P
+X VDDA/VREF+ 5 0 -400 200 R 50 50 0 0 P
+X PA0-CK_IN 6 0 -500 200 R 50 50 0 0 P
+X PA1 7 0 -600 200 R 50 50 0 0 P
+X PA2 8 0 -700 200 R 50 50 0 0 P
+X PA3 9 600 -1400 200 U 50 50 0 0 P
+X PA4 10 700 -1400 200 U 50 50 0 0 P
+X PA5 11 800 -1400 200 U 50 50 0 0 P
+X PA6 12 900 -1400 200 U 50 50 0 0 P
+X PA7 13 1000 -1400 200 U 50 50 0 0 P
+X PB0 14 1100 -1400 200 U 50 50 0 0 P
+X PB1 15 1200 -1400 200 U 50 50 0 0 P
+X VSS_1 16 1300 -1400 200 U 50 50 0 0 P
+X PA14 24 2000 0 200 L 50 50 0 0 P
+X PA13 23 2000 -100 200 L 50 50 0 0 P
+X PA12_[PA10] 22 2000 -200 200 L 50 50 0 0 P
+X PA11_[PA9] 21 2000 -300 200 L 50 50 0 0 P
+X PA10 20 2000 -400 200 L 50 50 0 0 P
+X PA9 19 2000 -500 200 L 50 50 0 0 P
+X PA8 18 2000 -600 200 L 50 50 0 0 P
+X VDD_2 17 2000 -700 200 L 50 50 0 0 P
+X EP 33 600 900 200 D 50 50 0 0 P
+X VSS_2 32 700 900 200 D 50 50 0 0 P
+X PF3-BOOT0 31 800 900 200 D 50 50 0 0 P
+X PB7 30 900 900 200 D 50 50 0 0 P
+X PB6 29 1000 900 200 D 50 50 0 0 P
+X PB5 28 1100 900 200 D 50 50 0 0 P
+X PB4 27 1200 900 200 D 50 50 0 0 P
+X PB3 26 1300 900 200 D 50 50 0 0 P
+X PA15 25 1400 900 200 D 50 50 0 0 P
+P 5 0 1 6 200 700 1800 700 1800 -1200 200 -1200 200 700 N
+ENDDRAW
+ENDDEF
+#
+#End Library

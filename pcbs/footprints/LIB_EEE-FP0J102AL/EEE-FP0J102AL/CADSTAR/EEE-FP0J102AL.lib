@@ -1,0 +1,16 @@
+.EEE-FP0J102AL :1 ;Aluminium Electroyltic Capacitor, Radial
+EEETC1V470P
+*STM C
+*NGS
+*PLB 1="+" 2="-"
+*MXP 2
+*DFN EEE-FP0J102AL
+~!Mouser Part Number (667-EEE-FP0J102AL)
+~!Link Mouser Price/Stock (https://www.mouser.co.uk/ProductDetail/Panasonic/EEE-FP0J102AL?qs=vmHwEFxEFR%252Bryl7N1%2FXlYg%3D%3D)
+~!Manufacturer_Name (Panasonic)
+~!Manufacturer_Part_Number (EEE-FP0J102AL)
+~!Link Datasheet (http://industrial.panasonic.com/cdbs/www-data/pdf/RDE0000/RDE0000C1272.pdf)
+~!Height (-)
+~!3D_Model (EEE-FP0J102AL)
+EEE-FP0J102AL
+1.1!U 2.1!U 

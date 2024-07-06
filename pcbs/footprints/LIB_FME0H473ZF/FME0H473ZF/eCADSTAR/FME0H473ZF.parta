@@ -1,0 +1,66 @@
+(Japanese_coding: sjis)
+(function "ECS_811545"
+    (uver 1)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (ctime 2022-08-26-12:30:36)
+    (utime 2023-03-07-16:10:32)
+    (interface
+        (port "1" (symbPinId 1) (portType INOUT))
+        (port "2" (symbPinId 2) (portType INOUT))
+    )
+    (property "symbolName" "FME0H473ZF")
+)
+
+
+(pinAssign "ECS_811545"
+    (uver 1)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (ctime 2022-08-26-12:30:36)
+    (utime 2023-03-07-16:10:32)
+    (interface
+        (port "1" (symbPinId 1) (portName "1") (portType INOUT))
+        (port "2" (symbPinId 2) (portName "2") (portType INOUT))
+    )
+    (internal
+        (funcInst (functionRef "ECS_811545")
+                (port "1" (match "1"))
+                (port "2" (match "2"))
+        )
+    )
+    (property "usePowerBox" "No")
+    (property "symbolName" "FME0H473ZF")
+)
+
+
+(part "FME0H473ZF"
+    (uver 1)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (ctime 2022-08-26-12:30:36)
+    (utime 2023-03-07-16:10:32)
+    (packageRef "FME0H473ZF")
+    (pinAssignRef "ECS_811545")
+    (interface
+        (port "1" (symbPinId 1) (portName "1") (portType INOUT))
+        (port "2" (symbPinId 2) (portName "2") (portType INOUT))
+    )
+    (partClass UNDEF)
+    (useInSchema Y)
+    (useInLayout Y)
+    (inPartsList Y)
+    (partType NORMAL)
+    (placeRestriction FREE)
+    (property "enetNonSeries" "NO")
+    (property "refDesPrefix" "C")
+    (property "description" "FME, Supercapacitors, Radial Molded, 0.047 F, -20/+80%, 5.5 VDC, 70C, -25C, 70C, Wire Leads, 0.071, 1.3 g, 10.5mm, 11.5mm, 5mm, Lead Spacing = 5mm, 1000")
+    (property "Mouser_Part_Number" "80-FME0H473ZF")
+    (property "Mouser_Price/Stock" "https://www.mouser.co.uk/ProductDetail/KEMET/FME0H473ZF?qs=EgDjlb95zqC19xMOpu2dAg%3D%3D")
+    (property "Manufacturer_Name" "KEMET")
+    (property "Manufacturer_Part_Number" "FME0H473ZF")
+    (property "Datasheet_Link" "https://content.kemet.com/datasheets/KEM_S6012_FM.pdf")
+    (property "compAreaTopHeight" 12)
+)
+
+

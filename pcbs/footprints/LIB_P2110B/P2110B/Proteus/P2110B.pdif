@@ -1,0 +1,184 @@
+;Proteus Design Interchange Format
+(PDIF
+ (vendor "SamacSys Limited")
+ (version 1 0)
+ (library
+  (part "P2110B"
+   (description "Energy Harvesting Modules Powerharvester Receiver - 915 MHz")
+   (family "ANA")
+   (package "P2110B")
+   (attribute "Datasheet Link" "https://componentsearchengine.com/Datasheets/1/P2110B.pdf")
+   (attribute "Geometry.Height" "2.3114mm")
+   (attribute "Mouser Part Number" "582-P2110B")
+   (attribute "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/Powercast/P2110B?qs=VAB4DzKv5wViaDUvcUIcdQ%3D%3D")
+   (attribute "Manufacturer_Name" "Powercast")
+   (attribute "Manufacturer_Part_Number" "P2110B")
+   (gate
+    (symbol "P2110B")
+    (pin "NC_1" 1 PS)
+    (pin "GND_1" 2 PS)
+    (pin "RFIN" 3 PS)
+    (pin "GND_2" 4 PS)
+    (pin "DSET" 5 PS)
+    (pin "INT" 6 PS)
+    (pin "RESET" 7 PS)
+    (pin "VCAP" 8 PS)
+    (pin "NC_2" 9 PS)
+    (pin "VSET" 10 PS)
+    (pin "GND_3" 11 PS)
+    (pin "VOUT" 12 PS)
+    (pin "DOUT" 13 PS)
+    (pin "NC_3" 14 PS)
+   )
+  )
+  (symbol "P2110B"
+   (units THOU)
+   (origin (pt 0 0))
+   (graphic
+    (stroke 10)
+    (path (pt 200 100) (pt 1000 100) (pt 1000 -700) (pt 200 -700) (pt 200 100) (closed))
+   )
+   (terminal
+    (body (symbol "PIN") (pt 0 0) (rot 0) (mir 0) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 0 -100) (rot 0) (mir 0) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 0 -200) (rot 0) (mir 0) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 0 -300) (rot 0) (mir 0) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 0 -400) (rot 0) (mir 0) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 0 -500) (rot 0) (mir 0) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 0 -600) (rot 0) (mir 0) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 1200 -600) (rot 0) (mir X) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 1200 -500) (rot 0) (mir X) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 1200 -400) (rot 0) (mir X) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 1200 -300) (rot 0) (mir X) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 1200 -200) (rot 0) (mir X) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 1200 -100) (rot 0) (mir X) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 1200 0) (rot 0) (mir X) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+  )
+  (symbol "PIN"
+   (units THOU)
+   (origin (pt 0 0))
+   (graphic
+    (stroke 10)
+    (path (pt 0 0) (pt 200 0))))
+  (symbol "PINSHORT"
+   (units THOU)
+   (origin (pt 0 0))
+   (graphic
+    (stroke 10)
+    (path (pt 0 0) (pt 100 0))))
+  (package "P2110B"
+   (units MM)
+   (layer TASM
+    (graphic
+     (stroke 0.2)
+     (path
+      (closed true)
+      (pt -6.985 6.731)
+      (pt 6.985 6.731)
+      (pt 6.985 -6.731)
+      (pt -6.985 -6.731)
+      (pt -6.985 6.731))))
+   (layer OCCA
+    (graphic
+     (stroke 0.1)
+     (path
+      (closed true)
+      (pt -9.3 7.231)
+      (pt 8.438 7.231)
+      (pt 8.438 -7.231)
+      (pt -9.3 -7.231)
+      (pt -9.3 7.231))))
+   (layer TSLK
+    (graphic
+     (stroke 0.1)
+     (path
+      (closed false)
+      (pt -7 6)
+      (pt -6.985 6.731)
+      (pt 7 6.731)
+      (pt 7 6))))
+   (layer TSLK
+    (graphic
+     (stroke 0.1)
+     (path
+      (closed false)
+      (pt -7 -6)
+      (pt -7 -6.731)
+      (pt 6.985 -6.731)
+      (pt 6.985 -6))))
+   (layer TSLK
+    (graphic
+     (stroke 0.2)
+     (path
+      (closed true)
+      (pt -8.7 5.1)
+      (arc (pt -8.700 5.100) (pt -8.800 4.900) (pt -8.600 5.100) (start -180.0) (sweep 90.0))
+      (pt -8.7 4.9)
+      (arc (pt -8.700 4.900) (pt -8.800 4.900) (pt -8.600 5.100) (start -180.0) (sweep -90.0))
+      (pt -8.7 5.1))))
+   (leg 1 (pt -6.985 4.953) (padstack 0))
+   (leg 2 (pt -6.985 3.302) (padstack 0))
+   (leg 3 (pt -6.985 1.651) (padstack 0))
+   (leg 4 (pt -6.985 0.000) (padstack 0))
+   (leg 5 (pt -6.985 -1.651) (padstack 0))
+   (leg 6 (pt -6.985 -3.302) (padstack 0))
+   (leg 7 (pt -6.985 -4.953) (padstack 0))
+   (leg 8 (pt 6.985 -4.953) (padstack 0))
+   (leg 9 (pt 6.985 -3.302) (padstack 0))
+   (leg 10 (pt 6.985 -1.651) (padstack 0))
+   (leg 11 (pt 6.985 0.000) (padstack 0))
+   (leg 12 (pt 6.985 1.651) (padstack 0))
+   (leg 13 (pt 6.985 3.302) (padstack 0))
+   (leg 14 (pt 6.985 4.953) (padstack 0))
+   (padstack 0
+    (plated false)
+    (pad (layer TCOP) (rectf 1.270 1.905 0 0 0.000))
+   )
+   (model "P2110B.stp"
+    (euler 0 0 0)
+    (offset 0 0 0)
+   )
+  )
+ )
+)

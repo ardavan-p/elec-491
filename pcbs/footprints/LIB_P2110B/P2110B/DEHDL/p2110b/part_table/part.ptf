@@ -1,0 +1,11 @@
+FILE_TYPE = MULTI_PHYS_TABLE;
+
+PART 'P2110B'
+CLASS = DISCRETE
+{========================================================================================}
+:"MANUFACTURER_NAME", "MANUFACTURER_PART_NUMBER"= "PART_NUMBER", "JEDEC_TYPE", "PACK_TYPE", "MOUSER_PART_NUMBER", "MOUSER_PRICE/STOCK", "DESCRIPTION", "DATASHEET", "HEIGHT";
+{========================================================================================}
+ "Powercast", "P2110B" (!) = "", "P2110B", "Other", "582-P2110B", "https://www.mouser.co.uk/ProductDetail/Powercast/P2110B?qs=VAB4DzKv5wViaDUvcUIcdQ%3D%3D", "Energy Harvesting Modules Powerharvester Receiver - 915 MHz", "https://componentsearchengine.com/Datasheets/1/P2110B.pdf", "2.3114 mm"
+END_PART
+
+END.

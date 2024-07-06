@@ -1,0 +1,11 @@
+FILE_TYPE = MULTI_PHYS_TABLE;
+
+PART 'AYZ0102AGRLC'
+CLASS = DISCRETE
+{========================================================================================}
+:"MANUFACTURER_NAME", "MANUFACTURER_PART_NUMBER"= "PART_NUMBER", "JEDEC_TYPE", "PACK_TYPE", "MOUSER_PART_NUMBER", "MOUSER_PRICE/STOCK", "DESCRIPTION", "DATASHEET", "HEIGHT";
+{========================================================================================}
+ "C & K COMPONENTS", "AYZ0102AGRLC" (!) = "", "AYZ0102AGRLC", "Other", "611-AYZ0102AGRLC", "https://www.mouser.co.uk/ProductDetail/CK/AYZ0102AGRLC?qs=dJbzCyn%252BCFYWKwcWEToS6A%3D%3D", "Switch slide 100mA 12VDC SPDT PCB Slide Switch SPDT On-On 100 mA Slide", "https://www.ckswitches.com/media/1431/ayz.pdf", "1 mm"
+END_PART
+
+END.

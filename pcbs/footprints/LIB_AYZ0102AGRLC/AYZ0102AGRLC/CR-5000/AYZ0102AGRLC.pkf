@@ -1,0 +1,10 @@
+(unit MM)
+
+(package "AYZ0102AGRLC"
+    (type UNDEF)
+    (uver 2)
+    (mountForm default
+        (footprintRef "AYZ0102AGRLC")
+        (spec "default")
+    )
+)

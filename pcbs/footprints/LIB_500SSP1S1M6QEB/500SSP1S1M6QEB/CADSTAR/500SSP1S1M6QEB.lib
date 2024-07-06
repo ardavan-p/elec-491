@@ -1,0 +1,17 @@
+.500SSP1S1M6QEB :1 ;SLIDE, 5A 120VAC/28VDC, SPDT On-On, Through Hole, Right Angle PC Pin
+"500SSP1S1M6QEB"
+*STM S
+*NGS
+*PNM 1=1 2=2 3=3 4=MH1 5=MH2
+*PLB 1="NC" 2="COM" 3="NO" 4="MH1" 5="MH2"
+*MXP 5
+*DFN 500SSP1S1M6QEB
+~!Mouser Part Number (612-500SSP1S1M6QEB)
+~!Link Mouser Price/Stock (https://www.mouser.co.uk/ProductDetail/E-Switch/500SSP1S1M6QEB?qs=0JU57JYmZjtvO38dJ0sbfg%3D%3D)
+~!Manufacturer_Name (E-Switch)
+~!Manufacturer_Part_Number (500SSP1S1M6QEB)
+~!Link Datasheet (https://configured-product-images.s3.amazonaws.com/2D/specs/500SSP1S1M6QEB.pdf)
+~!Height (6.1mm)
+~!3D_Model (500SSP1S1M6QEB)
+"500SSP1S1M6QEB"
+1.1!U 2.1!U 3.1!U 4.1!U 5.1!U 

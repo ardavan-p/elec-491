@@ -1,0 +1,16 @@
+.381LX473M016A452 :1 ;Aluminum Electrolytic Capacitors - Snap In 47000uF 16V 20%
+CAPPRD1000W200D3550H4700
+*STM C
+*NGS
+*PLB 1="+" 2="-"
+*MXP 2
+*DFN 381LX473M016A452
+~!Mouser Part Number (598-81LX473M016A452)
+~!Link Mouser Price/Stock (https://www.mouser.com/Search/Refine.aspx?Keyword=598-81LX473M016A452)
+~!Manufacturer_Name (Cornell Dubilier)
+~!Manufacturer_Part_Number (381LX473M016A452)
+~!Link Datasheet (https://componentsearchengine.com/Datasheets/1/381LX473M016A452.pdf)
+~!Height (47mm)
+~!3D_Model (381LX473M016A452)
+"381LX473M016A452"
+1.1!U 2.1!G 

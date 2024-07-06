@@ -1,0 +1,11 @@
+FILE_TYPE = MULTI_PHYS_TABLE;
+
+PART 'nRF24L01P'
+CLASS = IC
+{========================================================================================}
+:"MANUFACTURER_NAME", "MANUFACTURER_PART_NUMBER"= "PART_NUMBER", "JEDEC_TYPE", "PACK_TYPE", "MOUSER_PART_NUMBER", "MOUSER_PRICE/STOCK", "DESCRIPTION", "DATASHEET", "HEIGHT";
+{========================================================================================}
+ "Nordic Semiconductor", "nRF24L01P" (!) = "", "QFN50P400X400X95-21N-D", "Quad Flat No-Lead", "949-NRF24L01P", "https://www.mouser.co.uk/ProductDetail/Nordic-Semiconductor/NRF24L01P?qs=yqaQSyyJnNiKlgjT8AqoOw%3D%3D", "Single Chip 2.4GHz Transceiver", "", "0.95 mm"
+END_PART
+
+END.
