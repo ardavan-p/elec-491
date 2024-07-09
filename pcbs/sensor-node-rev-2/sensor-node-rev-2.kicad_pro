@@ -38,8 +38,8 @@
         "other_text_upright": false,
         "pads": {
           "drill": 0.0,
-          "height": 2.0,
-          "width": 3.5
+          "height": 3.7,
+          "width": 3.7
         },
         "silk_line_width": 0.1,
         "silk_text_italic": false,
@@ -491,8 +491,59 @@
         "microvia_diameter": 0.3,
         "microvia_drill": 0.1,
         "name": "NRF_SPI",
-        "pcb_color": "rgba(0, 0, 0, 0.000)",
+        "pcb_color": "rgb(0, 0, 255)",
         "schematic_color": "rgb(0, 72, 0)",
+        "track_width": 0.2,
+        "via_diameter": 0.7,
+        "via_drill": 0.3,
+        "wire_width": 6
+      },
+      {
+        "bus_width": 12,
+        "clearance": 0.2,
+        "diff_pair_gap": 0.25,
+        "diff_pair_via_gap": 0.25,
+        "diff_pair_width": 0.2,
+        "line_style": 0,
+        "microvia_diameter": 0.3,
+        "microvia_drill": 0.1,
+        "name": "P2110B",
+        "pcb_color": "rgb(255, 153, 0)",
+        "schematic_color": "rgba(0, 0, 0, 0.000)",
+        "track_width": 0.2,
+        "via_diameter": 0.7,
+        "via_drill": 0.3,
+        "wire_width": 6
+      },
+      {
+        "bus_width": 12,
+        "clearance": 0.2,
+        "diff_pair_gap": 0.25,
+        "diff_pair_via_gap": 0.25,
+        "diff_pair_width": 0.2,
+        "line_style": 0,
+        "microvia_diameter": 0.3,
+        "microvia_drill": 0.1,
+        "name": "PSENSE",
+        "pcb_color": "rgb(0, 132, 0)",
+        "schematic_color": "rgba(0, 0, 0, 0.000)",
+        "track_width": 0.2,
+        "via_diameter": 0.7,
+        "via_drill": 0.3,
+        "wire_width": 6
+      },
+      {
+        "bus_width": 12,
+        "clearance": 0.2,
+        "diff_pair_gap": 0.25,
+        "diff_pair_via_gap": 0.25,
+        "diff_pair_width": 0.2,
+        "line_style": 0,
+        "microvia_diameter": 0.3,
+        "microvia_drill": 0.1,
+        "name": "USART",
+        "pcb_color": "rgb(194, 194, 0)",
+        "schematic_color": "rgba(0, 0, 0, 0.000)",
         "track_width": 0.2,
         "via_diameter": 0.7,
         "via_drill": 0.3,
@@ -508,8 +559,20 @@
     "netclass_assignments": null,
     "netclass_patterns": [
       {
-        "netclass": "Default",
+        "netclass": "NRF_SPI",
         "pattern": "NRF_*"
+      },
+      {
+        "netclass": "PSENSE",
+        "pattern": "PSENSE_*"
+      },
+      {
+        "netclass": "USART",
+        "pattern": "USART*"
+      },
+      {
+        "netclass": "P2110B",
+        "pattern": "P2110B_*"
       }
     ]
   },
@@ -517,7 +580,7 @@
     "last_paths": {
       "gencad": "",
       "idf": "",
-      "netlist": "",
+      "netlist": "../../../../../AppData/Local/Programs/KiCad/8.0/bin/",
       "plot": "../pdfs/",
       "pos_files": "",
       "specctra_dsn": "",
