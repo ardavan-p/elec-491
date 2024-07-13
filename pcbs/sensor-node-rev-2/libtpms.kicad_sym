@@ -1399,6 +1399,452 @@
 			)
 		)
 	)
+	(symbol "830064296"
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(property "Reference" "Y"
+			(at 36.83 7.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(property "Value" "830064296"
+			(at 36.83 5.08 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(property "Footprint" "830064296"
+			(at 36.83 -94.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.we-online.com/components/products/datasheet/830064296.pdf"
+			(at 36.83 -194.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Description" "Crystals WE-XTAL 16.0MHz 20ppm 3.2 x 2.5mm"
+			(at 0 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Height" "0.8"
+			(at 36.83 -394.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Mouser Part Number" "710-830064296"
+			(at 36.83 -494.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/Wurth-Elektronik/830064296?qs=2WXlatMagcHie2R9Uu0%252BSg%3D%3D"
+			(at 36.83 -594.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Name" "Wurth Elektronik"
+			(at 36.83 -694.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Part_Number" "830064296"
+			(at 36.83 -794.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(symbol "830064296_1_1"
+			(rectangle
+				(start 5.08 2.54)
+				(end 35.56 -5.08)
+				(stroke
+					(width 0.254)
+					(type default)
+				)
+				(fill
+					(type background)
+				)
+			)
+			(pin passive line
+				(at 0 -2.54 0)
+				(length 5.08)
+				(name "CRYSTAL_1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at 40.64 -2.54 180)
+				(length 5.08)
+				(name "GND_1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "2"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at 40.64 0 180)
+				(length 5.08)
+				(name "CRYSTAL_2"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "3"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at 0 0 0)
+				(length 5.08)
+				(name "GND_2"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "4"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+		)
+	)
+	(symbol "AD8226ARMZ"
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(property "Reference" "IC"
+			(at 24.13 7.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(property "Value" "AD8226ARMZ"
+			(at 24.13 5.08 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(property "Footprint" "SOP65P490X110-8N"
+			(at 24.13 -94.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "http://www.analog.com/media/en/technical-documentation/data-sheets/AD8226.pdf"
+			(at 24.13 -194.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Description" "Wide Supply Range, Rail-to-Rail Output Instrumentation Amplifier"
+			(at 0 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Height" "1.1"
+			(at 24.13 -394.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Mouser Part Number" "584-AD8226ARMZ"
+			(at 24.13 -494.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/Analog-Devices/AD8226ARMZ?qs=%2FtpEQrCGXCzt4qnwBCHKiA%3D%3D"
+			(at 24.13 -594.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Name" "Analog Devices"
+			(at 24.13 -694.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Part_Number" "AD8226ARMZ"
+			(at 24.13 -794.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(symbol "AD8226ARMZ_1_1"
+			(rectangle
+				(start 5.08 2.54)
+				(end 22.86 -10.16)
+				(stroke
+					(width 0.254)
+					(type default)
+				)
+				(fill
+					(type background)
+				)
+			)
+			(pin passive line
+				(at 0 0 0)
+				(length 5.08)
+				(name "-IN"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at 0 -2.54 0)
+				(length 5.08)
+				(name "RG_1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "2"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at 0 -5.08 0)
+				(length 5.08)
+				(name "RG_2"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "3"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at 0 -7.62 0)
+				(length 5.08)
+				(name "+IN"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "4"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at 27.94 -7.62 180)
+				(length 5.08)
+				(name "-VS"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "5"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at 27.94 -5.08 180)
+				(length 5.08)
+				(name "REF"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "6"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at 27.94 -2.54 180)
+				(length 5.08)
+				(name "VOUT"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "7"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at 27.94 0 180)
+				(length 5.08)
+				(name "+VS"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "8"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+		)
+	)
 	(symbol "AYZ0102AGRLC"
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -1595,6 +2041,175 @@
 					)
 				)
 				(number "5"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+		)
+	)
+	(symbol "CAS-120A1"
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(property "Reference" "S"
+			(at 10.668 7.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(property "Value" "CAS-120A1"
+			(at 10.668 5.08 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(property "Footprint" "CAS120A1"
+			(at 21.59 -94.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.nidec-copal-electronics.com/e/catalog/switch/cas.pdf"
+			(at 21.59 -194.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Description" "Surface Mount Slide Switch Single Pole Double Throw (SPDT) 100 (Non-Switching) mA, 100 (Switching) mA Slide"
+			(at 0 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Height" "2.5"
+			(at 21.59 -394.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Mouser Part Number" "229-CAS-120A1"
+			(at 21.59 -494.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/Nidec-Components/CAS-120A1?qs=XeJtXLiO41SLHVe%252BE1BF5w%3D%3D"
+			(at 21.59 -594.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Name" "Nidec Copal"
+			(at 21.59 -694.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Part_Number" "CAS-120A1"
+			(at 21.59 -794.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(symbol "CAS-120A1_1_1"
+			(rectangle
+				(start 11.43 2.54)
+				(end 20.32 -7.62)
+				(stroke
+					(width 0.254)
+					(type default)
+				)
+				(fill
+					(type background)
+				)
+			)
+			(pin passive line
+				(at 24.13 0 180)
+				(length 3.81)
+				(name "NO"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at 24.13 -2.54 180)
+				(length 3.81)
+				(name "COM"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "2"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at 24.13 -5.08 180)
+				(length 3.81)
+				(name "NC"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "3"
 					(effects
 						(font
 							(size 1.27 1.27)
@@ -2680,48 +3295,49 @@
 		)
 	)
 	(symbol "STM32U031K8U6"
+		(pin_names
+			(offset 0.254)
+		)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(property "Reference" "IC"
-			(at 46.99 22.86 0)
+		(property "Reference" "U"
+			(at 28.448 12.7 0)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.524 1.524)
 				)
-				(justify left top)
 			)
 		)
 		(property "Value" "STM32U031K8U6"
-			(at 46.99 20.32 0)
+			(at 28.448 10.16 0)
 			(effects
 				(font
-					(size 1.27 1.27)
+					(size 1.524 1.524)
 				)
-				(justify left top)
 			)
 		)
-		(property "Footprint" "QFN50P500X500X60-33N-D"
-			(at 46.99 -79.68 0)
+		(property "Footprint" "UFQFPN-32_STM"
+			(at 0 0 0)
 			(effects
 				(font
 					(size 1.27 1.27)
+					(italic yes)
 				)
-				(justify left top)
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.st.com/resource/en/datasheet/stm32u031f4.pdf"
-			(at 46.99 -179.68 0)
+		(property "Datasheet" "STM32U031K8U6"
+			(at 0 0 0)
 			(effects
 				(font
 					(size 1.27 1.27)
+					(italic yes)
 				)
-				(justify left top)
 				(hide yes)
 			)
 		)
-		(property "Description" "Ultra-low-power features (ultra-low-power devices)  1.71 V to 3.6 V power supply  -40 C to 85/125 C temperature range  VBAT mode: 130 nA (with RTC and 9 x 32-bit backup registers)  Shutdown mode (4 wake-up pins): 16 nA  Standby mode (4 wake-up pins): 160 nA with RTC, 30 nA without RTC  Stop 2 mode: 630 nA with RTC, 515 nA without RTC  Run mode (LDO mode): 52 uA/MHz  Batch acquisition mode (BAM)  4 us wake-up from Stop mode  Brownout reset (BOR)"
+		(property "Description" ""
 			(at 0 0 0)
 			(effects
 				(font
@@ -2730,109 +3346,84 @@
 				(hide yes)
 			)
 		)
-		(property "Height" "0.6"
-			(at 46.99 -379.68 0)
+		(property "ki_locked" ""
+			(at 0 0 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left top)
+			)
+		)
+		(property "ki_keywords" "STM32U031K8U6"
+			(at 0 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Name" "STMicroelectronics"
-			(at 46.99 -479.68 0)
+		(property "ki_fp_filters" "UFQFPN-32_STM"
+			(at 0 0 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Part_Number" "STM32U031K8U6"
-			(at 46.99 -579.68 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "Mouser Part Number" "511-STM32U031K8U6"
-			(at 46.99 -679.68 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/STMicroelectronics/STM32U031K8U6?qs=dbcCsuKDzFUeNQ2GzBLCmw%3D%3D"
-			(at 46.99 -779.68 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "Arrow Part Number" ""
-			(at 46.99 -879.68 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "Arrow Price/Stock" ""
-			(at 46.99 -979.68 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
 				(hide yes)
 			)
 		)
 		(symbol "STM32U031K8U6_1_1"
-			(rectangle
-				(start 5.08 17.78)
-				(end 45.72 -30.48)
+			(polyline
+				(pts
+					(xy 7.62 -48.26) (xy 49.53 -48.26)
+				)
 				(stroke
-					(width 0.254)
+					(width 0.127)
 					(type default)
 				)
 				(fill
-					(type background)
+					(type none)
 				)
 			)
-			(pin passive line
-				(at 0 0 0)
-				(length 5.08)
-				(name "VDD_1"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
+			(polyline
+				(pts
+					(xy 7.62 7.62) (xy 7.62 -48.26)
 				)
-				(number "1"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
+				(stroke
+					(width 0.127)
+					(type default)
+				)
+				(fill
+					(type none)
 				)
 			)
-			(pin passive line
-				(at 17.78 -35.56 90)
-				(length 5.08)
+			(polyline
+				(pts
+					(xy 49.53 -48.26) (xy 49.53 7.62)
+				)
+				(stroke
+					(width 0.127)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy 49.53 7.62) (xy 7.62 7.62)
+				)
+				(stroke
+					(width 0.127)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(pin bidirectional line
+				(at 57.15 -15.24 180)
+				(length 7.62)
 				(name "PA4"
 					(effects
 						(font
@@ -2848,9 +3439,9 @@
 					)
 				)
 			)
-			(pin passive line
-				(at 20.32 -35.56 90)
-				(length 5.08)
+			(pin bidirectional line
+				(at 57.15 -17.78 180)
+				(length 7.62)
 				(name "PA5"
 					(effects
 						(font
@@ -2866,9 +3457,9 @@
 					)
 				)
 			)
-			(pin passive line
-				(at 22.86 -35.56 90)
-				(length 5.08)
+			(pin bidirectional line
+				(at 57.15 -20.32 180)
+				(length 7.62)
 				(name "PA6"
 					(effects
 						(font
@@ -2884,9 +3475,9 @@
 					)
 				)
 			)
-			(pin passive line
-				(at 25.4 -35.56 90)
-				(length 5.08)
+			(pin bidirectional line
+				(at 57.15 -22.86 180)
+				(length 7.62)
 				(name "PA7"
 					(effects
 						(font
@@ -2902,9 +3493,9 @@
 					)
 				)
 			)
-			(pin passive line
-				(at 27.94 -35.56 90)
-				(length 5.08)
+			(pin bidirectional line
+				(at 0 -20.32 0)
+				(length 7.62)
 				(name "PB0"
 					(effects
 						(font
@@ -2920,9 +3511,9 @@
 					)
 				)
 			)
-			(pin passive line
-				(at 30.48 -35.56 90)
-				(length 5.08)
+			(pin bidirectional line
+				(at 0 -22.86 0)
+				(length 7.62)
 				(name "PB1"
 					(effects
 						(font
@@ -2938,45 +3529,9 @@
 					)
 				)
 			)
-			(pin passive line
-				(at 33.02 -35.56 90)
-				(length 5.08)
-				(name "VSS_1"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "16"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-			)
-			(pin passive line
-				(at 50.8 -17.78 180)
-				(length 5.08)
-				(name "VDD_2"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "17"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-			)
-			(pin passive line
-				(at 50.8 -15.24 180)
-				(length 5.08)
+			(pin bidirectional line
+				(at 57.15 -25.4 180)
+				(length 7.62)
 				(name "PA8"
 					(effects
 						(font
@@ -2992,9 +3547,9 @@
 					)
 				)
 			)
-			(pin passive line
-				(at 50.8 -12.7 180)
-				(length 5.08)
+			(pin bidirectional line
+				(at 57.15 -27.94 180)
+				(length 7.62)
 				(name "PA9"
 					(effects
 						(font
@@ -3010,9 +3565,9 @@
 					)
 				)
 			)
-			(pin passive line
-				(at 0 -2.54 0)
-				(length 5.08)
+			(pin bidirectional line
+				(at 0 -38.1 0)
+				(length 7.62)
 				(name "PC14-OSC32_IN"
 					(effects
 						(font
@@ -3028,9 +3583,9 @@
 					)
 				)
 			)
-			(pin passive line
-				(at 50.8 -10.16 180)
-				(length 5.08)
+			(pin bidirectional line
+				(at 57.15 -30.48 180)
+				(length 7.62)
 				(name "PA10"
 					(effects
 						(font
@@ -3046,10 +3601,10 @@
 					)
 				)
 			)
-			(pin passive line
-				(at 50.8 -7.62 180)
-				(length 5.08)
-				(name "PA11_[PA9]"
+			(pin bidirectional line
+				(at 0 -5.08 0)
+				(length 7.62)
+				(name "PA11[PA9]"
 					(effects
 						(font
 							(size 1.27 1.27)
@@ -3064,10 +3619,10 @@
 					)
 				)
 			)
-			(pin passive line
-				(at 50.8 -5.08 180)
-				(length 5.08)
-				(name "PA12_[PA10]"
+			(pin bidirectional line
+				(at 0 -15.24 0)
+				(length 7.62)
+				(name "PA12[PA10]"
 					(effects
 						(font
 							(size 1.27 1.27)
@@ -3082,9 +3637,9 @@
 					)
 				)
 			)
-			(pin passive line
-				(at 50.8 -2.54 180)
-				(length 5.08)
+			(pin bidirectional line
+				(at 0 -7.62 0)
+				(length 7.62)
 				(name "PA13"
 					(effects
 						(font
@@ -3100,9 +3655,9 @@
 					)
 				)
 			)
-			(pin passive line
-				(at 50.8 0 180)
-				(length 5.08)
+			(pin bidirectional line
+				(at 0 -10.16 0)
+				(length 7.62)
 				(name "PA14"
 					(effects
 						(font
@@ -3118,9 +3673,9 @@
 					)
 				)
 			)
-			(pin passive line
-				(at 35.56 22.86 270)
-				(length 5.08)
+			(pin bidirectional line
+				(at 0 -12.7 0)
+				(length 7.62)
 				(name "PA15"
 					(effects
 						(font
@@ -3136,9 +3691,9 @@
 					)
 				)
 			)
-			(pin passive line
-				(at 33.02 22.86 270)
-				(length 5.08)
+			(pin bidirectional line
+				(at 0 -25.4 0)
+				(length 7.62)
 				(name "PB3"
 					(effects
 						(font
@@ -3154,9 +3709,9 @@
 					)
 				)
 			)
-			(pin passive line
-				(at 30.48 22.86 270)
-				(length 5.08)
+			(pin bidirectional line
+				(at 0 -27.94 0)
+				(length 7.62)
 				(name "PB4"
 					(effects
 						(font
@@ -3172,9 +3727,9 @@
 					)
 				)
 			)
-			(pin passive line
-				(at 27.94 22.86 270)
-				(length 5.08)
+			(pin bidirectional line
+				(at 0 -30.48 0)
+				(length 7.62)
 				(name "PB5"
 					(effects
 						(font
@@ -3190,9 +3745,9 @@
 					)
 				)
 			)
-			(pin passive line
-				(at 25.4 22.86 270)
-				(length 5.08)
+			(pin bidirectional line
+				(at 0 -33.02 0)
+				(length 7.62)
 				(name "PB6"
 					(effects
 						(font
@@ -3208,9 +3763,9 @@
 					)
 				)
 			)
-			(pin passive line
-				(at 0 -5.08 0)
-				(length 5.08)
+			(pin bidirectional line
+				(at 57.15 0 180)
+				(length 7.62)
 				(name "PC15-OSC32_OUT"
 					(effects
 						(font
@@ -3226,9 +3781,9 @@
 					)
 				)
 			)
-			(pin passive line
-				(at 22.86 22.86 270)
-				(length 5.08)
+			(pin bidirectional line
+				(at 0 -35.56 0)
+				(length 7.62)
 				(name "PB7"
 					(effects
 						(font
@@ -3244,9 +3799,9 @@
 					)
 				)
 			)
-			(pin passive line
-				(at 20.32 22.86 270)
-				(length 5.08)
+			(pin bidirectional line
+				(at 0 -43.18 0)
+				(length 7.62)
 				(name "PF3-BOOT0"
 					(effects
 						(font
@@ -3262,28 +3817,10 @@
 					)
 				)
 			)
-			(pin passive line
-				(at 17.78 22.86 270)
-				(length 5.08)
-				(name "VSS_2"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "32"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-			)
-			(pin passive line
-				(at 15.24 22.86 270)
-				(length 5.08)
-				(name "EP"
+			(pin unspecified line
+				(at 0 0 0)
+				(length 7.62)
+				(name "EPAD"
 					(effects
 						(font
 							(size 1.27 1.27)
@@ -3298,9 +3835,9 @@
 					)
 				)
 			)
-			(pin passive line
-				(at 0 -7.62 0)
-				(length 5.08)
+			(pin bidirectional line
+				(at 0 -40.64 0)
+				(length 7.62)
 				(name "PF2-NRST"
 					(effects
 						(font
@@ -3316,27 +3853,9 @@
 					)
 				)
 			)
-			(pin passive line
-				(at 0 -10.16 0)
-				(length 5.08)
-				(name "VDDA/VREF+"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "5"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-			)
-			(pin passive line
-				(at 0 -12.7 0)
-				(length 5.08)
+			(pin bidirectional line
+				(at 57.15 -5.08 180)
+				(length 7.62)
 				(name "PA0-CK_IN"
 					(effects
 						(font
@@ -3352,9 +3871,9 @@
 					)
 				)
 			)
-			(pin passive line
-				(at 0 -15.24 0)
-				(length 5.08)
+			(pin bidirectional line
+				(at 57.15 -7.62 180)
+				(length 7.62)
 				(name "PA1"
 					(effects
 						(font
@@ -3370,9 +3889,9 @@
 					)
 				)
 			)
-			(pin passive line
-				(at 0 -17.78 0)
-				(length 5.08)
+			(pin bidirectional line
+				(at 57.15 -10.16 180)
+				(length 7.62)
 				(name "PA2"
 					(effects
 						(font
@@ -3388,9 +3907,9 @@
 					)
 				)
 			)
-			(pin passive line
-				(at 15.24 -35.56 90)
-				(length 5.08)
+			(pin bidirectional line
+				(at 57.15 -12.7 180)
+				(length 7.62)
 				(name "PA3"
 					(effects
 						(font
@@ -3399,6 +3918,146 @@
 					)
 				)
 				(number "9"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+		)
+		(symbol "STM32U031K8U6_2_1"
+			(polyline
+				(pts
+					(xy 7.62 -17.78) (xy 38.1 -17.78)
+				)
+				(stroke
+					(width 0.127)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy 7.62 7.62) (xy 7.62 -17.78)
+				)
+				(stroke
+					(width 0.127)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy 38.1 -17.78) (xy 38.1 7.62)
+				)
+				(stroke
+					(width 0.127)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy 38.1 7.62) (xy 7.62 7.62)
+				)
+				(stroke
+					(width 0.127)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(pin power_in line
+				(at 0 0 0)
+				(length 7.62)
+				(name "VDD"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin power_in line
+				(at 0 -10.16 0)
+				(length 7.62)
+				(name "VSS"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "16"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin power_in line
+				(at 0 -2.54 0)
+				(length 7.62)
+				(name "VDD"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "17"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin power_in line
+				(at 0 -12.7 0)
+				(length 7.62)
+				(name "VSS"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "32"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin power_in line
+				(at 0 -5.08 0)
+				(length 7.62)
+				(name "VDDA/VREF+"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "5"
 					(effects
 						(font
 							(size 1.27 1.27)
@@ -4680,6 +5339,229 @@
 					)
 				)
 				(number "9"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+		)
+	)
+	(symbol "TS21-34-035-BK-160-SMT-TR"
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(property "Reference" "S"
+			(at 5.334 7.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(property "Value" "TS21-34-035-BK-160-SMT-TR"
+			(at 5.334 5.08 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(property "Footprint" "TS2134035BK160SMTTR"
+			(at 26.67 -87.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.cuidevices.com/product/resource/ts21.pdf"
+			(at 26.67 -187.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Description" "3.4 x 3.4 mm, 0.35 mm Actuator Height, 160 gf, Surface Mount, SPST, Black Illuminated, Tactile Switch"
+			(at 11.43 -5.842 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Height" "1.7"
+			(at 26.67 -387.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Mouser Part Number" "179-134035BK160SMTTR"
+			(at 26.67 -487.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/CUI-Devices/TS21-34-035-BK-160-SMT-TR?qs=1Kr7Jg1SGW9zzGN58LP5Sg%3D%3D"
+			(at 26.67 -587.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Name" "CUI Devices"
+			(at 26.67 -687.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Part_Number" "TS21-34-035-BK-160-SMT-TR"
+			(at 26.67 -787.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(symbol "TS21-34-035-BK-160-SMT-TR_1_1"
+			(rectangle
+				(start 5.08 2.54)
+				(end 22.86 -12.7)
+				(stroke
+					(width 0.254)
+					(type default)
+				)
+				(fill
+					(type background)
+				)
+			)
+			(pin passive line
+				(at 1.27 0 0)
+				(length 3.81)
+				(name "COM_1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at 26.67 0 180)
+				(length 3.81)
+				(name "COM_2"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "2"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at 1.27 -2.54 0)
+				(length 3.81)
+				(name "NO_1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "3"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at 26.67 -2.54 180)
+				(length 3.81)
+				(name "NO_2"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "4"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at 26.67 -10.16 180)
+				(length 3.81)
+				(name "MP1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "MP1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at 1.27 -10.16 0)
+				(length 3.81)
+				(name "MP2"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "MP2"
 					(effects
 						(font
 							(size 1.27 1.27)

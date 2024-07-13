@@ -1,0 +1,127 @@
+(footprint "TI_2G4_Inv_F_Antenna_1"
+	(version 20240108)
+	(generator "pcbnew")
+	(generator_version "8.0")
+	(layer "F.Cu")
+	(property "Reference" "REF**"
+		(at 0 -0.5 0)
+		(unlocked yes)
+		(layer "F.SilkS")
+		(uuid "b61ddd26-89c6-44f3-91c1-624efc3329e7")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.1)
+			)
+		)
+	)
+	(property "Value" "TI_2G4_Inv_F_Antenna_1"
+		(at 0 1 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(uuid "53e9e22c-a7e8-43c8-aa35-18cbf29149e6")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Footprint" "TI_2G4_Inv_F_Antenna_1"
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "45ed45f2-0ad5-435b-85e6-c8bfccb9363a")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "129a0982-ffe9-4c64-a950-10553f20f5ca")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "ce631c4b-bb6a-423c-b9f9-b3da118a4aed")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr smd)
+	(fp_text user "${REFERENCE}"
+		(at 0 2.5 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(uuid "367f0391-ba74-4ea1-ac2c-a8cd63391dff")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(pad "1" smd roundrect
+		(at 0.45 5.14)
+		(size 0.9 0.5)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(roundrect_rratio 0.1)
+		(solder_mask_margin -2)
+		(solder_paste_margin -2)
+		(thermal_bridge_angle 45)
+		(uuid "8a6b6da3-3de5-4bec-913f-72effa102ba9")
+	)
+	(pad "2" smd custom
+		(at 2.55 5.14)
+		(size 0.5 0.5)
+		(layers "F.Cu")
+		(options
+			(clearance outline)
+			(anchor circle)
+		)
+		(primitives
+			(gr_poly
+				(pts
+					(xy -0.25 -0.2) (xy -0.246194 -0.219134) (xy -0.235355 -0.235355) (xy -0.219134 -0.246194) (xy -0.2 -0.25)
+					(xy 0.2 -0.25) (xy 0.219134 -0.246194) (xy 0.235355 -0.235355) (xy 0.246194 -0.219134) (xy 0.25 -0.2)
+					(xy 0.25 0.2) (xy 0.246194 0.219134) (xy 0.235355 0.235355) (xy 0.219134 0.246194) (xy 0.2 0.25)
+					(xy -0.2 0.25) (xy -0.219134 0.246194) (xy -0.235355 0.235355) (xy -0.246194 0.219134) (xy -0.25 0.2)
+				)
+				(width 0)
+				(fill yes)
+			)
+			(gr_poly
+				(pts
+					(xy -2.55 0.249982) (xy -2.55 -5.14) (xy 2.44999 -5.14) (xy 2.449995 -2.499318) (xy 4.449995 -2.499318)
+					(xy 4.450011 -5.14) (xy 7.150006 -5.14) (xy 7.149995 -2.499318) (xy 9.149995 -2.499318) (xy 9.150002 -5.14)
+					(xy 11.849997 -5.14) (xy 11.849997 -0.700004) (xy 11.349998 -0.700004) (xy 11.349995 -4.639318)
+					(xy 9.650001 -4.628901) (xy 9.650001 -2.000001) (xy 6.650007 -2.000001) (xy 6.649995 -4.639318)
+					(xy 4.949995 -4.639318) (xy 4.95001 -2.000001) (xy 1.949991 -2.000001) (xy 1.949995 -4.639318)
+					(xy 0.249994 -4.639518) (xy 0.249994 -0.150018) (xy -0.250005 -0.150018) (xy -0.250005 -4.639518)
+					(xy -1.650002 -4.639518) (xy -1.650002 0.249982)
+				)
+				(width 0)
+				(fill yes)
+			)
+		)
+		(uuid "46e4b547-db9b-406a-8d06-08c76f027381")
+	)
+)

@@ -1,4 +1,4 @@
-23355181487394561
+23370665070841597
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -95361,12 +95361,26 @@ Switch
 16
 16
 libtpms
+830064296
+830064296-1
+Crystal or Oscillator
+0
+4
+4
+libtpms
 AYZ0102AGRLC
 AYZ0102AGRLC
 Switch
 0
 5
 5
+libtpms
+CAPPM7362X375N
+TPSV108M006R0050
+Capacitor Polarised
+0
+2
+2
 libtpms
 CAPPRD1000W200D3550H4700
 Cornell Dubilier A45
@@ -95375,12 +95389,26 @@ Capacitor Polarised
 2
 2
 libtpms
+CAS120A1
+CAS-120A1-2
+Switch (2-Pin Push)
+0
+3
+3
+libtpms
 CONN_73251-1150_MOL
 
 732511150 
 0
 3
 3
+libtpms
+EEETC1V470P
+F
+Capacitor Polarised
+0
+2
+2
 libtpms
 FME0H473ZF
 FME0H473ZF-2
@@ -95417,9 +95445,44 @@ Power Supply
 14
 14
 libtpms
+QFN50P500X500X60-33N-D
+QFN
+Integrated Circuit
+0
+33
+33
+libtpms
 SOIC127P610X280-8N
 NPP-301A-100A-
 Integrated Circuit
 0
 8
 8
+libtpms
+SOP65P490X110-8N
+8-Lead Mini Small Outline Package [MSOP] (RM-8)
+Integrated Circuit
+0
+8
+8
+libtpms
+TI_2G4_Inv_F_Antenna
+
+
+0
+2
+2
+libtpms
+TI_2G4_Inv_F_Antenna_1
+
+
+0
+2
+2
+libtpms
+TS2134035BK160SMTTR
+TS21-34-035-BK-160-SMT-TR-4
+Switch
+0
+6
+6

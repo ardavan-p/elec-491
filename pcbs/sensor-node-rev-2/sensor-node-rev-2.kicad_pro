@@ -38,8 +38,8 @@
         "other_text_upright": false,
         "pads": {
           "drill": 0.0,
-          "height": 3.7,
-          "width": 3.7
+          "height": 0.45,
+          "width": 0.9
         },
         "silk_line_width": 0.1,
         "silk_text_italic": false,
@@ -58,7 +58,10 @@
           "width": 0.0
         }
       ],
-      "drc_exclusions": [],
+      "drc_exclusions": [
+        "silk_edge_clearance|104883900|144999999|226a3b60-47d7-4b67-8d20-39a7b5465e0d|3bf45c11-0d45-410a-a964-c2f25e4318d3",
+        "silk_edge_clearance|114866100|144999999|226a3b60-47d7-4b67-8d20-39a7b5465e0d|9f7a5779-61cf-4161-beb3-6ced6b6c005e"
+      ],
       "meta": {
         "version": 2
       },
@@ -122,7 +125,7 @@
         "min_hole_to_hole": 0.6,
         "min_microvia_diameter": 0.2,
         "min_microvia_drill": 0.1,
-        "min_resolved_spokes": 2,
+        "min_resolved_spokes": 1,
         "min_silk_clearance": 0.0,
         "min_text_height": 0.8,
         "min_text_thickness": 0.08,
@@ -185,7 +188,8 @@
         1.0,
         1.25,
         1.27,
-        1.5
+        1.5,
+        1.651
       ],
       "tuning_pattern_settings": {
         "diff_pair_defaults": {
@@ -466,7 +470,7 @@
     "classes": [
       {
         "bus_width": 12,
-        "clearance": 0.2,
+        "clearance": 0.15,
         "diff_pair_gap": 0.25,
         "diff_pair_via_gap": 0.25,
         "diff_pair_width": 0.2,
@@ -483,7 +487,7 @@
       },
       {
         "bus_width": 12,
-        "clearance": 0.2,
+        "clearance": 0.15,
         "diff_pair_gap": 0.25,
         "diff_pair_via_gap": 0.25,
         "diff_pair_width": 0.2,
@@ -500,7 +504,7 @@
       },
       {
         "bus_width": 12,
-        "clearance": 0.2,
+        "clearance": 0.15,
         "diff_pair_gap": 0.25,
         "diff_pair_via_gap": 0.25,
         "diff_pair_width": 0.2,
@@ -517,7 +521,7 @@
       },
       {
         "bus_width": 12,
-        "clearance": 0.2,
+        "clearance": 0.15,
         "diff_pair_gap": 0.25,
         "diff_pair_via_gap": 0.25,
         "diff_pair_width": 0.2,
@@ -525,7 +529,7 @@
         "microvia_diameter": 0.3,
         "microvia_drill": 0.1,
         "name": "PSENSE",
-        "pcb_color": "rgb(0, 132, 0)",
+        "pcb_color": "rgb(0, 194, 0)",
         "schematic_color": "rgba(0, 0, 0, 0.000)",
         "track_width": 0.2,
         "via_diameter": 0.7,
@@ -534,7 +538,7 @@
       },
       {
         "bus_width": 12,
-        "clearance": 0.2,
+        "clearance": 0.15,
         "diff_pair_gap": 0.25,
         "diff_pair_via_gap": 0.25,
         "diff_pair_width": 0.2,
@@ -542,7 +546,7 @@
         "microvia_diameter": 0.3,
         "microvia_drill": 0.1,
         "name": "USART",
-        "pcb_color": "rgb(194, 194, 0)",
+        "pcb_color": "rgba(0, 0, 0, 0.000)",
         "schematic_color": "rgba(0, 0, 0, 0.000)",
         "track_width": 0.2,
         "via_diameter": 0.7,
@@ -682,6 +686,12 @@
           "group_by": false,
           "label": "Description",
           "name": "Description",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Tolerance",
+          "name": "Tolerance",
           "show": false
         }
       ],
