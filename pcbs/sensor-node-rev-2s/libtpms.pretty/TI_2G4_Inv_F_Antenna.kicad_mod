@@ -1,0 +1,119 @@
+(footprint "TI_2G4_Inv_F_Antenna"
+	(version 20240108)
+	(generator "pcbnew")
+	(generator_version "8.0")
+	(layer "F.Cu")
+	(property "Reference" "REF**"
+		(at 0 -0.5 0)
+		(unlocked yes)
+		(layer "F.SilkS")
+		(uuid "b61ddd26-89c6-44f3-91c1-624efc3329e7")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.1)
+			)
+		)
+	)
+	(property "Value" "TI_2G4_Inv_F_Antenna"
+		(at 0 1 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(uuid "53e9e22c-a7e8-43c8-aa35-18cbf29149e6")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Footprint" "TI_2G4_Inv_F_Antenna"
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "45ed45f2-0ad5-435b-85e6-c8bfccb9363a")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "129a0982-ffe9-4c64-a950-10553f20f5ca")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "ce631c4b-bb6a-423c-b9f9-b3da118a4aed")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr smd)
+	(fp_poly
+		(pts
+			(xy 0 5.389982) (xy 0 0) (xy 4.99999 0) (xy 4.999995 2.640682) (xy 6.999995 2.640682) (xy 7.000011 0)
+			(xy 9.700006 0) (xy 9.699995 2.640682) (xy 11.699995 2.640682) (xy 11.700002 0) (xy 14.399997 0)
+			(xy 14.399997 4.439996) (xy 13.899998 4.439996) (xy 13.899995 0.500682) (xy 12.200001 0.511099) (xy 12.200001 3.139999)
+			(xy 9.200007 3.139999) (xy 9.199995 0.500682) (xy 7.499995 0.500682) (xy 7.50001 3.139999) (xy 4.499991 3.139999)
+			(xy 4.499995 0.500682) (xy 2.799994 0.500482) (xy 2.799994 4.989982) (xy 2.299995 4.989982) (xy 2.299995 0.500482)
+			(xy 0.899998 0.500482) (xy 0.899998 5.389982)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(fill solid)
+		(layer "F.Cu")
+		(uuid "580b0564-327f-4d3d-afff-b12a8933b5cf")
+	)
+	(fp_text user "${REFERENCE}"
+		(at 0 2.5 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(uuid "367f0391-ba74-4ea1-ac2c-a8cd63391dff")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(pad "1" smd roundrect
+		(at 0.45 5.14)
+		(size 0.9 0.5)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(roundrect_rratio 0.1)
+		(solder_mask_margin -2)
+		(solder_paste_margin -2)
+		(thermal_bridge_angle 45)
+		(uuid "8a6b6da3-3de5-4bec-913f-72effa102ba9")
+	)
+	(pad "2" smd roundrect
+		(at 2.55 5.14)
+		(size 0.5 0.5)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(roundrect_rratio 0.1)
+		(solder_mask_margin -2)
+		(solder_paste_margin -2)
+		(thermal_bridge_angle 45)
+		(uuid "46e4b547-db9b-406a-8d06-08c76f027381")
+	)
+)
