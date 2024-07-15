@@ -1,4 +1,4 @@
-23370665070841597
+23372386081640195
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -95465,6 +95465,13 @@ Integrated Circuit
 0
 8
 8
+libtpms
+T520Y
+T520Y
+Capacitor Polarised
+0
+2
+2
 libtpms
 TI_2G4_Inv_F_Antenna
 
