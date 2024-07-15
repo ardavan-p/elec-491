@@ -13685,7 +13685,7 @@
 		)
 		(uuid ce7b8952-17f9-4c1c-9874-4964c55c4e67)
 	)
-	(text_box "Tasks\n--------------------------\nAdd additional passive values for loop filter, matching, and amplifier to BOM.\nVerify MCU crystal.\nVerify MCU programming method (i.e., make sure SWD circuit is correct and enough).\nVerify MCU pins.\nDo complete review of schematic. COMPLETE REVIEW.\n"
+	(text_box "Tasks\n--------------------------\nBOM\nAdd additional passive values for loop filter, matching, and amplifier to BOM.\nVerify MCU programming method (i.e., make sure SWD circuit is correct and enough).\nAdd SW circuit to PCB, but DNP.\nFix NRF orientation.\nDo complete review of schematic. COMPLETE REVIEW.\n"
 		(exclude_from_sim no)
 		(at 850.9 -1.27 0)
 		(size 708.66 588.01)
