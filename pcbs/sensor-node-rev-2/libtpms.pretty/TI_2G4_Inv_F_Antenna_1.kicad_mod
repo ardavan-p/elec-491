@@ -92,7 +92,7 @@
 	(pad "2" smd custom
 		(at 2.55 5.14)
 		(size 0.5 0.5)
-		(layers "F.Cu")
+		(layers "F.Cu" "F.Mask")
 		(options
 			(clearance outline)
 			(anchor circle)
