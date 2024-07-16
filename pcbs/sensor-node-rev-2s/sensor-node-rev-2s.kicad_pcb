@@ -15806,7 +15806,7 @@
 	(footprint "LOGO"
 		(layer "B.Cu")
 		(uuid "5a4e03c6-311e-4f7a-b097-0f2764311620")
-		(at 113.7 110 180)
+		(at 115.9 114.65 180)
 		(property "Reference" "G***"
 			(at 0 0 180)
 			(layer "B.SilkS")
@@ -16185,8 +16185,8 @@
 		(layer "Edge.Cuts")
 		(uuid "fdef5530-24bb-42eb-9658-b5c80d519946")
 	)
-	(gr_text "Mihir Nimgade\n2024-07"
-		(at 121.5 104.5 90)
+	(gr_text "Sensor Node\nMihir Nimgade\n2024-07"
+		(at 120.65 108.7 0)
 		(layer "B.SilkS")
 		(uuid "b718720b-5de1-41ef-9eb3-9f06d0ddb960")
 		(effects
@@ -16476,8 +16476,8 @@
 			(justify left bottom)
 		)
 	)
-	(gr_text "TL-81 Sensor Node (rev 2)"
-		(at 111.1 104.6 0)
+	(gr_text "Sensor Node (rev 2)"
+		(at 108.95 104.3 0)
 		(layer "F.SilkS")
 		(uuid "c0f4a3e2-79bc-40d2-a5c7-bd1d6befd41a")
 		(effects
