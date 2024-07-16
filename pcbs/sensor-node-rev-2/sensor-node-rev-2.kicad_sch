@@ -14580,7 +14580,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Part_Number" "GRM155R61A333MA01J"
+		(property "Manufacturer_Part_Number" "GRM155R71H333KE14J"
 			(at 43.18 257.81 0)
 			(effects
 				(font
@@ -14589,7 +14589,7 @@
 				(hide yes)
 			)
 		)
-		(property "Mouser Part Number" "81-GRM155R61A333MA1J"
+		(property "Mouser Part Number" " 81-GRM155R71H333KE4J "
 			(at 43.18 257.81 0)
 			(effects
 				(font
