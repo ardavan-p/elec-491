@@ -61,8 +61,9 @@
       "drc_exclusions": [
         "lib_footprint_mismatch|109062500|64950000|edf3ea4b-fa04-42eb-b6c1-6c581c144619|00000000-0000-0000-0000-000000000000",
         "lib_footprint_mismatch|127250000|65750000|79c366c8-5edb-42fc-9d89-1a0b21eb9767|00000000-0000-0000-0000-000000000000",
+        "lib_footprint_mismatch|133835000|49955000|60c48165-05c0-47ec-b9b3-9b85c7e8f45a|00000000-0000-0000-0000-000000000000",
         "lib_footprint_mismatch|152620000|67150000|20867473-4332-4c7b-934b-f85a984aa65b|00000000-0000-0000-0000-000000000000",
-        "lib_footprint_mismatch|164000000|67140000|77825324-1688-4c5e-91cf-b6717961e149|00000000-0000-0000-0000-000000000000",
+        "lib_footprint_mismatch|163990000|67150000|77825324-1688-4c5e-91cf-b6717961e149|00000000-0000-0000-0000-000000000000",
         "lib_footprint_mismatch|80000000|117000000|858dfd9a-a83d-4d6f-b41b-2fd7ec47b9fa|00000000-0000-0000-0000-000000000000",
         "lib_footprint_mismatch|96155000|49965000|f57147c6-a236-475c-a971-ac9bcebaf851|00000000-0000-0000-0000-000000000000"
       ],
@@ -642,7 +643,7 @@
       "group_symbols": false,
       "name": "",
       "sort_asc": true,
-      "sort_field": "Reference"
+      "sort_field": "Value"
     },
     "connection_grid_size": 50.0,
     "drawing": {
