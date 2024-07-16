@@ -15060,7 +15060,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Part_Number" " EMPCB.SMAFSTJ.B.HT "
+		(property "Manufacturer_Part_Number" " 901-10309 "
 			(at 43.18 168.91 0)
 			(effects
 				(font
@@ -15069,7 +15069,7 @@
 				(hide yes)
 			)
 		)
-		(property "Mouser Part Number" " 960-EMPCB.SMAFSTJBHT "
+		(property "Mouser Part Number" "523-901-10309 "
 			(at 43.18 168.91 0)
 			(effects
 				(font
@@ -18545,7 +18545,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Part_Number" "GRM1555C1E120GA01D"
+		(property "Manufacturer_Part_Number" "GCM1555G1H120GA16J"
 			(at 109.22 269.24 0)
 			(effects
 				(font
@@ -19593,7 +19593,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Part_Number" "GRM1555C1E120GA01D"
+		(property "Manufacturer_Part_Number" "GCM1555G1H120GA16J"
 			(at 86.36 269.24 0)
 			(effects
 				(font

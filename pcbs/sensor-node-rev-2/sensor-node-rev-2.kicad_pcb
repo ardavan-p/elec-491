@@ -15287,15 +15287,15 @@
 			)
 			(uuid "69185a8a-eceb-44ad-a4f7-8cf3c4d8918e")
 		)
-		(model "C:/Users/mihir/Desktop/tpms-schematics/footprints/LIB_MOLEX_0732511150/73251-1150_igs/732511150.igs"
+		(model "C:/Users/mihir/Desktop/capstone (to organize)/elec-491/pcbs/footprints/LIB_901-10309/901-10309/3D/901-10309.stp"
 			(offset
-				(xyz 0 11 0.5)
+				(xyz 0 1.5 0)
 			)
 			(scale
 				(xyz 1 1 1)
 			)
 			(rotate
-				(xyz 0 0 90)
+				(xyz -90 0 90)
 			)
 		)
 	)
