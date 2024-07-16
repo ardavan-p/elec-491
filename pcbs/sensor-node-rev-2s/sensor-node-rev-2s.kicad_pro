@@ -58,7 +58,10 @@
           "width": 0.0
         }
       ],
-      "drc_exclusions": [],
+      "drc_exclusions": [
+        "silk_edge_clearance|104883900|144999999|226a3b60-47d7-4b67-8d20-39a7b5465e0d|3bf45c11-0d45-410a-a964-c2f25e4318d3",
+        "silk_edge_clearance|114866100|144999999|226a3b60-47d7-4b67-8d20-39a7b5465e0d|9f7a5779-61cf-4161-beb3-6ced6b6c005e"
+      ],
       "meta": {
         "version": 2
       },
@@ -582,7 +585,7 @@
       "gencad": "",
       "idf": "",
       "netlist": "../../../../../AppData/Local/Programs/KiCad/8.0/bin/",
-      "plot": "../pdfs/",
+      "plot": "manufacturing/",
       "pos_files": "",
       "specctra_dsn": "",
       "step": "",
