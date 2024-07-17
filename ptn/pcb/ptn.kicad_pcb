@@ -1538,7 +1538,7 @@
 		(path "/f1b4ebd7-ae7b-41b7-aad4-2494492c8869")
 		(sheetname "Root")
 		(sheetfile "ptn.kicad_sch")
-		(attr smd dnp)
+		(attr smd exclude_from_bom dnp)
 		(fp_line
 			(start -0.107836 -0.36)
 			(end 0.107836 -0.36)
@@ -2300,7 +2300,7 @@
 		(path "/005c6c1c-d68b-4c72-9dab-88d43f5f95aa")
 		(sheetname "Root")
 		(sheetfile "ptn.kicad_sch")
-		(attr smd dnp)
+		(attr smd exclude_from_bom dnp)
 		(fp_line
 			(start -0.107836 -0.36)
 			(end 0.107836 -0.36)
@@ -5284,7 +5284,7 @@
 				)
 			)
 		)
-		(property "Mouser Part Number" "N/A"
+		(property "Mouser Part Number" "584-ADP150AUJZ-3.3R7"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -9532,7 +9532,7 @@
 		(path "/eaabd157-4683-44de-a0da-a07bdfcc3a0c")
 		(sheetname "Root")
 		(sheetfile "ptn.kicad_sch")
-		(attr smd dnp)
+		(attr smd exclude_from_bom dnp)
 		(fp_line
 			(start -0.107836 -0.36)
 			(end 0.107836 -0.36)
@@ -14544,7 +14544,7 @@
 		(path "/8e2bef93-8f17-46b1-b16f-55b68293005a")
 		(sheetname "Root")
 		(sheetfile "ptn.kicad_sch")
-		(attr smd dnp)
+		(attr smd exclude_from_bom dnp)
 		(fp_line
 			(start -0.107836 -0.36)
 			(end 0.107836 -0.36)
@@ -15409,7 +15409,7 @@
 			)
 		)
 		(property "Value" "50R"
-			(at 0 1.17 270)
+			(at 0 1.17 -90)
 			(layer "F.Fab")
 			(uuid "e4aef2f5-53dc-4aa7-868e-768427116125")
 			(effects
@@ -15613,7 +15613,7 @@
 			(uuid "f5612fca-a168-4166-97f7-86803f68a744")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 0 270)
+			(at 0 0 -90)
 			(layer "F.Fab")
 			(uuid "88f8e29c-021d-4468-9519-e56644a84978")
 			(effects
@@ -19038,7 +19038,7 @@
 		(path "/ffbb3440-9375-4836-8a6a-1388f137045b")
 		(sheetname "Root")
 		(sheetfile "ptn.kicad_sch")
-		(attr smd dnp)
+		(attr smd exclude_from_bom dnp)
 		(fp_line
 			(start -0.107836 0.36)
 			(end 0.107836 0.36)
@@ -22565,7 +22565,7 @@
 		(path "/f0879b63-cc1d-402d-9bb1-626b1a8001e0")
 		(sheetname "Root")
 		(sheetfile "ptn.kicad_sch")
-		(attr smd dnp)
+		(attr smd exclude_from_bom dnp)
 		(fp_line
 			(start -0.107836 -0.36)
 			(end 0.107836 -0.36)
@@ -27844,7 +27844,7 @@
 				)
 			)
 		)
-		(property "Mouser Part Number" "N/A"
+		(property "Mouser Part Number" "584-ADP150AUJZ-3.3R7"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -28927,7 +28927,7 @@
 		(descr "Capacitor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags "capacitor")
 		(property "Reference" "C13"
-			(at 0.409998 5.97 270)
+			(at 0.409998 5.97 -90)
 			(layer "F.SilkS")
 			(hide yes)
 			(uuid "abb10a0c-d001-4a89-b3d1-fded480a33ba")
@@ -28939,7 +28939,7 @@
 			)
 		)
 		(property "Value" "100p"
-			(at 0 1.16 270)
+			(at 0 1.16 -90)
 			(layer "F.Fab")
 			(uuid "01afaba4-290a-425a-94ea-72becc18a7ad")
 			(effects
@@ -29143,7 +29143,7 @@
 			(uuid "88211b00-b7c0-48c8-8712-e8c0065d5ad1")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 0 270)
+			(at 0 0 -90)
 			(layer "F.Fab")
 			(uuid "a30a055d-4991-4391-96b4-1bd48c4c32cd")
 			(effects
@@ -30347,7 +30347,7 @@
 		(path "/6500fcd7-4f4e-4ade-ac7d-dba74ce92617")
 		(sheetname "Root")
 		(sheetfile "ptn.kicad_sch")
-		(attr smd dnp)
+		(attr smd exclude_from_bom dnp)
 		(fp_line
 			(start -0.107836 0.36)
 			(end 0.107836 0.36)
@@ -31371,7 +31371,7 @@
 		(path "/72b68e92-8cc2-4b3d-a4f2-00bed602831d")
 		(sheetname "Root")
 		(sheetfile "ptn.kicad_sch")
-		(attr smd dnp)
+		(attr smd exclude_from_bom dnp)
 		(fp_line
 			(start -0.107836 -0.36)
 			(end 0.107836 -0.36)
@@ -32144,7 +32144,7 @@
 		(path "/b418e2ad-c39b-4d11-a8b5-26766f424958")
 		(sheetname "Root")
 		(sheetfile "ptn.kicad_sch")
-		(attr smd dnp)
+		(attr smd exclude_from_bom dnp)
 		(fp_line
 			(start -0.107836 -0.36)
 			(end 0.107836 -0.36)
@@ -32981,7 +32981,7 @@
 		(path "/e879f78b-e64d-4c61-80ee-a2f9f7638a0a")
 		(sheetname "Root")
 		(sheetfile "ptn.kicad_sch")
-		(attr smd dnp)
+		(attr smd exclude_from_bom dnp)
 		(fp_line
 			(start -0.107836 -0.36)
 			(end 0.107836 -0.36)
@@ -35354,7 +35354,7 @@
 			(at 0 0 180)
 			(layer "B.SilkS")
 			(hide yes)
-			(uuid "f81ab2d2-d686-44be-a749-eff2a34b757c")
+			(uuid "3fe1cbf7-8724-4db6-ab1f-efd542ea1de2")
 			(effects
 				(font
 					(size 1.5 1.5)
@@ -35367,7 +35367,7 @@
 			(at 0.75 0 180)
 			(layer "B.SilkS")
 			(hide yes)
-			(uuid "45453f9f-7c42-4e48-aee5-f32a2e6cbd61")
+			(uuid "d1274840-dd05-4b95-a777-e2571a9e1840")
 			(effects
 				(font
 					(size 1.5 1.5)
@@ -35722,7 +35722,7 @@
 			)
 			(fill solid)
 			(layer "B.SilkS")
-			(uuid "39d3954f-793c-492c-96b2-40fa5c60c439")
+			(uuid "31e661aa-2655-474a-a49a-a10e8c29b52a")
 		)
 	)
 	(gr_line
