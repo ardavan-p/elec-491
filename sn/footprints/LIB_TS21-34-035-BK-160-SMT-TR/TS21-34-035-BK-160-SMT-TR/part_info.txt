@@ -1,0 +1,9 @@
+Manufacturer=CUI Devices
+PartNumber=TS21-34-035-BK-160-SMT-TR
+PartCategory=Switch
+PackageCategory=Other
+PinCount=6
+Version=1.4
+Released=2023-08-29 03:36:52
+Downloaded=2024-07-07 03:14:36
+3D=Y

@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP TPSV108M006R0050
+D AVX 1000uF 6.3 V dc Tantalum Capacitor Electrolytic Solid 2924 Series
+K
+F https://www.arrow.com/en/products/tpsv108m006r0050/avx
+$ENDCMP
+#
+#End Doc Library

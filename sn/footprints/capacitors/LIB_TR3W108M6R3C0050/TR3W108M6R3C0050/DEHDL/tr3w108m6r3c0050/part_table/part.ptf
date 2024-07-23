@@ -1,0 +1,11 @@
+FILE_TYPE = MULTI_PHYS_TABLE;
+
+PART 'TR3W108M6R3C0050'
+CLASS = DISCRETE
+{========================================================================================}
+:"MANUFACTURER_NAME", "MANUFACTURER_PART_NUMBER"= "PART_NUMBER", "JEDEC_TYPE", "PACK_TYPE", "MOUSER_PART_NUMBER", "MOUSER_PRICE/STOCK", "DESCRIPTION", "DATASHEET", "HEIGHT";
+{========================================================================================}
+ "Vishay", "TR3W108M6R3C0050" (!) = "", "CAPPM7360X580N", "Capacitor Moulded Polarised", "74-TR3W108M6R3C0050", "https://www.mouser.co.uk/ProductDetail/Vishay-Sprague/TR3W108M6R3C0050?qs=l4Gc20tDgJLTL7IlJqIckA%3D%3D", "Solid Tantalum Surface Mount Chip Capacitors TANTAMOUNT(TM), Molded Case, Low ESR", "http://www.vishay.com/doc?40080", "5.8 mm"
+END_PART
+
+END.

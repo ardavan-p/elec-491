@@ -1,0 +1,9 @@
+Manufacturer=Nidec Copal
+PartNumber=CAS-120A1
+PartCategory=Switch (2-Pin Push)
+PackageCategory=Other
+PinCount=3
+Version=1.1
+Released=2019-09-09 15:21:00
+Downloaded=2024-07-07 02:29:31
+3D=Y

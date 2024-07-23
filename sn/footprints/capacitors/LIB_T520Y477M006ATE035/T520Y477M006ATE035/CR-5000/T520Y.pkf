@@ -1,0 +1,10 @@
+(unit MM)
+
+(package "T520Y"
+    (type UNDEF)
+    (uver 2)
+    (mountForm default
+        (footprintRef "T520Y")
+        (spec "default")
+    )
+)

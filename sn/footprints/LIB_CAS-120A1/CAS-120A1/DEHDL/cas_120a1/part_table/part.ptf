@@ -1,0 +1,11 @@
+FILE_TYPE = MULTI_PHYS_TABLE;
+
+PART 'CAS_120A1'
+CLASS = DISCRETE
+{========================================================================================}
+:"MANUFACTURER_NAME", "MANUFACTURER_PART_NUMBER"= "PART_NUMBER", "JEDEC_TYPE", "PACK_TYPE", "MOUSER_PART_NUMBER", "MOUSER_PRICE/STOCK", "DESCRIPTION", "DATASHEET", "HEIGHT";
+{========================================================================================}
+ "Nidec Copal", "CAS-120A1" (!) = "", "CAS120A1", "Other", "229-CAS-120A1", "https://www.mouser.co.uk/ProductDetail/Nidec-Components/CAS-120A1?qs=XeJtXLiO41SLHVe%252BE1BF5w%3D%3D", "Surface Mount Slide Switch Single Pole Double Throw (SPDT) 100 (Non-Switching) mA, 100 (Switching) mA Slide", "https://www.nidec-copal-electronics.com/e/catalog/switch/cas.pdf", "2.5 mm"
+END_PART
+
+END.

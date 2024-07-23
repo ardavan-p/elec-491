@@ -1,0 +1,9 @@
+Manufacturer=Cinch Connectivity Solutions
+PartNumber=142-0701-801
+PartCategory=Connector
+PackageCategory=Other
+PinCount=3
+Version=1.1
+Released=2017-10-22 10:52:14
+Downloaded=2024-07-16 22:39:02
+3D=Y
