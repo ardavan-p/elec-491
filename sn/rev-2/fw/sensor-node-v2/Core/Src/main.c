@@ -40,9 +40,8 @@
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
 
-#define SINGLE_TRANSMISSION 1
-#define TX_DELAY_MS 25
-#define NUM_MSGS 1
+#define TRUE (1)
+#define FALSE (0)
 
 #define BURST_MSG_NUM 3
 
@@ -52,6 +51,8 @@
 #define CONSECUTIVE_BURST_DELAY_MS 0
 
 #define SETUP_TO_TX_DELAY_MS 3
+
+#define POWERCAST_RESET FALSE
 
 /* USER CODE END PD */
 
@@ -181,7 +182,9 @@ int main(void) {
   HAL_Delay(SETUP_TO_TX_DELAY_MS);
 
   // reset the power harvester so we don't consume all the stored power
+#if(POWERCAST_RESET)
   HAL_GPIO_WritePin(P2110B_RESET_GPIO_Port, P2110B_RESET_Pin, GPIO_PIN_SET);
+#endif
 
   /* USER CODE END 2 */
 
