@@ -1,7 +1,7 @@
 buildbin := "sensor-node-v2.elf"
 targetbin := "sensor-node-v2.bin"
 
-serialnum := "43004800050000383036544E"
+serialnum := "180044000200004E43504D4E"
 
 all: clean generate build
 
