@@ -57,6 +57,8 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define USER_LED_Pin GPIO_PIN_15
+#define USER_LED_GPIO_Port GPIOC
 #define PSENSE_OUT_Pin GPIO_PIN_0
 #define PSENSE_OUT_GPIO_Port GPIOA
 #define PSENSE_VREF_Pin GPIO_PIN_1
@@ -67,14 +69,12 @@ void Error_Handler(void);
 #define PSENSE_PLUS_GPIO_Port GPIOA
 #define P2110B_DOUT_Pin GPIO_PIN_6
 #define P2110B_DOUT_GPIO_Port GPIOA
-#define P2110B_RESET_Pin GPIO_PIN_8
-#define P2110B_RESET_GPIO_Port GPIOA
 #define P2110B_DSET_Pin GPIO_PIN_9
 #define P2110B_DSET_GPIO_Port GPIOA
 #define P2110B_INT_Pin GPIO_PIN_10
 #define P2110B_INT_GPIO_Port GPIOA
-#define USER_LED_Pin GPIO_PIN_12
-#define USER_LED_GPIO_Port GPIOA
+#define P2110B_RESET_Pin GPIO_PIN_11
+#define P2110B_RESET_GPIO_Port GPIOA
 #define NRF_IRQ_Pin GPIO_PIN_15
 #define NRF_IRQ_GPIO_Port GPIOA
 #define NRF_SCK_Pin GPIO_PIN_3
