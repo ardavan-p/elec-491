@@ -10,12 +10,6 @@
 #include "main.h"
 #include "spi.h"
 
-#define CHIP_SELECT_GPIO_Port NRF_CSN_GPIO_Port
-#define CHIP_SELECT_Pin NRF_CSN_Pin
-
-#define CHIP_ENABLE_GPIO_Port NRF_CE_GPIO_Port
-#define CHIP_ENABLE_Pin NRF_CE_Pin
-
 HAL_StatusTypeDef tx_spi_cmd(uint8_t command, uint8_t *tx_payload,
                              uint8_t txsz) {
   HAL_StatusTypeDef status = HAL_ERROR;

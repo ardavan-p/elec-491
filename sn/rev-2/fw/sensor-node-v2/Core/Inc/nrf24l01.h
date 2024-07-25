@@ -28,8 +28,12 @@ extern "C" {
 // --- USER CONFIGURATION ---
 
 // chip select port and pin configuration
-#define CS_GPIO_PORT CHIP_SELECT_Pin
-#define CS_GPIO_PIN  CHIP_SELECT_GPIO_Port
+#define CHIP_SELECT_GPIO_Port NRF_CSN_GPIO_Port
+#define CHIP_SELECT_Pin NRF_CSN_Pin
+
+#define CHIP_ENABLE_GPIO_Port NRF_CE_GPIO_Port
+#define CHIP_ENABLE_Pin NRF_CE_Pin
+
 
 #define RX_BUF_SZ_BYTES 64
 #define TX_BUF_SZ_BYTES 64
