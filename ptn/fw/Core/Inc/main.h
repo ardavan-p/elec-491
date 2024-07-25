@@ -59,11 +59,11 @@ void Error_Handler(void);
 /* Private defines -----------------------------------------------------------*/
 
 /* USER CODE BEGIN Private defines */
-#define SPI1_CSn_GPIO_Port GPIOB
-#define SPI1_CSn_Pin GPIO_PIN_0
+#define SPI1_CSn_GPIO_Port GPIOA
+#define SPI1_CSn_Pin GPIO_PIN_4
 
-#define SPI1_LD_GPIO_Port GPIOB
-#define SPI1_LD_Pin GPIO_PIN_1
+#define SPI1_LD_GPIO_Port GPIOA
+#define SPI1_LD_Pin GPIO_PIN_10
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus
