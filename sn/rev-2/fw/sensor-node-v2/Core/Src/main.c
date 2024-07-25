@@ -157,8 +157,6 @@ int main(void) {
   // [NOT REQUIRED] flush the TX buffer
   tx_spi_cmd(FLUSH_TX, NULL, 0);
 
-  read_back_config();
-
   // required when MCU clock speed is more than or equal to 24MHz
   HAL_Delay(STOP_DELAY_MS);
 
