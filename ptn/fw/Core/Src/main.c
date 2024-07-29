@@ -3,6 +3,7 @@
   ******************************************************************************
   * @file           : main.c
   * @brief          : Main program body
+  * @author         : Ardavan Pourkeramati
   ******************************************************************************
   * @attention
   *
@@ -18,6 +19,9 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "spi.h"
+#include "tim.h"
+#include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -31,7 +35,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-
+#define FHSS_NUM_FREQS (100)
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -40,16 +44,35 @@
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
-SPI_HandleTypeDef hspi1;
 
 /* USER CODE BEGIN PV */
+const uint64_t fhss_freqs[FHSS_NUM_FREQS] = {
+    915564235, 904440541, 903148600, 904227128, 917506829, 
+    909397973, 908812571, 915449869, 919254899, 926507321, 
+    925822447, 923067571, 903557369, 916691446, 912408403, 
+    915808206, 903846361, 915402520, 906336386, 902037364, 
+    909321452, 907231759, 918789091, 905750371, 923042615, 
+    906372704, 912755720, 904459906, 906370088, 923731407, 
+    903472249, 927657559, 912651500, 918619844, 925694767, 
+    927554893, 919457550, 916626225, 906220683, 920235783, 
+    921967008, 902299182, 911944043, 906843950, 926112279, 
+    910403184, 923919218, 918063135, 924158523, 921292666, 
+    904810996, 905714947, 913249837, 914091121, 925623877, 
+    925355688, 906284260, 920917239, 917981303, 905593593, 
+    917042242, 902399063, 923820062, 926307788, 909535172, 
+    907539445, 925176093, 904984611, 909284218, 919224644, 
+    905772047, 920586961, 916456393, 907262194, 916956907, 
+    909592341, 924544342, 926980836, 922475339, 924512210, 
+    926230896, 917236004, 912573921, 903178029, 924828246, 
+    923296754, 916947099, 910847903, 926148369, 914389275, 
+    915863526, 911243652, 904026491, 904906841, 912758865, 
+    903310541, 907514837, 926261994, 927272190, 903953924
+};
 
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
-static void MX_GPIO_Init(void);
-static void MX_SPI1_Init(void);
 /* USER CODE BEGIN PFP */
 void cmd_sm_init(void);
 /* USER CODE END PFP */
@@ -80,7 +103,7 @@ int main(void)
   // Set up initial state for SPI IO pins:
   HAL_GPIO_WritePin(SPI1_CSn_GPIO_Port, SPI1_CSn_Pin, 1);
   HAL_GPIO_WritePin(SPI1_LD_GPIO_Port, SPI1_LD_Pin, 1);
-
+  
   /* USER CODE END Init */
 
   /* Configure the system clock */
@@ -93,28 +116,24 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_SPI1_Init();
+  MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
   cmd_sm_init();
+  HAL_TIM_Base_Start_IT(&htim2);
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   
-  // Set frequency:
-  adf4350_out_altvoltage0_frequency(915000000);
-
   // Power up the PLL:
   adf4350_out_altvoltage0_powerdown(0);
-
-
-
+  
   while (1)
   {
+    HAL_Delay(100);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-    // HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_10);
-    HAL_Delay(100);
   }
   /* USER CODE END 3 */
 }
@@ -158,77 +177,21 @@ void SystemClock_Config(void)
   }
 }
 
-/**
-  * @brief SPI1 Initialization Function
-  * @param None
-  * @retval None
-  */
-static void MX_SPI1_Init(void)
-{
-
-  /* USER CODE BEGIN SPI1_Init 0 */
-
-  /* USER CODE END SPI1_Init 0 */
-
-  /* USER CODE BEGIN SPI1_Init 1 */
-
-  /* USER CODE END SPI1_Init 1 */
-  /* SPI1 parameter configuration*/
-  hspi1.Instance = SPI1;
-  hspi1.Init.Mode = SPI_MODE_MASTER;
-  hspi1.Init.Direction = SPI_DIRECTION_2LINES;
-  hspi1.Init.DataSize = SPI_DATASIZE_8BIT;
-  hspi1.Init.CLKPolarity = SPI_POLARITY_LOW;
-  hspi1.Init.CLKPhase = SPI_PHASE_1EDGE;
-  hspi1.Init.NSS = SPI_NSS_SOFT;
-  hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_2;
-  hspi1.Init.FirstBit = SPI_FIRSTBIT_MSB;
-  hspi1.Init.TIMode = SPI_TIMODE_DISABLE;
-  hspi1.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
-  hspi1.Init.CRCPolynomial = 10;
-  if (HAL_SPI_Init(&hspi1) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  /* USER CODE BEGIN SPI1_Init 2 */
-
-  /* USER CODE END SPI1_Init 2 */
-
-}
-
-/**
-  * @brief GPIO Initialization Function
-  * @param None
-  * @retval None
-  */
-static void MX_GPIO_Init(void)
-{
-  GPIO_InitTypeDef GPIO_InitStruct = {0};
-/* USER CODE BEGIN MX_GPIO_Init_1 */
-/* USER CODE END MX_GPIO_Init_1 */
-
-  /* GPIO Ports Clock Enable */
-  __HAL_RCC_GPIOD_CLK_ENABLE();
-  __HAL_RCC_GPIOA_CLK_ENABLE();
-
-  /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4|GPIO_PIN_10, GPIO_PIN_RESET);
-
-  /*Configure GPIO pins : PA4 PA10 */
-  GPIO_InitStruct.Pin = GPIO_PIN_4|GPIO_PIN_10;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
-
-/* USER CODE BEGIN MX_GPIO_Init_2 */
-/* USER CODE END MX_GPIO_Init_2 */
-}
-
 /* USER CODE BEGIN 4 */
+
+
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef* htim)
+{
+  static uint8_t i = 0;
+  adf4350_out_altvoltage0_frequency(fhss_freqs[i]);
+  i = (i + 1) % FHSS_NUM_FREQS;
+}
+
+
 adf4350_init_param pll_config;
 
-void cmd_sm_init() {
+void cmd_sm_init()
+{
   // initialize pll_config structure
   pll_config.clkin = 25e6;
   pll_config.channel_spacing = 100;

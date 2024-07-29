@@ -1,3 +1,14 @@
+/**
+ * @file adf4351.h
+ * @author Originally by Peter Fetterer - Integrated by Ardavan Pourkeramati
+ * @brief ADF4351 driver header
+ * @version 0.1
+ * @date 2024-07-29
+ * 
+ * @copyright Copyright (c) 2024
+ * 
+ */
+
 #pragma once
 
 /******************************************************************************/
