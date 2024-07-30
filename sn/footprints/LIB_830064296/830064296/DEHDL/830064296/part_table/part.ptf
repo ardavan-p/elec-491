@@ -1,0 +1,11 @@
+FILE_TYPE = MULTI_PHYS_TABLE;
+
+PART '830064296'
+CLASS = DISCRETE
+{========================================================================================}
+:"MANUFACTURER_NAME", "MANUFACTURER_PART_NUMBER"= "PART_NUMBER", "JEDEC_TYPE", "PACK_TYPE", "MOUSER_PART_NUMBER", "MOUSER_PRICE/STOCK", "DESCRIPTION", "DATASHEET", "HEIGHT";
+{========================================================================================}
+ "Wurth Elektronik", "830064296" (!) = "", "830064296", "Other", "710-830064296", "https://www.mouser.co.uk/ProductDetail/Wurth-Elektronik/830064296?qs=2WXlatMagcHie2R9Uu0%252BSg%3D%3D", "Crystals WE-XTAL 16.0MHz 20ppm 3.2 x 2.5mm", "https://www.we-online.com/components/products/datasheet/830064296.pdf", "0.8 mm"
+END_PART
+
+END.

@@ -1,0 +1,9 @@
+Manufacturer=Cornell Dubilier
+PartNumber=381LX473M016A452
+PartCategory=Capacitor Polarised
+PackageCategory=Capacitor, Polarized Radial Diameter
+PinCount=2
+Version=1.1
+Released=2021-08-23 03:20:20
+Downloaded=2024-06-05 04:26:04
+3D=Y

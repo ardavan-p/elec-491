@@ -1,0 +1,66 @@
+(Japanese_coding: sjis)
+(function "ECS_932736"
+    (uver 1)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (ctime 2019-11-08-02:38:40)
+    (utime 2023-03-07-16:10:32)
+    (interface
+        (port "1" (symbPinId 1) (portType INOUT))
+        (port "2" (symbPinId 2) (portType INOUT))
+    )
+    (property "symbolName" "TPSV108M006R0050")
+)
+
+
+(pinAssign "ECS_932736"
+    (uver 1)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (ctime 2019-11-08-02:38:40)
+    (utime 2023-03-07-16:10:32)
+    (interface
+        (port "1" (symbPinId 1) (portName "+") (portType INOUT))
+        (port "2" (symbPinId 2) (portName "-") (portType INOUT))
+    )
+    (internal
+        (funcInst (functionRef "ECS_932736")
+                (port "1" (match "1"))
+                (port "2" (match "2"))
+        )
+    )
+    (property "usePowerBox" "No")
+    (property "symbolName" "TPSV108M006R0050")
+)
+
+
+(part "TPSV108M006R0050"
+    (uver 1)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (ctime 2019-11-08-02:38:40)
+    (utime 2023-03-07-16:10:32)
+    (packageRef "TPSV108M006R0050")
+    (pinAssignRef "ECS_932736")
+    (interface
+        (port "1" (symbPinId 1) (portName "+") (portType INOUT))
+        (port "2" (symbPinId 2) (portName "-") (portType INOUT))
+    )
+    (partClass UNDEF)
+    (useInSchema Y)
+    (useInLayout Y)
+    (inPartsList Y)
+    (partType NORMAL)
+    (placeRestriction FREE)
+    (property "enetNonSeries" "NO")
+    (property "refDesPrefix" "C")
+    (property "description" "AVX 1000uF 6.3 V dc Tantalum Capacitor Electrolytic Solid 2924 Series")
+    (property "Mouser_Part_Number" "581-TPSV108M006R0050")
+    (property "Mouser_Price/Stock" "https://www.mouser.co.uk/ProductDetail/AVX/TPSV108M006R0050/?qs=WFeDzVsYEriRBJ8v%2FpmOCw%3D%3D")
+    (property "Manufacturer_Name" "Kyocera AVX")
+    (property "Manufacturer_Part_Number" "TPSV108M006R0050")
+    (property "Datasheet_Link" "https://www.arrow.com/en/products/tpsv108m006r0050/avx")
+    (property "compAreaTopHeight" 3.75)
+)
+
+

@@ -1,0 +1,11 @@
+FILE_TYPE = MULTI_PHYS_TABLE;
+
+PART '142_0701_801'
+CLASS = IO
+{========================================================================================}
+:"MANUFACTURER_NAME", "MANUFACTURER_PART_NUMBER"= "PART_NUMBER", "JEDEC_TYPE", "PACK_TYPE", "MOUSER_PART_NUMBER", "MOUSER_PRICE/STOCK", "DESCRIPTION", "DATASHEET";
+{========================================================================================}
+ "Cinch Connectivity Solutions", "142-0701-801" (!) = "", "142-0701-851", "Other", "530-142-0701-801", "https://www.mouser.co.uk/ProductDetail/Johnson-Cinch-Connectivity-Solutions/142-0701-801?qs=PcPxjN2Z58KbDaDuDxyLHA%3D%3D", "JOHNSON - 142-0701-801 - \u5C04\u9891/\u540C\u8F74\u63D2\u5B54, SMA, PCB\u5B89\u88C5", ""
+END_PART
+
+END.

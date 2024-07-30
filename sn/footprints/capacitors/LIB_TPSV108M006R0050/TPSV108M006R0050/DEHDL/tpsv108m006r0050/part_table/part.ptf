@@ -1,0 +1,11 @@
+FILE_TYPE = MULTI_PHYS_TABLE;
+
+PART 'TPSV108M006R0050'
+CLASS = DISCRETE
+{========================================================================================}
+:"MANUFACTURER_NAME", "MANUFACTURER_PART_NUMBER"= "PART_NUMBER", "JEDEC_TYPE", "PACK_TYPE", "MOUSER_PART_NUMBER", "MOUSER_PRICE/STOCK", "DESCRIPTION", "DATASHEET", "HEIGHT";
+{========================================================================================}
+ "Kyocera AVX", "TPSV108M006R0050" (!) = "", "CAPPM7362X375N", "Capacitor Moulded Polarised", "581-TPSV108M006R0050", "https://www.mouser.co.uk/ProductDetail/AVX/TPSV108M006R0050/?qs=WFeDzVsYEriRBJ8v%2FpmOCw%3D%3D", "AVX 1000uF 6.3 V dc Tantalum Capacitor Electrolytic Solid 2924 Series", "https://www.arrow.com/en/products/tpsv108m006r0050/avx", "3.75 mm"
+END_PART
+
+END.

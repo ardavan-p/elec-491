@@ -1,0 +1,97 @@
+;Proteus Design Interchange Format
+(PDIF
+ (vendor "SamacSys Limited")
+ (version 1 0)
+ (library
+  (part "142-0701-801"
+   (description "JOHNSON - 142-0701-801 - \\u5C04\\u9891/\\u540C\\u8F74\\u63D2\\u5B54, SMA, PCB\\u5B89\\u88C5")
+   (family "CON")
+   (package "142-0701-851")
+   (attribute "Datasheet Link" "")
+   (attribute "Mouser Part Number" "530-142-0701-801")
+   (attribute "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/Johnson-Cinch-Connectivity-Solutions/142-0701-801?qs=PcPxjN2Z58KbDaDuDxyLHA%3D%3D")
+   (attribute "Manufacturer_Name" "Cinch Connectivity Solutions")
+   (attribute "Manufacturer_Part_Number" "142-0701-801")
+   (gate
+    (symbol "142-0701-801")
+    (pin "1" 1 PS)
+    (pin "2" 2 PS)
+    (pin "3" 3 PS)
+   )
+  )
+  (symbol "142-0701-801"
+   (units THOU)
+   (origin (pt 0 0))
+   (graphic
+    (stroke 10)
+    (path (pt 200 100) (pt 600 100) (pt 600 -300) (pt 200 -300) (pt 200 100) (closed))
+   )
+   (terminal
+    (body (symbol "PIN") (pt 0 0) (rot 0) (mir 0) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 0 -100) (rot 0) (mir 0) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 0 -200) (rot 0) (mir 0) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+  )
+  (symbol "PIN"
+   (units THOU)
+   (origin (pt 0 0))
+   (graphic
+    (stroke 10)
+    (path (pt 0 0) (pt 200 0))))
+  (symbol "PINSHORT"
+   (units THOU)
+   (origin (pt 0 0))
+   (graphic
+    (stroke 10)
+    (path (pt 0 0) (pt 100 0))))
+  (package "142-0701-851"
+   (units MM)
+   (layer TASM
+    (graphic
+     (stroke 0.2)
+     (path
+      (closed true)
+      (pt -6.95075 0)
+      (pt 2.56925 0)
+      (pt 2.56925 -6.4)
+      (pt -6.95075 -6.4)
+      (pt -6.95075 0))))
+   (layer TSLK
+    (graphic
+     (stroke 0.2)
+     (path
+      (closed false)
+      (pt -5.07325 -6.4)
+      (pt -3.68975 -6.4))))
+   (layer TSLK
+    (graphic
+     (stroke 0.2)
+     (path
+      (closed false)
+      (pt -0.69175 -6.4)
+      (pt 0.69175 -6.4))))
+   (leg 1 (pt -6.57225 -4.19) (padstack 0))
+   (leg 2 (pt -2.19075 -4.19) (padstack 2))
+   (leg 3 (pt 2.19075 -4.19) (padstack 0))
+   (padstack 0
+    (plated false)
+    (pad (layer TCOP) (rectf 2.413 5.08 0 0 90))
+   )
+   (padstack 2
+    (plated false)
+    (pad (layer TCOP) (rectf 2.286 5.08 0 0 90))
+   )
+   (model "142-0701-801.stp"
+    (euler 0 0 90)
+    (offset -2.130000114440918 -6.170000076293945 -0.3700000047683716)
+   )
+  )
+ )
+)

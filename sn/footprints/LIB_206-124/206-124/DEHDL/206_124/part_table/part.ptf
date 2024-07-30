@@ -1,0 +1,11 @@
+FILE_TYPE = MULTI_PHYS_TABLE;
+
+PART '206_124'
+CLASS = DISCRETE
+{========================================================================================}
+:"MANUFACTURER_NAME", "MANUFACTURER_PART_NUMBER"= "PART_NUMBER", "JEDEC_TYPE", "PACK_TYPE", "MOUSER_PART_NUMBER", "MOUSER_PRICE/STOCK", "DESCRIPTION", "DATASHEET", "HEIGHT";
+{========================================================================================}
+ "CTS", "206-124" (!) = "", "206124", "Other", "774-206124", "https://www.mouser.co.uk/ProductDetail/CTS-Electronic-Components/206-124?qs=YquLqel%252BdSwQ37OnMfpodQ%3D%3D", "4 Way Through Hole DIP Switch Single Pole Double Throw (SPDT), Standard Actuator", "https://datasheet.datasheetarchive.com/originals/distributors/SFDatasheet-0/sf-0002828.pdf", "8.49 mm"
+END_PART
+
+END.

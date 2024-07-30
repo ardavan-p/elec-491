@@ -1,0 +1,11 @@
+FILE_TYPE = MULTI_PHYS_TABLE;
+
+PART '500SSP1S1M6QEB'
+CLASS = DISCRETE
+{========================================================================================}
+:"MANUFACTURER_NAME", "MANUFACTURER_PART_NUMBER"= "PART_NUMBER", "JEDEC_TYPE", "PACK_TYPE", "MOUSER_PART_NUMBER", "MOUSER_PRICE/STOCK", "DESCRIPTION", "DATASHEET", "HEIGHT";
+{========================================================================================}
+ "E-Switch", "500SSP1S1M6QEB" (!) = "", "500SSP1S1M6QEB", "Other", "612-500SSP1S1M6QEB", "https://www.mouser.co.uk/ProductDetail/E-Switch/500SSP1S1M6QEB?qs=0JU57JYmZjtvO38dJ0sbfg%3D%3D", "SLIDE, 5A 120VAC/28VDC, SPDT On-On, Through Hole, Right Angle PC Pin", "https://configured-product-images.s3.amazonaws.com/2D/specs/500SSP1S1M6QEB.pdf", "6.1 mm"
+END_PART
+
+END.

@@ -1,0 +1,11 @@
+FILE_TYPE = MULTI_PHYS_TABLE;
+
+PART '381LX473M016A452'
+CLASS = DISCRETE
+{========================================================================================}
+:"MANUFACTURER_NAME", "MANUFACTURER_PART_NUMBER"= "PART_NUMBER", "JEDEC_TYPE", "PACK_TYPE", "MOUSER_PART_NUMBER", "MOUSER_PRICE/STOCK", "DESCRIPTION", "DATASHEET", "HEIGHT";
+{========================================================================================}
+ "Cornell Dubilier", "381LX473M016A452" (!) = "", "CAPPRD1000W200D3550H4700", "Capacitor, Polarized Radial Diameter", "598-81LX473M016A452", "https://www.mouser.com/Search/Refine.aspx?Keyword=598-81LX473M016A452", "Aluminum Electrolytic Capacitors - Snap In 47000uF 16V 20%", "https://componentsearchengine.com/Datasheets/1/381LX473M016A452.pdf", "47 mm"
+END_PART
+
+END.

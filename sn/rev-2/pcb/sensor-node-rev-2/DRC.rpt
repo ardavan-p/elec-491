@@ -1,0 +1,34 @@
+** Drc report for sensor-node-rev-2.kicad_pcb **
+** Created on 2024-07-11T15:51:52-0700 **
+
+** Found 4 DRC violations **
+[shorting_items]: Items shorting two nets (nets GND and /NRF_ANT)
+    Local override; error
+    @(81.2200 mm, 102.3300 mm): Via [GND] on F.Cu - B.Cu
+    @(83.3300 mm, 102.1500 mm): Pad 2 [/NRF_ANT] of AE2 on F.Cu
+[shorting_items]: Items shorting two nets (nets GND and /NRF_ANT)
+    Local override; error
+    @(81.2300 mm, 102.1500 mm): Pad 1 [GND] of AE2 on F.Cu
+    @(83.3300 mm, 102.1500 mm): Pad 2 [/NRF_ANT] of AE2 on F.Cu
+[hole_clearance]: Hole clearance violation (board setup constraints hole clearance 0.2600 mm; actual 0.0000 mm)
+    Rule: board setup constraints hole; error
+    @(83.3300 mm, 102.1500 mm): Pad 2 [/NRF_ANT] of AE2 on F.Cu
+    @(81.2200 mm, 102.3300 mm): Via [GND] on F.Cu - B.Cu
+[solder_mask_bridge]: Front solder mask aperture bridges items with different nets
+    Rule: board setup solder mask min width; error
+    @(83.3300 mm, 102.1500 mm): Pad 2 [/NRF_ANT] of AE2 on F.Cu
+    @(81.2300 mm, 102.1500 mm): Pad 1 [GND] of AE2 on F.Cu
+
+** Found 2 unconnected pads **
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(100.5750 mm, 96.0295 mm): Zone [GND] on F.Cu
+    @(89.0302 mm, 126.3050 mm): Pad 32 [GND] of U1 on F.Cu
+[unconnected_items]: Missing connection between items
+    Local override; error
+    @(100.5750 mm, 96.0295 mm): Zone [GND] on F.Cu
+    @(94.9698 mm, 127.2950 mm): Pad 16 [GND] of U1 on F.Cu
+
+** Found 0 Footprint errors **
+
+** End of Report **

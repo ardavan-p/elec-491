@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP AD8226ARMZ
+D Wide Supply Range, Rail-to-Rail Output Instrumentation Amplifier
+K
+F http://www.analog.com/media/en/technical-documentation/data-sheets/AD8226.pdf
+$ENDCMP
+#
+#End Doc Library

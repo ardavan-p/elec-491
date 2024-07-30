@@ -1,0 +1,11 @@
+FILE_TYPE = MULTI_PHYS_TABLE;
+
+PART 'TPMV108M006R0020'
+CLASS = DISCRETE
+{========================================================================================}
+:"MANUFACTURER_NAME", "MANUFACTURER_PART_NUMBER"= "PART_NUMBER", "JEDEC_TYPE", "PACK_TYPE", "MOUSER_PART_NUMBER", "MOUSER_PRICE/STOCK", "DESCRIPTION", "DATASHEET", "HEIGHT";
+{========================================================================================}
+ "Kyocera AVX", "TPMV108M006R0020" (!) = "", "CAPPM7362X375N", "Capacitor Moulded Polarised", "581-TPMV108M006R0020", "https://www.mouser.co.uk/ProductDetail/AVX/TPMV108M006R0020?qs=0Y9aZN%252BMVCXKhu8FbNCAZg%3D%3D", "Cap Tant Solid 1000uF 6V V CASE 20% (7.3 X 6.1 X 3.55mm) Inward L SMD 7361-38 0.02 Ohm 125C T/R", "https://www.arrow.com/en/products/tpmv108m006r0020/avx", "3.75 mm"
+END_PART
+
+END.

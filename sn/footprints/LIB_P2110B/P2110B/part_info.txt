@@ -1,0 +1,9 @@
+Manufacturer=Powercast
+PartNumber=P2110B
+PartCategory=Power Supply
+PackageCategory=Other
+PinCount=14
+Version=1.1
+Released=2018-11-12 11:20:01
+Downloaded=2024-06-04 00:44:01
+3D=Y

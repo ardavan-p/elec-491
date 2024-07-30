@@ -1,0 +1,10 @@
+(unit MM)
+
+(package "P2110B"
+    (type UNDEF)
+    (uver 2)
+    (mountForm default
+        (footprintRef "P2110B")
+        (spec "default")
+    )
+)

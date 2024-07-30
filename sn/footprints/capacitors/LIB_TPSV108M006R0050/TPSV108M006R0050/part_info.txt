@@ -1,0 +1,9 @@
+Manufacturer=Kyocera AVX
+PartNumber=TPSV108M006R0050
+PartCategory=Capacitor Polarised
+PackageCategory=Capacitor Moulded Polarised
+PinCount=2
+Version=1.1
+Released=2019-11-08 02:38:40
+Downloaded=2024-07-07 20:35:04
+3D=Y

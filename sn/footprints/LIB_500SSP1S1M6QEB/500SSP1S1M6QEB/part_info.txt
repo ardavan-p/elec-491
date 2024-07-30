@@ -1,0 +1,9 @@
+Manufacturer=E-Switch
+PartNumber=500SSP1S1M6QEB
+PartCategory=Switch
+PackageCategory=Other
+PinCount=5
+Version=6.5
+Released=2020-10-22 10:51:39
+Downloaded=2024-06-04 22:28:29
+3D=Y

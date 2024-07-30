@@ -1,0 +1,9 @@
+Manufacturer=KEMET
+PartNumber=T520Y477M006ATE035
+PartCategory=Capacitor Polarised
+PackageCategory=Other
+PinCount=2
+Version=5.1
+Released=2022-04-30 16:04:09
+Downloaded=2024-07-15 03:30:05
+3D=Y

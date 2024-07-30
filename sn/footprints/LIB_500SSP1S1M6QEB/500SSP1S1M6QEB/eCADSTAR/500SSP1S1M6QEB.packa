@@ -1,0 +1,13 @@
+(unit MM)
+
+(package "500SSP1S1M6QEB"
+    (type UNDEF)
+    (uver 2)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (utime 2020-10-22-10:51:39)
+    (mountForm default
+        (footprintRef "500SSP1S1M6QEB")
+        (spec "System")
+    )
+)

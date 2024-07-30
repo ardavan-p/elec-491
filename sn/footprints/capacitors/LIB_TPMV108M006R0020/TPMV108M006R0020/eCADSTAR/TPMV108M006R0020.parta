@@ -1,0 +1,66 @@
+(Japanese_coding: sjis)
+(function "ECS_311405"
+    (uver 1)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (ctime 2022-01-24-05:19:12)
+    (utime 2023-03-07-16:10:32)
+    (interface
+        (port "1" (symbPinId 1) (portType INOUT))
+        (port "2" (symbPinId 2) (portType INOUT))
+    )
+    (property "symbolName" "TPMV108M006R0020")
+)
+
+
+(pinAssign "ECS_311405"
+    (uver 1)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (ctime 2022-01-24-05:19:12)
+    (utime 2023-03-07-16:10:32)
+    (interface
+        (port "1" (symbPinId 1) (portName "+") (portType INOUT))
+        (port "2" (symbPinId 2) (portName "-") (portType INOUT))
+    )
+    (internal
+        (funcInst (functionRef "ECS_311405")
+                (port "1" (match "1"))
+                (port "2" (match "2"))
+        )
+    )
+    (property "usePowerBox" "No")
+    (property "symbolName" "TPMV108M006R0020")
+)
+
+
+(part "TPMV108M006R0020"
+    (uver 1)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (ctime 2022-01-24-05:19:12)
+    (utime 2023-03-07-16:10:32)
+    (packageRef "TPMV108M006R0020")
+    (pinAssignRef "ECS_311405")
+    (interface
+        (port "1" (symbPinId 1) (portName "+") (portType INOUT))
+        (port "2" (symbPinId 2) (portName "-") (portType INOUT))
+    )
+    (partClass UNDEF)
+    (useInSchema Y)
+    (useInLayout Y)
+    (inPartsList Y)
+    (partType NORMAL)
+    (placeRestriction FREE)
+    (property "enetNonSeries" "NO")
+    (property "refDesPrefix" "C")
+    (property "description" "Cap Tant Solid 1000uF 6V V CASE 20% (7.3 X 6.1 X 3.55mm) Inward L SMD 7361-38 0.02 Ohm 125C T/R")
+    (property "Mouser_Part_Number" "581-TPMV108M006R0020")
+    (property "Mouser_Price/Stock" "https://www.mouser.co.uk/ProductDetail/AVX/TPMV108M006R0020?qs=0Y9aZN%252BMVCXKhu8FbNCAZg%3D%3D")
+    (property "Manufacturer_Name" "Kyocera AVX")
+    (property "Manufacturer_Part_Number" "TPMV108M006R0020")
+    (property "Datasheet_Link" "https://www.arrow.com/en/products/tpmv108m006r0020/avx")
+    (property "compAreaTopHeight" 3.75)
+)
+
+

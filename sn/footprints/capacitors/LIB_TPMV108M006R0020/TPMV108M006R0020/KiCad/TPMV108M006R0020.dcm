@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP TPMV108M006R0020
+D Cap Tant Solid 1000uF 6V V CASE 20% (7.3 X 6.1 X 3.55mm) Inward L SMD 7361-38 0.02 Ohm 125C T/R
+K
+F https://www.arrow.com/en/products/tpmv108m006r0020/avx
+$ENDCMP
+#
+#End Doc Library

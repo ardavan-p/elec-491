@@ -1,0 +1,11 @@
+FILE_TYPE = MULTI_PHYS_TABLE;
+
+PART 'B3FS_1002P'
+CLASS = DISCRETE
+{========================================================================================}
+:"MANUFACTURER_NAME", "MANUFACTURER_PART_NUMBER"= "PART_NUMBER", "JEDEC_TYPE", "PACK_TYPE", "MOUSER_PART_NUMBER", "MOUSER_PRICE/STOCK", "DESCRIPTION", "DATASHEET";
+{========================================================================================}
+ "Omron Electronics", "B3FS-1002P" (!) = "", "B3FS-1000P", "Other", "653-B3FS-1002P", "https://www.mouser.co.uk/ProductDetail/Omron-Electronics/B3FS-1002P?qs=ImaqFqjHA4mR4r86JYSSCA%3D%3D", "Tactile Switches 6x6x3.1mm Flat 150OF PhosphorBronze Ag TR", ""
+END_PART
+
+END.

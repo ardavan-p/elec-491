@@ -1,0 +1,13 @@
+(unit MM)
+
+(package "TR3W108M6R3C0050"
+    (type UNDEF)
+    (uver 2)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (utime 2019-11-11-16:04:34)
+    (mountForm default
+        (footprintRef "CAPPM7360X580N")
+        (spec "System")
+    )
+)

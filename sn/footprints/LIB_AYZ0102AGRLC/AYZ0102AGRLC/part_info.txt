@@ -1,0 +1,9 @@
+Manufacturer=C & K COMPONENTS
+PartNumber=AYZ0102AGRLC
+PartCategory=Switch
+PackageCategory=Other
+PinCount=5
+Version=3.2
+Released=2018-02-22 15:56:54
+Downloaded=2024-07-06 03:33:36
+3D=Y
