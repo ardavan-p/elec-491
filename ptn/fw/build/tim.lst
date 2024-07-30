@@ -1,28 +1,28 @@
-ARM GAS  /tmp/ccYk1aU8.s 			page 1
+ARM GAS  C:\Users\ardav\AppData\Local\Temp\cctDkDsX.s 			page 1
 
 
    1              		.cpu cortex-m3
-   2              		.eabi_attribute 20, 1
-   3              		.eabi_attribute 21, 1
-   4              		.eabi_attribute 23, 3
-   5              		.eabi_attribute 24, 1
-   6              		.eabi_attribute 25, 1
-   7              		.eabi_attribute 26, 1
-   8              		.eabi_attribute 30, 1
-   9              		.eabi_attribute 34, 1
-  10              		.eabi_attribute 18, 4
-  11              		.file	"tim.c"
-  12              		.text
-  13              	.Ltext0:
-  14              		.cfi_sections	.debug_frame
-  15              		.section	.text.MX_TIM2_Init,"ax",%progbits
-  16              		.align	1
-  17              		.global	MX_TIM2_Init
-  18              		.arch armv7-m
-  19              		.syntax unified
-  20              		.thumb
-  21              		.thumb_func
-  22              		.fpu softvfp
+   2              		.arch armv7-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"tim.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.MX_TIM2_Init,"ax",%progbits
+  18              		.align	1
+  19              		.global	MX_TIM2_Init
+  20              		.syntax unified
+  21              		.thumb
+  22              		.thumb_func
   24              	MX_TIM2_Init:
   25              	.LFB65:
   26              		.file 1 "Core/Src/tim.c"
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccYk1aU8.s 			page 1
   30:Core/Src/tim.c **** void MX_TIM2_Init(void)
   31:Core/Src/tim.c **** {
   27              		.loc 1 31 1 view -0
-ARM GAS  /tmp/ccYk1aU8.s 			page 2
+ARM GAS  C:\Users\ardav\AppData\Local\Temp\cctDkDsX.s 			page 2
 
 
   28              		.cfi_startproc
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccYk1aU8.s 			page 1
   66              		.loc 1 47 28 is_stmt 0 view .LVU14
   67 0028 0361     		str	r3, [r0, #16]
   48:Core/Src/tim.c ****   htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
-ARM GAS  /tmp/ccYk1aU8.s 			page 3
+ARM GAS  C:\Users\ardav\AppData\Local\Temp\cctDkDsX.s 			page 3
 
 
   68              		.loc 1 48 3 is_stmt 1 view .LVU15
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccYk1aU8.s 			page 1
   64:Core/Src/tim.c ****   /* USER CODE BEGIN TIM2_Init 2 */
   65:Core/Src/tim.c **** 
   66:Core/Src/tim.c ****   /* USER CODE END TIM2_Init 2 */
-ARM GAS  /tmp/ccYk1aU8.s 			page 4
+ARM GAS  C:\Users\ardav\AppData\Local\Temp\cctDkDsX.s 			page 4
 
 
   67:Core/Src/tim.c **** 
@@ -223,126 +223,124 @@ ARM GAS  /tmp/ccYk1aU8.s 			page 1
  142              		.syntax unified
  143              		.thumb
  144              		.thumb_func
- 145              		.fpu softvfp
- 147              	HAL_TIM_Base_MspInit:
- 148              	.LVL6:
- 149              	.LFB66:
+ 146              	HAL_TIM_Base_MspInit:
+ 147              	.LVL6:
+ 148              	.LFB66:
   69:Core/Src/tim.c **** 
   70:Core/Src/tim.c **** void HAL_TIM_Base_MspInit(TIM_HandleTypeDef* tim_baseHandle)
   71:Core/Src/tim.c **** {
- 150              		.loc 1 71 1 is_stmt 1 view -0
- 151              		.cfi_startproc
- 152              		@ args = 0, pretend = 0, frame = 8
- 153              		@ frame_needed = 0, uses_anonymous_args = 0
+ 149              		.loc 1 71 1 is_stmt 1 view -0
+ 150              		.cfi_startproc
+ 151              		@ args = 0, pretend = 0, frame = 8
+ 152              		@ frame_needed = 0, uses_anonymous_args = 0
   72:Core/Src/tim.c **** 
   73:Core/Src/tim.c ****   if(tim_baseHandle->Instance==TIM2)
- 154              		.loc 1 73 3 view .LVU38
- 155              		.loc 1 73 20 is_stmt 0 view .LVU39
-ARM GAS  /tmp/ccYk1aU8.s 			page 5
+ 153              		.loc 1 73 3 view .LVU38
+ 154              		.loc 1 73 20 is_stmt 0 view .LVU39
+ 155 0000 0368     		ldr	r3, [r0]
+ARM GAS  C:\Users\ardav\AppData\Local\Temp\cctDkDsX.s 			page 5
 
 
- 156 0000 0368     		ldr	r3, [r0]
- 157              		.loc 1 73 5 view .LVU40
- 158 0002 B3F1804F 		cmp	r3, #1073741824
- 159 0006 00D0     		beq	.L17
- 160 0008 7047     		bx	lr
- 161              	.L17:
+ 156              		.loc 1 73 5 view .LVU40
+ 157 0002 B3F1804F 		cmp	r3, #1073741824
+ 158 0006 00D0     		beq	.L17
+ 159 0008 7047     		bx	lr
+ 160              	.L17:
   71:Core/Src/tim.c **** 
- 162              		.loc 1 71 1 view .LVU41
- 163 000a 00B5     		push	{lr}
- 164              	.LCFI4:
- 165              		.cfi_def_cfa_offset 4
- 166              		.cfi_offset 14, -4
- 167 000c 83B0     		sub	sp, sp, #12
- 168              	.LCFI5:
- 169              		.cfi_def_cfa_offset 16
+ 161              		.loc 1 71 1 view .LVU41
+ 162 000a 00B5     		push	{lr}
+ 163              	.LCFI4:
+ 164              		.cfi_def_cfa_offset 4
+ 165              		.cfi_offset 14, -4
+ 166 000c 83B0     		sub	sp, sp, #12
+ 167              	.LCFI5:
+ 168              		.cfi_def_cfa_offset 16
   74:Core/Src/tim.c ****   {
   75:Core/Src/tim.c ****   /* USER CODE BEGIN TIM2_MspInit 0 */
   76:Core/Src/tim.c **** 
   77:Core/Src/tim.c ****   /* USER CODE END TIM2_MspInit 0 */
   78:Core/Src/tim.c ****     /* TIM2 clock enable */
   79:Core/Src/tim.c ****     __HAL_RCC_TIM2_CLK_ENABLE();
- 170              		.loc 1 79 5 is_stmt 1 view .LVU42
- 171              	.LBB2:
- 172              		.loc 1 79 5 view .LVU43
- 173              		.loc 1 79 5 view .LVU44
- 174 000e 03F50433 		add	r3, r3, #135168
- 175 0012 DA69     		ldr	r2, [r3, #28]
- 176 0014 42F00102 		orr	r2, r2, #1
- 177 0018 DA61     		str	r2, [r3, #28]
- 178              		.loc 1 79 5 view .LVU45
- 179 001a DB69     		ldr	r3, [r3, #28]
- 180 001c 03F00103 		and	r3, r3, #1
- 181 0020 0193     		str	r3, [sp, #4]
- 182              		.loc 1 79 5 view .LVU46
- 183 0022 019B     		ldr	r3, [sp, #4]
- 184              	.LBE2:
- 185              		.loc 1 79 5 view .LVU47
+ 169              		.loc 1 79 5 is_stmt 1 view .LVU42
+ 170              	.LBB2:
+ 171              		.loc 1 79 5 view .LVU43
+ 172              		.loc 1 79 5 view .LVU44
+ 173 000e 03F50433 		add	r3, r3, #135168
+ 174 0012 DA69     		ldr	r2, [r3, #28]
+ 175 0014 42F00102 		orr	r2, r2, #1
+ 176 0018 DA61     		str	r2, [r3, #28]
+ 177              		.loc 1 79 5 view .LVU45
+ 178 001a DB69     		ldr	r3, [r3, #28]
+ 179 001c 03F00103 		and	r3, r3, #1
+ 180 0020 0193     		str	r3, [sp, #4]
+ 181              		.loc 1 79 5 view .LVU46
+ 182 0022 019B     		ldr	r3, [sp, #4]
+ 183              	.LBE2:
+ 184              		.loc 1 79 5 view .LVU47
   80:Core/Src/tim.c **** 
   81:Core/Src/tim.c ****     /* TIM2 interrupt Init */
   82:Core/Src/tim.c ****     HAL_NVIC_SetPriority(TIM2_IRQn, 0, 0);
- 186              		.loc 1 82 5 view .LVU48
- 187 0024 0022     		movs	r2, #0
- 188 0026 1146     		mov	r1, r2
- 189 0028 1C20     		movs	r0, #28
- 190              	.LVL7:
- 191              		.loc 1 82 5 is_stmt 0 view .LVU49
- 192 002a FFF7FEFF 		bl	HAL_NVIC_SetPriority
- 193              	.LVL8:
+ 185              		.loc 1 82 5 view .LVU48
+ 186 0024 0022     		movs	r2, #0
+ 187 0026 1146     		mov	r1, r2
+ 188 0028 1C20     		movs	r0, #28
+ 189              	.LVL7:
+ 190              		.loc 1 82 5 is_stmt 0 view .LVU49
+ 191 002a FFF7FEFF 		bl	HAL_NVIC_SetPriority
+ 192              	.LVL8:
   83:Core/Src/tim.c ****     HAL_NVIC_EnableIRQ(TIM2_IRQn);
- 194              		.loc 1 83 5 is_stmt 1 view .LVU50
- 195 002e 1C20     		movs	r0, #28
- 196 0030 FFF7FEFF 		bl	HAL_NVIC_EnableIRQ
- 197              	.LVL9:
+ 193              		.loc 1 83 5 is_stmt 1 view .LVU50
+ 194 002e 1C20     		movs	r0, #28
+ 195 0030 FFF7FEFF 		bl	HAL_NVIC_EnableIRQ
+ 196              	.LVL9:
   84:Core/Src/tim.c ****   /* USER CODE BEGIN TIM2_MspInit 1 */
   85:Core/Src/tim.c **** 
   86:Core/Src/tim.c ****   /* USER CODE END TIM2_MspInit 1 */
   87:Core/Src/tim.c ****   }
-ARM GAS  /tmp/ccYk1aU8.s 			page 6
-
-
   88:Core/Src/tim.c **** }
- 198              		.loc 1 88 1 is_stmt 0 view .LVU51
- 199 0034 03B0     		add	sp, sp, #12
- 200              	.LCFI6:
- 201              		.cfi_def_cfa_offset 4
- 202              		@ sp needed
- 203 0036 5DF804FB 		ldr	pc, [sp], #4
- 204              		.cfi_endproc
- 205              	.LFE66:
- 207              		.section	.text.HAL_TIM_Base_MspDeInit,"ax",%progbits
- 208              		.align	1
- 209              		.global	HAL_TIM_Base_MspDeInit
- 210              		.syntax unified
- 211              		.thumb
- 212              		.thumb_func
- 213              		.fpu softvfp
- 215              	HAL_TIM_Base_MspDeInit:
- 216              	.LVL10:
- 217              	.LFB67:
+ARM GAS  C:\Users\ardav\AppData\Local\Temp\cctDkDsX.s 			page 6
+
+
+ 197              		.loc 1 88 1 is_stmt 0 view .LVU51
+ 198 0034 03B0     		add	sp, sp, #12
+ 199              	.LCFI6:
+ 200              		.cfi_def_cfa_offset 4
+ 201              		@ sp needed
+ 202 0036 5DF804FB 		ldr	pc, [sp], #4
+ 203              		.cfi_endproc
+ 204              	.LFE66:
+ 206              		.section	.text.HAL_TIM_Base_MspDeInit,"ax",%progbits
+ 207              		.align	1
+ 208              		.global	HAL_TIM_Base_MspDeInit
+ 209              		.syntax unified
+ 210              		.thumb
+ 211              		.thumb_func
+ 213              	HAL_TIM_Base_MspDeInit:
+ 214              	.LVL10:
+ 215              	.LFB67:
   89:Core/Src/tim.c **** 
   90:Core/Src/tim.c **** void HAL_TIM_Base_MspDeInit(TIM_HandleTypeDef* tim_baseHandle)
   91:Core/Src/tim.c **** {
- 218              		.loc 1 91 1 is_stmt 1 view -0
- 219              		.cfi_startproc
- 220              		@ args = 0, pretend = 0, frame = 0
- 221              		@ frame_needed = 0, uses_anonymous_args = 0
- 222              		.loc 1 91 1 is_stmt 0 view .LVU53
- 223 0000 08B5     		push	{r3, lr}
- 224              	.LCFI7:
- 225              		.cfi_def_cfa_offset 8
- 226              		.cfi_offset 3, -8
- 227              		.cfi_offset 14, -4
+ 216              		.loc 1 91 1 is_stmt 1 view -0
+ 217              		.cfi_startproc
+ 218              		@ args = 0, pretend = 0, frame = 0
+ 219              		@ frame_needed = 0, uses_anonymous_args = 0
+ 220              		.loc 1 91 1 is_stmt 0 view .LVU53
+ 221 0000 08B5     		push	{r3, lr}
+ 222              	.LCFI7:
+ 223              		.cfi_def_cfa_offset 8
+ 224              		.cfi_offset 3, -8
+ 225              		.cfi_offset 14, -4
   92:Core/Src/tim.c **** 
   93:Core/Src/tim.c ****   if(tim_baseHandle->Instance==TIM2)
- 228              		.loc 1 93 3 is_stmt 1 view .LVU54
- 229              		.loc 1 93 20 is_stmt 0 view .LVU55
- 230 0002 0368     		ldr	r3, [r0]
- 231              		.loc 1 93 5 view .LVU56
- 232 0004 B3F1804F 		cmp	r3, #1073741824
- 233 0008 00D0     		beq	.L21
- 234              	.LVL11:
- 235              	.L18:
+ 226              		.loc 1 93 3 is_stmt 1 view .LVU54
+ 227              		.loc 1 93 20 is_stmt 0 view .LVU55
+ 228 0002 0368     		ldr	r3, [r0]
+ 229              		.loc 1 93 5 view .LVU56
+ 230 0004 B3F1804F 		cmp	r3, #1073741824
+ 231 0008 00D0     		beq	.L21
+ 232              	.LVL11:
+ 233              	.L18:
   94:Core/Src/tim.c ****   {
   95:Core/Src/tim.c ****   /* USER CODE BEGIN TIM2_MspDeInit 0 */
   96:Core/Src/tim.c **** 
@@ -357,71 +355,72 @@ ARM GAS  /tmp/ccYk1aU8.s 			page 1
  105:Core/Src/tim.c ****   /* USER CODE END TIM2_MspDeInit 1 */
  106:Core/Src/tim.c ****   }
  107:Core/Src/tim.c **** }
- 236              		.loc 1 107 1 view .LVU57
-ARM GAS  /tmp/ccYk1aU8.s 			page 7
+ 234              		.loc 1 107 1 view .LVU57
+ 235 000a 08BD     		pop	{r3, pc}
+ 236              	.LVL12:
+ARM GAS  C:\Users\ardav\AppData\Local\Temp\cctDkDsX.s 			page 7
 
 
- 237 000a 08BD     		pop	{r3, pc}
- 238              	.LVL12:
- 239              	.L21:
+ 237              	.L21:
   99:Core/Src/tim.c **** 
- 240              		.loc 1 99 5 is_stmt 1 view .LVU58
- 241 000c 044A     		ldr	r2, .L22
- 242 000e D369     		ldr	r3, [r2, #28]
- 243 0010 23F00103 		bic	r3, r3, #1
- 244 0014 D361     		str	r3, [r2, #28]
+ 238              		.loc 1 99 5 is_stmt 1 view .LVU58
+ 239 000c 044A     		ldr	r2, .L22
+ 240 000e D369     		ldr	r3, [r2, #28]
+ 241 0010 23F00103 		bic	r3, r3, #1
+ 242 0014 D361     		str	r3, [r2, #28]
  102:Core/Src/tim.c ****   /* USER CODE BEGIN TIM2_MspDeInit 1 */
- 245              		.loc 1 102 5 view .LVU59
- 246 0016 1C20     		movs	r0, #28
- 247              	.LVL13:
+ 243              		.loc 1 102 5 view .LVU59
+ 244 0016 1C20     		movs	r0, #28
+ 245              	.LVL13:
  102:Core/Src/tim.c ****   /* USER CODE BEGIN TIM2_MspDeInit 1 */
- 248              		.loc 1 102 5 is_stmt 0 view .LVU60
- 249 0018 FFF7FEFF 		bl	HAL_NVIC_DisableIRQ
- 250              	.LVL14:
- 251              		.loc 1 107 1 view .LVU61
- 252 001c F5E7     		b	.L18
- 253              	.L23:
- 254 001e 00BF     		.align	2
- 255              	.L22:
- 256 0020 00100240 		.word	1073876992
- 257              		.cfi_endproc
- 258              	.LFE67:
- 260              		.global	htim2
- 261              		.section	.bss.htim2,"aw",%nobits
- 262              		.align	2
- 263              		.set	.LANCHOR0,. + 0
- 266              	htim2:
- 267 0000 00000000 		.space	72
- 267      00000000 
- 267      00000000 
- 267      00000000 
- 267      00000000 
- 268              		.text
- 269              	.Letext0:
- 270              		.file 2 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h"
- 271              		.file 3 "/usr/lib/gcc/arm-none-eabi/10.3.1/include/stdint.h"
- 272              		.file 4 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h"
- 273              		.file 5 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h"
- 274              		.file 6 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h"
- 275              		.file 7 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_cortex.h"
- 276              		.file 8 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h"
- 277              		.file 9 "Core/Inc/main.h"
- 278              		.file 10 "Core/Inc/tim.h"
-ARM GAS  /tmp/ccYk1aU8.s 			page 8
+ 246              		.loc 1 102 5 is_stmt 0 view .LVU60
+ 247 0018 FFF7FEFF 		bl	HAL_NVIC_DisableIRQ
+ 248              	.LVL14:
+ 249              		.loc 1 107 1 view .LVU61
+ 250 001c F5E7     		b	.L18
+ 251              	.L23:
+ 252 001e 00BF     		.align	2
+ 253              	.L22:
+ 254 0020 00100240 		.word	1073876992
+ 255              		.cfi_endproc
+ 256              	.LFE67:
+ 258              		.global	htim2
+ 259              		.section	.bss.htim2,"aw",%nobits
+ 260              		.align	2
+ 261              		.set	.LANCHOR0,. + 0
+ 264              	htim2:
+ 265 0000 00000000 		.space	72
+ 265      00000000 
+ 265      00000000 
+ 265      00000000 
+ 265      00000000 
+ 266              		.text
+ 267              	.Letext0:
+ 268              		.file 2 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h"
+ 269              		.file 3 "d:\\programs\\tools\\arm gnu toolchain arm-none-eabi\\11.3 rel1\\arm-none-eabi\\include\\
+ 270              		.file 4 "d:\\programs\\tools\\arm gnu toolchain arm-none-eabi\\11.3 rel1\\arm-none-eabi\\include\\
+ 271              		.file 5 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h"
+ 272              		.file 6 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h"
+ 273              		.file 7 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h"
+ 274              		.file 8 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_cortex.h"
+ 275              		.file 9 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h"
+ 276              		.file 10 "Core/Inc/tim.h"
+ 277              		.file 11 "Core/Inc/main.h"
+ARM GAS  C:\Users\ardav\AppData\Local\Temp\cctDkDsX.s 			page 8
 
 
 DEFINED SYMBOLS
-                            *ABS*:0000000000000000 tim.c
-     /tmp/ccYk1aU8.s:16     .text.MX_TIM2_Init:0000000000000000 $t
-     /tmp/ccYk1aU8.s:24     .text.MX_TIM2_Init:0000000000000000 MX_TIM2_Init
-     /tmp/ccYk1aU8.s:135    .text.MX_TIM2_Init:000000000000006c $d
-     /tmp/ccYk1aU8.s:140    .text.HAL_TIM_Base_MspInit:0000000000000000 $t
-     /tmp/ccYk1aU8.s:147    .text.HAL_TIM_Base_MspInit:0000000000000000 HAL_TIM_Base_MspInit
-     /tmp/ccYk1aU8.s:208    .text.HAL_TIM_Base_MspDeInit:0000000000000000 $t
-     /tmp/ccYk1aU8.s:215    .text.HAL_TIM_Base_MspDeInit:0000000000000000 HAL_TIM_Base_MspDeInit
-     /tmp/ccYk1aU8.s:256    .text.HAL_TIM_Base_MspDeInit:0000000000000020 $d
-     /tmp/ccYk1aU8.s:266    .bss.htim2:0000000000000000 htim2
-     /tmp/ccYk1aU8.s:262    .bss.htim2:0000000000000000 $d
+                            *ABS*:00000000 tim.c
+C:\Users\ardav\AppData\Local\Temp\cctDkDsX.s:18     .text.MX_TIM2_Init:00000000 $t
+C:\Users\ardav\AppData\Local\Temp\cctDkDsX.s:24     .text.MX_TIM2_Init:00000000 MX_TIM2_Init
+C:\Users\ardav\AppData\Local\Temp\cctDkDsX.s:135    .text.MX_TIM2_Init:0000006c $d
+C:\Users\ardav\AppData\Local\Temp\cctDkDsX.s:140    .text.HAL_TIM_Base_MspInit:00000000 $t
+C:\Users\ardav\AppData\Local\Temp\cctDkDsX.s:146    .text.HAL_TIM_Base_MspInit:00000000 HAL_TIM_Base_MspInit
+C:\Users\ardav\AppData\Local\Temp\cctDkDsX.s:207    .text.HAL_TIM_Base_MspDeInit:00000000 $t
+C:\Users\ardav\AppData\Local\Temp\cctDkDsX.s:213    .text.HAL_TIM_Base_MspDeInit:00000000 HAL_TIM_Base_MspDeInit
+C:\Users\ardav\AppData\Local\Temp\cctDkDsX.s:254    .text.HAL_TIM_Base_MspDeInit:00000020 $d
+C:\Users\ardav\AppData\Local\Temp\cctDkDsX.s:264    .bss.htim2:00000000 htim2
+C:\Users\ardav\AppData\Local\Temp\cctDkDsX.s:260    .bss.htim2:00000000 $d
 
 UNDEFINED SYMBOLS
 HAL_TIM_Base_Init

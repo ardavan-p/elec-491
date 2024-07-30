@@ -26,6 +26,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "adf4351.h"
+#include "nrf24l01p.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -117,6 +118,7 @@ int main(void)
   MX_GPIO_Init();
   MX_SPI1_Init();
   MX_TIM2_Init();
+  MX_SPI2_Init();
   /* USER CODE BEGIN 2 */
   cmd_sm_init();
   HAL_TIM_Base_Start_IT(&htim2);
