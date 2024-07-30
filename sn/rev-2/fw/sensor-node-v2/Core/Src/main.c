@@ -50,7 +50,9 @@
 
 #define CONSECUTIVE_BURST_DELAY_MS 0
 
-#define SETUP_TO_TX_DELAY_MS 3
+#define SETUP_TO_TX_DELAY_MS 1
+
+#define ENABLE_RESET 1
 
 #define POWERCAST_RESET FALSE
 
@@ -179,8 +181,8 @@ int main(void) {
     HAL_Delay(CONSECUTIVE_BURST_DELAY_MS);
   }
 
+#if (ENABLE_RESET)
   HAL_Delay(SETUP_TO_TX_DELAY_MS);
-
   // reset the power harvester so we don't consume all the stored power
 #if(POWERCAST_RESET)
   HAL_GPIO_WritePin(P2110B_RESET_GPIO_Port, P2110B_RESET_Pin, GPIO_PIN_SET);
