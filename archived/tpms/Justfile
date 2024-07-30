@@ -1,0 +1,31 @@
+buildbin := "tpms.elf"
+targetbin := "tpms.bin"
+
+serialnum := "066FFF303158343143105040"
+
+all: clean generate build convert
+
+generate:
+    cmake -S . -B ./build
+
+build:
+    cmake --build ./build
+
+clean:
+    rm -rf ./build
+
+convert:
+    arm-none-eabi-objcopy -O binary ./build/{{buildbin}} ./build/{{targetbin}}
+
+debug:
+    echo "Starting ST-Link GDB server!"
+    /opt/st/stm32cubeide_1.15.1/plugins/com.st.stm32cube.ide.mcu.externaltools.stlink-gdb-server.linux64_2.1.300.202403291623/tools/bin/ST-LINK_gdbserver -p 61234 --serial-number {{serialnum}} -l 1 -d -s -cp /opt/st/stm32cubeide_1.15.1/plugins/com.st.stm32cube.ide.mcu.externaltools.cubeprogrammer.linux64_2.1.201.202404072231/tools/bin -m 0 -k
+
+attach:
+    arm-none-eabi-gdb --eval-command="file ./build/{{buildbin}}" --eval-command="target remote localhost:61234"
+
+flash:
+    /opt/st/stm32cubeide_1.15.1/plugins/com.st.stm32cube.ide.mcu.externaltools.cubeprogrammer.linux64_2.1.201.202404072231/tools/bin/STM32_Programmer_CLI -c port=SWD sn={{serialnum}} -d ./build/{{targetbin}} 0x8000000 --verify
+
+list:
+    /opt/st/stm32cubeide_1.15.1/plugins/com.st.stm32cube.ide.mcu.externaltools.cubeprogrammer.linux64_2.1.201.202404072231/tools/bin/STM32_Programmer_CLI --list

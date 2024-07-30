@@ -22,6 +22,8 @@ extern "C" {
 #define TX_BUF_SZ_BYTES 64
 #define MAX_DATA_BYTES  5
 
+#define PAYLOAD_SZ_BYTES 8
+
 #define SPI_TIMEOUT_MS  200
 #define UART_TIMEOUT_MS 500
 
@@ -68,6 +70,11 @@ extern "C" {
 
 #define STATUS_RX_DR(status) (status >> 6 & 0x1)
 
+// --- FIFO STATUS PARSING MACROS
+
+#define FIFO_STATUS_RX_EMPTY(status) (status >> 0 & 0x1)
+#define FIFO_STATUS_RX_FULL(status)  (status >> 1 & 0x1)
+
 // NRF2401 NOTES
 // Least significant data byte sent first.
 // PRX - primary receiver, PTX - primary transmitter.
@@ -83,11 +90,30 @@ typedef struct {
   uint8_t data[MAX_DATA_BYTES];
 } TxPayload;
 
+typedef enum {
+  ONE_MBPS = 0x0,
+  TWO_MBPS = 0x1,
+  TWO_FIFTY_KBPS = 0x2,
+} NrfDataRate_e;
+
+typedef enum {
+  NEG_EIGHTEEN_DBM = 0x0,
+  NEG_TWELVE_DBM = 0x1,
+  NEG_SIX_DBM = 0x2,
+  ZERO_DBM = 0x3,
+} NrfTransmitPower_e;
+
+typedef struct {
+  NrfDataRate_e data_rate;
+  NrfTransmitPower_e data_power;
+} NrfRfSetup_t;
+
 void pack_payload(TxPayload *payload, uint8_t *buf);
 HAL_StatusTypeDef tx_cmd(TxPayload *payload, uint8_t datasz);
 HAL_StatusTypeDef tx_rx_cmd(TxPayload *payload, uint8_t txsz, uint8_t *rxbuffer,
                             uint8_t rxsz);
 uint8_t nrf2401_get_status(void);
+HAL_StatusTypeDef nrf24l01_setup_rf(NrfRfSetup_t *rf_config);
 
 #ifdef __cplusplus
 }

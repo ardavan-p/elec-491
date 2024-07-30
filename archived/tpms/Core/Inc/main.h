@@ -37,6 +37,8 @@ extern "C" {
 /* Exported types ------------------------------------------------------------*/
 /* USER CODE BEGIN ET */
 
+extern uint8_t test_msg[128];
+
 /* USER CODE END ET */
 
 /* Exported constants --------------------------------------------------------*/
@@ -77,6 +79,11 @@ void Error_Handler(void);
 #define SWCLK_GPIO_Port GPIOA
 #define CHIP_SELECT_Pin GPIO_PIN_10
 #define CHIP_SELECT_GPIO_Port GPIOC
+#define CHIP_ENABLE_Pin GPIO_PIN_11
+#define CHIP_ENABLE_GPIO_Port GPIOC
+#define NRF_IRQ_Pin GPIO_PIN_12
+#define NRF_IRQ_GPIO_Port GPIOC
+#define NRF_IRQ_EXTI_IRQn EXTI4_15_IRQn
 #define I2C1_SCL_Pin GPIO_PIN_8
 #define I2C1_SCL_GPIO_Port GPIOB
 #define I2C1_SDA_Pin GPIO_PIN_9
