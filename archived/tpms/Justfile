@@ -3,13 +3,15 @@ targetbin := "tpms.bin"
 
 serialnum := "066FFF303158343143105040"
 
-all: clean generate build convert
+all: clean generate build
 
 generate:
     cmake -S . -B ./build
 
 build:
     cmake --build ./build
+    cp ./build/compile_commands.json .
+    just convert
 
 clean:
     rm -rf ./build

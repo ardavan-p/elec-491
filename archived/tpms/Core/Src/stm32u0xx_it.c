@@ -168,19 +168,20 @@ void EXTI4_15_IRQHandler(void) {
 
       num_rx_msgs++;
 
-      // unpack the message into its components
-      uint32_t random_id = *(((uint32_t*)rxbuffer) + 0);
-      uint32_t pressure_val = *(((uint32_t*)rxbuffer) + 1);
+      sensor_msg_t rx_msg = {0};
 
-      if (random_id != prev_rand_id) {
+      // unpack the message into its components
+      memcpy((void*)(&rx_msg), (void*)(&rxbuffer), PAYLOAD_SZ_BYTES);
+
+      if (rx_msg.msg_id != prev_rand_id) {
         num_uniq_msgs++;
-        prev_rand_id = random_id;
+        prev_rand_id = rx_msg.msg_id;
       }
 
       sprintf(
           (char*)test_msg,
-          "[m: %d] [u: %d] Received message with id = 0x%x! pressure = %d\r\n",
-          num_rx_msgs, num_uniq_msgs, random_id, pressure_val);
+          "[m: %d] [u: %d] Received message with id = 0x%04x, node_id = 0x%02x! pressure = %d, temp = %d\r\n",
+          num_rx_msgs, num_uniq_msgs, rx_msg.msg_id, rx_msg.node_id, rx_msg.pressure, rx_msg.temperature);
       HAL_UART_Transmit(&huart2, test_msg, strlen(test_msg), UART_TIMEOUT_MS);
 
       // clear out the RX buffer
