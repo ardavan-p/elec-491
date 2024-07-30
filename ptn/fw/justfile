@@ -1,0 +1,8 @@
+build:
+    make all
+
+flash:
+    st-flash write build/ptn.bin 0x8000000
+
+clean:
+    make clean
