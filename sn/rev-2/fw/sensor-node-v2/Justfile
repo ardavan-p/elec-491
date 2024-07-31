@@ -3,10 +3,23 @@ targetbin := "sensor-node-v2.bin"
 
 serialnum := "180044000200004E43504D4E"
 
-all: clean generate build
+id_one := "85"
+id_two := "170"
 
-generate:
-    cmake -S . -B ./build
+all ID:
+    @just clean
+    @just generate {{ID}}
+    @just build
+
+generate ID:
+    @if [ "{{ID}}" = "one" ]; then \
+        cmake -S . -B ./build -DSENSOR_NODE_ID_ONE={{id_one}}; \
+    elif [ "{{ID}}" = "two" ]; then \
+        cmake -S . -B ./build -DSENSOR_NODE_ID_TWO={{id_two}}; \
+    else \
+        echo "Unknown option \"{{ID}}\". Choose between \"one\" or \"two\"."; \
+        exit 1; \
+    fi
 
 build:
     cmake --build ./build
@@ -28,4 +41,7 @@ attach:
 
 flash:
     /opt/st/stm32cubeide_1.15.1/plugins/com.st.stm32cube.ide.mcu.externaltools.cubeprogrammer.linux64_2.1.201.202404072231/tools/bin/STM32_Programmer_CLI -c port=SWD sn={{serialnum}} -d ./build/{{targetbin}} 0x8000000 --verify
+
+list:
+    /opt/st/stm32cubeide_1.15.1/plugins/com.st.stm32cube.ide.mcu.externaltools.cubeprogrammer.linux64_2.1.201.202404072231/tools/bin/STM32_Programmer_CLI --list
     

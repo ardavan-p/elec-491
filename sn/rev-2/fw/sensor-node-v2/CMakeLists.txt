@@ -57,8 +57,18 @@ target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE
 )
 
 # Add project symbols (macros)
+if (SENSOR_NODE_ID_ONE)
+    set(DEFINITIONS "SENSOR_NODE_ID_ONE=${SENSOR_NODE_ID_ONE}")
+elseif (SENSOR_NODE_ID_TWO)
+    set(DEFINITIONS "SENSOR_NODE_ID_TWO=${SENSOR_NODE_ID_TWO}")
+else()
+    set(DEFINITIONS "")
+endif()
+
+message("COMPILER DEFINITIONS = \"${DEFINITIONS}\"")
+
 target_compile_definitions(${CMAKE_PROJECT_NAME} PRIVATE
-    # Add user defined symbols
+    ${DEFINITIONS}
 )
 
 # Add linked libraries

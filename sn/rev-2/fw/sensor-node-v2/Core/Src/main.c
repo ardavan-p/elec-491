@@ -170,10 +170,18 @@ int main(void) {
   uint32_t random_id = 0;
   HAL_RNG_GenerateRandomNumber(&hrng, &random_id);
 
-  // TEMP: first 4 bytes is the random ID
-  *(((uint32_t *)rf_payload) + 0) = random_id;
-  // second four bytes is the pressure value
-  *(((uint32_t *)rf_payload) + 1) = pressure_val_lo;
+  sensor_msg_t message = {.id = SENSOR_NODE_ID,
+                          .pressure = pressure_val_lo,
+                          .temperature = -127,
+                          .random_id = random_id};
+
+  // copy message into buffer
+  memcpy((void *)rf_payload, (void *)(&message), PAYLOAD_SZ_BYTES);
+
+  // // byte 0 is the sensor node ID
+  // *(((uint8_t *)rf_payload) + 0) = SENSOR_NODE_ID;
+  // // bytes [1:2] are the pressure value
+  // *(((uint16_t *)rf_payload) + 1) = pressure_val_lo;
 
   // send burst of RF messages
   for (int i = 0; i < BURST_MSG_NUM; i++) {
@@ -183,8 +191,9 @@ int main(void) {
 
 #if (ENABLE_RESET)
   HAL_Delay(SETUP_TO_TX_DELAY_MS);
+#endif
   // reset the power harvester so we don't consume all the stored power
-#if(POWERCAST_RESET)
+#if (POWERCAST_RESET)
   HAL_GPIO_WritePin(P2110B_RESET_GPIO_Port, P2110B_RESET_Pin, GPIO_PIN_SET);
 #endif
 
