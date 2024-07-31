@@ -170,10 +170,10 @@ int main(void) {
   uint32_t random_id = 0;
   HAL_RNG_GenerateRandomNumber(&hrng, &random_id);
 
-  sensor_msg_t message = {.id = SENSOR_NODE_ID,
+  sensor_msg_t message = {.node_id = SENSOR_NODE_ID,
                           .pressure = pressure_val_lo,
                           .temperature = -127,
-                          .random_id = random_id};
+                          .msg_id = random_id};
 
   // copy message into buffer
   memcpy((void *)rf_payload, (void *)(&message), PAYLOAD_SZ_BYTES);
