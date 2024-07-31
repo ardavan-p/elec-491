@@ -37,7 +37,6 @@ extern CAN_HandleTypeDef hcan;
 /* USER CODE BEGIN Private defines */
 
 #define CAN_MSG_FRAME_LEN_BYTES (8)
-
 #define PTN_REQUEST_ID (0x101)
 #define PTN_RESPONSE_ID (0x100)
 
