@@ -134,4 +134,23 @@ HAL_StatusTypeDef HAL_CAN_AddTxMessagePolling(
   return HAL_TIMEOUT;
 }
 
+HAL_StatusTypeDef HAL_CAN_GetRxMessagePolling(CAN_HandleTypeDef *hcan,
+                                              uint32_t RxFifo,
+                                              CAN_RxHeaderTypeDef *pHeader,
+                                              uint8_t aData[],
+                                              uint32_t timeout) {
+  HAL_StatusTypeDef status = HAL_OK;
+
+  uint32_t start_time = HAL_GetTick();
+
+  do {
+    if (HAL_CAN_GetRxFifoFillLevel(hcan, CAN_RX_FIFO0) > 0) {
+      status = HAL_CAN_GetRxMessage(hcan, RxFifo, pHeader, aData);
+      return status;
+    }
+  } while (HAL_GetTick() - start_time <= timeout);
+
+  return HAL_TIMEOUT;
+}
+
 /* USER CODE END 1 */

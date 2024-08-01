@@ -20,10 +20,13 @@
 #include "main.h"
 #include "can.h"
 #include "gpio.h"
+#include "stm32f1xx_hal_gpio.h"
 #include "usart.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+
+#include <stdio.h>
 
 /* USER CODE END Includes */
 
@@ -35,9 +38,27 @@
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
 
-#define UART_TIMEOUT_MS (200)
-#define CAN_TIMEOUT_MS (1000)
+// Number of PTNs in the entire system.
 #define NUM_PTNS (2)
+
+// Amount of time to keep trying to send a PTN_REQUEST message.
+#define PTN_REQUEST_TIMEOUT_MS (1000)
+
+// Amount of time to poll for a CAN message response from a PTN.
+#define PTN_RESPONSE_TIMEOUT_MS (10000)
+
+// Amount of time to keep trying to send a PTN_RESET message.
+#define PTN_RESET_TIMEOUT_MS (5000)
+
+// Amount of time between consecutive PTN_RESET messages to different PTNs.
+#define CONSECUTIVE_RESET_MSG_DELAY_MS (50)
+
+#define UART_TIMEOUT_MS (200)
+
+#define CAN_TX_TO_RX_DELAY_MS (1000)
+
+// Amount of time between attempting consecutive PTN read.
+#define PTN_READ_DELAY_MS (10000)
 
 /* USER CODE END PD */
 
@@ -61,7 +82,7 @@ void SystemClock_Config(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 
-const CAN_TxHeaderTypeDef tx_header = {
+const CAN_TxHeaderTypeDef req_header = {
     .StdId = PTN_REQUEST_ID,
     .ExtId = 0x0000,
     .IDE = CAN_ID_STD,
@@ -70,7 +91,16 @@ const CAN_TxHeaderTypeDef tx_header = {
     .TransmitGlobalTime = DISABLE,
 };
 
-const uint8_t ptn_list[NUM_PTNS] = {0xde, 0xad};
+const CAN_TxHeaderTypeDef reset_header = {
+    .StdId = PTN_RESET_ID,
+    .ExtId = 0x0000,
+    .IDE = CAN_ID_STD,
+    .RTR = CAN_RTR_DATA,
+    .DLC = CAN_MSG_FRAME_LEN_BYTES,
+    .TransmitGlobalTime = DISABLE,
+};
+
+const uint8_t ptn_list[NUM_PTNS] = {0x1, 0x2};
 
 /* USER CODE END 0 */
 
@@ -109,6 +139,8 @@ int main(void) {
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
 
+  setvbuf(stdout, NULL, _IONBF, 0);
+
   CAN_FilterTypeDef can_filter = {
       .FilterIdHigh = (uint32_t)(PTN_RESPONSE_ID << 5 | 0x0000),
       .FilterIdLow = 0,
@@ -127,19 +159,60 @@ int main(void) {
 
   uint8_t can_tx_payload[CAN_MSG_FRAME_LEN_BYTES] = {0};
   uint8_t can_rx_payload[CAN_MSG_FRAME_LEN_BYTES] = {0};
-
-  HAL_StatusTypeDef can_tx_status = HAL_OK;
-  HAL_StatusTypeDef can_rx_status = HAL_OK;
-
   uint32_t mailbox = 0;
-
   CAN_RxHeaderTypeDef rx_header = {0};
 
   uint8_t uart_msg[256] = {0};
 
-  sprintf((char *)uart_msg, "Finished initialization!\r\n");
-  HAL_UART_Transmit(&huart1, uart_msg, sizeof(uart_msg), UART_TIMEOUT_MS);
-  memset((void *)uart_msg, 0, 256);
+  for (uint8_t idx = 0; idx < NUM_PTNS; idx++) {
+    uint8_t cur_ptn_id = ptn_list[idx];
+
+    printf("Attempting to send PTN_RESET CAN message (ID=0x%x) to PTN ID = 0x%x...\r\n",
+           reset_header.StdId, cur_ptn_id);
+
+    status = HAL_CAN_AddTxMessagePolling(&hcan, &reset_header, can_tx_payload,
+                                         &mailbox, PTN_RESET_TIMEOUT_MS);
+
+    switch (status) {
+    case HAL_OK: {
+      printf("[PTN: 0x%x]: HAL_OK, successfully transmitted CAN message "
+             "(ID=0x%x) to PTN ID = 0x%x\r\n",
+             cur_ptn_id, reset_header.StdId, cur_ptn_id);
+      break;
+    }
+    case HAL_TIMEOUT: {
+      printf("[PTN: 0x%x]: status HAL_TIMEOUT (0x%x) returned when trying to "
+             "send CAN message (ID=0x%x)!\r\n",
+             cur_ptn_id, status, reset_header.StdId);
+      break;
+    }
+
+    case HAL_ERROR: {
+      printf("[PTN: 0x%x]: status HAL_ERROR (0x%x) returned when trying to "
+             "send CAN message (ID=0x%x)!\r\n",
+             cur_ptn_id, status, reset_header.StdId);
+      break;
+    }
+
+    case HAL_BUSY: {
+      printf("[PTN: 0x%x]: status HAL_BUSY (0x%x) returned when trying to "
+             "send CAN message (ID=0x%x)!\r\n",
+             cur_ptn_id, status, reset_header.StdId);
+      break;
+    }
+
+    default: {
+      printf("[PTN: 0x%x]: unexpected HAL status (0x%x) returned when trying "
+             "to send CAN message (ID=0x%x)!\r\n",
+             cur_ptn_id, status, reset_header.StdId);
+      break;
+    }
+    }
+
+    HAL_Delay(CONSECUTIVE_RESET_MSG_DELAY_MS);
+  }
+
+  printf("Finished initialization!\r\n");
 
   // On reset, ECU must:
   // 1) Send a RESET message to the PTNs
@@ -156,52 +229,89 @@ int main(void) {
 
     /* USER CODE BEGIN 3 */
 
-    status = HAL_CAN_AddTxMessagePolling(&hcan, &tx_header, can_tx_payload,
-                                         &mailbox, CAN_TIMEOUT_MS);
+    for (uint8_t idx = 0; idx < NUM_PTNS; idx++) {
+      uint8_t cur_ptn_id = ptn_list[idx];
 
-    if (status == HAL_OK) {
-      sprintf((char *)uart_msg,
-              "Successfully transmitted CAN message with ID = 0x%x!\r\n",
-              tx_header.StdId);
-      HAL_UART_Transmit(&huart1, uart_msg, sizeof(uart_msg), UART_TIMEOUT_MS);
-      memset((void *)uart_msg, 0, 256);
-      break;
-    } else if (status == HAL_TIMEOUT) {
-      sprintf(
-          (char *)uart_msg,
-          "Failed to transmit CAN message with ID = 0x%x due to timeout!\r\n",
-          tx_header.StdId);
-      HAL_UART_Transmit(&huart1, uart_msg, sizeof(uart_msg), UART_TIMEOUT_MS);
-      memset((void *)uart_msg, 0, 256);
-    } else {
-      sprintf(
-          (char *)uart_msg,
-          "Failed to transmit CAN message with ID = 0x%x, HAL_STATUS = %d!\r\n",
-          tx_header.StdId, status);
-      HAL_UART_Transmit(&huart1, uart_msg, sizeof(uart_msg), UART_TIMEOUT_MS);
-      memset((void *)uart_msg, 0, 256);
+      printf("Attempting to send PTN_REQUEST CAN message (ID=0x%x) to PTN ID = 0x%x...\r\n",
+             req_header.StdId, cur_ptn_id);
+
+      // payload must contain the PTN ID it is targeting
+      can_tx_payload[0] = cur_ptn_id;
+
+      status = HAL_CAN_AddTxMessagePolling(&hcan, &req_header, can_tx_payload,
+                                           &mailbox, PTN_REQUEST_TIMEOUT_MS);
+
+      // if the CAN message doesn't transmit correctly, continue to sending
+      // message for next PTN...
+      if (status == HAL_OK) {
+        printf("[PTN: 0x%x] Successfully transmitted CAN message with ID = "
+               "0x%x!\r\n",
+               cur_ptn_id, req_header.StdId);
+      } else if (status == HAL_TIMEOUT) {
+        printf("[PTN: 0x%x] Failed to transmit CAN message with ID = 0x%x due "
+               "to timeout!\r\n",
+               cur_ptn_id, req_header.StdId);
+        continue;
+      } else {
+        printf("[PTN: 0x%x] Failed to transmit CAN message with ID = 0x%x, "
+               "HAL_STATUS = "
+               "%d!\r\n",
+               cur_ptn_id, req_header.StdId, status);
+        continue;
+      }
+
+      printf("[PTN: 0x%x] Waiting to receive PTN_RESPONSE CAN message with ID=0x%x...\r\n",
+             cur_ptn_id, PTN_RESPONSE_ID);
+
+      // CAN message transmitted correctly so now poll for CAN message
+      // reception...
+      status =
+          HAL_CAN_GetRxMessagePolling(&hcan, CAN_RX_FIFO0, &rx_header,
+                                      can_rx_payload, PTN_RESPONSE_TIMEOUT_MS);
+
+      switch (status) {
+      case HAL_OK: {
+        // parse out the CAN message
+        PtnResponseMsg_t *response = (PtnResponseMsg_t *)(can_rx_payload);
+
+        printf("[PTN: 0x%x]: status HAL_OK, response: PRESSURE = %d, TEMP = "
+               "%d, PTN_ID = 0x%x, SN_ID = 0x%x, ERROR_CODE = 0x%x\r\n",
+               cur_ptn_id, response->pressure, response->temp, response->ptn_id,
+               response->sn_id, response->error_code);
+        break;
+      }
+      case HAL_TIMEOUT: {
+        printf("[PTN: 0x%x]: status HAL_TIMEOUT (0x%x) returned when trying to "
+               "receive CAN message!\r\n",
+               cur_ptn_id, status);
+        break;
+      }
+
+      case HAL_ERROR: {
+        printf("[PTN: 0x%x]: status HAL_ERROR (0x%x) returned when trying to "
+               "receive CAN message!\r\n",
+               cur_ptn_id, status);
+        break;
+      }
+
+      case HAL_BUSY: {
+        printf("[PTN: 0x%x]: status HAL_BUSY (0x%x) returned when trying to "
+               "receive CAN message!\r\n",
+               cur_ptn_id, status);
+        break;
+      }
+
+      default: {
+        printf("[PTN: 0x%x]: unexpected HAL STATUS (0x%x) returned when trying "
+               "to receive CAN message!\r\n",
+               cur_ptn_id, status);
+      }
+      }
+
+      HAL_Delay(PTN_READ_DELAY_MS);
     }
   }
 
-  HAL_Delay(1000);
-  sprintf((char *)uart_msg, "Waiting to receive message...\r\n");
-  HAL_UART_Transmit(&huart1, uart_msg, sizeof(uart_msg), UART_TIMEOUT_MS);
-  memset((void *)uart_msg, 0, 256);
-
-  while (1) {
-    if (HAL_CAN_GetRxFifoFillLevel(&hcan, CAN_RX_FIFO0) > 0) {
-      can_rx_status =
-          HAL_CAN_GetRxMessage(&hcan, CAN_RX_FIFO0, &rx_header, can_rx_payload);
-      sprintf((char *)uart_msg, "Received CAN message with ID = 0x%x!\r\n",
-              rx_header.StdId);
-      HAL_UART_Transmit(&huart1, uart_msg, sizeof(uart_msg), UART_TIMEOUT_MS);
-      memset((void *)uart_msg, 0, 256);
-      break;
-    }
-  }
-
-  while (1)
-    ;
   /* USER CODE END 3 */
 }
 
@@ -239,6 +349,21 @@ void SystemClock_Config(void) {
 }
 
 /* USER CODE BEGIN 4 */
+
+#ifdef __GNUC__
+/* With GCC, small printf (option LD Linker->Libraries->Small printf
+   set to 'Yes') calls __io_putchar() */
+int __io_putchar(int ch)
+#else
+int fputc(int ch, FILE *f)
+#endif /* __GNUC__ */
+{
+  /* Place your implementation of fputc here */
+  /* e.g. write a character to the UART3 and Loop until the end of transmission
+   */
+  HAL_UART_Transmit(&huart1, (uint8_t *)&ch, 1, HAL_MAX_DELAY);
+  return ch;
+}
 
 /* USER CODE END 4 */
 

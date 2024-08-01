@@ -47,10 +47,15 @@ void MX_CAN_Init(void);
 
 /* USER CODE BEGIN Prototypes */
 
-HAL_StatusTypeDef
-HAL_CAN_AddTxMessagePolling(CAN_HandleTypeDef *hcan,
-                            const CAN_TxHeaderTypeDef *pHeader,
-                            const uint8_t aData[], uint32_t *pTxMailbox, uint32_t timeout);
+HAL_StatusTypeDef HAL_CAN_AddTxMessagePolling(
+    CAN_HandleTypeDef *hcan, const CAN_TxHeaderTypeDef *pHeader,
+    const uint8_t aData[], uint32_t *pTxMailbox, uint32_t timeout);
+
+HAL_StatusTypeDef HAL_CAN_GetRxMessagePolling(CAN_HandleTypeDef *hcan,
+                                              uint32_t RxFifo,
+                                              CAN_RxHeaderTypeDef *pHeader,
+                                              uint8_t aData[],
+                                              uint32_t timeout);
 
 /* USER CODE END Prototypes */
 
