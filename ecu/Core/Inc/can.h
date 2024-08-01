@@ -39,12 +39,18 @@ extern CAN_HandleTypeDef hcan;
 #define CAN_MSG_FRAME_LEN_BYTES (8)
 #define PTN_REQUEST_ID (0x101)
 #define PTN_RESPONSE_ID (0x100)
+#define PTN_RESET_ID (0x102)
 
 /* USER CODE END Private defines */
 
 void MX_CAN_Init(void);
 
 /* USER CODE BEGIN Prototypes */
+
+HAL_StatusTypeDef
+HAL_CAN_AddTxMessagePolling(CAN_HandleTypeDef *hcan,
+                            const CAN_TxHeaderTypeDef *pHeader,
+                            const uint8_t aData[], uint32_t *pTxMailbox, uint32_t timeout);
 
 /* USER CODE END Prototypes */
 
@@ -53,4 +59,3 @@ void MX_CAN_Init(void);
 #endif
 
 #endif /* __CAN_H__ */
-

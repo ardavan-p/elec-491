@@ -36,6 +36,8 @@
 /* USER CODE BEGIN PD */
 
 #define UART_TIMEOUT_MS (200)
+#define CAN_TIMEOUT_MS (1000)
+#define NUM_PTNS (2)
 
 /* USER CODE END PD */
 
@@ -67,6 +69,8 @@ const CAN_TxHeaderTypeDef tx_header = {
     .DLC = CAN_MSG_FRAME_LEN_BYTES,
     .TransmitGlobalTime = DISABLE,
 };
+
+const uint8_t ptn_list[NUM_PTNS] = {0xde, 0xad};
 
 /* USER CODE END 0 */
 
@@ -137,6 +141,12 @@ int main(void) {
   HAL_UART_Transmit(&huart1, uart_msg, sizeof(uart_msg), UART_TIMEOUT_MS);
   memset((void *)uart_msg, 0, 256);
 
+  // On reset, ECU must:
+  // 1) Send a RESET message to the PTNs
+  // 2) Periodically send a request message.
+  // 2) Wait for a timeout or a response message.
+  // 3) If timeout move on.
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -146,19 +156,30 @@ int main(void) {
 
     /* USER CODE BEGIN 3 */
 
-    if (HAL_CAN_GetTxMailboxesFreeLevel(&hcan) > 0) {
-      can_tx_status =
-          HAL_CAN_AddTxMessage(&hcan, &tx_header, can_tx_payload, &mailbox);
-      if (can_tx_status == HAL_OK) {
-        sprintf((char *)uart_msg, "Successfully transmitted CAN message!\r\n");
-        HAL_UART_Transmit(&huart1, uart_msg, sizeof(uart_msg), UART_TIMEOUT_MS);
-        memset((void *)uart_msg, 0, 256);
-        break;
-      } else {
-        sprintf((char *)uart_msg, "Failed to transmit CAN message\r\n");
-        HAL_UART_Transmit(&huart1, uart_msg, sizeof(uart_msg), UART_TIMEOUT_MS);
-        memset((void *)uart_msg, 0, 256);
-      }
+    status = HAL_CAN_AddTxMessagePolling(&hcan, &tx_header, can_tx_payload,
+                                         &mailbox, CAN_TIMEOUT_MS);
+
+    if (status == HAL_OK) {
+      sprintf((char *)uart_msg,
+              "Successfully transmitted CAN message with ID = 0x%x!\r\n",
+              tx_header.StdId);
+      HAL_UART_Transmit(&huart1, uart_msg, sizeof(uart_msg), UART_TIMEOUT_MS);
+      memset((void *)uart_msg, 0, 256);
+      break;
+    } else if (status == HAL_TIMEOUT) {
+      sprintf(
+          (char *)uart_msg,
+          "Failed to transmit CAN message with ID = 0x%x due to timeout!\r\n",
+          tx_header.StdId);
+      HAL_UART_Transmit(&huart1, uart_msg, sizeof(uart_msg), UART_TIMEOUT_MS);
+      memset((void *)uart_msg, 0, 256);
+    } else {
+      sprintf(
+          (char *)uart_msg,
+          "Failed to transmit CAN message with ID = 0x%x, HAL_STATUS = %d!\r\n",
+          tx_header.StdId, status);
+      HAL_UART_Transmit(&huart1, uart_msg, sizeof(uart_msg), UART_TIMEOUT_MS);
+      memset((void *)uart_msg, 0, 256);
     }
   }
 
