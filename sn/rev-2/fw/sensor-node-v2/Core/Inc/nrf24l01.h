@@ -29,10 +29,10 @@ extern "C" {
 
 // chip select port and pin configuration
 #define CHIP_SELECT_GPIO_Port NRF_CSN_GPIO_Port
-#define CHIP_SELECT_Pin NRF_CSN_Pin
+#define CHIP_SELECT_Pin       NRF_CSN_Pin
 
 #define CHIP_ENABLE_GPIO_Port NRF_CE_GPIO_Port
-#define CHIP_ENABLE_Pin NRF_CE_Pin
+#define CHIP_ENABLE_Pin       NRF_CE_Pin
 
 #define RX_BUF_SZ_BYTES 64
 #define TX_BUF_SZ_BYTES 64
@@ -43,30 +43,30 @@ extern "C" {
 // size of payload sent wirelessly
 #define PAYLOAD_SZ_BYTES 8
 
-#define SPI_TIMEOUT_MS 200
+#define SPI_TIMEOUT_MS  200
 #define UART_TIMEOUT_MS 500
 
 // --- NRF24L01 COMMANDS ---
 
-#define R_RX_PAYLOAD (0b01100001)
-#define W_TX_PAYLOAD (0b10100000)
-#define R_REGISTER(reg) ((uint8_t)reg)
-#define W_REGISTER(reg) ((uint8_t)((1 << 5) | reg))
-#define FLUSH_TX (0b11100001)
-#define FLUSH_RX (0b11100010)
+#define R_RX_PAYLOAD       (0b01100001)
+#define W_TX_PAYLOAD       (0b10100000)
+#define R_REGISTER(reg)    ((uint8_t)reg)
+#define W_REGISTER(reg)    ((uint8_t)((1 << 5) | reg))
+#define FLUSH_TX           (0b11100001)
+#define FLUSH_RX           (0b11100010)
 #define W_TX_PAYLOAD_NOACK (0b10110000)
-#define NOP (0b11111111)
+#define NOP                (0b11111111)
 
 // --- NRF24L01 REGISTERS ---
 
 #define CONFIG_REGISTER 0x00
-#define EN_RXADDR 0x02
-#define SETUP_RETR 0x04
-#define RF_CH 0x05
-#define RF_SETUP 0x06
-#define STATUS 0x07
-#define OBSERVE_TX 0x08
-#define RPD 0x09
+#define EN_RXADDR       0x02
+#define SETUP_RETR      0x04
+#define RF_CH           0x05
+#define RF_SETUP        0x06
+#define STATUS          0x07
+#define OBSERVE_TX      0x08
+#define RPD             0x09
 
 #define RX_ADDR_P0 0x0A
 #define RX_ADDR_P1 0x0B
@@ -74,7 +74,7 @@ extern "C" {
 #define RX_ADDR_P3 0x0D
 #define RX_ADDR_P4 0x0E
 #define RX_ADDR_P5 0x0F
-#define TX_ADDR 0x10
+#define TX_ADDR    0x10
 
 #define RX_PW_P0 0x11
 #define RX_PW_P1 0x12
@@ -84,13 +84,13 @@ extern "C" {
 #define RX_PW_P5 0x16
 
 #define FIFO_STATUS 0x17
-#define DYN_PD 0x1c
-#define FEATURE 0x1d
+#define DYN_PD      0x1c
+#define FEATURE     0x1d
 
 // --- STATUS PARSING MACROS ---
 
-#define STATUS_RX_DR(status) (status >> 6 & 0x1)
-#define STATUS_TX_DS(status) (status >> 5 & 0x1)
+#define STATUS_RX_DR(status)  (status >> 6 & 0x1)
+#define STATUS_TX_DS(status)  (status >> 5 & 0x1)
 #define STATUS_MAX_RT(status) (status >> 4 & 0x1)
 
 // --- TYPE DECLARATIONS ---
@@ -132,14 +132,14 @@ typedef struct {
  *
  * @param command - command word for desired SPI command.
  * @param tx_payload - pointer to the payload buffer for additional SPI data (if
- * required). Can be `NULL`.
+ * required). Can be `NULL` if not transmitting additional data.
  * @param txsz - number of bytes from the payload buffer to transmit. Make sure
- * that txsz <= length of `tx_payload`.
+ * that 0 <= txsz <= length of `tx_payload`.
  * @returns HAL_StatusTypeDef - status enum indicating if the SPI transaction
  * was successful.
  */
-HAL_StatusTypeDef tx_spi_cmd(SPI_HandleTypeDef *hspi, uint8_t command, uint8_t *tx_payload,
-                             uint8_t txsz);
+HAL_StatusTypeDef tx_spi_cmd(SPI_HandleTypeDef *hspi, uint8_t command,
+                             uint8_t *tx_payload, uint8_t txsz);
 /**
  * @brief Sends an SPI command to the nRF24L01 and receives the returned data
  * from the peripheral.
@@ -152,15 +152,15 @@ HAL_StatusTypeDef tx_spi_cmd(SPI_HandleTypeDef *hspi, uint8_t command, uint8_t *
  * if required. Can be `NULL`.
  * @param[in] txsz - number of bytes from the payload buffer to transmit. Make
  * sure that txsz <= length of `tx_payload`. Can be 0.
- * @param[out] rx_buffer - pointer to the buffer to store
+ * @param[out] rx_buffer - pointer to the buffer to store received data.
  * @param[in] rxsz - max amount of data in bytes to read back into the buffer
  * pointed to by `rx_buffer`.
  * @returns HAL_StatusTypeDef - status enum indicating if the SPI transaction
  * was successful.
  */
-HAL_StatusTypeDef tx_rx_spi_cmd(SPI_HandleTypeDef *hspi, uint8_t command, uint8_t *tx_payload,
-                                uint8_t txsz, uint8_t *rx_buffer,
-                                uint8_t rxsz);
+HAL_StatusTypeDef tx_rx_spi_cmd(SPI_HandleTypeDef *hspi, uint8_t command,
+                                uint8_t *tx_payload, uint8_t txsz,
+                                uint8_t *rx_buffer, uint8_t rxsz);
 /**
  * @brief Reads the nRF24L01 STATUS register. This register can be parsed with
  * the status parsing macros.
@@ -177,7 +177,8 @@ uint8_t nrf24l01_get_status(SPI_HandleTypeDef *hspi);
  * @param[in] bufsz - number of bytes from the buffer to transmit over RF.
  * @returns - contents of the nRF24L01 STATUS register.
  */
-HAL_StatusTypeDef nrf24l01_send_msg(SPI_HandleTypeDef *hspi, uint8_t *buf, uint8_t bufsz);
+HAL_StatusTypeDef nrf24l01_send_msg(SPI_HandleTypeDef *hspi, uint8_t *buf,
+                                    uint8_t bufsz);
 
 /**
  * @brief Sends an RF message using the nRF24L01 and disables
@@ -191,7 +192,8 @@ HAL_StatusTypeDef nrf24l01_send_msg(SPI_HandleTypeDef *hspi, uint8_t *buf, uint8
  * @param[in] bufsz - number of bytes from the buffer to transmit over RF.
  * @returns - contents of the nRF24L01 STATUS register.
  */
-HAL_StatusTypeDef nrf24l01_send_msg_noack(SPI_HandleTypeDef *hspi, uint8_t *buf, uint8_t bufsz);
+HAL_StatusTypeDef nrf24l01_send_msg_noack(SPI_HandleTypeDef *hspi, uint8_t *buf,
+                                          uint8_t bufsz);
 
 /**
  * @brief Configures the RF communication characteristics (specifically transmit
@@ -201,7 +203,8 @@ HAL_StatusTypeDef nrf24l01_send_msg_noack(SPI_HandleTypeDef *hspi, uint8_t *buf,
  * configuration.
  * @returns - status indicating whether the function succeeded or not.
  */
-HAL_StatusTypeDef nrf24l01_setup_rf(SPI_HandleTypeDef *hspi, NrfRfSetup_t *rf_config);
+HAL_StatusTypeDef nrf24l01_setup_rf(SPI_HandleTypeDef *hspi,
+                                    NrfRfSetup_t *rf_config);
 
 #ifdef __cplusplus
 }

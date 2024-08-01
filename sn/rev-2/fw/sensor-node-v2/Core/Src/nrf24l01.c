@@ -1,14 +1,14 @@
 /**
  ******************************************************************************
  * @file    nrf24l01.c
- * @brief   TODO: finish this
+ * @brief   Contains functions to implement nRF24L01+ control over SPI.
  ******************************************************************************
  */
 
 #include "nrf24l01.h"
 
-HAL_StatusTypeDef tx_spi_cmd(SPI_HandleTypeDef *hspi, uint8_t command, uint8_t *tx_payload,
-                             uint8_t txsz) {
+HAL_StatusTypeDef tx_spi_cmd(SPI_HandleTypeDef *hspi, uint8_t command,
+                             uint8_t *tx_payload, uint8_t txsz) {
   HAL_StatusTypeDef status = HAL_ERROR;
   uint8_t txbuffer[TX_BUF_SZ_BYTES] = {0};
 
@@ -16,9 +16,11 @@ HAL_StatusTypeDef tx_spi_cmd(SPI_HandleTypeDef *hspi, uint8_t command, uint8_t *
     return HAL_ERROR;
   }
 
+  // collect command and payload into internal buffer
   txbuffer[0] = command;
   memcpy(&txbuffer[1], tx_payload, txsz);
 
+  // perform the SPI transaction
   HAL_GPIO_WritePin(CHIP_SELECT_GPIO_Port, CHIP_SELECT_Pin, GPIO_PIN_RESET);
   status = HAL_SPI_Transmit(hspi, txbuffer, txsz + 1, SPI_TIMEOUT_MS);
   HAL_GPIO_WritePin(CHIP_SELECT_GPIO_Port, CHIP_SELECT_Pin, GPIO_PIN_SET);
@@ -28,9 +30,9 @@ HAL_StatusTypeDef tx_spi_cmd(SPI_HandleTypeDef *hspi, uint8_t command, uint8_t *
   return status;
 }
 
-HAL_StatusTypeDef tx_rx_spi_cmd(SPI_HandleTypeDef *hspi, uint8_t command, uint8_t *tx_payload,
-                                uint8_t txsz, uint8_t *rx_buffer,
-                                uint8_t rxsz) {
+HAL_StatusTypeDef tx_rx_spi_cmd(SPI_HandleTypeDef *hspi, uint8_t command,
+                                uint8_t *tx_payload, uint8_t txsz,
+                                uint8_t *rx_buffer, uint8_t rxsz) {
   HAL_StatusTypeDef status = HAL_ERROR;
   uint8_t tx_buffer[TX_BUF_SZ_BYTES] = {0};
 
@@ -60,8 +62,8 @@ uint8_t nrf24l01_get_status(SPI_HandleTypeDef *hspi) {
   return status;
 }
 
-HAL_StatusTypeDef nrf24l01_send_msg(SPI_HandleTypeDef *hspi, uint8_t *buf, uint8_t bufsz)
-{
+HAL_StatusTypeDef nrf24l01_send_msg(SPI_HandleTypeDef *hspi, uint8_t *buf,
+                                    uint8_t bufsz) {
   HAL_StatusTypeDef status = HAL_ERROR;
   uint8_t rf_payload[PAYLOAD_SZ_BYTES] = {0};
 
@@ -83,7 +85,8 @@ HAL_StatusTypeDef nrf24l01_send_msg(SPI_HandleTypeDef *hspi, uint8_t *buf, uint8
   return status;
 }
 
-HAL_StatusTypeDef nrf24l01_send_msg_noack(SPI_HandleTypeDef *hspi, uint8_t *buf, uint8_t bufsz) {
+HAL_StatusTypeDef nrf24l01_send_msg_noack(SPI_HandleTypeDef *hspi, uint8_t *buf,
+                                          uint8_t bufsz) {
   HAL_StatusTypeDef status = HAL_ERROR;
   uint8_t rf_payload[PAYLOAD_SZ_BYTES] = {0};
 
@@ -103,7 +106,8 @@ HAL_StatusTypeDef nrf24l01_send_msg_noack(SPI_HandleTypeDef *hspi, uint8_t *buf,
   return status;
 }
 
-HAL_StatusTypeDef nrf24l01_setup_rf(SPI_HandleTypeDef *hspi, NrfRfSetup_t *rf_config) {
+HAL_StatusTypeDef nrf24l01_setup_rf(SPI_HandleTypeDef *hspi,
+                                    NrfRfSetup_t *rf_config) {
   HAL_StatusTypeDef status = HAL_ERROR;
   uint8_t tx_payload[TX_BUF_SZ_BYTES] = {0};
   uint8_t rf_setup = 0;
