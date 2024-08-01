@@ -18,7 +18,9 @@ HAL_StatusTypeDef tx_spi_cmd(SPI_HandleTypeDef *hspi, uint8_t command,
 
   // collect command and payload into internal buffer
   txbuffer[0] = command;
-  memcpy(&txbuffer[1], tx_payload, txsz);
+  if (tx_payload != NULL) {
+    memcpy(&txbuffer[1], tx_payload, txsz);
+  }
 
   // perform the SPI transaction
   HAL_GPIO_WritePin(CHIP_SELECT_GPIO_Port, CHIP_SELECT_Pin, GPIO_PIN_RESET);
@@ -40,12 +42,13 @@ HAL_StatusTypeDef tx_rx_spi_cmd(SPI_HandleTypeDef *hspi, uint8_t command,
     return HAL_ERROR;
   }
 
+  // collect command and payload into internal buffer
   tx_buffer[0] = command;
-
   if (tx_payload != NULL) {
     memcpy(&tx_buffer[1], tx_payload, txsz);
   }
 
+  // perform the SPI transmit and receive
   HAL_GPIO_WritePin(CHIP_SELECT_GPIO_Port, CHIP_SELECT_Pin, GPIO_PIN_RESET);
   status |= HAL_SPI_Transmit(hspi, tx_buffer, txsz + 1, SPI_TIMEOUT_MS);
   status |= HAL_SPI_Receive(hspi, rx_buffer, rxsz, SPI_TIMEOUT_MS);

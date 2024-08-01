@@ -11,16 +11,6 @@
 #include "stdint.h"
 #include "stm32u0xx_hal_def.h"
 
-// TODO: add general documentation here.
-// Least significant data byte sent first.
-// PRX - primary receiver, PTX - primary transmitter.
-// Six NRFs can communication with a single NRF in multiceiver mode.
-// Each NRF communication through a different data pipe.
-// By default only data pipes 0 and 1 are enabled.
-// Each pipe can have a 5 byte configurable address.
-// Use the RX_ADDR_Px registers to set the address.
-// Use the TX_ADDR register to set the tranmission address.
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -140,6 +130,7 @@ typedef struct {
  */
 HAL_StatusTypeDef tx_spi_cmd(SPI_HandleTypeDef *hspi, uint8_t command,
                              uint8_t *tx_payload, uint8_t txsz);
+
 /**
  * @brief Sends an SPI command to the nRF24L01 and receives the returned data
  * from the peripheral.
@@ -149,9 +140,9 @@ HAL_StatusTypeDef tx_spi_cmd(SPI_HandleTypeDef *hspi, uint8_t command,
  *
  * @param[in] command - command word for desired SPI command.
  * @param[in] tx_payload - pointer to the payload buffer for additional SPI data
- * if required. Can be `NULL`.
+ * if required. Can be `NULL` if not transmitting additional data.
  * @param[in] txsz - number of bytes from the payload buffer to transmit. Make
- * sure that txsz <= length of `tx_payload`. Can be 0.
+ * sure that 0 <= txsz <= length of `tx_payload`. Can be 0.
  * @param[out] rx_buffer - pointer to the buffer to store received data.
  * @param[in] rxsz - max amount of data in bytes to read back into the buffer
  * pointed to by `rx_buffer`.
@@ -161,6 +152,7 @@ HAL_StatusTypeDef tx_spi_cmd(SPI_HandleTypeDef *hspi, uint8_t command,
 HAL_StatusTypeDef tx_rx_spi_cmd(SPI_HandleTypeDef *hspi, uint8_t command,
                                 uint8_t *tx_payload, uint8_t txsz,
                                 uint8_t *rx_buffer, uint8_t rxsz);
+
 /**
  * @brief Reads the nRF24L01 STATUS register. This register can be parsed with
  * the status parsing macros.
