@@ -47,14 +47,10 @@
 
 #define START_DELAY_MS 0
 #define STOP_DELAY_MS 0
-
 #define CONSECUTIVE_BURST_DELAY_MS 0
-
 #define SETUP_TO_TX_DELAY_MS 1
 
-#define ENABLE_RESET 1
-
-#define POWERCAST_RESET FALSE
+#define POWERCAST_RESET TRUE
 
 /* USER CODE END PD */
 
@@ -130,35 +126,35 @@ int main(void) {
 
   HAL_ADC_Start(&hadc1);
 
-  tx_spi_cmd(R_REGISTER(CONFIG_REGISTER), NULL, 0);
+  tx_spi_cmd(&hspi1, R_REGISTER(CONFIG_REGISTER), NULL, 0);
 
   HAL_Delay(START_DELAY_MS);
 
   // [REQUIRED] make sure to power on the device
   tx_payload[0] = 0b00001110;
-  tx_spi_cmd(W_REGISTER(CONFIG_REGISTER), tx_payload, 1);
+  tx_spi_cmd(&hspi1, W_REGISTER(CONFIG_REGISTER), tx_payload, 1);
 
   // [REQUIRED] set payload size for pipe 0
   tx_payload[0] = PAYLOAD_SZ_BYTES;
-  tx_spi_cmd(W_REGISTER(RX_PW_P0), tx_payload, 1);
+  tx_spi_cmd(&hspi1, W_REGISTER(RX_PW_P0), tx_payload, 1);
 
   // [REQUIRED] set the RF configuration
   NrfRfSetup_t rf_config = {.data_power = ZERO_DBM, .data_rate = TWO_MBPS};
-  nrf24l01_setup_rf(&rf_config);
+  nrf24l01_setup_rf(&hspi1, &rf_config);
 
   // [NOT REQUIRED] disable auto-retransmission
   tx_payload[0] = 0x0;
-  tx_spi_cmd(W_REGISTER(SETUP_RETR), tx_payload, 1);
+  tx_spi_cmd(&hspi1, W_REGISTER(SETUP_RETR), tx_payload, 1);
 
   // tx_payload[0] = 0x3;
   // tx_spi_cmd(W_REGISTER(SETUP_RETR), tx_payload, 1);
 
   // [REQUIRED] enable `W_TX_PAYLOAD_NOACK` command
   tx_payload[0] = 0x1;
-  tx_spi_cmd(W_REGISTER(FEATURE), tx_payload, 1);
+  tx_spi_cmd(&hspi1, W_REGISTER(FEATURE), tx_payload, 1);
 
   // [NOT REQUIRED] flush the TX buffer
-  tx_spi_cmd(FLUSH_TX, NULL, 0);
+  tx_spi_cmd(&hspi1, FLUSH_TX, NULL, 0);
 
   // required when MCU clock speed is more than or equal to 24MHz
   HAL_Delay(STOP_DELAY_MS);
@@ -178,20 +174,14 @@ int main(void) {
   // copy message into buffer
   memcpy((void *)rf_payload, (void *)(&message), PAYLOAD_SZ_BYTES);
 
-  // // byte 0 is the sensor node ID
-  // *(((uint8_t *)rf_payload) + 0) = SENSOR_NODE_ID;
-  // // bytes [1:2] are the pressure value
-  // *(((uint16_t *)rf_payload) + 1) = pressure_val_lo;
-
   // send burst of RF messages
   for (int i = 0; i < BURST_MSG_NUM; i++) {
-    send_status = nrf24l01_send_msg_noack(rf_payload, PAYLOAD_SZ_BYTES);
+    send_status = nrf24l01_send_msg_noack(&hspi1, rf_payload, PAYLOAD_SZ_BYTES);
     HAL_Delay(CONSECUTIVE_BURST_DELAY_MS);
   }
 
-#if (ENABLE_RESET)
   HAL_Delay(SETUP_TO_TX_DELAY_MS);
-#endif
+
   // reset the power harvester so we don't consume all the stored power
 #if (POWERCAST_RESET)
   HAL_GPIO_WritePin(P2110B_RESET_GPIO_Port, P2110B_RESET_Pin, GPIO_PIN_SET);
@@ -251,41 +241,41 @@ void SystemClock_Config(void) {
 void read_back_config(void) {
   uint8_t rx_buffer[RX_BUF_SZ_BYTES] = {0};
 
-  tx_rx_spi_cmd(R_REGISTER(CONFIG_REGISTER), NULL, 0, rx_buffer, 1);
+  tx_rx_spi_cmd(&hspi1, R_REGISTER(CONFIG_REGISTER), NULL, 0, rx_buffer, 1);
   uint8_t config = rx_buffer[0];
   memset(&rx_buffer, 0, sizeof(rx_buffer));
 
-  tx_rx_spi_cmd(R_REGISTER(EN_RXADDR), NULL, 0, rx_buffer, 1);
+  tx_rx_spi_cmd(&hspi1, R_REGISTER(EN_RXADDR), NULL, 0, rx_buffer, 1);
   uint8_t endp = rx_buffer[0];
   memset(&rx_buffer, 0, sizeof(rx_buffer));
 
-  tx_rx_spi_cmd(R_REGISTER(SETUP_RETR), NULL, 0, rx_buffer, 1);
+  tx_rx_spi_cmd(&hspi1, R_REGISTER(SETUP_RETR), NULL, 0, rx_buffer, 1);
   uint8_t setup_retr = rx_buffer[0];
   memset(&rx_buffer, 0, sizeof(rx_buffer));
 
-  tx_rx_spi_cmd(R_REGISTER(RF_CH), NULL, 0, rx_buffer, 1);
+  tx_rx_spi_cmd(&hspi1, R_REGISTER(RF_CH), NULL, 0, rx_buffer, 1);
   uint8_t rfch = rx_buffer[0];
   memset(&rx_buffer, 0, sizeof(rx_buffer));
 
-  tx_rx_spi_cmd(R_REGISTER(RF_SETUP), NULL, 0, rx_buffer, 1);
+  tx_rx_spi_cmd(&hspi1, R_REGISTER(RF_SETUP), NULL, 0, rx_buffer, 1);
   uint8_t rfsetup = rx_buffer[0];
   memset(&rx_buffer, 0, sizeof(rx_buffer));
 
-  tx_rx_spi_cmd(R_REGISTER(RX_ADDR_P0), NULL, 0, rx_buffer, 5);
+  tx_rx_spi_cmd(&hspi1, R_REGISTER(RX_ADDR_P0), NULL, 0, rx_buffer, 5);
   uint32_t rx_addr_p0_hi = *((uint32_t *)rx_buffer);
   uint32_t rx_addr_p0_lo = *((uint32_t *)rx_buffer + 1);
   memset(&rx_buffer, 0, sizeof(rx_buffer));
 
-  tx_rx_spi_cmd(R_REGISTER(TX_ADDR), NULL, 0, rx_buffer, 5);
+  tx_rx_spi_cmd(&hspi1, R_REGISTER(TX_ADDR), NULL, 0, rx_buffer, 5);
   uint32_t tx_addr_hi = *((uint32_t *)rx_buffer);
   uint32_t tx_addr_lo = *((uint32_t *)rx_buffer + 1);
   memset(&rx_buffer, 0, sizeof(rx_buffer));
 
-  tx_rx_spi_cmd(R_REGISTER(RX_PW_P0), NULL, 0, rx_buffer, 5);
+  tx_rx_spi_cmd(&hspi1, R_REGISTER(RX_PW_P0), NULL, 0, rx_buffer, 5);
   uint8_t rx_pw_p0 = rx_buffer[0];
   memset(&rx_buffer, 0, sizeof(rx_buffer));
 
-  tx_rx_spi_cmd(R_REGISTER(FEATURE), NULL, 0, rx_buffer, 1);
+  tx_rx_spi_cmd(&hspi1, R_REGISTER(FEATURE), NULL, 0, rx_buffer, 1);
   uint8_t feature = rx_buffer[0];
   memset(&rx_buffer, 0, sizeof(rx_buffer));
 }

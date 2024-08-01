@@ -138,7 +138,7 @@ typedef struct {
  * @returns HAL_StatusTypeDef - status enum indicating if the SPI transaction
  * was successful.
  */
-HAL_StatusTypeDef tx_spi_cmd(uint8_t command, uint8_t *tx_payload,
+HAL_StatusTypeDef tx_spi_cmd(SPI_HandleTypeDef *hspi, uint8_t command, uint8_t *tx_payload,
                              uint8_t txsz);
 /**
  * @brief Sends an SPI command to the nRF24L01 and receives the returned data
@@ -158,16 +158,16 @@ HAL_StatusTypeDef tx_spi_cmd(uint8_t command, uint8_t *tx_payload,
  * @returns HAL_StatusTypeDef - status enum indicating if the SPI transaction
  * was successful.
  */
-HAL_StatusTypeDef tx_rx_spi_cmd(uint8_t command, uint8_t *tx_payload,
-                                uint8_t txsz, uint8_t *rx_buffer, uint8_t rxsz);
-
+HAL_StatusTypeDef tx_rx_spi_cmd(SPI_HandleTypeDef *hspi, uint8_t command, uint8_t *tx_payload,
+                                uint8_t txsz, uint8_t *rx_buffer,
+                                uint8_t rxsz);
 /**
  * @brief Reads the nRF24L01 STATUS register. This register can be parsed with
  * the status parsing macros.
  *
  * @returns - contents of the nRF24L01 STATUS register.
  */
-uint8_t nrf24l01_get_status(void);
+uint8_t nrf24l01_get_status(SPI_HandleTypeDef *hspi);
 
 /**
  * @brief Sends an RF message using the nRF24L01.
@@ -177,7 +177,7 @@ uint8_t nrf24l01_get_status(void);
  * @param[in] bufsz - number of bytes from the buffer to transmit over RF.
  * @returns - contents of the nRF24L01 STATUS register.
  */
-HAL_StatusTypeDef nrf24l01_send_msg(uint8_t *buf, uint8_t bufsz);
+HAL_StatusTypeDef nrf24l01_send_msg(SPI_HandleTypeDef *hspi, uint8_t *buf, uint8_t bufsz);
 
 /**
  * @brief Sends an RF message using the nRF24L01 and disables
@@ -191,7 +191,7 @@ HAL_StatusTypeDef nrf24l01_send_msg(uint8_t *buf, uint8_t bufsz);
  * @param[in] bufsz - number of bytes from the buffer to transmit over RF.
  * @returns - contents of the nRF24L01 STATUS register.
  */
-HAL_StatusTypeDef nrf24l01_send_msg_noack(uint8_t *buf, uint8_t bufsz);
+HAL_StatusTypeDef nrf24l01_send_msg_noack(SPI_HandleTypeDef *hspi, uint8_t *buf, uint8_t bufsz);
 
 /**
  * @brief Configures the RF communication characteristics (specifically transmit
@@ -201,7 +201,7 @@ HAL_StatusTypeDef nrf24l01_send_msg_noack(uint8_t *buf, uint8_t bufsz);
  * configuration.
  * @returns - status indicating whether the function succeeded or not.
  */
-HAL_StatusTypeDef nrf24l01_setup_rf(NrfRfSetup_t *rf_config);
+HAL_StatusTypeDef nrf24l01_setup_rf(SPI_HandleTypeDef *hspi, NrfRfSetup_t *rf_config);
 
 #ifdef __cplusplus
 }
