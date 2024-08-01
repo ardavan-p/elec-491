@@ -19,6 +19,7 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "can.h"
 #include "spi.h"
 #include "tim.h"
 #include "gpio.h"
@@ -119,24 +120,72 @@ int main(void)
   MX_SPI1_Init();
   MX_TIM2_Init();
   MX_SPI2_Init();
+  MX_CAN_Init();
   /* USER CODE BEGIN 2 */
   cmd_sm_init();
-  HAL_TIM_Base_Start_IT(&htim2);
+  // HAL_TIM_Base_Start_IT(&htim2);
+
+  CAN_FilterTypeDef can_filter = {
+      .FilterIdHigh = (uint32_t)(PTN_REQUEST_ID << 5 | 0x0000),
+      .FilterIdLow = 0,
+      .FilterMaskIdHigh = 0,
+      .FilterMaskIdLow = 0,
+      .FilterFIFOAssignment = CAN_FILTER_FIFO0,
+      .FilterBank = 0,
+      .FilterMode = CAN_FILTERMODE_IDLIST,
+      .FilterScale = CAN_FILTERSCALE_32BIT,
+      .FilterActivation = CAN_FILTER_ENABLE,
+      .SlaveStartFilterBank = 0,
+  };
+
+  HAL_CAN_ConfigFilter(&hcan, &can_filter);
+
+  HAL_CAN_Start(&hcan);
+
+  CAN_TxHeaderTypeDef tx_header = {
+      .StdId = PTN_RESPONSE_ID,
+      .ExtId = 0,
+      .IDE = CAN_ID_STD,
+      .RTR = CAN_RTR_DATA,
+      .DLC = CAN_MSG_FRAME_LEN_BYTES,
+      .TransmitGlobalTime = DISABLE,
+  };
+
+  uint8_t can_tx_payload[CAN_MSG_FRAME_LEN_BYTES] = {0};
+  uint8_t can_rx_payload[CAN_MSG_FRAME_LEN_BYTES] = {0};
+
+  HAL_StatusTypeDef can_tx_status = HAL_OK;
+  HAL_StatusTypeDef can_rx_status = HAL_OK;
+
+  CAN_RxHeaderTypeDef rx_header = {0};
+  uint32_t can_tx_mailbox = 0;
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   
-  // Power up the PLL:
+  adf4350_out_altvoltage0_powerdown(1);
+  while(HAL_CAN_GetRxFifoFillLevel(&hcan, CAN_RX_FIFO0) <= 0);
+
+  can_rx_status = HAL_CAN_GetRxMessage(&hcan, CAN_RX_FIFO0, &rx_header, can_rx_payload);
+
   adf4350_out_altvoltage0_powerdown(0);
-  
+  adf4350_out_altvoltage0_frequency(915e6);
+  HAL_Delay(2000);
+  adf4350_out_altvoltage0_powerdown(1);
+  while (HAL_CAN_GetTxMailboxesFreeLevel(&hcan) <= 0);
+  can_tx_status = HAL_CAN_AddTxMessage(&hcan, &tx_header, can_tx_payload, &can_tx_mailbox);
   while (1)
-  {
-    HAL_Delay(100);
+  {}
+
+    
+
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-  }
+  
   /* USER CODE END 3 */
 }
 

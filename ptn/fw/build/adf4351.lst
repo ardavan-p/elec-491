@@ -1,28 +1,28 @@
-ARM GAS  C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s 			page 1
+ARM GAS  /tmp/ccdp6r1y.s 			page 1
 
 
    1              		.cpu cortex-m3
-   2              		.arch armv7-m
-   3              		.fpu softvfp
-   4              		.eabi_attribute 20, 1
-   5              		.eabi_attribute 21, 1
-   6              		.eabi_attribute 23, 3
-   7              		.eabi_attribute 24, 1
-   8              		.eabi_attribute 25, 1
-   9              		.eabi_attribute 26, 1
-  10              		.eabi_attribute 30, 1
-  11              		.eabi_attribute 34, 1
-  12              		.eabi_attribute 18, 4
-  13              		.file	"adf4351.c"
-  14              		.text
-  15              	.Ltext0:
-  16              		.cfi_sections	.debug_frame
-  17              		.section	.text.SPI_assert_CS_LD,"ax",%progbits
-  18              		.align	1
-  19              		.global	SPI_assert_CS_LD
-  20              		.syntax unified
-  21              		.thumb
-  22              		.thumb_func
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 1
+   9              		.eabi_attribute 34, 1
+  10              		.eabi_attribute 18, 4
+  11              		.file	"adf4351.c"
+  12              		.text
+  13              	.Ltext0:
+  14              		.cfi_sections	.debug_frame
+  15              		.section	.text.SPI_assert_CS_LD,"ax",%progbits
+  16              		.align	1
+  17              		.global	SPI_assert_CS_LD
+  18              		.arch armv7-m
+  19              		.syntax unified
+  20              		.thumb
+  21              		.thumb_func
+  22              		.fpu softvfp
   24              	SPI_assert_CS_LD:
   25              	.LFB65:
   26              		.file 1 "Core/Src/adf4351.c"
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s 			page 1
   33              		.cfi_def_cfa_offset 8
   34              		.cfi_offset 4, -8
   35              		.cfi_offset 14, -4
-ARM GAS  C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s 			page 2
+ARM GAS  /tmp/ccdp6r1y.s 			page 2
 
 
   24:Core/Src/adf4351.c **** 	HAL_GPIO_WritePin(SPI1_CSn_GPIO_Port, SPI1_CSn_Pin, 0);
@@ -91,112 +91,115 @@ ARM GAS  C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s 			page 1
   61              		.syntax unified
   62              		.thumb
   63              		.thumb_func
-  65              	SPI_deassert_CS_LD:
-  66              	.LFB66:
+  64              		.fpu softvfp
+  66              	SPI_deassert_CS_LD:
+  67              	.LFB66:
   27:Core/Src/adf4351.c **** 
   28:Core/Src/adf4351.c **** /***************************************************************************//**
   29:Core/Src/adf4351.c ****  * @brief assert SPI CS and LD
   30:Core/Src/adf4351.c ****  * This sets the IO pins to one..
   31:Core/Src/adf4351.c **** *******************************************************************************/
   32:Core/Src/adf4351.c **** void SPI_deassert_CS_LD() {
-  67              		.loc 1 32 27 is_stmt 1 view -0
-  68              		.cfi_startproc
-  69              		@ args = 0, pretend = 0, frame = 0
-  70              		@ frame_needed = 0, uses_anonymous_args = 0
-  71 0000 10B5     		push	{r4, lr}
-  72              	.LCFI1:
-  73              		.cfi_def_cfa_offset 8
-  74              		.cfi_offset 4, -8
-  75              		.cfi_offset 14, -4
+  68              		.loc 1 32 27 is_stmt 1 view -0
+  69              		.cfi_startproc
+  70              		@ args = 0, pretend = 0, frame = 0
+  71              		@ frame_needed = 0, uses_anonymous_args = 0
+  72 0000 10B5     		push	{r4, lr}
+  73              	.LCFI1:
+  74              		.cfi_def_cfa_offset 8
+  75              		.cfi_offset 4, -8
+  76              		.cfi_offset 14, -4
   33:Core/Src/adf4351.c **** 	HAL_GPIO_WritePin(SPI1_CSn_GPIO_Port, SPI1_CSn_Pin, 1);
-  76              		.loc 1 33 2 view .LVU5
-  77 0002 064C     		ldr	r4, .L7
-  78 0004 0122     		movs	r2, #1
-  79 0006 1021     		movs	r1, #16
-  80 0008 2046     		mov	r0, r4
-  81 000a FFF7FEFF 		bl	HAL_GPIO_WritePin
-  82              	.LVL2:
+  77              		.loc 1 33 2 view .LVU5
+  78 0002 064C     		ldr	r4, .L7
+  79 0004 0122     		movs	r2, #1
+  80 0006 1021     		movs	r1, #16
+  81 0008 2046     		mov	r0, r4
+  82 000a FFF7FEFF 		bl	HAL_GPIO_WritePin
+  83              	.LVL2:
   34:Core/Src/adf4351.c **** 	HAL_GPIO_WritePin(SPI1_LD_GPIO_Port, SPI1_LD_Pin, 1);
-  83              		.loc 1 34 2 view .LVU6
-ARM GAS  C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s 			page 3
+ARM GAS  /tmp/ccdp6r1y.s 			page 3
 
 
-  84 000e 0122     		movs	r2, #1
-  85 0010 4FF48061 		mov	r1, #1024
-  86 0014 2046     		mov	r0, r4
-  87 0016 FFF7FEFF 		bl	HAL_GPIO_WritePin
-  88              	.LVL3:
+  84              		.loc 1 34 2 view .LVU6
+  85 000e 0122     		movs	r2, #1
+  86 0010 4FF48061 		mov	r1, #1024
+  87 0014 2046     		mov	r0, r4
+  88 0016 FFF7FEFF 		bl	HAL_GPIO_WritePin
+  89              	.LVL3:
   35:Core/Src/adf4351.c **** }
-  89              		.loc 1 35 1 is_stmt 0 view .LVU7
-  90 001a 10BD     		pop	{r4, pc}
-  91              	.L8:
-  92              		.align	2
-  93              	.L7:
-  94 001c 00080140 		.word	1073809408
-  95              		.cfi_endproc
-  96              	.LFE66:
-  98              		.section	.text.SPI_Write,"ax",%progbits
-  99              		.align	1
- 100              		.global	SPI_Write
- 101              		.syntax unified
- 102              		.thumb
- 103              		.thumb_func
- 105              	SPI_Write:
- 106              	.LVL4:
- 107              	.LFB67:
+  90              		.loc 1 35 1 is_stmt 0 view .LVU7
+  91 001a 10BD     		pop	{r4, pc}
+  92              	.L8:
+  93              		.align	2
+  94              	.L7:
+  95 001c 00080140 		.word	1073809408
+  96              		.cfi_endproc
+  97              	.LFE66:
+  99              		.section	.text.SPI_Write,"ax",%progbits
+ 100              		.align	1
+ 101              		.global	SPI_Write
+ 102              		.syntax unified
+ 103              		.thumb
+ 104              		.thumb_func
+ 105              		.fpu softvfp
+ 107              	SPI_Write:
+ 108              	.LVL4:
+ 109              	.LFB67:
   36:Core/Src/adf4351.c **** 
   37:Core/Src/adf4351.c **** /************************
   38:Core/Src/adf4351.c ****  *  @brief write 8 bits of data on SPI interface MOSI pin..
   39:Core/Src/adf4351.c ****  */
   40:Core/Src/adf4351.c **** void SPI_Write(uint8_t data) {
- 108              		.loc 1 40 30 is_stmt 1 view -0
- 109              		.cfi_startproc
- 110              		@ args = 0, pretend = 0, frame = 8
- 111              		@ frame_needed = 0, uses_anonymous_args = 0
- 112              		.loc 1 40 30 is_stmt 0 view .LVU9
- 113 0000 00B5     		push	{lr}
- 114              	.LCFI2:
- 115              		.cfi_def_cfa_offset 4
- 116              		.cfi_offset 14, -4
- 117 0002 83B0     		sub	sp, sp, #12
- 118              	.LCFI3:
- 119              		.cfi_def_cfa_offset 16
- 120 0004 8DF80700 		strb	r0, [sp, #7]
+ 110              		.loc 1 40 30 is_stmt 1 view -0
+ 111              		.cfi_startproc
+ 112              		@ args = 0, pretend = 0, frame = 8
+ 113              		@ frame_needed = 0, uses_anonymous_args = 0
+ 114              		.loc 1 40 30 is_stmt 0 view .LVU9
+ 115 0000 00B5     		push	{lr}
+ 116              	.LCFI2:
+ 117              		.cfi_def_cfa_offset 4
+ 118              		.cfi_offset 14, -4
+ 119 0002 83B0     		sub	sp, sp, #12
+ 120              	.LCFI3:
+ 121              		.cfi_def_cfa_offset 16
+ 122 0004 8DF80700 		strb	r0, [sp, #7]
   41:Core/Src/adf4351.c **** 	HAL_SPI_Transmit(&hspi1, &data, 1, 1000);
- 121              		.loc 1 41 2 is_stmt 1 view .LVU10
- 122 0008 4FF47A73 		mov	r3, #1000
- 123 000c 0122     		movs	r2, #1
- 124 000e 0DF10701 		add	r1, sp, #7
- 125 0012 0348     		ldr	r0, .L11
- 126              	.LVL5:
- 127              		.loc 1 41 2 is_stmt 0 view .LVU11
- 128 0014 FFF7FEFF 		bl	HAL_SPI_Transmit
- 129              	.LVL6:
+ 123              		.loc 1 41 2 is_stmt 1 view .LVU10
+ 124 0008 4FF47A73 		mov	r3, #1000
+ 125 000c 0122     		movs	r2, #1
+ 126 000e 0DF10701 		add	r1, sp, #7
+ 127 0012 0348     		ldr	r0, .L11
+ 128              	.LVL5:
+ 129              		.loc 1 41 2 is_stmt 0 view .LVU11
+ 130 0014 FFF7FEFF 		bl	HAL_SPI_Transmit
+ 131              	.LVL6:
   42:Core/Src/adf4351.c **** }
- 130              		.loc 1 42 1 view .LVU12
- 131 0018 03B0     		add	sp, sp, #12
- 132              	.LCFI4:
- 133              		.cfi_def_cfa_offset 4
- 134              		@ sp needed
-ARM GAS  C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s 			page 4
+ 132              		.loc 1 42 1 view .LVU12
+ 133 0018 03B0     		add	sp, sp, #12
+ 134              	.LCFI4:
+ARM GAS  /tmp/ccdp6r1y.s 			page 4
 
 
- 135 001a 5DF804FB 		ldr	pc, [sp], #4
- 136              	.L12:
- 137 001e 00BF     		.align	2
- 138              	.L11:
- 139 0020 00000000 		.word	hspi1
- 140              		.cfi_endproc
- 141              	.LFE67:
- 143              		.section	.text.adf4350_write,"ax",%progbits
- 144              		.align	1
- 145              		.global	adf4350_write
- 146              		.syntax unified
- 147              		.thumb
- 148              		.thumb_func
- 150              	adf4350_write:
- 151              	.LVL7:
- 152              	.LFB68:
+ 135              		.cfi_def_cfa_offset 4
+ 136              		@ sp needed
+ 137 001a 5DF804FB 		ldr	pc, [sp], #4
+ 138              	.L12:
+ 139 001e 00BF     		.align	2
+ 140              	.L11:
+ 141 0020 00000000 		.word	hspi1
+ 142              		.cfi_endproc
+ 143              	.LFE67:
+ 145              		.section	.text.adf4350_write,"ax",%progbits
+ 146              		.align	1
+ 147              		.global	adf4350_write
+ 148              		.syntax unified
+ 149              		.thumb
+ 150              		.thumb_func
+ 151              		.fpu softvfp
+ 153              	adf4350_write:
+ 154              	.LVL7:
+ 155              	.LFB68:
   43:Core/Src/adf4351.c **** 
   44:Core/Src/adf4351.c **** /******************************************************************************/
   45:Core/Src/adf4351.c **** /************************ Local variables and types ***************************/
@@ -227,102 +230,103 @@ ARM GAS  C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s 			page 1
   70:Core/Src/adf4351.c **** *******************************************************************************/
   71:Core/Src/adf4351.c **** int32_t adf4350_write(uint32_t data)
   72:Core/Src/adf4351.c **** {
- 153              		.loc 1 72 1 is_stmt 1 view -0
- 154              		.cfi_startproc
- 155              		@ args = 0, pretend = 0, frame = 8
- 156              		@ frame_needed = 0, uses_anonymous_args = 0
- 157              		.loc 1 72 1 is_stmt 0 view .LVU14
- 158 0000 F0B5     		push	{r4, r5, r6, r7, lr}
- 159              	.LCFI5:
- 160              		.cfi_def_cfa_offset 20
- 161              		.cfi_offset 4, -20
- 162              		.cfi_offset 5, -16
- 163              		.cfi_offset 6, -12
-ARM GAS  C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s 			page 5
+ 156              		.loc 1 72 1 is_stmt 1 view -0
+ 157              		.cfi_startproc
+ 158              		@ args = 0, pretend = 0, frame = 8
+ 159              		@ frame_needed = 0, uses_anonymous_args = 0
+ 160              		.loc 1 72 1 is_stmt 0 view .LVU14
+ 161 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 162              	.LCFI5:
+ 163              		.cfi_def_cfa_offset 20
+ARM GAS  /tmp/ccdp6r1y.s 			page 5
 
 
- 164              		.cfi_offset 7, -8
- 165              		.cfi_offset 14, -4
- 166 0002 83B0     		sub	sp, sp, #12
- 167              	.LCFI6:
- 168              		.cfi_def_cfa_offset 32
+ 164              		.cfi_offset 4, -20
+ 165              		.cfi_offset 5, -16
+ 166              		.cfi_offset 6, -12
+ 167              		.cfi_offset 7, -8
+ 168              		.cfi_offset 14, -4
+ 169 0002 83B0     		sub	sp, sp, #12
+ 170              	.LCFI6:
+ 171              		.cfi_def_cfa_offset 32
   73:Core/Src/adf4351.c **** 	uint8_t txData[4];
- 169              		.loc 1 73 2 is_stmt 1 view .LVU15
+ 172              		.loc 1 73 2 is_stmt 1 view .LVU15
   74:Core/Src/adf4351.c **** 	txData[0] = (data & 0xFF000000) >> 24;
- 170              		.loc 1 74 2 view .LVU16
- 171              		.loc 1 74 12 is_stmt 0 view .LVU17
- 172 0004 070E     		lsrs	r7, r0, #24
- 173 0006 8DF80470 		strb	r7, [sp, #4]
+ 173              		.loc 1 74 2 view .LVU16
+ 174              		.loc 1 74 12 is_stmt 0 view .LVU17
+ 175 0004 070E     		lsrs	r7, r0, #24
+ 176 0006 8DF80470 		strb	r7, [sp, #4]
   75:Core/Src/adf4351.c **** 	txData[1] = (data & 0x00FF0000) >> 16;
- 174              		.loc 1 75 2 is_stmt 1 view .LVU18
- 175              		.loc 1 75 12 is_stmt 0 view .LVU19
- 176 000a C0F30746 		ubfx	r6, r0, #16, #8
- 177 000e 8DF80560 		strb	r6, [sp, #5]
+ 177              		.loc 1 75 2 is_stmt 1 view .LVU18
+ 178              		.loc 1 75 12 is_stmt 0 view .LVU19
+ 179 000a C0F30746 		ubfx	r6, r0, #16, #8
+ 180 000e 8DF80560 		strb	r6, [sp, #5]
   76:Core/Src/adf4351.c **** 	txData[2] = (data & 0x0000FF00) >> 8;
- 178              		.loc 1 76 2 is_stmt 1 view .LVU20
- 179              		.loc 1 76 12 is_stmt 0 view .LVU21
- 180 0012 C0F30725 		ubfx	r5, r0, #8, #8
- 181 0016 8DF80650 		strb	r5, [sp, #6]
+ 181              		.loc 1 76 2 is_stmt 1 view .LVU20
+ 182              		.loc 1 76 12 is_stmt 0 view .LVU21
+ 183 0012 C0F30725 		ubfx	r5, r0, #8, #8
+ 184 0016 8DF80650 		strb	r5, [sp, #6]
   77:Core/Src/adf4351.c **** 	txData[3] = (data & 0x000000FF) >> 0;
- 182              		.loc 1 77 2 is_stmt 1 view .LVU22
- 183              		.loc 1 77 12 is_stmt 0 view .LVU23
- 184 001a C4B2     		uxtb	r4, r0
- 185 001c 8DF80740 		strb	r4, [sp, #7]
+ 185              		.loc 1 77 2 is_stmt 1 view .LVU22
+ 186              		.loc 1 77 12 is_stmt 0 view .LVU23
+ 187 001a C4B2     		uxtb	r4, r0
+ 188 001c 8DF80740 		strb	r4, [sp, #7]
   78:Core/Src/adf4351.c **** 
   79:Core/Src/adf4351.c **** 	// Assert CS and LD for whole period..
   80:Core/Src/adf4351.c **** 	// Write txData 0..3
   81:Core/Src/adf4351.c **** 	SPI_assert_CS_LD();
- 186              		.loc 1 81 2 is_stmt 1 view .LVU24
- 187 0020 FFF7FEFF 		bl	SPI_assert_CS_LD
- 188              	.LVL8:
+ 189              		.loc 1 81 2 is_stmt 1 view .LVU24
+ 190 0020 FFF7FEFF 		bl	SPI_assert_CS_LD
+ 191              	.LVL8:
   82:Core/Src/adf4351.c **** 	SPI_Write(txData[0]);
- 189              		.loc 1 82 2 view .LVU25
- 190 0024 3846     		mov	r0, r7
- 191 0026 FFF7FEFF 		bl	SPI_Write
- 192              	.LVL9:
+ 192              		.loc 1 82 2 view .LVU25
+ 193 0024 3846     		mov	r0, r7
+ 194 0026 FFF7FEFF 		bl	SPI_Write
+ 195              	.LVL9:
   83:Core/Src/adf4351.c **** 	SPI_Write(txData[1]);
- 193              		.loc 1 83 2 view .LVU26
- 194 002a 3046     		mov	r0, r6
- 195 002c FFF7FEFF 		bl	SPI_Write
- 196              	.LVL10:
+ 196              		.loc 1 83 2 view .LVU26
+ 197 002a 3046     		mov	r0, r6
+ 198 002c FFF7FEFF 		bl	SPI_Write
+ 199              	.LVL10:
   84:Core/Src/adf4351.c **** 	SPI_Write(txData[2]);
- 197              		.loc 1 84 2 view .LVU27
- 198 0030 2846     		mov	r0, r5
- 199 0032 FFF7FEFF 		bl	SPI_Write
- 200              	.LVL11:
+ 200              		.loc 1 84 2 view .LVU27
+ 201 0030 2846     		mov	r0, r5
+ 202 0032 FFF7FEFF 		bl	SPI_Write
+ 203              	.LVL11:
   85:Core/Src/adf4351.c **** 	SPI_Write(txData[3]);
- 201              		.loc 1 85 2 view .LVU28
- 202 0036 2046     		mov	r0, r4
- 203 0038 FFF7FEFF 		bl	SPI_Write
- 204              	.LVL12:
+ 204              		.loc 1 85 2 view .LVU28
+ 205 0036 2046     		mov	r0, r4
+ 206 0038 FFF7FEFF 		bl	SPI_Write
+ 207              	.LVL12:
+ARM GAS  /tmp/ccdp6r1y.s 			page 6
+
+
   86:Core/Src/adf4351.c **** 	SPI_deassert_CS_LD();
- 205              		.loc 1 86 2 view .LVU29
- 206 003c FFF7FEFF 		bl	SPI_deassert_CS_LD
-ARM GAS  C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s 			page 6
-
-
- 207              	.LVL13:
+ 208              		.loc 1 86 2 view .LVU29
+ 209 003c FFF7FEFF 		bl	SPI_deassert_CS_LD
+ 210              	.LVL13:
   87:Core/Src/adf4351.c **** 	return 0;
- 208              		.loc 1 87 2 view .LVU30
+ 211              		.loc 1 87 2 view .LVU30
   88:Core/Src/adf4351.c **** }
- 209              		.loc 1 88 1 is_stmt 0 view .LVU31
- 210 0040 0020     		movs	r0, #0
- 211 0042 03B0     		add	sp, sp, #12
- 212              	.LCFI7:
- 213              		.cfi_def_cfa_offset 20
- 214              		@ sp needed
- 215 0044 F0BD     		pop	{r4, r5, r6, r7, pc}
- 216              		.cfi_endproc
- 217              	.LFE68:
- 219              		.section	.text.adf4350_sync_config,"ax",%progbits
- 220              		.align	1
- 221              		.global	adf4350_sync_config
- 222              		.syntax unified
- 223              		.thumb
- 224              		.thumb_func
- 226              	adf4350_sync_config:
- 227              	.LVL14:
- 228              	.LFB69:
+ 212              		.loc 1 88 1 is_stmt 0 view .LVU31
+ 213 0040 0020     		movs	r0, #0
+ 214 0042 03B0     		add	sp, sp, #12
+ 215              	.LCFI7:
+ 216              		.cfi_def_cfa_offset 20
+ 217              		@ sp needed
+ 218 0044 F0BD     		pop	{r4, r5, r6, r7, pc}
+ 219              		.cfi_endproc
+ 220              	.LFE68:
+ 222              		.section	.text.adf4350_sync_config,"ax",%progbits
+ 223              		.align	1
+ 224              		.global	adf4350_sync_config
+ 225              		.syntax unified
+ 226              		.thumb
+ 227              		.thumb_func
+ 228              		.fpu softvfp
+ 230              	adf4350_sync_config:
+ 231              	.LVL14:
+ 232              	.LFB69:
   89:Core/Src/adf4351.c **** 
   90:Core/Src/adf4351.c **** /***************************************************************************//**
   91:Core/Src/adf4351.c ****  * @brief Updates the registers values.
@@ -333,158 +337,163 @@ ARM GAS  C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s 			page 1
   96:Core/Src/adf4351.c **** *******************************************************************************/
   97:Core/Src/adf4351.c **** int32_t adf4350_sync_config(struct adf4350_state *st)
   98:Core/Src/adf4351.c **** {
- 229              		.loc 1 98 1 is_stmt 1 view -0
- 230              		.cfi_startproc
- 231              		@ args = 0, pretend = 0, frame = 0
- 232              		@ frame_needed = 0, uses_anonymous_args = 0
- 233              		.loc 1 98 1 is_stmt 0 view .LVU33
- 234 0000 70B5     		push	{r4, r5, r6, lr}
- 235              	.LCFI8:
- 236              		.cfi_def_cfa_offset 16
- 237              		.cfi_offset 4, -16
- 238              		.cfi_offset 5, -12
- 239              		.cfi_offset 6, -8
- 240              		.cfi_offset 14, -4
- 241 0002 0546     		mov	r5, r0
+ 233              		.loc 1 98 1 is_stmt 1 view -0
+ 234              		.cfi_startproc
+ 235              		@ args = 0, pretend = 0, frame = 0
+ 236              		@ frame_needed = 0, uses_anonymous_args = 0
+ 237              		.loc 1 98 1 is_stmt 0 view .LVU33
+ 238 0000 70B5     		push	{r4, r5, r6, lr}
+ 239              	.LCFI8:
+ 240              		.cfi_def_cfa_offset 16
+ 241              		.cfi_offset 4, -16
+ 242              		.cfi_offset 5, -12
+ 243              		.cfi_offset 6, -8
+ 244              		.cfi_offset 14, -4
+ 245 0002 0546     		mov	r5, r0
   99:Core/Src/adf4351.c **** 	int32_t ret, i, doublebuf = 0;
- 242              		.loc 1 99 2 is_stmt 1 view .LVU34
- 243              	.LVL15:
+ 246              		.loc 1 99 2 is_stmt 1 view .LVU34
+ 247              	.LVL15:
  100:Core/Src/adf4351.c **** 
  101:Core/Src/adf4351.c **** 	for (i = ADF4350_REG5; i >= ADF4350_REG0; i--)
- 244              		.loc 1 101 2 view .LVU35
+ 248              		.loc 1 101 2 view .LVU35
   99:Core/Src/adf4351.c **** 	int32_t ret, i, doublebuf = 0;
- 245              		.loc 1 99 18 is_stmt 0 view .LVU36
- 246 0004 0026     		movs	r6, #0
- 247              		.loc 1 101 9 view .LVU37
- 248 0006 0524     		movs	r4, #5
- 249              		.loc 1 101 2 view .LVU38
-ARM GAS  C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s 			page 7
+ 249              		.loc 1 99 18 is_stmt 0 view .LVU36
+ARM GAS  /tmp/ccdp6r1y.s 			page 7
 
 
- 250 0008 14E0     		b	.L16
- 251              	.LVL16:
- 252              	.L25:
+ 250 0004 0026     		movs	r6, #0
+ 251              		.loc 1 101 9 view .LVU37
+ 252 0006 0524     		movs	r4, #5
+ 253              		.loc 1 101 2 view .LVU38
+ 254 0008 14E0     		b	.L16
+ 255              	.LVL16:
+ 256              	.L25:
  102:Core/Src/adf4351.c **** 	{
  103:Core/Src/adf4351.c **** 		if ((st->regs_hw[i] != st->regs[i]) ||
- 253              		.loc 1 103 39 discriminator 1 view .LVU39
- 254 000a 94B9     		cbnz	r4, .L18
+ 257              		.loc 1 103 39 discriminator 1 view .LVU39
+ 258 000a 94B9     		cbnz	r4, .L18
  104:Core/Src/adf4351.c **** 			((i == ADF4350_REG0) && doublebuf))
- 255              		.loc 1 104 25 view .LVU40
- 256 000c 8EB1     		cbz	r6, .L18
- 257 000e 1FE0     		b	.L17
- 258              	.L22:
+ 259              		.loc 1 104 25 view .LVU40
+ 260 000c 8EB1     		cbz	r6, .L18
+ 261 000e 1FE0     		b	.L17
+ 262              	.L22:
  105:Core/Src/adf4351.c **** 		{
  106:Core/Src/adf4351.c **** 			switch (i)
  107:Core/Src/adf4351.c **** 			{
  108:Core/Src/adf4351.c **** 				case ADF4350_REG1:
  109:Core/Src/adf4351.c **** 				case ADF4350_REG4:
  110:Core/Src/adf4351.c **** 					doublebuf = 1;
- 259              		.loc 1 110 16 view .LVU41
- 260 0010 2646     		mov	r6, r4
- 261              	.LVL17:
- 262              	.L19:
+ 263              		.loc 1 110 16 view .LVU41
+ 264 0010 2646     		mov	r6, r4
+ 265              	.LVL17:
+ 266              	.L19:
  111:Core/Src/adf4351.c **** 					break;
  112:Core/Src/adf4351.c **** 			}
  113:Core/Src/adf4351.c **** 
  114:Core/Src/adf4351.c **** 			st->val = (st->regs[i] | i);
- 263              		.loc 1 114 4 is_stmt 1 view .LVU42
- 264              		.loc 1 114 27 is_stmt 0 view .LVU43
- 265 0012 2043     		orrs	r0, r0, r4
- 266              		.loc 1 114 12 view .LVU44
- 267 0014 6865     		str	r0, [r5, #84]
+ 267              		.loc 1 114 4 is_stmt 1 view .LVU42
+ 268              		.loc 1 114 27 is_stmt 0 view .LVU43
+ 269 0012 2043     		orrs	r0, r0, r4
+ 270              		.loc 1 114 12 view .LVU44
+ 271 0014 6865     		str	r0, [r5, #84]
  115:Core/Src/adf4351.c **** 			ret = adf4350_write(st->val);
- 268              		.loc 1 115 4 is_stmt 1 view .LVU45
- 269              		.loc 1 115 10 is_stmt 0 view .LVU46
- 270 0016 FFF7FEFF 		bl	adf4350_write
- 271              	.LVL18:
+ 272              		.loc 1 115 4 is_stmt 1 view .LVU45
+ 273              		.loc 1 115 10 is_stmt 0 view .LVU46
+ 274 0016 FFF7FEFF 		bl	adf4350_write
+ 275              	.LVL18:
  116:Core/Src/adf4351.c **** 			if (ret < 0)
- 272              		.loc 1 116 4 is_stmt 1 view .LVU47
- 273              		.loc 1 116 7 is_stmt 0 view .LVU48
- 274 001a 0028     		cmp	r0, #0
- 275              		.loc 1 116 7 view .LVU49
- 276 001c 1FDB     		blt	.L15
+ 276              		.loc 1 116 4 is_stmt 1 view .LVU47
+ 277              		.loc 1 116 7 is_stmt 0 view .LVU48
+ 278 001a 0028     		cmp	r0, #0
+ 279              		.loc 1 116 7 view .LVU49
+ 280 001c 1FDB     		blt	.L15
  117:Core/Src/adf4351.c **** 				return ret;
  118:Core/Src/adf4351.c **** 			st->regs_hw[i] = st->regs[i];
- 277              		.loc 1 118 4 is_stmt 1 view .LVU50
- 278              		.loc 1 118 29 is_stmt 0 view .LVU51
- 279 001e 04F10803 		add	r3, r4, #8
- 280 0022 05EB8303 		add	r3, r5, r3, lsl #2
- 281 0026 5A68     		ldr	r2, [r3, #4]
- 282              		.loc 1 118 19 view .LVU52
- 283 0028 04F10E03 		add	r3, r4, #14
- 284 002c 05EB8303 		add	r3, r5, r3, lsl #2
- 285 0030 5A60     		str	r2, [r3, #4]
- 286              	.LVL19:
- 287              	.L18:
- 101:Core/Src/adf4351.c **** 	{
- 288              		.loc 1 101 45 is_stmt 1 discriminator 2 view .LVU53
-ARM GAS  C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s 			page 8
+ 281              		.loc 1 118 4 is_stmt 1 view .LVU50
+ 282              		.loc 1 118 29 is_stmt 0 view .LVU51
+ 283 001e 04F10803 		add	r3, r4, #8
+ 284 0022 05EB8303 		add	r3, r5, r3, lsl #2
+ 285 0026 5A68     		ldr	r2, [r3, #4]
+ 286              		.loc 1 118 19 view .LVU52
+ 287 0028 04F10E03 		add	r3, r4, #14
+ 288 002c 05EB8303 		add	r3, r5, r3, lsl #2
+ 289 0030 5A60     		str	r2, [r3, #4]
+ARM GAS  /tmp/ccdp6r1y.s 			page 8
 
 
- 289 0032 013C     		subs	r4, r4, #1
- 290              	.LVL20:
- 291              	.L16:
+ 290              	.LVL19:
+ 291              	.L18:
  101:Core/Src/adf4351.c **** 	{
- 292              		.loc 1 101 27 discriminator 1 view .LVU54
- 293 0034 002C     		cmp	r4, #0
- 294 0036 11DB     		blt	.L24
+ 292              		.loc 1 101 44 is_stmt 1 discriminator 2 view .LVU53
+ 101:Core/Src/adf4351.c **** 	{
+ 293              		.loc 1 101 45 is_stmt 0 discriminator 2 view .LVU54
+ 294 0032 013C     		subs	r4, r4, #1
+ 295              	.LVL20:
+ 296              	.L16:
+ 101:Core/Src/adf4351.c **** 	{
+ 297              		.loc 1 101 25 is_stmt 1 discriminator 1 view .LVU55
+ 101:Core/Src/adf4351.c **** 	{
+ 298              		.loc 1 101 2 is_stmt 0 discriminator 1 view .LVU56
+ 299 0034 002C     		cmp	r4, #0
+ 300 0036 11DB     		blt	.L24
  103:Core/Src/adf4351.c **** 			((i == ADF4350_REG0) && doublebuf))
- 295              		.loc 1 103 3 view .LVU55
+ 301              		.loc 1 103 3 is_stmt 1 view .LVU57
  103:Core/Src/adf4351.c **** 			((i == ADF4350_REG0) && doublebuf))
- 296              		.loc 1 103 19 is_stmt 0 view .LVU56
- 297 0038 04F10E03 		add	r3, r4, #14
- 298 003c 05EB8303 		add	r3, r5, r3, lsl #2
- 299 0040 5A68     		ldr	r2, [r3, #4]
+ 302              		.loc 1 103 19 is_stmt 0 view .LVU58
+ 303 0038 04F10E03 		add	r3, r4, #14
+ 304 003c 05EB8303 		add	r3, r5, r3, lsl #2
+ 305 0040 5A68     		ldr	r2, [r3, #4]
  103:Core/Src/adf4351.c **** 			((i == ADF4350_REG0) && doublebuf))
- 300              		.loc 1 103 34 view .LVU57
- 301 0042 04F10803 		add	r3, r4, #8
- 302 0046 05EB8303 		add	r3, r5, r3, lsl #2
- 303 004a 5868     		ldr	r0, [r3, #4]
+ 306              		.loc 1 103 34 view .LVU59
+ 307 0042 04F10803 		add	r3, r4, #8
+ 308 0046 05EB8303 		add	r3, r5, r3, lsl #2
+ 309 004a 5868     		ldr	r0, [r3, #4]
  103:Core/Src/adf4351.c **** 			((i == ADF4350_REG0) && doublebuf))
- 304              		.loc 1 103 6 view .LVU58
- 305 004c 8242     		cmp	r2, r0
- 306 004e DCD0     		beq	.L25
- 307              	.L17:
+ 310              		.loc 1 103 6 view .LVU60
+ 311 004c 8242     		cmp	r2, r0
+ 312 004e DCD0     		beq	.L25
+ 313              	.L17:
  106:Core/Src/adf4351.c **** 			{
- 308              		.loc 1 106 4 is_stmt 1 view .LVU59
- 309 0050 012C     		cmp	r4, #1
- 310 0052 DDD0     		beq	.L22
- 311 0054 042C     		cmp	r4, #4
- 312 0056 DCD1     		bne	.L19
+ 314              		.loc 1 106 4 is_stmt 1 view .LVU61
+ 315 0050 012C     		cmp	r4, #1
+ 316 0052 DDD0     		beq	.L22
+ 317 0054 042C     		cmp	r4, #4
+ 318 0056 DCD1     		bne	.L19
  110:Core/Src/adf4351.c **** 					break;
- 313              		.loc 1 110 16 is_stmt 0 view .LVU60
- 314 0058 0126     		movs	r6, #1
- 315              	.LVL21:
+ 319              		.loc 1 110 16 is_stmt 0 view .LVU62
+ 320 0058 0126     		movs	r6, #1
+ 321              	.LVL21:
  110:Core/Src/adf4351.c **** 					break;
- 316              		.loc 1 110 16 view .LVU61
- 317 005a DAE7     		b	.L19
- 318              	.LVL22:
- 319              	.L24:
+ 322              		.loc 1 110 16 view .LVU63
+ 323 005a DAE7     		b	.L19
+ 324              	.LVL22:
+ 325              	.L24:
  119:Core/Src/adf4351.c **** 		}
  120:Core/Src/adf4351.c **** 	}
  121:Core/Src/adf4351.c **** 
  122:Core/Src/adf4351.c **** 	return 0;
- 320              		.loc 1 122 9 view .LVU62
- 321 005c 0020     		movs	r0, #0
- 322              	.L15:
+ 326              		.loc 1 122 9 view .LVU64
+ 327 005c 0020     		movs	r0, #0
+ 328              	.L15:
  123:Core/Src/adf4351.c **** }
- 323              		.loc 1 123 1 view .LVU63
- 324 005e 70BD     		pop	{r4, r5, r6, pc}
- 325              		.loc 1 123 1 view .LVU64
- 326              		.cfi_endproc
- 327              	.LFE69:
- 329              		.section	.text.adf4350_tune_r_cnt,"ax",%progbits
- 330              		.align	1
- 331              		.global	adf4350_tune_r_cnt
- 332              		.syntax unified
- 333              		.thumb
-ARM GAS  C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s 			page 9
+ 329              		.loc 1 123 1 view .LVU65
+ 330 005e 70BD     		pop	{r4, r5, r6, pc}
+ARM GAS  /tmp/ccdp6r1y.s 			page 9
 
 
- 334              		.thumb_func
- 336              	adf4350_tune_r_cnt:
- 337              	.LVL23:
- 338              	.LFB70:
+ 331              		.loc 1 123 1 view .LVU66
+ 332              		.cfi_endproc
+ 333              	.LFE69:
+ 335              		.section	.text.adf4350_tune_r_cnt,"ax",%progbits
+ 336              		.align	1
+ 337              		.global	adf4350_tune_r_cnt
+ 338              		.syntax unified
+ 339              		.thumb
+ 340              		.thumb_func
+ 341              		.fpu softvfp
+ 343              	adf4350_tune_r_cnt:
+ 344              	.LVL23:
+ 345              	.LFB70:
  124:Core/Src/adf4351.c **** 
  125:Core/Src/adf4351.c **** /***************************************************************************//**
  126:Core/Src/adf4351.c ****  * @brief Increases the R counter value until the ADF4350_MAX_FREQ_PFD is
@@ -497,130 +506,132 @@ ARM GAS  C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s 			page 1
  133:Core/Src/adf4351.c **** *******************************************************************************/
  134:Core/Src/adf4351.c **** int32_t adf4350_tune_r_cnt(struct adf4350_state *st, uint16_t r_cnt)
  135:Core/Src/adf4351.c **** {
- 339              		.loc 1 135 1 is_stmt 1 view -0
- 340              		.cfi_startproc
- 341              		@ args = 0, pretend = 0, frame = 0
- 342              		@ frame_needed = 0, uses_anonymous_args = 0
- 343              		@ link register save eliminated.
- 344              		.loc 1 135 1 is_stmt 0 view .LVU66
- 345 0000 10B4     		push	{r4}
- 346              	.LCFI9:
- 347              		.cfi_def_cfa_offset 4
- 348              		.cfi_offset 4, -4
- 349 0002 8446     		mov	ip, r0
+ 346              		.loc 1 135 1 is_stmt 1 view -0
+ 347              		.cfi_startproc
+ 348              		@ args = 0, pretend = 0, frame = 0
+ 349              		@ frame_needed = 0, uses_anonymous_args = 0
+ 350              		@ link register save eliminated.
+ 351              		.loc 1 135 1 is_stmt 0 view .LVU68
+ 352 0000 10B4     		push	{r4}
+ 353              	.LCFI9:
+ 354              		.cfi_def_cfa_offset 4
+ 355              		.cfi_offset 4, -4
+ 356 0002 8446     		mov	ip, r0
  136:Core/Src/adf4351.c **** 	struct adf4350_platform_data *pdata = st->pdata;
- 350              		.loc 1 136 2 is_stmt 1 view .LVU67
- 351              		.loc 1 136 32 is_stmt 0 view .LVU68
- 352 0004 0468     		ldr	r4, [r0]
- 353              	.LVL24:
- 354              		.loc 1 136 32 view .LVU69
- 355 0006 0BE0     		b	.L29
- 356              	.LVL25:
- 357              	.L30:
+ 357              		.loc 1 136 2 is_stmt 1 view .LVU69
+ 358              		.loc 1 136 32 is_stmt 0 view .LVU70
+ 359 0004 0468     		ldr	r4, [r0]
+ 360              	.LVL24:
+ 361              		.loc 1 136 32 view .LVU71
+ 362 0006 0BE0     		b	.L29
+ 363              	.LVL25:
+ 364              	.L30:
  137:Core/Src/adf4351.c **** 
  138:Core/Src/adf4351.c **** 	do
  139:Core/Src/adf4351.c **** 	{
  140:Core/Src/adf4351.c **** 		r_cnt++;
  141:Core/Src/adf4351.c **** 		st->fpfd = (st->clkin * (pdata->ref_doubler_en ? 2 : 1)) /
- 358              		.loc 1 141 54 view .LVU70
- 359 0008 0122     		movs	r2, #1
- 360 000a 11E0     		b	.L27
- 361              	.L31:
+ 365              		.loc 1 141 54 view .LVU72
+ 366 0008 0122     		movs	r2, #1
+ 367 000a 11E0     		b	.L27
+ 368              	.L31:
  142:Core/Src/adf4351.c **** 			   (r_cnt * (pdata->ref_div2_en ? 2 : 1));
- 362              		.loc 1 142 40 view .LVU71
- 363 000c 0122     		movs	r2, #1
- 364              	.L28:
- 365              		.loc 1 142 14 discriminator 4 view .LVU72
- 366 000e 00FB02F2 		mul	r2, r0, r2
- 141:Core/Src/adf4351.c **** 			   (r_cnt * (pdata->ref_div2_en ? 2 : 1));
- 367              		.loc 1 141 60 discriminator 4 view .LVU73
- 368 0012 B3FBF2F3 		udiv	r3, r3, r2
- 141:Core/Src/adf4351.c **** 			   (r_cnt * (pdata->ref_div2_en ? 2 : 1));
- 369              		.loc 1 141 12 discriminator 4 view .LVU74
- 370 0016 CCF80C30 		str	r3, [ip, #12]
-ARM GAS  C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s 			page 10
+ 369              		.loc 1 142 40 view .LVU73
+ 370 000c 0122     		movs	r2, #1
+ARM GAS  /tmp/ccdp6r1y.s 			page 10
 
 
+ 371              	.L28:
+ 372              		.loc 1 142 14 discriminator 4 view .LVU74
+ 373 000e 00FB02F2 		mul	r2, r0, r2
+ 141:Core/Src/adf4351.c **** 			   (r_cnt * (pdata->ref_div2_en ? 2 : 1));
+ 374              		.loc 1 141 60 discriminator 4 view .LVU75
+ 375 0012 B3FBF2F3 		udiv	r3, r3, r2
+ 141:Core/Src/adf4351.c **** 			   (r_cnt * (pdata->ref_div2_en ? 2 : 1));
+ 376              		.loc 1 141 12 discriminator 4 view .LVU76
+ 377 0016 CCF80C30 		str	r3, [ip, #12]
  143:Core/Src/adf4351.c **** 	} while (st->fpfd > ADF4350_MAX_FREQ_PFD);
- 371              		.loc 1 143 20 is_stmt 1 discriminator 4 view .LVU75
- 372 001a 0A4A     		ldr	r2, .L34
- 373 001c 9342     		cmp	r3, r2
- 374 001e 0FD9     		bls	.L33
- 375              	.L29:
+ 378              		.loc 1 143 10 is_stmt 1 discriminator 4 view .LVU77
+ 379              		.loc 1 143 2 is_stmt 0 discriminator 4 view .LVU78
+ 380 001a 0A4A     		ldr	r2, .L34
+ 381 001c 9342     		cmp	r3, r2
+ 382 001e 0FD9     		bls	.L33
+ 383              	.L29:
  138:Core/Src/adf4351.c **** 	{
- 376              		.loc 1 138 2 view .LVU76
+ 384              		.loc 1 138 2 is_stmt 1 view .LVU79
  140:Core/Src/adf4351.c **** 		st->fpfd = (st->clkin * (pdata->ref_doubler_en ? 2 : 1)) /
- 377              		.loc 1 140 3 view .LVU77
+ 385              		.loc 1 140 3 view .LVU80
  140:Core/Src/adf4351.c **** 		st->fpfd = (st->clkin * (pdata->ref_doubler_en ? 2 : 1)) /
- 378              		.loc 1 140 8 is_stmt 0 view .LVU78
- 379 0020 0131     		adds	r1, r1, #1
- 380              	.LVL26:
+ 386              		.loc 1 140 8 is_stmt 0 view .LVU81
+ 387 0020 0131     		adds	r1, r1, #1
+ 388              	.LVL26:
  140:Core/Src/adf4351.c **** 		st->fpfd = (st->clkin * (pdata->ref_doubler_en ? 2 : 1)) /
- 381              		.loc 1 140 8 view .LVU79
- 382 0022 89B2     		uxth	r1, r1
- 383              	.LVL27:
+ 389              		.loc 1 140 8 view .LVU82
+ 390 0022 89B2     		uxth	r1, r1
+ 391              	.LVL27:
  141:Core/Src/adf4351.c **** 			   (r_cnt * (pdata->ref_div2_en ? 2 : 1));
- 384              		.loc 1 141 3 is_stmt 1 view .LVU80
+ 392              		.loc 1 141 3 is_stmt 1 view .LVU83
  141:Core/Src/adf4351.c **** 			   (r_cnt * (pdata->ref_div2_en ? 2 : 1));
- 385              		.loc 1 141 17 is_stmt 0 view .LVU81
- 386 0024 DCF80430 		ldr	r3, [ip, #4]
+ 393              		.loc 1 141 17 is_stmt 0 view .LVU84
+ 394 0024 DCF80430 		ldr	r3, [ip, #4]
  141:Core/Src/adf4351.c **** 			   (r_cnt * (pdata->ref_div2_en ? 2 : 1));
- 387              		.loc 1 141 33 view .LVU82
- 388 0028 A27C     		ldrb	r2, [r4, #18]	@ zero_extendqisi2
+ 395              		.loc 1 141 33 view .LVU85
+ 396 0028 A27C     		ldrb	r2, [r4, #18]	@ zero_extendqisi2
  141:Core/Src/adf4351.c **** 			   (r_cnt * (pdata->ref_div2_en ? 2 : 1));
- 389              		.loc 1 141 54 view .LVU83
- 390 002a 002A     		cmp	r2, #0
- 391 002c ECD0     		beq	.L30
- 392 002e 0222     		movs	r2, #2
- 393              	.L27:
+ 397              		.loc 1 141 54 view .LVU86
+ 398 002a 002A     		cmp	r2, #0
+ 399 002c ECD0     		beq	.L30
+ 400 002e 0222     		movs	r2, #2
+ 401              	.L27:
  141:Core/Src/adf4351.c **** 			   (r_cnt * (pdata->ref_div2_en ? 2 : 1));
- 394              		.loc 1 141 25 discriminator 4 view .LVU84
- 395 0030 02FB03F3 		mul	r3, r2, r3
+ 402              		.loc 1 141 25 discriminator 4 view .LVU87
+ 403 0030 02FB03F3 		mul	r3, r2, r3
  142:Core/Src/adf4351.c **** 	} while (st->fpfd > ADF4350_MAX_FREQ_PFD);
- 396              		.loc 1 142 14 discriminator 4 view .LVU85
- 397 0034 0846     		mov	r0, r1
+ 404              		.loc 1 142 14 discriminator 4 view .LVU88
+ 405 0034 0846     		mov	r0, r1
  142:Core/Src/adf4351.c **** 	} while (st->fpfd > ADF4350_MAX_FREQ_PFD);
- 398              		.loc 1 142 22 discriminator 4 view .LVU86
- 399 0036 E27C     		ldrb	r2, [r4, #19]	@ zero_extendqisi2
+ 406              		.loc 1 142 22 discriminator 4 view .LVU89
+ 407 0036 E27C     		ldrb	r2, [r4, #19]	@ zero_extendqisi2
  142:Core/Src/adf4351.c **** 	} while (st->fpfd > ADF4350_MAX_FREQ_PFD);
- 400              		.loc 1 142 40 discriminator 4 view .LVU87
- 401 0038 002A     		cmp	r2, #0
- 402 003a E7D0     		beq	.L31
+ 408              		.loc 1 142 40 discriminator 4 view .LVU90
+ 409 0038 002A     		cmp	r2, #0
+ 410 003a E7D0     		beq	.L31
  142:Core/Src/adf4351.c **** 	} while (st->fpfd > ADF4350_MAX_FREQ_PFD);
- 403              		.loc 1 142 40 view .LVU88
- 404 003c 0222     		movs	r2, #2
- 405 003e E6E7     		b	.L28
- 406              	.L33:
+ 411              		.loc 1 142 40 view .LVU91
+ARM GAS  /tmp/ccdp6r1y.s 			page 11
+
+
+ 412 003c 0222     		movs	r2, #2
+ 413 003e E6E7     		b	.L28
+ 414              	.L33:
  144:Core/Src/adf4351.c **** 
  145:Core/Src/adf4351.c **** 	return r_cnt;
- 407              		.loc 1 145 2 is_stmt 1 view .LVU89
+ 415              		.loc 1 145 2 is_stmt 1 view .LVU92
  146:Core/Src/adf4351.c **** }
- 408              		.loc 1 146 1 is_stmt 0 view .LVU90
- 409 0040 10BC     		pop	{r4}
- 410              	.LCFI10:
-ARM GAS  C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s 			page 11
-
-
- 411              		.cfi_restore 4
- 412              		.cfi_def_cfa_offset 0
- 413              	.LVL28:
- 414              		.loc 1 146 1 view .LVU91
- 415 0042 7047     		bx	lr
- 416              	.L35:
- 417              		.align	2
- 418              	.L34:
- 419 0044 0048E801 		.word	32000000
- 420              		.cfi_endproc
- 421              	.LFE70:
- 423              		.section	.text.gcd,"ax",%progbits
- 424              		.align	1
- 425              		.global	gcd
- 426              		.syntax unified
- 427              		.thumb
- 428              		.thumb_func
- 430              	gcd:
- 431              	.LVL29:
- 432              	.LFB71:
+ 416              		.loc 1 146 1 is_stmt 0 view .LVU93
+ 417 0040 10BC     		pop	{r4}
+ 418              	.LCFI10:
+ 419              		.cfi_restore 4
+ 420              		.cfi_def_cfa_offset 0
+ 421              	.LVL28:
+ 422              		.loc 1 146 1 view .LVU94
+ 423 0042 7047     		bx	lr
+ 424              	.L35:
+ 425              		.align	2
+ 426              	.L34:
+ 427 0044 0048E801 		.word	32000000
+ 428              		.cfi_endproc
+ 429              	.LFE70:
+ 431              		.section	.text.gcd,"ax",%progbits
+ 432              		.align	1
+ 433              		.global	gcd
+ 434              		.syntax unified
+ 435              		.thumb
+ 436              		.thumb_func
+ 437              		.fpu softvfp
+ 439              	gcd:
+ 440              	.LVL29:
+ 441              	.LFB71:
  147:Core/Src/adf4351.c **** 
  148:Core/Src/adf4351.c **** /***************************************************************************//**
  149:Core/Src/adf4351.c ****  * @brief Computes the greatest common divider of two numbers
@@ -629,83 +640,87 @@ ARM GAS  C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s 			page 1
  152:Core/Src/adf4351.c **** *******************************************************************************/
  153:Core/Src/adf4351.c **** uint32_t gcd(uint32_t x, uint32_t y)
  154:Core/Src/adf4351.c **** {
- 433              		.loc 1 154 1 is_stmt 1 view -0
- 434              		.cfi_startproc
- 435              		@ args = 0, pretend = 0, frame = 0
- 436              		@ frame_needed = 0, uses_anonymous_args = 0
- 437              		@ link register save eliminated.
- 438              		.loc 1 154 1 is_stmt 0 view .LVU93
- 439 0000 8446     		mov	ip, r0
+ 442              		.loc 1 154 1 is_stmt 1 view -0
+ 443              		.cfi_startproc
+ 444              		@ args = 0, pretend = 0, frame = 0
+ 445              		@ frame_needed = 0, uses_anonymous_args = 0
+ 446              		@ link register save eliminated.
+ 447              		.loc 1 154 1 is_stmt 0 view .LVU96
+ 448 0000 8446     		mov	ip, r0
  155:Core/Src/adf4351.c **** 	int32_t tmp;
- 440              		.loc 1 155 2 is_stmt 1 view .LVU94
+ 449              		.loc 1 155 2 is_stmt 1 view .LVU97
  156:Core/Src/adf4351.c **** 
  157:Core/Src/adf4351.c **** 	tmp = y > x ? x : y;
- 441              		.loc 1 157 2 view .LVU95
- 442              		.loc 1 157 6 is_stmt 0 view .LVU96
- 443 0002 0B46     		mov	r3, r1
- 444 0004 8142     		cmp	r1, r0
- 445 0006 28BF     		it	cs
- 446 0008 0346     		movcs	r3, r0
- 447              	.LVL30:
+ 450              		.loc 1 157 2 view .LVU98
+ 451              		.loc 1 157 6 is_stmt 0 view .LVU99
+ 452 0002 0B46     		mov	r3, r1
+ 453 0004 8142     		cmp	r1, r0
+ 454 0006 28BF     		it	cs
+ 455 0008 0346     		movcs	r3, r0
+ 456              	.LVL30:
+ARM GAS  /tmp/ccdp6r1y.s 			page 12
+
+
  158:Core/Src/adf4351.c **** 
  159:Core/Src/adf4351.c **** 
  160:Core/Src/adf4351.c **** 	while((x % tmp) || (y % tmp))
- 448              		.loc 1 160 2 is_stmt 1 view .LVU97
- 449              		.loc 1 160 7 is_stmt 0 view .LVU98
- 450 000a 00E0     		b	.L37
- 451              	.LVL31:
- 452              	.L38:
+ 457              		.loc 1 160 2 is_stmt 1 view .LVU100
+ 458              		.loc 1 160 7 is_stmt 0 view .LVU101
+ 459 000a 00E0     		b	.L37
+ 460              	.LVL31:
+ 461              	.L38:
  161:Core/Src/adf4351.c **** 	{
  162:Core/Src/adf4351.c **** 		tmp--;
- 453              		.loc 1 162 3 is_stmt 1 view .LVU99
-ARM GAS  C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s 			page 12
-
-
- 454              		.loc 1 162 6 is_stmt 0 view .LVU100
- 455 000c 013B     		subs	r3, r3, #1
- 456              	.LVL32:
- 457              	.L37:
+ 462              		.loc 1 162 3 is_stmt 1 view .LVU102
+ 463              		.loc 1 162 6 is_stmt 0 view .LVU103
+ 464 000c 013B     		subs	r3, r3, #1
+ 465              	.LVL32:
+ 466              	.L37:
  160:Core/Src/adf4351.c **** 	{
- 458              		.loc 1 160 18 is_stmt 1 view .LVU101
+ 467              		.loc 1 160 7 is_stmt 1 view .LVU104
  160:Core/Src/adf4351.c **** 	{
- 459              		.loc 1 160 11 is_stmt 0 view .LVU102
- 460 000e 1846     		mov	r0, r3
- 461 0010 BCFBF3F2 		udiv	r2, ip, r3
- 462 0014 03FB12C2 		mls	r2, r3, r2, ip
+ 468              		.loc 1 160 11 is_stmt 0 view .LVU105
+ 469 000e 1846     		mov	r0, r3
+ 470 0010 BCFBF3F2 		udiv	r2, ip, r3
+ 471 0014 03FB12C2 		mls	r2, r3, r2, ip
  160:Core/Src/adf4351.c **** 	{
- 463              		.loc 1 160 18 view .LVU103
- 464 0018 002A     		cmp	r2, #0
- 465 001a F7D1     		bne	.L38
+ 472              		.loc 1 160 7 view .LVU106
+ 473 0018 002A     		cmp	r2, #0
+ 474 001a F7D1     		bne	.L38
  160:Core/Src/adf4351.c **** 	{
- 466              		.loc 1 160 24 discriminator 1 view .LVU104
- 467 001c B1FBF3F2 		udiv	r2, r1, r3
- 468 0020 03FB1212 		mls	r2, r3, r2, r1
+ 475              		.loc 1 160 24 discriminator 1 view .LVU107
+ 476 001c B1FBF3F2 		udiv	r2, r1, r3
+ 477 0020 03FB1212 		mls	r2, r3, r2, r1
  160:Core/Src/adf4351.c **** 	{
- 469              		.loc 1 160 18 discriminator 1 view .LVU105
- 470 0024 002A     		cmp	r2, #0
- 471 0026 F1D1     		bne	.L38
+ 478              		.loc 1 160 18 discriminator 1 view .LVU108
+ 479 0024 002A     		cmp	r2, #0
+ 480 0026 F1D1     		bne	.L38
  163:Core/Src/adf4351.c **** 	}
  164:Core/Src/adf4351.c **** 
  165:Core/Src/adf4351.c **** 	return tmp;
- 472              		.loc 1 165 2 is_stmt 1 view .LVU106
+ 481              		.loc 1 165 2 is_stmt 1 view .LVU109
  166:Core/Src/adf4351.c **** }
- 473              		.loc 1 166 1 is_stmt 0 view .LVU107
- 474 0028 7047     		bx	lr
- 475              		.cfi_endproc
- 476              	.LFE71:
- 478              		.global	__aeabi_uldivmod
- 479              		.section	.text.adf4350_set_freq,"ax",%progbits
- 480              		.align	1
- 481              		.global	adf4350_set_freq
- 482              		.syntax unified
- 483              		.thumb
- 484              		.thumb_func
- 486              	adf4350_set_freq:
- 487              	.LVL33:
- 488              	.LFB72:
+ 482              		.loc 1 166 1 is_stmt 0 view .LVU110
+ 483 0028 7047     		bx	lr
+ 484              		.cfi_endproc
+ 485              	.LFE71:
+ 487              		.global	__aeabi_uldivmod
+ 488              		.section	.text.adf4350_set_freq,"ax",%progbits
+ 489              		.align	1
+ 490              		.global	adf4350_set_freq
+ 491              		.syntax unified
+ 492              		.thumb
+ 493              		.thumb_func
+ 494              		.fpu softvfp
+ 496              	adf4350_set_freq:
+ 497              	.LVL33:
+ 498              	.LFB72:
  167:Core/Src/adf4351.c **** 
  168:Core/Src/adf4351.c **** /***************************************************************************//**
  169:Core/Src/adf4351.c ****  * @brief Sets the ADF4350 frequency.
+ARM GAS  /tmp/ccdp6r1y.s 			page 13
+
+
  170:Core/Src/adf4351.c ****  *
  171:Core/Src/adf4351.c ****  * @param st   - The selected structure.
  172:Core/Src/adf4351.c ****  * @param freq - The desired frequency value.
@@ -714,88 +729,85 @@ ARM GAS  C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s 			page 1
  175:Core/Src/adf4351.c **** *******************************************************************************/
  176:Core/Src/adf4351.c **** int64_t adf4350_set_freq(struct adf4350_state *st, uint64_t freq)
  177:Core/Src/adf4351.c **** {
- 489              		.loc 1 177 1 is_stmt 1 view -0
- 490              		.cfi_startproc
- 491              		@ args = 0, pretend = 0, frame = 24
- 492              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s 			page 13
-
-
- 493              		.loc 1 177 1 is_stmt 0 view .LVU109
- 494 0000 2DE9F04F 		push	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
- 495              	.LCFI11:
- 496              		.cfi_def_cfa_offset 36
- 497              		.cfi_offset 4, -36
- 498              		.cfi_offset 5, -32
- 499              		.cfi_offset 6, -28
- 500              		.cfi_offset 7, -24
- 501              		.cfi_offset 8, -20
- 502              		.cfi_offset 9, -16
- 503              		.cfi_offset 10, -12
- 504              		.cfi_offset 11, -8
- 505              		.cfi_offset 14, -4
- 506 0004 87B0     		sub	sp, sp, #28
- 507              	.LCFI12:
- 508              		.cfi_def_cfa_offset 64
- 509 0006 9246     		mov	r10, r2
- 510 0008 9946     		mov	r9, r3
+ 499              		.loc 1 177 1 is_stmt 1 view -0
+ 500              		.cfi_startproc
+ 501              		@ args = 0, pretend = 0, frame = 24
+ 502              		@ frame_needed = 0, uses_anonymous_args = 0
+ 503              		.loc 1 177 1 is_stmt 0 view .LVU112
+ 504 0000 2DE9F04F 		push	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
+ 505              	.LCFI11:
+ 506              		.cfi_def_cfa_offset 36
+ 507              		.cfi_offset 4, -36
+ 508              		.cfi_offset 5, -32
+ 509              		.cfi_offset 6, -28
+ 510              		.cfi_offset 7, -24
+ 511              		.cfi_offset 8, -20
+ 512              		.cfi_offset 9, -16
+ 513              		.cfi_offset 10, -12
+ 514              		.cfi_offset 11, -8
+ 515              		.cfi_offset 14, -4
+ 516 0004 87B0     		sub	sp, sp, #28
+ 517              	.LCFI12:
+ 518              		.cfi_def_cfa_offset 64
+ 519 0006 9246     		mov	r10, r2
+ 520 0008 9946     		mov	r9, r3
  178:Core/Src/adf4351.c **** 	struct adf4350_platform_data *pdata = st->pdata;
- 511              		.loc 1 178 2 is_stmt 1 view .LVU110
- 512              		.loc 1 178 32 is_stmt 0 view .LVU111
- 513 000a 0368     		ldr	r3, [r0]
- 514 000c 0493     		str	r3, [sp, #16]
- 515              	.LVL34:
+ 521              		.loc 1 178 2 is_stmt 1 view .LVU113
+ 522              		.loc 1 178 32 is_stmt 0 view .LVU114
+ 523 000a 0368     		ldr	r3, [r0]
+ 524 000c 0493     		str	r3, [sp, #16]
+ 525              	.LVL34:
  179:Core/Src/adf4351.c **** 	uint64_t tmp;
- 516              		.loc 1 179 2 is_stmt 1 view .LVU112
+ 526              		.loc 1 179 2 is_stmt 1 view .LVU115
  180:Core/Src/adf4351.c **** 	uint32_t div_gcd, prescaler, chspc;
- 517              		.loc 1 180 2 view .LVU113
+ 527              		.loc 1 180 2 view .LVU116
  181:Core/Src/adf4351.c **** 	uint16_t mdiv, r_cnt = 0;
- 518              		.loc 1 181 2 view .LVU114
+ 528              		.loc 1 181 2 view .LVU117
  182:Core/Src/adf4351.c **** 	uint8_t band_sel_div;
- 519              		.loc 1 182 2 view .LVU115
+ 529              		.loc 1 182 2 view .LVU118
  183:Core/Src/adf4351.c **** 	int32_t ret;
- 520              		.loc 1 183 2 view .LVU116
+ 530              		.loc 1 183 2 view .LVU119
  184:Core/Src/adf4351.c **** 
  185:Core/Src/adf4351.c **** 	if ((freq > ADF4350_MAX_OUT_FREQ) || (freq < ADF4350_MIN_OUT_FREQ))
- 521              		.loc 1 185 2 view .LVU117
- 522              		.loc 1 185 36 is_stmt 0 view .LVU118
- 523 000e 864B     		ldr	r3, .L63
- 524              	.LVL35:
- 525              		.loc 1 185 36 view .LVU119
- 526 0010 D318     		adds	r3, r2, r3
- 527 0012 69F10002 		sbc	r2, r9, #0
- 528              	.LVL36:
- 529              		.loc 1 185 5 view .LVU120
- 530 0016 8549     		ldr	r1, .L63+4
- 531 0018 9942     		cmp	r1, r3
- 532 001a 4FF00103 		mov	r3, #1
- 533 001e 9341     		sbcs	r3, r3, r2
- 534 0020 C0F0FD80 		bcc	.L56
- 535 0024 0546     		mov	r5, r0
+ 531              		.loc 1 185 2 view .LVU120
+ 532              		.loc 1 185 36 is_stmt 0 view .LVU121
+ 533 000e 864B     		ldr	r3, .L63
+ 534              	.LVL35:
+ 535              		.loc 1 185 36 view .LVU122
+ 536 0010 D318     		adds	r3, r2, r3
+ 537 0012 69F10002 		sbc	r2, r9, #0
+ 538              	.LVL36:
+ 539              		.loc 1 185 5 view .LVU123
+ARM GAS  /tmp/ccdp6r1y.s 			page 14
+
+
+ 540 0016 8549     		ldr	r1, .L63+4
+ 541 0018 9942     		cmp	r1, r3
+ 542 001a 4FF00103 		mov	r3, #1
+ 543 001e 9341     		sbcs	r3, r3, r2
+ 544 0020 C0F0FE80 		bcc	.L56
+ 545 0024 0546     		mov	r5, r0
  186:Core/Src/adf4351.c **** 		return -1;
  187:Core/Src/adf4351.c **** 
  188:Core/Src/adf4351.c **** 	if (freq > ADF4350_MAX_FREQ_45_PRESC) {
- 536              		.loc 1 188 2 is_stmt 1 view .LVU121
- 537              		.loc 1 188 5 is_stmt 0 view .LVU122
- 538 0026 824B     		ldr	r3, .L63+8
-ARM GAS  C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s 			page 14
-
-
- 539 0028 5345     		cmp	r3, r10
- 540 002a 4FF00003 		mov	r3, #0
- 541 002e 73EB0903 		sbcs	r3, r3, r9
- 542 0032 07D2     		bcs	.L57
+ 546              		.loc 1 188 2 is_stmt 1 view .LVU124
+ 547              		.loc 1 188 5 is_stmt 0 view .LVU125
+ 548 0026 824B     		ldr	r3, .L63+8
+ 549 0028 5345     		cmp	r3, r10
+ 550 002a 4FF00003 		mov	r3, #0
+ 551 002e 73EB0903 		sbcs	r3, r3, r9
+ 552 0032 07D2     		bcs	.L57
  189:Core/Src/adf4351.c **** 		prescaler = ADF4350_REG1_PRESCALER;
  190:Core/Src/adf4351.c **** 		mdiv = 75;
- 543              		.loc 1 190 8 view .LVU123
- 544 0034 4B23     		movs	r3, #75
- 545 0036 0393     		str	r3, [sp, #12]
+ 553              		.loc 1 190 8 view .LVU126
+ 554 0034 4B23     		movs	r3, #75
+ 555 0036 0393     		str	r3, [sp, #12]
  189:Core/Src/adf4351.c **** 		prescaler = ADF4350_REG1_PRESCALER;
- 546              		.loc 1 189 13 view .LVU124
- 547 0038 4FF00063 		mov	r3, #134217728
- 548 003c 0593     		str	r3, [sp, #20]
- 549              	.L41:
- 550              	.LVL37:
+ 556              		.loc 1 189 13 view .LVU127
+ 557 0038 4FF00063 		mov	r3, #134217728
+ 558 003c 0593     		str	r3, [sp, #20]
+ 559              	.L41:
+ 560              	.LVL37:
  191:Core/Src/adf4351.c **** 	}
  192:Core/Src/adf4351.c **** 	else
  193:Core/Src/adf4351.c **** 	{
@@ -804,56 +816,56 @@ ARM GAS  C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s 			page 1
  196:Core/Src/adf4351.c **** 	}
  197:Core/Src/adf4351.c **** 
  198:Core/Src/adf4351.c **** 	st->r4_rf_div_sel = 0;
- 551              		.loc 1 198 2 is_stmt 1 view .LVU125
- 552              		.loc 1 198 20 is_stmt 0 view .LVU126
- 553 003e 0023     		movs	r3, #0
- 554 0040 2B62     		str	r3, [r5, #32]
+ 561              		.loc 1 198 2 is_stmt 1 view .LVU128
+ 562              		.loc 1 198 20 is_stmt 0 view .LVU129
+ 563 003e 0023     		movs	r3, #0
+ 564 0040 2B62     		str	r3, [r5, #32]
  199:Core/Src/adf4351.c **** 
  200:Core/Src/adf4351.c **** 	while (freq < ADF4350_MIN_VCO_FREQ)
- 555              		.loc 1 200 2 is_stmt 1 view .LVU127
- 556              		.loc 1 200 8 is_stmt 0 view .LVU128
- 557 0042 0BE0     		b	.L42
- 558              	.LVL38:
- 559              	.L57:
+ 565              		.loc 1 200 2 is_stmt 1 view .LVU130
+ 566              		.loc 1 200 8 is_stmt 0 view .LVU131
+ 567 0042 0BE0     		b	.L42
+ 568              	.LVL38:
+ 569              	.L57:
  195:Core/Src/adf4351.c **** 	}
- 560              		.loc 1 195 8 view .LVU129
- 561 0044 1723     		movs	r3, #23
- 562 0046 0393     		str	r3, [sp, #12]
+ 570              		.loc 1 195 8 view .LVU132
+ 571 0044 1723     		movs	r3, #23
+ 572 0046 0393     		str	r3, [sp, #12]
  194:Core/Src/adf4351.c **** 		mdiv = 23;
- 563              		.loc 1 194 13 view .LVU130
- 564 0048 0023     		movs	r3, #0
- 565 004a 0593     		str	r3, [sp, #20]
- 566 004c F7E7     		b	.L41
- 567              	.LVL39:
- 568              	.L43:
+ 573              		.loc 1 194 13 view .LVU133
+ 574 0048 0023     		movs	r3, #0
+ 575 004a 0593     		str	r3, [sp, #20]
+ 576 004c F7E7     		b	.L41
+ 577              	.LVL39:
+ 578              	.L43:
+ARM GAS  /tmp/ccdp6r1y.s 			page 15
+
+
  201:Core/Src/adf4351.c **** 	{
  202:Core/Src/adf4351.c **** 		freq <<= 1;
- 569              		.loc 1 202 3 is_stmt 1 view .LVU131
- 570              		.loc 1 202 8 is_stmt 0 view .LVU132
- 571 004e 1AEB0A0A 		adds	r10, r10, r10
- 572              	.LVL40:
- 573              		.loc 1 202 8 view .LVU133
- 574 0052 49EB0909 		adc	r9, r9, r9
- 575              	.LVL41:
+ 579              		.loc 1 202 3 is_stmt 1 view .LVU134
+ 580              		.loc 1 202 8 is_stmt 0 view .LVU135
+ 581 004e 1AEB0A0A 		adds	r10, r10, r10
+ 582              	.LVL40:
+ 583              		.loc 1 202 8 view .LVU136
+ 584 0052 49EB0909 		adc	r9, r9, r9
+ 585              	.LVL41:
  203:Core/Src/adf4351.c **** 		st->r4_rf_div_sel++;
- 576              		.loc 1 203 3 is_stmt 1 view .LVU134
- 577              		.loc 1 203 5 is_stmt 0 view .LVU135
-ARM GAS  C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s 			page 15
-
-
- 578 0056 2B6A     		ldr	r3, [r5, #32]
- 579              		.loc 1 203 20 view .LVU136
- 580 0058 0133     		adds	r3, r3, #1
- 581 005a 2B62     		str	r3, [r5, #32]
- 582              	.LVL42:
- 583              	.L42:
+ 586              		.loc 1 203 3 is_stmt 1 view .LVU137
+ 587              		.loc 1 203 5 is_stmt 0 view .LVU138
+ 588 0056 2B6A     		ldr	r3, [r5, #32]
+ 589              		.loc 1 203 20 view .LVU139
+ 590 0058 0133     		adds	r3, r3, #1
+ 591 005a 2B62     		str	r3, [r5, #32]
+ 592              	.LVL42:
+ 593              	.L42:
  200:Core/Src/adf4351.c **** 	{
- 584              		.loc 1 200 14 is_stmt 1 view .LVU137
- 585 005c 754B     		ldr	r3, .L63+12
- 586 005e 5345     		cmp	r3, r10
- 587 0060 4FF00003 		mov	r3, #0
- 588 0064 73EB0903 		sbcs	r3, r3, r9
- 589 0068 F1D2     		bcs	.L43
+ 594              		.loc 1 200 8 is_stmt 1 view .LVU140
+ 595 005c 754B     		ldr	r3, .L63+12
+ 596 005e 5345     		cmp	r3, r10
+ 597 0060 4FF00003 		mov	r3, #0
+ 598 0064 73EB0903 		sbcs	r3, r3, r9
+ 599 0068 F1D2     		bcs	.L43
  204:Core/Src/adf4351.c **** 	}
  205:Core/Src/adf4351.c **** 
  206:Core/Src/adf4351.c **** 	/*
@@ -861,31 +873,34 @@ ARM GAS  C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s 			page 1
  208:Core/Src/adf4351.c **** 	 * if not set, compute our own
  209:Core/Src/adf4351.c **** 	 */
  210:Core/Src/adf4351.c **** 	if (pdata->ref_div_factor)
- 590              		.loc 1 210 2 view .LVU138
- 591              		.loc 1 210 11 is_stmt 0 view .LVU139
- 592 006a 049B     		ldr	r3, [sp, #16]
- 593 006c 1C8A     		ldrh	r4, [r3, #16]
- 594              		.loc 1 210 5 view .LVU140
- 595 006e 0CB1     		cbz	r4, .L44
+ 600              		.loc 1 210 2 view .LVU141
+ 601              		.loc 1 210 11 is_stmt 0 view .LVU142
+ 602 006a 049B     		ldr	r3, [sp, #16]
+ 603 006c 1C8A     		ldrh	r4, [r3, #16]
+ 604              		.loc 1 210 5 view .LVU143
+ 605 006e 0CB1     		cbz	r4, .L44
  211:Core/Src/adf4351.c **** 		r_cnt = pdata->ref_div_factor - 1;
- 596              		.loc 1 211 3 is_stmt 1 view .LVU141
- 597              		.loc 1 211 9 is_stmt 0 view .LVU142
- 598 0070 013C     		subs	r4, r4, #1
- 599 0072 A4B2     		uxth	r4, r4
- 600              	.LVL43:
- 601              	.L44:
+ 606              		.loc 1 211 3 is_stmt 1 view .LVU144
+ 607              		.loc 1 211 9 is_stmt 0 view .LVU145
+ 608 0070 013C     		subs	r4, r4, #1
+ 609 0072 A4B2     		uxth	r4, r4
+ 610              	.LVL43:
+ 611              	.L44:
  212:Core/Src/adf4351.c **** 
  213:Core/Src/adf4351.c **** 	chspc = st->chspc;
- 602              		.loc 1 213 2 is_stmt 1 view .LVU143
- 603              		.loc 1 213 8 is_stmt 0 view .LVU144
- 604 0074 D5F80880 		ldr	r8, [r5, #8]
- 605              	.LVL44:
- 606              		.loc 1 213 8 view .LVU145
- 607 0078 24E0     		b	.L45
- 608              	.LVL45:
- 609              	.L47:
+ 612              		.loc 1 213 2 is_stmt 1 view .LVU146
+ 613              		.loc 1 213 8 is_stmt 0 view .LVU147
+ 614 0074 D5F80880 		ldr	r8, [r5, #8]
+ 615              	.LVL44:
+ 616              		.loc 1 213 8 view .LVU148
+ 617 0078 24E0     		b	.L45
+ 618              	.LVL45:
+ 619              	.L47:
  214:Core/Src/adf4351.c **** 
  215:Core/Src/adf4351.c **** 	do
+ARM GAS  /tmp/ccdp6r1y.s 			page 16
+
+
  216:Core/Src/adf4351.c **** 	{
  217:Core/Src/adf4351.c **** 		do
  218:Core/Src/adf4351.c **** 		{
@@ -898,369 +913,371 @@ ARM GAS  C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s 			page 1
  225:Core/Src/adf4351.c **** 							/* try higher spacing values */
  226:Core/Src/adf4351.c **** 							chspc++;
  227:Core/Src/adf4351.c **** 							r_cnt = 0;
-ARM GAS  C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s 			page 16
-
-
  228:Core/Src/adf4351.c **** 						}
  229:Core/Src/adf4351.c **** 			} while ((st->r1_mod > ADF4350_MAX_MODULUS) && r_cnt);
  230:Core/Src/adf4351.c **** 		} while (r_cnt == 0);
- 610              		.loc 1 230 18 is_stmt 1 view .LVU146
- 611 007a 1CB3     		cbz	r4, .L45
+ 620              		.loc 1 230 11 is_stmt 1 view .LVU149
+ 621              		.loc 1 230 3 is_stmt 0 view .LVU150
+ 622 007a 1CB3     		cbz	r4, .L45
  231:Core/Src/adf4351.c **** 
  232:Core/Src/adf4351.c **** 
  233:Core/Src/adf4351.c **** 		tmp = freq * (uint64_t)st->r1_mod + (st->fpfd > 1);
- 612              		.loc 1 233 3 view .LVU147
- 613              		.loc 1 233 16 is_stmt 0 view .LVU148
- 614 007c 4FF0000B 		mov	fp, #0
- 615              		.loc 1 233 14 view .LVU149
- 616 0080 A6FB0A01 		umull	r0, r1, r6, r10
- 617 0084 06FB0911 		mla	r1, r6, r9, r1
- 618              		.loc 1 233 49 view .LVU150
- 619 0088 012F     		cmp	r7, #1
- 620 008a 94BF     		ite	ls
- 621 008c 0023     		movls	r3, #0
- 622 008e 0123     		movhi	r3, #1
- 623              		.loc 1 233 7 view .LVU151
- 624 0090 C018     		adds	r0, r0, r3
- 625              	.LVL46:
+ 623              		.loc 1 233 3 is_stmt 1 view .LVU151
+ 624              		.loc 1 233 16 is_stmt 0 view .LVU152
+ 625 007c 4FF0000B 		mov	fp, #0
+ 626              		.loc 1 233 14 view .LVU153
+ 627 0080 A6FB0A01 		umull	r0, r1, r6, r10
+ 628 0084 06FB0911 		mla	r1, r6, r9, r1
+ 629              		.loc 1 233 49 view .LVU154
+ 630 0088 012F     		cmp	r7, #1
+ 631 008a 94BF     		ite	ls
+ 632 008c 0023     		movls	r3, #0
+ 633 008e 0123     		movhi	r3, #1
+ 634              		.loc 1 233 7 view .LVU155
+ 635 0090 C018     		adds	r0, r0, r3
+ 636              	.LVL46:
  234:Core/Src/adf4351.c **** 
  235:Core/Src/adf4351.c **** 		tmp = (tmp / st->fpfd);	/* Div round closest (n + d/2)/d */
- 626              		.loc 1 235 3 is_stmt 1 view .LVU152
- 627              		.loc 1 235 7 is_stmt 0 view .LVU153
- 628 0092 3A46     		mov	r2, r7
- 629 0094 5B46     		mov	r3, fp
- 630 0096 41F10001 		adc	r1, r1, #0
- 631              	.LVL47:
- 632              		.loc 1 235 7 view .LVU154
- 633 009a FFF7FEFF 		bl	__aeabi_uldivmod
- 634              	.LVL48:
- 635              		.loc 1 235 7 view .LVU155
- 636 009e 0090     		str	r0, [sp]
- 637 00a0 0191     		str	r1, [sp, #4]
- 638              	.LVL49:
+ 637              		.loc 1 235 3 is_stmt 1 view .LVU156
+ 638              		.loc 1 235 7 is_stmt 0 view .LVU157
+ 639 0092 3A46     		mov	r2, r7
+ 640 0094 5B46     		mov	r3, fp
+ 641 0096 41F10001 		adc	r1, r1, #0
+ 642              	.LVL47:
+ 643              		.loc 1 235 7 view .LVU158
+ 644 009a FFF7FEFF 		bl	__aeabi_uldivmod
+ 645              	.LVL48:
+ 646              		.loc 1 235 7 view .LVU159
+ 647 009e 0090     		str	r0, [sp]
+ 648 00a0 0191     		str	r1, [sp, #4]
+ 649              	.LVL49:
  236:Core/Src/adf4351.c **** 
  237:Core/Src/adf4351.c **** 		st->r0_fract = tmp % st->r1_mod;
- 639              		.loc 1 237 3 is_stmt 1 view .LVU156
- 640              		.loc 1 237 22 is_stmt 0 view .LVU157
- 641 00a2 3246     		mov	r2, r6
- 642 00a4 5B46     		mov	r3, fp
- 643 00a6 FFF7FEFF 		bl	__aeabi_uldivmod
- 644              	.LVL50:
- 645              		.loc 1 237 16 view .LVU158
- 646 00aa 0292     		str	r2, [sp, #8]
- 647 00ac 6A61     		str	r2, [r5, #20]
+ 650              		.loc 1 237 3 is_stmt 1 view .LVU160
+ 651              		.loc 1 237 22 is_stmt 0 view .LVU161
+ 652 00a2 3246     		mov	r2, r6
+ 653 00a4 5B46     		mov	r3, fp
+ 654 00a6 FFF7FEFF 		bl	__aeabi_uldivmod
+ARM GAS  /tmp/ccdp6r1y.s 			page 17
+
+
+ 655              	.LVL50:
+ 656              		.loc 1 237 16 view .LVU162
+ 657 00aa 0292     		str	r2, [sp, #8]
+ 658 00ac 6A61     		str	r2, [r5, #20]
  238:Core/Src/adf4351.c **** 		tmp = tmp / st->r1_mod;
- 648              		.loc 1 238 3 is_stmt 1 view .LVU159
- 649              		.loc 1 238 7 is_stmt 0 view .LVU160
- 650 00ae 3246     		mov	r2, r6
- 651 00b0 5B46     		mov	r3, fp
- 652 00b2 0098     		ldr	r0, [sp]
- 653 00b4 0199     		ldr	r1, [sp, #4]
- 654 00b6 FFF7FEFF 		bl	__aeabi_uldivmod
- 655              	.LVL51:
-ARM GAS  C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s 			page 17
-
-
+ 659              		.loc 1 238 3 is_stmt 1 view .LVU163
+ 660              		.loc 1 238 7 is_stmt 0 view .LVU164
+ 661 00ae 3246     		mov	r2, r6
+ 662 00b0 5B46     		mov	r3, fp
+ 663 00b2 0098     		ldr	r0, [sp]
+ 664 00b4 0199     		ldr	r1, [sp, #4]
+ 665 00b6 FFF7FEFF 		bl	__aeabi_uldivmod
+ 666              	.LVL51:
  239:Core/Src/adf4351.c **** 
  240:Core/Src/adf4351.c **** 		st->r0_int = tmp;
- 656              		.loc 1 240 3 is_stmt 1 view .LVU161
- 657              		.loc 1 240 14 is_stmt 0 view .LVU162
- 658 00ba 8346     		mov	fp, r0
- 659 00bc A861     		str	r0, [r5, #24]
+ 667              		.loc 1 240 3 is_stmt 1 view .LVU165
+ 668              		.loc 1 240 14 is_stmt 0 view .LVU166
+ 669 00ba 8346     		mov	fp, r0
+ 670 00bc A861     		str	r0, [r5, #24]
  241:Core/Src/adf4351.c **** 	} while (mdiv > st->r0_int);
- 660              		.loc 1 241 16 is_stmt 1 view .LVU163
- 661 00be 039B     		ldr	r3, [sp, #12]
- 662 00c0 9842     		cmp	r0, r3
- 663 00c2 14D2     		bcs	.L61
- 664              	.LVL52:
- 665              	.L45:
+ 671              		.loc 1 241 10 is_stmt 1 view .LVU167
+ 672              		.loc 1 241 2 is_stmt 0 view .LVU168
+ 673 00be 039B     		ldr	r3, [sp, #12]
+ 674 00c0 9842     		cmp	r0, r3
+ 675 00c2 14D2     		bcs	.L61
+ 676              	.LVL52:
+ 677              	.L45:
  215:Core/Src/adf4351.c **** 	{
- 666              		.loc 1 215 2 view .LVU164
+ 678              		.loc 1 215 2 is_stmt 1 view .LVU169
  217:Core/Src/adf4351.c **** 		{
- 667              		.loc 1 217 3 view .LVU165
+ 679              		.loc 1 217 3 view .LVU170
  219:Core/Src/adf4351.c **** 			{
- 668              		.loc 1 219 4 view .LVU166
+ 680              		.loc 1 219 4 view .LVU171
  221:Core/Src/adf4351.c **** 						st->r1_mod = st->fpfd / chspc;
- 669              		.loc 1 221 5 view .LVU167
+ 681              		.loc 1 221 5 view .LVU172
  221:Core/Src/adf4351.c **** 						st->r1_mod = st->fpfd / chspc;
- 670              		.loc 1 221 13 is_stmt 0 view .LVU168
- 671 00c4 2146     		mov	r1, r4
- 672 00c6 2846     		mov	r0, r5
- 673 00c8 FFF7FEFF 		bl	adf4350_tune_r_cnt
- 674              	.LVL53:
+ 682              		.loc 1 221 13 is_stmt 0 view .LVU173
+ 683 00c4 2146     		mov	r1, r4
+ 684 00c6 2846     		mov	r0, r5
+ 685 00c8 FFF7FEFF 		bl	adf4350_tune_r_cnt
+ 686              	.LVL53:
  221:Core/Src/adf4351.c **** 						st->r1_mod = st->fpfd / chspc;
- 675              		.loc 1 221 11 view .LVU169
- 676 00cc 84B2     		uxth	r4, r0
- 677              	.LVL54:
+ 687              		.loc 1 221 11 view .LVU174
+ 688 00cc 84B2     		uxth	r4, r0
+ 689              	.LVL54:
  222:Core/Src/adf4351.c **** 						if (r_cnt > ADF4350_MAX_R_CNT)
- 678              		.loc 1 222 7 is_stmt 1 view .LVU170
+ 690              		.loc 1 222 7 is_stmt 1 view .LVU175
  222:Core/Src/adf4351.c **** 						if (r_cnt > ADF4350_MAX_R_CNT)
- 679              		.loc 1 222 22 is_stmt 0 view .LVU171
- 680 00ce EF68     		ldr	r7, [r5, #12]
+ 691              		.loc 1 222 22 is_stmt 0 view .LVU176
+ 692 00ce EF68     		ldr	r7, [r5, #12]
  222:Core/Src/adf4351.c **** 						if (r_cnt > ADF4350_MAX_R_CNT)
- 681              		.loc 1 222 29 view .LVU172
- 682 00d0 B7FBF8F6 		udiv	r6, r7, r8
+ 693              		.loc 1 222 29 view .LVU177
+ 694 00d0 B7FBF8F6 		udiv	r6, r7, r8
  222:Core/Src/adf4351.c **** 						if (r_cnt > ADF4350_MAX_R_CNT)
- 683              		.loc 1 222 18 view .LVU173
- 684 00d4 EE61     		str	r6, [r5, #28]
+ 695              		.loc 1 222 18 view .LVU178
+ 696 00d4 EE61     		str	r6, [r5, #28]
  223:Core/Src/adf4351.c **** 						{
- 685              		.loc 1 223 7 is_stmt 1 view .LVU174
- 223:Core/Src/adf4351.c **** 						{
- 686              		.loc 1 223 10 is_stmt 0 view .LVU175
- 687 00d6 B4F5806F 		cmp	r4, #1024
- 688 00da 02D3     		bcc	.L46
- 226:Core/Src/adf4351.c **** 							r_cnt = 0;
- 689              		.loc 1 226 8 is_stmt 1 view .LVU176
- 226:Core/Src/adf4351.c **** 							r_cnt = 0;
- 690              		.loc 1 226 13 is_stmt 0 view .LVU177
- 691 00dc 08F10108 		add	r8, r8, #1
- 692              	.LVL55:
- 227:Core/Src/adf4351.c **** 						}
- 693              		.loc 1 227 8 is_stmt 1 view .LVU178
- 227:Core/Src/adf4351.c **** 						}
-ARM GAS  C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s 			page 18
+ARM GAS  /tmp/ccdp6r1y.s 			page 18
 
 
- 694              		.loc 1 227 14 is_stmt 0 view .LVU179
- 695 00e0 0024     		movs	r4, #0
- 696              	.LVL56:
- 697              	.L46:
+ 697              		.loc 1 223 7 is_stmt 1 view .LVU179
+ 223:Core/Src/adf4351.c **** 						{
+ 698              		.loc 1 223 10 is_stmt 0 view .LVU180
+ 699 00d6 B4F5806F 		cmp	r4, #1024
+ 700 00da 02D3     		bcc	.L46
+ 226:Core/Src/adf4351.c **** 							r_cnt = 0;
+ 701              		.loc 1 226 8 is_stmt 1 view .LVU181
+ 226:Core/Src/adf4351.c **** 							r_cnt = 0;
+ 702              		.loc 1 226 13 is_stmt 0 view .LVU182
+ 703 00dc 08F10108 		add	r8, r8, #1
+ 704              	.LVL55:
+ 227:Core/Src/adf4351.c **** 						}
+ 705              		.loc 1 227 8 is_stmt 1 view .LVU183
+ 227:Core/Src/adf4351.c **** 						}
+ 706              		.loc 1 227 14 is_stmt 0 view .LVU184
+ 707 00e0 0024     		movs	r4, #0
+ 708              	.LVL56:
+ 709              	.L46:
  229:Core/Src/adf4351.c **** 		} while (r_cnt == 0);
- 698              		.loc 1 229 48 is_stmt 1 view .LVU180
- 699 00e2 B6F5805F 		cmp	r6, #4096
- 700 00e6 C8D3     		bcc	.L47
+ 710              		.loc 1 229 12 is_stmt 1 view .LVU185
  229:Core/Src/adf4351.c **** 		} while (r_cnt == 0);
- 701              		.loc 1 229 48 is_stmt 0 discriminator 1 view .LVU181
- 702 00e8 002C     		cmp	r4, #0
- 703 00ea EBD1     		bne	.L45
- 704 00ec C5E7     		b	.L47
- 705              	.LVL57:
- 706              	.L61:
+ 711              		.loc 1 229 4 is_stmt 0 view .LVU186
+ 712 00e2 B6F5805F 		cmp	r6, #4096
+ 713 00e6 C8D3     		bcc	.L47
+ 229:Core/Src/adf4351.c **** 		} while (r_cnt == 0);
+ 714              		.loc 1 229 48 discriminator 1 view .LVU187
+ 715 00e8 002C     		cmp	r4, #0
+ 716 00ea EBD1     		bne	.L45
+ 717 00ec C5E7     		b	.L47
+ 718              	.LVL57:
+ 719              	.L61:
  242:Core/Src/adf4351.c **** 
  243:Core/Src/adf4351.c **** 	band_sel_div = st->fpfd % ADF4350_MAX_BANDSEL_CLK > ADF4350_MAX_BANDSEL_CLK / 2 ?
- 707              		.loc 1 243 2 is_stmt 1 view .LVU182
- 708              		.loc 1 243 26 is_stmt 0 view .LVU183
- 709 00ee 524B     		ldr	r3, .L63+16
- 710 00f0 A3FB0723 		umull	r2, r3, r3, r7
- 711 00f4 DB0B     		lsrs	r3, r3, #15
- 712 00f6 514A     		ldr	r2, .L63+20
- 713 00f8 02FB1373 		mls	r3, r2, r3, r7
- 714              		.loc 1 243 15 view .LVU184
- 715 00fc 4FF22442 		movw	r2, #62500
- 716 0100 9342     		cmp	r3, r2
- 717 0102 15D9     		bls	.L49
+ 720              		.loc 1 243 2 is_stmt 1 view .LVU188
+ 721              		.loc 1 243 26 is_stmt 0 view .LVU189
+ 722 00ee 524B     		ldr	r3, .L63+16
+ 723 00f0 A3FB0723 		umull	r2, r3, r3, r7
+ 724 00f4 DB0B     		lsrs	r3, r3, #15
+ 725 00f6 514A     		ldr	r2, .L63+20
+ 726 00f8 02FB1373 		mls	r3, r2, r3, r7
+ 727              		.loc 1 243 15 view .LVU190
+ 728 00fc 4FF22442 		movw	r2, #62500
+ 729 0100 9342     		cmp	r3, r2
+ 730 0102 15D9     		bls	.L49
  244:Core/Src/adf4351.c **** 					st->fpfd / ADF4350_MAX_BANDSEL_CLK + 1 :
- 718              		.loc 1 244 15 discriminator 1 view .LVU185
- 719 0104 4C4B     		ldr	r3, .L63+16
- 720 0106 A3FB0773 		umull	r7, r3, r3, r7
- 721              		.loc 1 244 41 discriminator 1 view .LVU186
- 722 010a C3F3C733 		ubfx	r3, r3, #15, #8
+ 731              		.loc 1 244 15 discriminator 1 view .LVU191
+ 732 0104 4C4B     		ldr	r3, .L63+16
+ 733 0106 A3FB0737 		umull	r3, r7, r3, r7
+ 734              		.loc 1 244 41 discriminator 1 view .LVU192
+ 735 010a C7F3C737 		ubfx	r7, r7, #15, #8
  243:Core/Src/adf4351.c **** 					st->fpfd / ADF4350_MAX_BANDSEL_CLK + 1 :
- 723              		.loc 1 243 15 discriminator 1 view .LVU187
- 724 010e 0133     		adds	r3, r3, #1
- 725 0110 DFB2     		uxtb	r7, r3
- 726              	.L50:
- 727              	.LVL58:
+ 736              		.loc 1 243 15 discriminator 1 view .LVU193
+ 737 010e 0137     		adds	r7, r7, #1
+ 738 0110 FFB2     		uxtb	r7, r7
+ 739              	.L50:
+ 740              	.LVL58:
  245:Core/Src/adf4351.c **** 					st->fpfd / ADF4350_MAX_BANDSEL_CLK;
+ARM GAS  /tmp/ccdp6r1y.s 			page 19
+
+
  246:Core/Src/adf4351.c **** 
  247:Core/Src/adf4351.c **** 	if (st->r0_fract && st->r1_mod) {
- 728              		.loc 1 247 2 is_stmt 1 discriminator 4 view .LVU188
- 729              		.loc 1 247 5 is_stmt 0 discriminator 4 view .LVU189
- 730 0112 029B     		ldr	r3, [sp, #8]
- 731 0114 93B1     		cbz	r3, .L51
- 732              		.loc 1 247 19 discriminator 1 view .LVU190
- 733 0116 8EB1     		cbz	r6, .L51
+ 741              		.loc 1 247 2 is_stmt 1 discriminator 4 view .LVU194
+ 742              		.loc 1 247 5 is_stmt 0 discriminator 4 view .LVU195
+ 743 0112 029B     		ldr	r3, [sp, #8]
+ 744 0114 93B1     		cbz	r3, .L51
+ 745              		.loc 1 247 19 discriminator 1 view .LVU196
+ 746 0116 8EB1     		cbz	r6, .L51
  248:Core/Src/adf4351.c **** 		div_gcd = gcd(st->r1_mod, st->r0_fract);
- 734              		.loc 1 248 3 is_stmt 1 view .LVU191
- 735              		.loc 1 248 13 is_stmt 0 view .LVU192
- 736 0118 9846     		mov	r8, r3
- 737              	.LVL59:
- 738              		.loc 1 248 13 view .LVU193
- 739 011a 1946     		mov	r1, r3
- 740              	.LVL60:
-ARM GAS  C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s 			page 19
-
-
- 741              		.loc 1 248 13 view .LVU194
- 742 011c 3046     		mov	r0, r6
- 743              		.loc 1 248 13 view .LVU195
- 744 011e FFF7FEFF 		bl	gcd
- 745              	.LVL61:
+ 747              		.loc 1 248 3 is_stmt 1 view .LVU197
+ 748              		.loc 1 248 13 is_stmt 0 view .LVU198
+ 749 0118 9846     		mov	r8, r3
+ 750              	.LVL59:
+ 751              		.loc 1 248 13 view .LVU199
+ 752 011a 1946     		mov	r1, r3
+ 753              	.LVL60:
+ 754              		.loc 1 248 13 view .LVU200
+ 755 011c 3046     		mov	r0, r6
+ 756              		.loc 1 248 13 view .LVU201
+ 757 011e FFF7FEFF 		bl	gcd
+ 758              	.LVL61:
  249:Core/Src/adf4351.c **** 		st->r1_mod /= div_gcd;
- 746              		.loc 1 249 3 is_stmt 1 view .LVU196
- 747              		.loc 1 249 14 is_stmt 0 view .LVU197
- 748 0122 B6FBF0F6 		udiv	r6, r6, r0
- 749 0126 EE61     		str	r6, [r5, #28]
+ 759              		.loc 1 249 3 is_stmt 1 view .LVU202
+ 760              		.loc 1 249 14 is_stmt 0 view .LVU203
+ 761 0122 B6FBF0F6 		udiv	r6, r6, r0
+ 762 0126 EE61     		str	r6, [r5, #28]
  250:Core/Src/adf4351.c **** 		st->r0_fract /= div_gcd;
- 750              		.loc 1 250 3 is_stmt 1 view .LVU198
- 751              		.loc 1 250 16 is_stmt 0 view .LVU199
- 752 0128 B8FBF0F0 		udiv	r0, r8, r0
- 753              	.LVL62:
- 754              		.loc 1 250 16 view .LVU200
- 755 012c 6861     		str	r0, [r5, #20]
- 756 012e 09E0     		b	.L52
- 757              	.LVL63:
- 758              	.L49:
+ 763              		.loc 1 250 3 is_stmt 1 view .LVU204
+ 764              		.loc 1 250 16 is_stmt 0 view .LVU205
+ 765 0128 B8FBF0F0 		udiv	r0, r8, r0
+ 766              	.LVL62:
+ 767              		.loc 1 250 16 view .LVU206
+ 768 012c 6861     		str	r0, [r5, #20]
+ 769 012e 09E0     		b	.L52
+ 770              	.LVL63:
+ 771              	.L49:
  245:Core/Src/adf4351.c **** 
- 759              		.loc 1 245 15 discriminator 2 view .LVU201
- 760 0130 414B     		ldr	r3, .L63+16
- 761 0132 A3FB0737 		umull	r3, r7, r3, r7
+ 772              		.loc 1 245 15 discriminator 2 view .LVU207
+ 773 0130 414B     		ldr	r3, .L63+16
+ 774 0132 A3FB0737 		umull	r3, r7, r3, r7
  243:Core/Src/adf4351.c **** 					st->fpfd / ADF4350_MAX_BANDSEL_CLK + 1 :
- 762              		.loc 1 243 15 discriminator 2 view .LVU202
- 763 0136 C7F3C737 		ubfx	r7, r7, #15, #8
- 764 013a EAE7     		b	.L50
- 765              	.LVL64:
- 766              	.L51:
+ 775              		.loc 1 243 15 discriminator 2 view .LVU208
+ 776 0136 C7F3C737 		ubfx	r7, r7, #15, #8
+ 777 013a EAE7     		b	.L50
+ 778              	.LVL64:
+ 779              	.L51:
  251:Core/Src/adf4351.c **** 	}
  252:Core/Src/adf4351.c **** 	else
  253:Core/Src/adf4351.c **** 	{
  254:Core/Src/adf4351.c **** 		st->r0_fract = 0;
- 767              		.loc 1 254 3 is_stmt 1 view .LVU203
- 768              		.loc 1 254 16 is_stmt 0 view .LVU204
- 769 013c 0023     		movs	r3, #0
- 770 013e 6B61     		str	r3, [r5, #20]
+ 780              		.loc 1 254 3 is_stmt 1 view .LVU209
+ 781              		.loc 1 254 16 is_stmt 0 view .LVU210
+ 782 013c 0023     		movs	r3, #0
+ 783 013e 6B61     		str	r3, [r5, #20]
  255:Core/Src/adf4351.c **** 		st->r1_mod = 1;
- 771              		.loc 1 255 3 is_stmt 1 view .LVU205
- 772              		.loc 1 255 14 is_stmt 0 view .LVU206
- 773 0140 0123     		movs	r3, #1
- 774 0142 EB61     		str	r3, [r5, #28]
- 775              	.LVL65:
- 776              	.L52:
+ 784              		.loc 1 255 3 is_stmt 1 view .LVU211
+ 785              		.loc 1 255 14 is_stmt 0 view .LVU212
+ARM GAS  /tmp/ccdp6r1y.s 			page 20
+
+
+ 786 0140 0123     		movs	r3, #1
+ 787 0142 EB61     		str	r3, [r5, #28]
+ 788              	.LVL65:
+ 789              	.L52:
  256:Core/Src/adf4351.c **** 	}
  257:Core/Src/adf4351.c **** 
  258:Core/Src/adf4351.c **** 	st->regs[ADF4350_REG0] = ADF4350_REG0_INT(st->r0_int) |
- 777              		.loc 1 258 2 is_stmt 1 view .LVU207
- 778              		.loc 1 258 27 is_stmt 0 view .LVU208
- 779 0144 3E4A     		ldr	r2, .L63+24
- 780 0146 02EACB32 		and	r2, r2, fp, lsl #15
+ 790              		.loc 1 258 2 is_stmt 1 view .LVU213
+ 791              		.loc 1 258 27 is_stmt 0 view .LVU214
+ 792 0144 3E4A     		ldr	r2, .L63+24
+ 793 0146 02EACB39 		and	r9, r2, fp, lsl #15
+ 794              	.LVL66:
  259:Core/Src/adf4351.c **** 				 ADF4350_REG0_FRACT(st->r0_fract);
- 781              		.loc 1 259 6 view .LVU209
- 782 014a 6969     		ldr	r1, [r5, #20]
- 783 014c 47F6F873 		movw	r3, #32760
- 784 0150 03EAC101 		and	r1, r3, r1, lsl #3
-ARM GAS  C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s 			page 20
-
-
+ 795              		.loc 1 259 6 view .LVU215
+ 796 014a 6A69     		ldr	r2, [r5, #20]
+ 797 014c 47F6F873 		movw	r3, #32760
+ 798 0150 03EAC202 		and	r2, r3, r2, lsl #3
  258:Core/Src/adf4351.c **** 				 ADF4350_REG0_FRACT(st->r0_fract);
- 785              		.loc 1 258 56 view .LVU210
- 786 0154 0A43     		orrs	r2, r2, r1
+ 799              		.loc 1 258 56 view .LVU216
+ 800 0154 49EA0202 		orr	r2, r9, r2
  258:Core/Src/adf4351.c **** 				 ADF4350_REG0_FRACT(st->r0_fract);
- 787              		.loc 1 258 25 view .LVU211
- 788 0156 6A62     		str	r2, [r5, #36]
+ 801              		.loc 1 258 25 view .LVU217
+ 802 0158 6A62     		str	r2, [r5, #36]
  260:Core/Src/adf4351.c **** 
  261:Core/Src/adf4351.c **** 	st->regs[ADF4350_REG1] = ADF4350_REG1_PHASE(1) |
- 789              		.loc 1 261 2 is_stmt 1 view .LVU212
+ 803              		.loc 1 261 2 is_stmt 1 view .LVU218
  262:Core/Src/adf4351.c **** 				 ADF4350_REG1_MOD(st->r1_mod) |
- 790              		.loc 1 262 6 is_stmt 0 view .LVU213
- 791 0158 EA69     		ldr	r2, [r5, #28]
- 792 015a 03EAC203 		and	r3, r3, r2, lsl #3
- 793              		.loc 1 262 35 view .LVU214
- 794 015e 059A     		ldr	r2, [sp, #20]
- 795 0160 1343     		orrs	r3, r3, r2
- 796 0162 43F40043 		orr	r3, r3, #32768
+ 804              		.loc 1 262 6 is_stmt 0 view .LVU219
+ 805 015a EA69     		ldr	r2, [r5, #28]
+ 806 015c 03EAC203 		and	r3, r3, r2, lsl #3
+ 807              		.loc 1 262 35 view .LVU220
+ 808 0160 059A     		ldr	r2, [sp, #20]
+ 809 0162 1343     		orrs	r3, r3, r2
+ 810 0164 43F40043 		orr	r3, r3, #32768
  261:Core/Src/adf4351.c **** 				 ADF4350_REG1_MOD(st->r1_mod) |
- 797              		.loc 1 261 25 view .LVU215
- 798 0166 AB62     		str	r3, [r5, #40]
+ 811              		.loc 1 261 25 view .LVU221
+ 812 0168 AB62     		str	r3, [r5, #40]
  263:Core/Src/adf4351.c **** 				 prescaler;
  264:Core/Src/adf4351.c **** 
  265:Core/Src/adf4351.c **** 	st->regs[ADF4350_REG2] =
- 799              		.loc 1 265 2 is_stmt 1 view .LVU216
+ 813              		.loc 1 265 2 is_stmt 1 view .LVU222
  266:Core/Src/adf4351.c **** 		ADF4350_REG2_10BIT_R_CNT(r_cnt) |
- 800              		.loc 1 266 3 is_stmt 0 view .LVU217
- 801 0168 A303     		lsls	r3, r4, #14
- 802              		.loc 1 266 35 view .LVU218
- 803 016a 43F40053 		orr	r3, r3, #8192
+ 814              		.loc 1 266 3 is_stmt 0 view .LVU223
+ 815 016a A303     		lsls	r3, r4, #14
+ 816              		.loc 1 266 35 view .LVU224
+ 817 016c 43F40053 		orr	r3, r3, #8192
  267:Core/Src/adf4351.c **** 		ADF4350_REG2_DOUBLE_BUFF_EN |
  268:Core/Src/adf4351.c **** 		(pdata->ref_doubler_en ? ADF4350_REG2_RMULT2_EN : 0) |
- 804              		.loc 1 268 9 view .LVU219
- 805 016e 049A     		ldr	r2, [sp, #16]
- 806 0170 927C     		ldrb	r2, [r2, #18]	@ zero_extendqisi2
- 807              		.loc 1 268 51 view .LVU220
- 808 0172 002A     		cmp	r2, #0
- 809 0174 4CD0     		beq	.L58
- 810 0176 4FF00072 		mov	r2, #33554432
- 811              	.L53:
+ 818              		.loc 1 268 9 view .LVU225
+ 819 0170 049A     		ldr	r2, [sp, #16]
+ 820 0172 927C     		ldrb	r2, [r2, #18]	@ zero_extendqisi2
+ 821              		.loc 1 268 51 view .LVU226
+ 822 0174 002A     		cmp	r2, #0
+ 823 0176 4CD0     		beq	.L58
+ 824 0178 4FF00072 		mov	r2, #33554432
+ 825              	.L53:
  267:Core/Src/adf4351.c **** 		ADF4350_REG2_DOUBLE_BUFF_EN |
- 812              		.loc 1 267 31 view .LVU221
- 813 017a 1343     		orrs	r3, r3, r2
+ARM GAS  /tmp/ccdp6r1y.s 			page 21
+
+
+ 826              		.loc 1 267 31 view .LVU227
+ 827 017c 1343     		orrs	r3, r3, r2
  269:Core/Src/adf4351.c **** 		(pdata->ref_div2_en ? ADF4350_REG2_RDIV2_EN : 0) |
- 814              		.loc 1 269 9 view .LVU222
- 815 017c 049A     		ldr	r2, [sp, #16]
- 816 017e D27C     		ldrb	r2, [r2, #19]	@ zero_extendqisi2
- 817              		.loc 1 269 47 view .LVU223
- 818 0180 002A     		cmp	r2, #0
- 819 0182 47D0     		beq	.L59
- 820 0184 4FF08072 		mov	r2, #16777216
- 821              	.L54:
+ 828              		.loc 1 269 9 view .LVU228
+ 829 017e 049A     		ldr	r2, [sp, #16]
+ 830 0180 D27C     		ldrb	r2, [r2, #19]	@ zero_extendqisi2
+ 831              		.loc 1 269 47 view .LVU229
+ 832 0182 002A     		cmp	r2, #0
+ 833 0184 47D0     		beq	.L59
+ 834 0186 4FF08072 		mov	r2, #16777216
+ 835              	.L54:
  268:Core/Src/adf4351.c **** 		(pdata->ref_div2_en ? ADF4350_REG2_RDIV2_EN : 0) |
- 822              		.loc 1 268 56 view .LVU224
- 823 0188 1343     		orrs	r3, r3, r2
+ 836              		.loc 1 268 56 view .LVU230
+ 837 018a 1343     		orrs	r3, r3, r2
  270:Core/Src/adf4351.c **** 		(pdata->r2_user_settings & (ADF4350_REG2_PD_POLARITY_POS |
- 824              		.loc 1 270 9 view .LVU225
- 825 018a 0499     		ldr	r1, [sp, #16]
-ARM GAS  C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s 			page 21
-
-
- 826 018c 4A69     		ldr	r2, [r1, #20]
- 827              		.loc 1 270 28 view .LVU226
- 828 018e 22F04342 		bic	r2, r2, #-1023410176
- 829 0192 22F47F02 		bic	r2, r2, #16711680
- 830 0196 22F46042 		bic	r2, r2, #57344
- 831 019a 22F03F02 		bic	r2, r2, #63
+ 838              		.loc 1 270 9 view .LVU231
+ 839 018c 0499     		ldr	r1, [sp, #16]
+ 840 018e 4A69     		ldr	r2, [r1, #20]
+ 841              		.loc 1 270 28 view .LVU232
+ 842 0190 22F04342 		bic	r2, r2, #-1023410176
+ 843 0194 22F47F02 		bic	r2, r2, #16711680
+ 844 0198 22F46042 		bic	r2, r2, #57344
+ 845 019c 22F03F02 		bic	r2, r2, #63
  269:Core/Src/adf4351.c **** 		(pdata->ref_div2_en ? ADF4350_REG2_RDIV2_EN : 0) |
- 832              		.loc 1 269 52 view .LVU227
- 833 019e 1343     		orrs	r3, r3, r2
+ 846              		.loc 1 269 52 view .LVU233
+ 847 01a0 1343     		orrs	r3, r3, r2
  265:Core/Src/adf4351.c **** 		ADF4350_REG2_10BIT_R_CNT(r_cnt) |
- 834              		.loc 1 265 25 view .LVU228
- 835 01a0 EB62     		str	r3, [r5, #44]
+ 848              		.loc 1 265 25 view .LVU234
+ 849 01a2 EB62     		str	r3, [r5, #44]
  271:Core/Src/adf4351.c **** 		ADF4350_REG2_LDP_6ns | ADF4350_REG2_LDF_INT_N |
  272:Core/Src/adf4351.c **** 		ADF4350_REG2_CHARGE_PUMP_CURR_uA(5000) |
  273:Core/Src/adf4351.c **** 		ADF4350_REG2_MUXOUT(0x7) | ADF4350_REG2_NOISE_MODE(0x9)));
  274:Core/Src/adf4351.c **** 
  275:Core/Src/adf4351.c **** 	st->regs[ADF4350_REG3] = pdata->r3_user_settings &
- 836              		.loc 1 275 2 is_stmt 1 view .LVU229
- 837              		.loc 1 275 32 is_stmt 0 view .LVU230
- 838 01a2 8B69     		ldr	r3, [r1, #24]
- 839              		.loc 1 275 51 view .LVU231
- 840 01a4 23F07F43 		bic	r3, r3, #-16777216
- 841 01a8 23F47803 		bic	r3, r3, #16252928
- 842 01ac 23F40043 		bic	r3, r3, #32768
- 843 01b0 23F00703 		bic	r3, r3, #7
- 844              		.loc 1 275 25 view .LVU232
- 845 01b4 2B63     		str	r3, [r5, #48]
+ 850              		.loc 1 275 2 is_stmt 1 view .LVU235
+ 851              		.loc 1 275 32 is_stmt 0 view .LVU236
+ 852 01a4 8B69     		ldr	r3, [r1, #24]
+ 853              		.loc 1 275 51 view .LVU237
+ 854 01a6 23F07F43 		bic	r3, r3, #-16777216
+ 855 01aa 23F47803 		bic	r3, r3, #16252928
+ 856 01ae 23F40043 		bic	r3, r3, #32768
+ 857 01b2 23F00703 		bic	r3, r3, #7
+ 858              		.loc 1 275 25 view .LVU238
+ 859 01b6 2B63     		str	r3, [r5, #48]
  276:Core/Src/adf4351.c **** 				 (ADF4350_REG3_12BIT_CLKDIV(0xFFF) |
  277:Core/Src/adf4351.c **** 				 ADF4350_REG3_12BIT_CLKDIV_MODE(0x3) |
  278:Core/Src/adf4351.c **** 				 ADF4350_REG3_12BIT_CSR_EN);
  279:Core/Src/adf4351.c **** 
  280:Core/Src/adf4351.c **** 	st->regs[ADF4350_REG4] =
- 846              		.loc 1 280 2 is_stmt 1 view .LVU233
+ 860              		.loc 1 280 2 is_stmt 1 view .LVU239
  281:Core/Src/adf4351.c **** 		ADF4350_REG4_FEEDBACK_FUND |
  282:Core/Src/adf4351.c **** 		ADF4350_REG4_RF_DIV_SEL(st->r4_rf_div_sel) |
- 847              		.loc 1 282 3 is_stmt 0 view .LVU234
- 848 01b6 2A6A     		ldr	r2, [r5, #32]
+ 861              		.loc 1 282 3 is_stmt 0 view .LVU240
+ 862 01b8 2A6A     		ldr	r2, [r5, #32]
  283:Core/Src/adf4351.c **** 		ADF4350_REG4_8BIT_BAND_SEL_CLKDIV(band_sel_div) |
- 849              		.loc 1 283 3 view .LVU235
- 850 01b8 3B03     		lsls	r3, r7, #12
+ 863              		.loc 1 283 3 view .LVU241
+ 864 01ba 3B03     		lsls	r3, r7, #12
+ARM GAS  /tmp/ccdp6r1y.s 			page 22
+
+
  282:Core/Src/adf4351.c **** 		ADF4350_REG4_8BIT_BAND_SEL_CLKDIV(band_sel_div) |
- 851              		.loc 1 282 46 view .LVU236
- 852 01ba 43EA0253 		orr	r3, r3, r2, lsl #20
+ 865              		.loc 1 282 46 view .LVU242
+ 866 01bc 43EA0253 		orr	r3, r3, r2, lsl #20
  284:Core/Src/adf4351.c **** 		ADF4350_REG4_RF_OUT_EN |
  285:Core/Src/adf4351.c **** 		(pdata->r4_user_settings &
- 853              		.loc 1 285 9 view .LVU237
- 854 01be CA69     		ldr	r2, [r1, #28]
- 855              		.loc 1 285 28 view .LVU238
- 856 01c0 02F4FB62 		and	r2, r2, #2008
+ 867              		.loc 1 285 9 view .LVU243
+ 868 01c0 CA69     		ldr	r2, [r1, #28]
+ 869              		.loc 1 285 28 view .LVU244
+ 870 01c2 02F4FB62 		and	r2, r2, #2008
  284:Core/Src/adf4351.c **** 		ADF4350_REG4_RF_OUT_EN |
- 857              		.loc 1 284 26 view .LVU239
- 858 01c4 1343     		orrs	r3, r3, r2
- 859 01c6 43F40003 		orr	r3, r3, #8388608
- 860 01ca 43F02003 		orr	r3, r3, #32
+ 871              		.loc 1 284 26 view .LVU245
+ 872 01c6 1343     		orrs	r3, r3, r2
+ 873 01c8 43F40003 		orr	r3, r3, #8388608
+ 874 01cc 43F02003 		orr	r3, r3, #32
  280:Core/Src/adf4351.c **** 		ADF4350_REG4_FEEDBACK_FUND |
- 861              		.loc 1 280 25 view .LVU240
- 862 01ce 6B63     		str	r3, [r5, #52]
-ARM GAS  C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s 			page 22
-
-
+ 875              		.loc 1 280 25 view .LVU246
+ 876 01d0 6B63     		str	r3, [r5, #52]
  286:Core/Src/adf4351.c **** 		(ADF4350_REG4_OUTPUT_PWR(0x3) |
  287:Core/Src/adf4351.c **** 		ADF4350_REG4_AUX_OUTPUT_PWR(0x3) |
  288:Core/Src/adf4351.c **** 		ADF4350_REG4_AUX_OUTPUT_EN |
@@ -1268,136 +1285,139 @@ ARM GAS  C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s 			page 1
  290:Core/Src/adf4351.c **** 		ADF4350_REG4_MUTE_TILL_LOCK_EN));
  291:Core/Src/adf4351.c **** 
  292:Core/Src/adf4351.c **** 	st->regs[ADF4350_REG5] = ADF4350_REG5_LD_PIN_MODE_DIGITAL | 0x00180000;
- 863              		.loc 1 292 2 is_stmt 1 view .LVU241
- 864              		.loc 1 292 25 is_stmt 0 view .LVU242
- 865 01d0 4FF4B003 		mov	r3, #5767168
- 866 01d4 AB63     		str	r3, [r5, #56]
+ 877              		.loc 1 292 2 is_stmt 1 view .LVU247
+ 878              		.loc 1 292 25 is_stmt 0 view .LVU248
+ 879 01d2 4FF4B003 		mov	r3, #5767168
+ 880 01d6 AB63     		str	r3, [r5, #56]
  293:Core/Src/adf4351.c **** 
  294:Core/Src/adf4351.c **** 	ret = adf4350_sync_config(st);
- 867              		.loc 1 294 2 is_stmt 1 view .LVU243
- 868              		.loc 1 294 8 is_stmt 0 view .LVU244
- 869 01d6 2846     		mov	r0, r5
- 870 01d8 FFF7FEFF 		bl	adf4350_sync_config
- 871              	.LVL66:
+ 881              		.loc 1 294 2 is_stmt 1 view .LVU249
+ 882              		.loc 1 294 8 is_stmt 0 view .LVU250
+ 883 01d8 2846     		mov	r0, r5
+ 884 01da FFF7FEFF 		bl	adf4350_sync_config
+ 885              	.LVL67:
  295:Core/Src/adf4351.c **** 	if(ret < 0)
- 872              		.loc 1 295 2 is_stmt 1 view .LVU245
- 873              		.loc 1 295 4 is_stmt 0 view .LVU246
- 874 01dc 011E     		subs	r1, r0, #0
- 875 01de 1BDB     		blt	.L62
+ 886              		.loc 1 295 2 is_stmt 1 view .LVU251
+ 887              		.loc 1 295 4 is_stmt 0 view .LVU252
+ 888 01de 011E     		subs	r1, r0, #0
+ 889 01e0 1BDB     		blt	.L62
  296:Core/Src/adf4351.c **** 	{
  297:Core/Src/adf4351.c **** 		return ret;
  298:Core/Src/adf4351.c **** 	}
  299:Core/Src/adf4351.c **** 
  300:Core/Src/adf4351.c ****     tmp = (uint64_t)((st->r0_int * st->r1_mod) + st->r0_fract) * (uint64_t)st->fpfd;
- 876              		.loc 1 300 5 is_stmt 1 view .LVU247
- 877              		.loc 1 300 25 is_stmt 0 view .LVU248
- 878 01e0 AB69     		ldr	r3, [r5, #24]
- 879              		.loc 1 300 38 view .LVU249
- 880 01e2 EA69     		ldr	r2, [r5, #28]
- 881              		.loc 1 300 52 view .LVU250
- 882 01e4 6969     		ldr	r1, [r5, #20]
- 883              		.loc 1 300 48 view .LVU251
- 884 01e6 02FB0311 		mla	r1, r2, r3, r1
- 885              		.loc 1 300 78 view .LVU252
- 886 01ea E868     		ldr	r0, [r5, #12]
- 887              	.LVL67:
- 301:Core/Src/adf4351.c ****     tmp = tmp / ((uint64_t)st->r1_mod * ((uint64_t)1 << st->r4_rf_div_sel));
- 888              		.loc 1 301 5 is_stmt 1 view .LVU253
- 889              		.loc 1 301 59 is_stmt 0 view .LVU254
- 890 01ec 2D6A     		ldr	r5, [r5, #32]
- 891              	.LVL68:
- 892              		.loc 1 301 39 view .LVU255
- 893 01ee A5F12004 		sub	r4, r5, #32
- 894              	.LVL69:
- 895              		.loc 1 301 39 view .LVU256
- 896 01f2 C5F12003 		rsb	r3, r5, #32
- 897 01f6 02FA04F4 		lsl	r4, r2, r4
- 898 01fa 22FA03F3 		lsr	r3, r2, r3
- 899              		.loc 1 301 9 view .LVU257
- 900 01fe AA40     		lsls	r2, r2, r5
- 901 0200 2343     		orrs	r3, r3, r4
- 902 0202 A1FB0001 		umull	r0, r1, r1, r0
+ 890              		.loc 1 300 5 is_stmt 1 view .LVU253
+ 891              		.loc 1 300 25 is_stmt 0 view .LVU254
+ 892 01e2 A869     		ldr	r0, [r5, #24]
+ 893              	.LVL68:
+ 894              		.loc 1 300 38 view .LVU255
+ 895 01e4 EA69     		ldr	r2, [r5, #28]
+ 896              		.loc 1 300 52 view .LVU256
+ 897 01e6 6969     		ldr	r1, [r5, #20]
+ 898              	.LVL69:
+ 899              		.loc 1 300 48 view .LVU257
+ 900 01e8 02FB0011 		mla	r1, r2, r0, r1
+ 901              		.loc 1 300 78 view .LVU258
+ARM GAS  /tmp/ccdp6r1y.s 			page 23
+
+
+ 902 01ec E868     		ldr	r0, [r5, #12]
  903              	.LVL70:
-ARM GAS  C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s 			page 23
-
-
- 904              		.loc 1 301 9 view .LVU258
- 905 0206 FFF7FEFF 		bl	__aeabi_uldivmod
- 906              	.LVL71:
+ 301:Core/Src/adf4351.c ****     tmp = tmp / ((uint64_t)st->r1_mod * ((uint64_t)1 << st->r4_rf_div_sel));
+ 904              		.loc 1 301 5 is_stmt 1 view .LVU259
+ 905              		.loc 1 301 59 is_stmt 0 view .LVU260
+ 906 01ee 2D6A     		ldr	r5, [r5, #32]
+ 907              	.LVL71:
+ 908              		.loc 1 301 39 view .LVU261
+ 909 01f0 A5F12004 		sub	r4, r5, #32
+ 910              	.LVL72:
+ 911              		.loc 1 301 39 view .LVU262
+ 912 01f4 C5F12003 		rsb	r3, r5, #32
+ 913 01f8 02FA04F4 		lsl	r4, r2, r4
+ 914 01fc 22FA03F3 		lsr	r3, r2, r3
+ 915              		.loc 1 301 9 view .LVU263
+ 916 0200 AA40     		lsls	r2, r2, r5
+ 917 0202 2343     		orrs	r3, r3, r4
+ 918 0204 A1FB0001 		umull	r0, r1, r1, r0
+ 919              	.LVL73:
+ 920              		.loc 1 301 9 view .LVU264
+ 921 0208 FFF7FEFF 		bl	__aeabi_uldivmod
+ 922              	.LVL74:
  302:Core/Src/adf4351.c **** 
  303:Core/Src/adf4351.c **** 	return tmp;
- 907              		.loc 1 303 2 is_stmt 1 view .LVU259
- 908              	.L39:
+ 923              		.loc 1 303 2 is_stmt 1 view .LVU265
+ 924              	.L39:
  304:Core/Src/adf4351.c **** }
- 909              		.loc 1 304 1 is_stmt 0 view .LVU260
- 910 020a 07B0     		add	sp, sp, #28
- 911              	.LCFI13:
- 912              		.cfi_remember_state
- 913              		.cfi_def_cfa_offset 36
- 914              		@ sp needed
- 915 020c BDE8F08F 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, pc}
- 916              	.LVL72:
- 917              	.L58:
- 918              	.LCFI14:
- 919              		.cfi_restore_state
+ 925              		.loc 1 304 1 is_stmt 0 view .LVU266
+ 926 020c 07B0     		add	sp, sp, #28
+ 927              	.LCFI13:
+ 928              		.cfi_remember_state
+ 929              		.cfi_def_cfa_offset 36
+ 930              		@ sp needed
+ 931 020e BDE8F08F 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, pc}
+ 932              	.LVL75:
+ 933              	.L58:
+ 934              	.LCFI14:
+ 935              		.cfi_restore_state
  268:Core/Src/adf4351.c **** 		(pdata->ref_div2_en ? ADF4350_REG2_RDIV2_EN : 0) |
- 920              		.loc 1 268 51 view .LVU261
- 921 0210 0022     		movs	r2, #0
- 922 0212 B2E7     		b	.L53
- 923              	.L59:
+ 936              		.loc 1 268 51 view .LVU267
+ 937 0212 0022     		movs	r2, #0
+ 938 0214 B2E7     		b	.L53
+ 939              	.L59:
  269:Core/Src/adf4351.c **** 		(pdata->r2_user_settings & (ADF4350_REG2_PD_POLARITY_POS |
- 924              		.loc 1 269 47 view .LVU262
- 925 0214 0022     		movs	r2, #0
- 926 0216 B7E7     		b	.L54
- 927              	.LVL73:
- 928              	.L62:
+ 940              		.loc 1 269 47 view .LVU268
+ 941 0216 0022     		movs	r2, #0
+ 942 0218 B7E7     		b	.L54
+ 943              	.LVL76:
+ 944              	.L62:
  297:Core/Src/adf4351.c **** 	}
- 929              		.loc 1 297 3 is_stmt 1 view .LVU263
+ 945              		.loc 1 297 3 is_stmt 1 view .LVU269
  297:Core/Src/adf4351.c **** 	}
- 930              		.loc 1 297 10 is_stmt 0 view .LVU264
- 931 0218 0846     		mov	r0, r1
- 932              	.LVL74:
+ 946              		.loc 1 297 10 is_stmt 0 view .LVU270
+ 947 021a 0846     		mov	r0, r1
+ 948              	.LVL77:
  297:Core/Src/adf4351.c **** 	}
- 933              		.loc 1 297 10 view .LVU265
- 934 021a C917     		asrs	r1, r1, #31
- 935              	.LVL75:
- 297:Core/Src/adf4351.c **** 	}
- 936              		.loc 1 297 10 view .LVU266
- 937 021c F5E7     		b	.L39
- 938              	.LVL76:
- 939              	.L56:
- 186:Core/Src/adf4351.c **** 
- 940              		.loc 1 186 10 view .LVU267
- 941 021e 4FF0FF30 		mov	r0, #-1
- 942              	.LVL77:
- 186:Core/Src/adf4351.c **** 
- 943              		.loc 1 186 10 view .LVU268
- 944 0222 0146     		mov	r1, r0
- 945 0224 F1E7     		b	.L39
- 946              	.L64:
- 947 0226 00BF     		.align	2
- 948              	.L63:
- 949 0228 A87AF3FD 		.word	-34375000
-ARM GAS  C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s 			page 24
+ 949              		.loc 1 297 10 view .LVU271
+ARM GAS  /tmp/ccdp6r1y.s 			page 24
 
 
- 950 022c A8263604 		.word	70657704
- 951 0230 005ED0B2 		.word	-1294967296
- 952 0234 FF552183 		.word	-2094967297
- 953 0238 83DE1B43 		.word	1125899907
- 954 023c 48E80100 		.word	125000
- 955 0240 0080FF7F 		.word	2147450880
- 956              		.cfi_endproc
- 957              	.LFE72:
- 959              		.section	.text.adf4350_out_altvoltage0_frequency,"ax",%progbits
- 960              		.align	1
- 961              		.global	adf4350_out_altvoltage0_frequency
- 962              		.syntax unified
- 963              		.thumb
- 964              		.thumb_func
- 966              	adf4350_out_altvoltage0_frequency:
- 967              	.LVL78:
- 968              	.LFB74:
+ 950 021c C917     		asrs	r1, r1, #31
+ 951              	.LVL78:
+ 297:Core/Src/adf4351.c **** 	}
+ 952              		.loc 1 297 10 view .LVU272
+ 953 021e F5E7     		b	.L39
+ 954              	.LVL79:
+ 955              	.L56:
+ 186:Core/Src/adf4351.c **** 
+ 956              		.loc 1 186 10 view .LVU273
+ 957 0220 4FF0FF30 		mov	r0, #-1
+ 958              	.LVL80:
+ 186:Core/Src/adf4351.c **** 
+ 959              		.loc 1 186 10 view .LVU274
+ 960 0224 0146     		mov	r1, r0
+ 961 0226 F1E7     		b	.L39
+ 962              	.L64:
+ 963              		.align	2
+ 964              	.L63:
+ 965 0228 A87AF3FD 		.word	-34375000
+ 966 022c A8263604 		.word	70657704
+ 967 0230 005ED0B2 		.word	-1294967296
+ 968 0234 FF552183 		.word	-2094967297
+ 969 0238 83DE1B43 		.word	1125899907
+ 970 023c 48E80100 		.word	125000
+ 971 0240 0080FF7F 		.word	2147450880
+ 972              		.cfi_endproc
+ 973              	.LFE72:
+ 975              		.section	.text.adf4350_out_altvoltage0_frequency,"ax",%progbits
+ 976              		.align	1
+ 977              		.global	adf4350_out_altvoltage0_frequency
+ 978              		.syntax unified
+ 979              		.thumb
+ 980              		.thumb_func
+ 981              		.fpu softvfp
+ 983              	adf4350_out_altvoltage0_frequency:
+ 984              	.LVL81:
+ 985              	.LFB74:
  305:Core/Src/adf4351.c **** 
  306:Core/Src/adf4351.c **** /***************************************************************************//**
  307:Core/Src/adf4351.c ****  * @brief Initializes the ADF4350.
@@ -1418,6 +1438,9 @@ ARM GAS  C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s 			page 1
  322:Core/Src/adf4351.c **** 
  323:Core/Src/adf4351.c **** 	st->pdata->clkin = init_param.clkin;
  324:Core/Src/adf4351.c **** 
+ARM GAS  /tmp/ccdp6r1y.s 			page 25
+
+
  325:Core/Src/adf4351.c **** 	st->pdata->channel_spacing = init_param.channel_spacing;
  326:Core/Src/adf4351.c **** 
  327:Core/Src/adf4351.c **** 	st->pdata->power_up_frequency = init_param.power_up_frequency;
@@ -1438,9 +1461,6 @@ ARM GAS  C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s 			page 1
  342:Core/Src/adf4351.c **** 	st->pdata->r2_user_settings |= init_param.low_spur_mode_enable ? ADF4350_REG2_NOISE_MODE(0x3) : 0;
  343:Core/Src/adf4351.c **** 
  344:Core/Src/adf4351.c **** 	/* r3_user_settings */
-ARM GAS  C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s 			page 25
-
-
  345:Core/Src/adf4351.c **** 
  346:Core/Src/adf4351.c **** 	st->pdata->r3_user_settings = init_param.cycle_slip_reduction_enable ?
  347:Core/Src/adf4351.c **** 			ADF4350_REG3_12BIT_CSR_EN : 0;
@@ -1478,6 +1498,9 @@ ARM GAS  C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s 			page 1
  379:Core/Src/adf4351.c **** 
  380:Core/Src/adf4351.c ****     return 0;
  381:Core/Src/adf4351.c **** }
+ARM GAS  /tmp/ccdp6r1y.s 			page 26
+
+
  382:Core/Src/adf4351.c **** 
  383:Core/Src/adf4351.c **** /***************************************************************************//**
  384:Core/Src/adf4351.c ****  * @brief Stores PLL 0 frequency in Hz.
@@ -1488,47 +1511,45 @@ ARM GAS  C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s 			page 1
  389:Core/Src/adf4351.c **** *******************************************************************************/
  390:Core/Src/adf4351.c **** int64_t adf4350_out_altvoltage0_frequency(int64_t Hz)
  391:Core/Src/adf4351.c **** {
- 969              		.loc 1 391 1 is_stmt 1 view -0
- 970              		.cfi_startproc
- 971              		@ args = 0, pretend = 0, frame = 0
- 972              		@ frame_needed = 0, uses_anonymous_args = 0
- 973              		.loc 1 391 1 is_stmt 0 view .LVU270
- 974 0000 08B5     		push	{r3, lr}
- 975              	.LCFI15:
- 976              		.cfi_def_cfa_offset 8
- 977              		.cfi_offset 3, -8
- 978              		.cfi_offset 14, -4
-ARM GAS  C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s 			page 26
-
-
- 979 0002 0246     		mov	r2, r0
- 980 0004 0B46     		mov	r3, r1
+ 986              		.loc 1 391 1 is_stmt 1 view -0
+ 987              		.cfi_startproc
+ 988              		@ args = 0, pretend = 0, frame = 0
+ 989              		@ frame_needed = 0, uses_anonymous_args = 0
+ 990              		.loc 1 391 1 is_stmt 0 view .LVU276
+ 991 0000 08B5     		push	{r3, lr}
+ 992              	.LCFI15:
+ 993              		.cfi_def_cfa_offset 8
+ 994              		.cfi_offset 3, -8
+ 995              		.cfi_offset 14, -4
+ 996 0002 0246     		mov	r2, r0
+ 997 0004 0B46     		mov	r3, r1
  392:Core/Src/adf4351.c **** 	return adf4350_set_freq(&adf4350_st, Hz);
- 981              		.loc 1 392 2 is_stmt 1 view .LVU271
- 982              		.loc 1 392 9 is_stmt 0 view .LVU272
- 983 0006 0248     		ldr	r0, .L67
- 984              	.LVL79:
- 985              		.loc 1 392 9 view .LVU273
- 986 0008 FFF7FEFF 		bl	adf4350_set_freq
- 987              	.LVL80:
+ 998              		.loc 1 392 2 is_stmt 1 view .LVU277
+ 999              		.loc 1 392 9 is_stmt 0 view .LVU278
+ 1000 0006 0248     		ldr	r0, .L67
+ 1001              	.LVL82:
+ 1002              		.loc 1 392 9 view .LVU279
+ 1003 0008 FFF7FEFF 		bl	adf4350_set_freq
+ 1004              	.LVL83:
  393:Core/Src/adf4351.c **** }
- 988              		.loc 1 393 1 view .LVU274
- 989 000c 08BD     		pop	{r3, pc}
- 990              	.L68:
- 991 000e 00BF     		.align	2
- 992              	.L67:
- 993 0010 00000000 		.word	.LANCHOR0
- 994              		.cfi_endproc
- 995              	.LFE74:
- 997              		.section	.text.adf4350_out_altvoltage0_frequency_resolution,"ax",%progbits
- 998              		.align	1
- 999              		.global	adf4350_out_altvoltage0_frequency_resolution
- 1000              		.syntax unified
- 1001              		.thumb
- 1002              		.thumb_func
- 1004              	adf4350_out_altvoltage0_frequency_resolution:
- 1005              	.LVL81:
- 1006              	.LFB75:
+ 1005              		.loc 1 393 1 view .LVU280
+ 1006 000c 08BD     		pop	{r3, pc}
+ 1007              	.L68:
+ 1008 000e 00BF     		.align	2
+ 1009              	.L67:
+ 1010 0010 00000000 		.word	.LANCHOR0
+ 1011              		.cfi_endproc
+ 1012              	.LFE74:
+ 1014              		.section	.text.adf4350_out_altvoltage0_frequency_resolution,"ax",%progbits
+ 1015              		.align	1
+ 1016              		.global	adf4350_out_altvoltage0_frequency_resolution
+ 1017              		.syntax unified
+ 1018              		.thumb
+ 1019              		.thumb_func
+ 1020              		.fpu softvfp
+ 1022              	adf4350_out_altvoltage0_frequency_resolution:
+ 1023              	.LVL84:
+ 1024              	.LFB75:
  394:Core/Src/adf4351.c **** 
  395:Core/Src/adf4351.c **** /***************************************************************************//**
  396:Core/Src/adf4351.c ****  * @brief Stores PLL 0 frequency resolution/channel spacing in Hz.
@@ -1537,55 +1558,56 @@ ARM GAS  C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s 			page 1
  399:Core/Src/adf4351.c ****  *
  400:Core/Src/adf4351.c ****  * @return Returns the selected frequency.
  401:Core/Src/adf4351.c **** *******************************************************************************/
+ARM GAS  /tmp/ccdp6r1y.s 			page 27
+
+
  402:Core/Src/adf4351.c **** int32_t adf4350_out_altvoltage0_frequency_resolution(int32_t Hz)
  403:Core/Src/adf4351.c **** {
- 1007              		.loc 1 403 1 is_stmt 1 view -0
- 1008              		.cfi_startproc
- 1009              		@ args = 0, pretend = 0, frame = 0
- 1010              		@ frame_needed = 0, uses_anonymous_args = 0
- 1011              		@ link register save eliminated.
+ 1025              		.loc 1 403 1 is_stmt 1 view -0
+ 1026              		.cfi_startproc
+ 1027              		@ args = 0, pretend = 0, frame = 0
+ 1028              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1029              		@ link register save eliminated.
  404:Core/Src/adf4351.c **** 	if(Hz != INT32_MAX)
- 1012              		.loc 1 404 2 view .LVU276
- 1013              		.loc 1 404 4 is_stmt 0 view .LVU277
- 1014 0000 6FF00043 		mvn	r3, #-2147483648
- 1015 0004 9842     		cmp	r0, r3
- 1016 0006 01D0     		beq	.L70
+ 1030              		.loc 1 404 2 view .LVU282
+ 1031              		.loc 1 404 4 is_stmt 0 view .LVU283
+ 1032 0000 6FF00043 		mvn	r3, #-2147483648
+ 1033 0004 9842     		cmp	r0, r3
+ 1034 0006 01D0     		beq	.L70
  405:Core/Src/adf4351.c **** 	{
  406:Core/Src/adf4351.c **** 		adf4350_st.chspc = Hz;
- 1017              		.loc 1 406 3 is_stmt 1 view .LVU278
- 1018              		.loc 1 406 20 is_stmt 0 view .LVU279
- 1019 0008 024B     		ldr	r3, .L71
- 1020 000a 9860     		str	r0, [r3, #8]
- 1021              	.L70:
+ 1035              		.loc 1 406 3 is_stmt 1 view .LVU284
+ 1036              		.loc 1 406 20 is_stmt 0 view .LVU285
+ 1037 0008 024B     		ldr	r3, .L71
+ 1038 000a 9860     		str	r0, [r3, #8]
+ 1039              	.L70:
  407:Core/Src/adf4351.c **** 	}
-ARM GAS  C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s 			page 27
-
-
  408:Core/Src/adf4351.c **** 
  409:Core/Src/adf4351.c **** 	return adf4350_st.chspc;
- 1022              		.loc 1 409 2 is_stmt 1 view .LVU280
+ 1040              		.loc 1 409 2 is_stmt 1 view .LVU286
  410:Core/Src/adf4351.c **** }
- 1023              		.loc 1 410 1 is_stmt 0 view .LVU281
- 1024 000c 014B     		ldr	r3, .L71
- 1025 000e 9868     		ldr	r0, [r3, #8]
- 1026              	.LVL82:
- 1027              		.loc 1 410 1 view .LVU282
- 1028 0010 7047     		bx	lr
- 1029              	.L72:
- 1030 0012 00BF     		.align	2
- 1031              	.L71:
- 1032 0014 00000000 		.word	.LANCHOR0
- 1033              		.cfi_endproc
- 1034              	.LFE75:
- 1036              		.section	.text.adf4350_out_altvoltage0_refin_frequency,"ax",%progbits
- 1037              		.align	1
- 1038              		.global	adf4350_out_altvoltage0_refin_frequency
- 1039              		.syntax unified
- 1040              		.thumb
- 1041              		.thumb_func
- 1043              	adf4350_out_altvoltage0_refin_frequency:
- 1044              	.LVL83:
- 1045              	.LFB76:
+ 1041              		.loc 1 410 1 is_stmt 0 view .LVU287
+ 1042 000c 014B     		ldr	r3, .L71
+ 1043 000e 9868     		ldr	r0, [r3, #8]
+ 1044              	.LVL85:
+ 1045              		.loc 1 410 1 view .LVU288
+ 1046 0010 7047     		bx	lr
+ 1047              	.L72:
+ 1048 0012 00BF     		.align	2
+ 1049              	.L71:
+ 1050 0014 00000000 		.word	.LANCHOR0
+ 1051              		.cfi_endproc
+ 1052              	.LFE75:
+ 1054              		.section	.text.adf4350_out_altvoltage0_refin_frequency,"ax",%progbits
+ 1055              		.align	1
+ 1056              		.global	adf4350_out_altvoltage0_refin_frequency
+ 1057              		.syntax unified
+ 1058              		.thumb
+ 1059              		.thumb_func
+ 1060              		.fpu softvfp
+ 1062              	adf4350_out_altvoltage0_refin_frequency:
+ 1063              	.LVL86:
+ 1064              	.LFB76:
  411:Core/Src/adf4351.c **** 
  412:Core/Src/adf4351.c **** /***************************************************************************//**
  413:Core/Src/adf4351.c ****  * @brief Sets PLL 0 REFin frequency in Hz.
@@ -1596,490 +1618,495 @@ ARM GAS  C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s 			page 1
  418:Core/Src/adf4351.c **** *******************************************************************************/
  419:Core/Src/adf4351.c **** int64_t adf4350_out_altvoltage0_refin_frequency(int64_t Hz)
  420:Core/Src/adf4351.c **** {
- 1046              		.loc 1 420 1 is_stmt 1 view -0
- 1047              		.cfi_startproc
- 1048              		@ args = 0, pretend = 0, frame = 0
- 1049              		@ frame_needed = 0, uses_anonymous_args = 0
- 1050              		@ link register save eliminated.
+ARM GAS  /tmp/ccdp6r1y.s 			page 28
+
+
+ 1065              		.loc 1 420 1 is_stmt 1 view -0
+ 1066              		.cfi_startproc
+ 1067              		@ args = 0, pretend = 0, frame = 0
+ 1068              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1069              		@ link register save eliminated.
  421:Core/Src/adf4351.c **** 	if(Hz != INT32_MAX)
- 1051              		.loc 1 421 2 view .LVU284
- 1052              		.loc 1 421 4 is_stmt 0 view .LVU285
- 1053 0000 00F10043 		add	r3, r0, #-2147483648
- 1054 0004 0133     		adds	r3, r3, #1
- 1055 0006 0B43     		orrs	r3, r3, r1
- 1056 0008 01D0     		beq	.L74
+ 1070              		.loc 1 421 2 view .LVU290
+ 1071              		.loc 1 421 4 is_stmt 0 view .LVU291
+ 1072 0000 00F10043 		add	r3, r0, #-2147483648
+ 1073 0004 0133     		adds	r3, r3, #1
+ 1074 0006 0B43     		orrs	r3, r3, r1
+ 1075 0008 01D0     		beq	.L74
  422:Core/Src/adf4351.c **** 	{
  423:Core/Src/adf4351.c **** 		adf4350_st.clkin = Hz;
- 1057              		.loc 1 423 3 is_stmt 1 view .LVU286
- 1058              		.loc 1 423 20 is_stmt 0 view .LVU287
- 1059 000a 034B     		ldr	r3, .L75
- 1060 000c 5860     		str	r0, [r3, #4]
- 1061              	.L74:
+ 1076              		.loc 1 423 3 is_stmt 1 view .LVU292
+ 1077              		.loc 1 423 20 is_stmt 0 view .LVU293
+ 1078 000a 034B     		ldr	r3, .L75
+ 1079 000c 5860     		str	r0, [r3, #4]
+ 1080              	.L74:
  424:Core/Src/adf4351.c **** 	}
  425:Core/Src/adf4351.c **** 
  426:Core/Src/adf4351.c **** 	return adf4350_st.clkin;
-ARM GAS  C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s 			page 28
-
-
- 1062              		.loc 1 426 2 is_stmt 1 view .LVU288
+ 1081              		.loc 1 426 2 is_stmt 1 view .LVU294
  427:Core/Src/adf4351.c **** }
- 1063              		.loc 1 427 1 is_stmt 0 view .LVU289
- 1064 000e 024B     		ldr	r3, .L75
- 1065 0010 5868     		ldr	r0, [r3, #4]
- 1066              	.LVL84:
- 1067              		.loc 1 427 1 view .LVU290
- 1068 0012 0021     		movs	r1, #0
- 1069 0014 7047     		bx	lr
- 1070              	.L76:
- 1071 0016 00BF     		.align	2
- 1072              	.L75:
- 1073 0018 00000000 		.word	.LANCHOR0
- 1074              		.cfi_endproc
- 1075              	.LFE76:
- 1077              		.section	.text.adf4350_setup,"ax",%progbits
- 1078              		.align	1
- 1079              		.global	adf4350_setup
- 1080              		.syntax unified
- 1081              		.thumb
- 1082              		.thumb_func
- 1084              	adf4350_setup:
- 1085              	.LFB73:
+ 1082              		.loc 1 427 1 is_stmt 0 view .LVU295
+ 1083 000e 024B     		ldr	r3, .L75
+ 1084 0010 5868     		ldr	r0, [r3, #4]
+ 1085              	.LVL87:
+ 1086              		.loc 1 427 1 view .LVU296
+ 1087 0012 0021     		movs	r1, #0
+ 1088 0014 7047     		bx	lr
+ 1089              	.L76:
+ 1090 0016 00BF     		.align	2
+ 1091              	.L75:
+ 1092 0018 00000000 		.word	.LANCHOR0
+ 1093              		.cfi_endproc
+ 1094              	.LFE76:
+ 1096              		.section	.text.adf4350_setup,"ax",%progbits
+ 1097              		.align	1
+ 1098              		.global	adf4350_setup
+ 1099              		.syntax unified
+ 1100              		.thumb
+ 1101              		.thumb_func
+ 1102              		.fpu softvfp
+ 1104              	adf4350_setup:
+ 1105              	.LFB73:
  314:Core/Src/adf4351.c **** 	struct adf4350_state *st = &adf4350_st;
- 1086              		.loc 1 314 1 is_stmt 1 view -0
- 1087              		.cfi_startproc
- 1088              		@ args = 60, pretend = 16, frame = 0
- 1089              		@ frame_needed = 0, uses_anonymous_args = 0
- 1090 0000 84B0     		sub	sp, sp, #16
- 1091              	.LCFI16:
- 1092              		.cfi_def_cfa_offset 16
- 1093 0002 38B5     		push	{r3, r4, r5, lr}
- 1094              	.LCFI17:
- 1095              		.cfi_def_cfa_offset 32
- 1096              		.cfi_offset 3, -32
- 1097              		.cfi_offset 4, -28
- 1098              		.cfi_offset 5, -24
- 1099              		.cfi_offset 14, -20
- 1100 0004 04AC     		add	r4, sp, #16
- 1101 0006 84E80F00 		stm	r4, {r0, r1, r2, r3}
+ 1106              		.loc 1 314 1 is_stmt 1 view -0
+ 1107              		.cfi_startproc
+ 1108              		@ args = 60, pretend = 16, frame = 0
+ 1109              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1110 0000 84B0     		sub	sp, sp, #16
+ 1111              	.LCFI16:
+ 1112              		.cfi_def_cfa_offset 16
+ 1113 0002 38B5     		push	{r3, r4, r5, lr}
+ 1114              	.LCFI17:
+ 1115              		.cfi_def_cfa_offset 32
+ARM GAS  /tmp/ccdp6r1y.s 			page 29
+
+
+ 1116              		.cfi_offset 3, -32
+ 1117              		.cfi_offset 4, -28
+ 1118              		.cfi_offset 5, -24
+ 1119              		.cfi_offset 14, -20
+ 1120 0004 04AC     		add	r4, sp, #16
+ 1121 0006 84E80F00 		stm	r4, {r0, r1, r2, r3}
  315:Core/Src/adf4351.c **** 
- 1102              		.loc 1 315 2 view .LVU292
- 1103              	.LVL85:
+ 1122              		.loc 1 315 2 view .LVU298
+ 1123              	.LVL88:
  318:Core/Src/adf4351.c **** 
- 1104              		.loc 1 318 2 view .LVU293
+ 1124              		.loc 1 318 2 view .LVU299
  318:Core/Src/adf4351.c **** 
- 1105              		.loc 1 318 12 is_stmt 0 view .LVU294
- 1106 000a 5E4B     		ldr	r3, .L101
- 1107 000c 5E4A     		ldr	r2, .L101+4
- 1108 000e 1360     		str	r3, [r2]
+ 1125              		.loc 1 318 12 is_stmt 0 view .LVU300
+ 1126 000a 5E4B     		ldr	r3, .L101
+ 1127 000c 5E4A     		ldr	r2, .L101+4
+ 1128 000e 1360     		str	r3, [r2]
  320:Core/Src/adf4351.c **** 		return -1;
- 1109              		.loc 1 320 2 is_stmt 1 view .LVU295
+ 1129              		.loc 1 320 2 is_stmt 1 view .LVU301
  323:Core/Src/adf4351.c **** 
- 1110              		.loc 1 323 2 view .LVU296
+ 1130              		.loc 1 323 2 view .LVU302
  323:Core/Src/adf4351.c **** 
- 1111              		.loc 1 323 19 is_stmt 0 view .LVU297
- 1112 0010 1860     		str	r0, [r3]
-ARM GAS  C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s 			page 29
+ 1131              		.loc 1 323 19 is_stmt 0 view .LVU303
+ 1132 0010 1860     		str	r0, [r3]
+ 325:Core/Src/adf4351.c **** 
+ 1133              		.loc 1 325 2 is_stmt 1 view .LVU304
+ 325:Core/Src/adf4351.c **** 
+ 1134              		.loc 1 325 29 is_stmt 0 view .LVU305
+ 1135 0012 5960     		str	r1, [r3, #4]
+ 327:Core/Src/adf4351.c **** 	st->pdata->ref_div_factor = init_param.reference_div_factor;
+ 1136              		.loc 1 327 2 is_stmt 1 view .LVU306
+ 327:Core/Src/adf4351.c **** 	st->pdata->ref_div_factor = init_param.reference_div_factor;
+ 1137              		.loc 1 327 32 is_stmt 0 view .LVU307
+ 1138 0014 069A     		ldr	r2, [sp, #24]
+ 1139 0016 9A60     		str	r2, [r3, #8]
+ 1140 0018 0022     		movs	r2, #0
+ 1141 001a DA60     		str	r2, [r3, #12]
+ 328:Core/Src/adf4351.c **** 	st->pdata->ref_doubler_en = init_param.reference_doubler_enable;
+ 1142              		.loc 1 328 2 is_stmt 1 view .LVU308
+ 328:Core/Src/adf4351.c **** 	st->pdata->ref_doubler_en = init_param.reference_doubler_enable;
+ 1143              		.loc 1 328 40 is_stmt 0 view .LVU309
+ 1144 001c 079A     		ldr	r2, [sp, #28]
+ 328:Core/Src/adf4351.c **** 	st->pdata->ref_doubler_en = init_param.reference_doubler_enable;
+ 1145              		.loc 1 328 28 view .LVU310
+ 1146 001e 1A82     		strh	r2, [r3, #16]	@ movhi
+ 329:Core/Src/adf4351.c **** 	st->pdata->ref_div2_en = init_param.reference_div2_enable;
+ 1147              		.loc 1 329 2 is_stmt 1 view .LVU311
+ 329:Core/Src/adf4351.c **** 	st->pdata->ref_div2_en = init_param.reference_div2_enable;
+ 1148              		.loc 1 329 40 is_stmt 0 view .LVU312
+ 1149 0020 9DF82020 		ldrb	r2, [sp, #32]	@ zero_extendqisi2
+ 329:Core/Src/adf4351.c **** 	st->pdata->ref_div2_en = init_param.reference_div2_enable;
+ 1150              		.loc 1 329 28 view .LVU313
+ 1151 0024 9A74     		strb	r2, [r3, #18]
+ 330:Core/Src/adf4351.c **** 
+ 1152              		.loc 1 330 2 is_stmt 1 view .LVU314
+ 330:Core/Src/adf4351.c **** 
+ 1153              		.loc 1 330 37 is_stmt 0 view .LVU315
+ 1154 0026 9DF82120 		ldrb	r2, [sp, #33]	@ zero_extendqisi2
+ARM GAS  /tmp/ccdp6r1y.s 			page 30
 
 
- 325:Core/Src/adf4351.c **** 
- 1113              		.loc 1 325 2 is_stmt 1 view .LVU298
- 325:Core/Src/adf4351.c **** 
- 1114              		.loc 1 325 29 is_stmt 0 view .LVU299
- 1115 0012 5960     		str	r1, [r3, #4]
- 327:Core/Src/adf4351.c **** 	st->pdata->ref_div_factor = init_param.reference_div_factor;
- 1116              		.loc 1 327 2 is_stmt 1 view .LVU300
- 327:Core/Src/adf4351.c **** 	st->pdata->ref_div_factor = init_param.reference_div_factor;
- 1117              		.loc 1 327 32 is_stmt 0 view .LVU301
- 1118 0014 069A     		ldr	r2, [sp, #24]
- 1119 0016 9A60     		str	r2, [r3, #8]
- 1120 0018 0022     		movs	r2, #0
- 1121 001a DA60     		str	r2, [r3, #12]
- 328:Core/Src/adf4351.c **** 	st->pdata->ref_doubler_en = init_param.reference_doubler_enable;
- 1122              		.loc 1 328 2 is_stmt 1 view .LVU302
- 328:Core/Src/adf4351.c **** 	st->pdata->ref_doubler_en = init_param.reference_doubler_enable;
- 1123              		.loc 1 328 40 is_stmt 0 view .LVU303
- 1124 001c 079A     		ldr	r2, [sp, #28]
- 328:Core/Src/adf4351.c **** 	st->pdata->ref_doubler_en = init_param.reference_doubler_enable;
- 1125              		.loc 1 328 28 view .LVU304
- 1126 001e 1A82     		strh	r2, [r3, #16]	@ movhi
- 329:Core/Src/adf4351.c **** 	st->pdata->ref_div2_en = init_param.reference_div2_enable;
- 1127              		.loc 1 329 2 is_stmt 1 view .LVU305
- 329:Core/Src/adf4351.c **** 	st->pdata->ref_div2_en = init_param.reference_div2_enable;
- 1128              		.loc 1 329 40 is_stmt 0 view .LVU306
- 1129 0020 9DF82020 		ldrb	r2, [sp, #32]	@ zero_extendqisi2
- 329:Core/Src/adf4351.c **** 	st->pdata->ref_div2_en = init_param.reference_div2_enable;
- 1130              		.loc 1 329 28 view .LVU307
- 1131 0024 9A74     		strb	r2, [r3, #18]
  330:Core/Src/adf4351.c **** 
- 1132              		.loc 1 330 2 is_stmt 1 view .LVU308
- 330:Core/Src/adf4351.c **** 
- 1133              		.loc 1 330 37 is_stmt 0 view .LVU309
- 1134 0026 9DF82120 		ldrb	r2, [sp, #33]	@ zero_extendqisi2
- 330:Core/Src/adf4351.c **** 
- 1135              		.loc 1 330 25 view .LVU310
- 1136 002a DA74     		strb	r2, [r3, #19]
+ 1155              		.loc 1 330 25 view .LVU316
+ 1156 002a DA74     		strb	r2, [r3, #19]
  334:Core/Src/adf4351.c **** 			ADF4350_REG2_PD_POLARITY_POS : 0;
- 1137              		.loc 1 334 2 is_stmt 1 view .LVU311
+ 1157              		.loc 1 334 2 is_stmt 1 view .LVU317
  334:Core/Src/adf4351.c **** 			ADF4350_REG2_PD_POLARITY_POS : 0;
- 1138              		.loc 1 334 42 is_stmt 0 view .LVU312
- 1139 002c 9DF82230 		ldrb	r3, [sp, #34]	@ zero_extendqisi2
+ 1158              		.loc 1 334 42 is_stmt 0 view .LVU318
+ 1159 002c 9DF82230 		ldrb	r3, [sp, #34]	@ zero_extendqisi2
  335:Core/Src/adf4351.c **** 	st->pdata->r2_user_settings |= init_param.lock_detect_precision_6ns_enable ?
- 1140              		.loc 1 335 33 view .LVU313
- 1141 0030 002B     		cmp	r3, #0
- 1142 0032 00F09080 		beq	.L89
- 1143 0036 4023     		movs	r3, #64
- 1144              	.L78:
+ 1160              		.loc 1 335 33 view .LVU319
+ 1161 0030 002B     		cmp	r3, #0
+ 1162 0032 00F09080 		beq	.L89
+ 1163 0036 4023     		movs	r3, #64
+ 1164              	.L78:
  334:Core/Src/adf4351.c **** 			ADF4350_REG2_PD_POLARITY_POS : 0;
- 1145              		.loc 1 334 30 view .LVU314
- 1146 0038 524A     		ldr	r2, .L101
- 1147 003a 5361     		str	r3, [r2, #20]
+ 1165              		.loc 1 334 30 view .LVU320
+ 1166 0038 524A     		ldr	r2, .L101
+ 1167 003a 5361     		str	r3, [r2, #20]
  336:Core/Src/adf4351.c **** 			ADF4350_REG2_LDP_6ns : 0;
- 1148              		.loc 1 336 2 is_stmt 1 view .LVU315
+ 1168              		.loc 1 336 2 is_stmt 1 view .LVU321
  336:Core/Src/adf4351.c **** 			ADF4350_REG2_LDP_6ns : 0;
- 1149              		.loc 1 336 43 is_stmt 0 view .LVU316
- 1150 003c 9DF82320 		ldrb	r2, [sp, #35]	@ zero_extendqisi2
-ARM GAS  C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s 			page 30
-
-
+ 1169              		.loc 1 336 43 is_stmt 0 view .LVU322
+ 1170 003c 9DF82320 		ldrb	r2, [sp, #35]	@ zero_extendqisi2
  337:Core/Src/adf4351.c **** 	st->pdata->r2_user_settings |= init_param.lock_detect_function_integer_n_enable ?
- 1151              		.loc 1 337 25 view .LVU317
- 1152 0040 002A     		cmp	r2, #0
- 1153 0042 00F08A80 		beq	.L90
- 1154 0046 8022     		movs	r2, #128
- 1155              	.L79:
+ 1171              		.loc 1 337 25 view .LVU323
+ 1172 0040 002A     		cmp	r2, #0
+ 1173 0042 00F08A80 		beq	.L90
+ 1174 0046 8022     		movs	r2, #128
+ 1175              	.L79:
  336:Core/Src/adf4351.c **** 			ADF4350_REG2_LDP_6ns : 0;
- 1156              		.loc 1 336 30 view .LVU318
- 1157 0048 1343     		orrs	r3, r3, r2
- 1158 004a 4E4A     		ldr	r2, .L101
- 1159 004c 5361     		str	r3, [r2, #20]
+ 1176              		.loc 1 336 30 view .LVU324
+ 1177 0048 1343     		orrs	r3, r3, r2
+ 1178 004a 4E4A     		ldr	r2, .L101
+ 1179 004c 5361     		str	r3, [r2, #20]
  338:Core/Src/adf4351.c **** 			ADF4350_REG2_LDF_INT_N : 0;
- 1160              		.loc 1 338 2 is_stmt 1 view .LVU319
+ 1180              		.loc 1 338 2 is_stmt 1 view .LVU325
  338:Core/Src/adf4351.c **** 			ADF4350_REG2_LDF_INT_N : 0;
- 1161              		.loc 1 338 43 is_stmt 0 view .LVU320
- 1162 004e 9DF82420 		ldrb	r2, [sp, #36]	@ zero_extendqisi2
+ 1181              		.loc 1 338 43 is_stmt 0 view .LVU326
+ 1182 004e 9DF82420 		ldrb	r2, [sp, #36]	@ zero_extendqisi2
  339:Core/Src/adf4351.c **** 	st->pdata->r2_user_settings |= ADF4350_REG2_CHARGE_PUMP_CURR_uA(init_param.charge_pump_current);
- 1163              		.loc 1 339 27 view .LVU321
- 1164 0052 002A     		cmp	r2, #0
- 1165 0054 00F08380 		beq	.L91
- 1166 0058 4FF48072 		mov	r2, #256
- 1167              	.L80:
+ 1183              		.loc 1 339 27 view .LVU327
+ 1184 0052 002A     		cmp	r2, #0
+ 1185 0054 00F08380 		beq	.L91
+ 1186 0058 4FF48072 		mov	r2, #256
+ 1187              	.L80:
  338:Core/Src/adf4351.c **** 			ADF4350_REG2_LDF_INT_N : 0;
- 1168              		.loc 1 338 30 view .LVU322
- 1169 005c 1343     		orrs	r3, r3, r2
- 1170 005e 4949     		ldr	r1, .L101
- 1171 0060 4B61     		str	r3, [r1, #20]
+ 1188              		.loc 1 338 30 view .LVU328
+ 1189 005c 1343     		orrs	r3, r3, r2
+ 1190 005e 4949     		ldr	r1, .L101
+ 1191 0060 4B61     		str	r3, [r1, #20]
  340:Core/Src/adf4351.c **** 	st->pdata->r2_user_settings |= ADF4350_REG2_MUXOUT(init_param.muxout_select);
- 1172              		.loc 1 340 2 is_stmt 1 view .LVU323
+ 1192              		.loc 1 340 2 is_stmt 1 view .LVU329
  340:Core/Src/adf4351.c **** 	st->pdata->r2_user_settings |= ADF4350_REG2_MUXOUT(init_param.muxout_select);
- 1173              		.loc 1 340 33 is_stmt 0 view .LVU324
- 1174 0062 0A9A     		ldr	r2, [sp, #40]
- 1175 0064 A2F59C72 		sub	r2, r2, #312
- 1176 0068 D208     		lsrs	r2, r2, #3
- 1177 006a 484C     		ldr	r4, .L101+8
- 1178 006c A4FB0242 		umull	r4, r2, r4, r2
- 1179 0070 9208     		lsrs	r2, r2, #2
- 1180 0072 5202     		lsls	r2, r2, #9
- 1181 0074 02F4F052 		and	r2, r2, #7680
- 340:Core/Src/adf4351.c **** 	st->pdata->r2_user_settings |= ADF4350_REG2_MUXOUT(init_param.muxout_select);
- 1182              		.loc 1 340 30 view .LVU325
- 1183 0078 1343     		orrs	r3, r3, r2
- 1184 007a 4B61     		str	r3, [r1, #20]
- 341:Core/Src/adf4351.c **** 	st->pdata->r2_user_settings |= init_param.low_spur_mode_enable ? ADF4350_REG2_NOISE_MODE(0x3) : 0;
- 1185              		.loc 1 341 2 is_stmt 1 view .LVU326
- 341:Core/Src/adf4351.c **** 	st->pdata->r2_user_settings |= init_param.low_spur_mode_enable ? ADF4350_REG2_NOISE_MODE(0x3) : 0;
- 1186              		.loc 1 341 30 is_stmt 0 view .LVU327
- 1187 007c 0B9A     		ldr	r2, [sp, #44]
- 1188 007e 43EA8263 		orr	r3, r3, r2, lsl #26
- 1189 0082 4B61     		str	r3, [r1, #20]
- 342:Core/Src/adf4351.c **** 
- 1190              		.loc 1 342 2 is_stmt 1 view .LVU328
- 342:Core/Src/adf4351.c **** 
- 1191              		.loc 1 342 43 is_stmt 0 view .LVU329
- 1192 0084 9DF83020 		ldrb	r2, [sp, #48]	@ zero_extendqisi2
- 342:Core/Src/adf4351.c **** 
- 1193              		.loc 1 342 96 view .LVU330
-ARM GAS  C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s 			page 31
+ 1193              		.loc 1 340 33 is_stmt 0 view .LVU330
+ 1194 0062 0A9A     		ldr	r2, [sp, #40]
+ 1195 0064 A2F59C72 		sub	r2, r2, #312
+ 1196 0068 D208     		lsrs	r2, r2, #3
+ARM GAS  /tmp/ccdp6r1y.s 			page 31
 
 
- 1194 0088 002A     		cmp	r2, #0
- 1195 008a 6AD0     		beq	.L92
- 1196 008c 4FF0C042 		mov	r2, #1610612736
- 1197              	.L81:
+ 1197 006a 484C     		ldr	r4, .L101+8
+ 1198 006c A4FB0242 		umull	r4, r2, r4, r2
+ 1199 0070 9208     		lsrs	r2, r2, #2
+ 1200 0072 5202     		lsls	r2, r2, #9
+ 1201 0074 02F4F052 		and	r2, r2, #7680
+ 340:Core/Src/adf4351.c **** 	st->pdata->r2_user_settings |= ADF4350_REG2_MUXOUT(init_param.muxout_select);
+ 1202              		.loc 1 340 30 view .LVU331
+ 1203 0078 1343     		orrs	r3, r3, r2
+ 1204 007a 4B61     		str	r3, [r1, #20]
+ 341:Core/Src/adf4351.c **** 	st->pdata->r2_user_settings |= init_param.low_spur_mode_enable ? ADF4350_REG2_NOISE_MODE(0x3) : 0;
+ 1205              		.loc 1 341 2 is_stmt 1 view .LVU332
+ 341:Core/Src/adf4351.c **** 	st->pdata->r2_user_settings |= init_param.low_spur_mode_enable ? ADF4350_REG2_NOISE_MODE(0x3) : 0;
+ 1206              		.loc 1 341 30 is_stmt 0 view .LVU333
+ 1207 007c 0B9A     		ldr	r2, [sp, #44]
+ 1208 007e 43EA8263 		orr	r3, r3, r2, lsl #26
+ 1209 0082 4B61     		str	r3, [r1, #20]
  342:Core/Src/adf4351.c **** 
- 1198              		.loc 1 342 30 discriminator 4 view .LVU331
- 1199 0090 1343     		orrs	r3, r3, r2
- 1200 0092 3C4A     		ldr	r2, .L101
- 1201 0094 5361     		str	r3, [r2, #20]
+ 1210              		.loc 1 342 2 is_stmt 1 view .LVU334
+ 342:Core/Src/adf4351.c **** 
+ 1211              		.loc 1 342 43 is_stmt 0 view .LVU335
+ 1212 0084 9DF83020 		ldrb	r2, [sp, #48]	@ zero_extendqisi2
+ 342:Core/Src/adf4351.c **** 
+ 1213              		.loc 1 342 96 view .LVU336
+ 1214 0088 002A     		cmp	r2, #0
+ 1215 008a 6AD0     		beq	.L92
+ 1216 008c 4FF0C042 		mov	r2, #1610612736
+ 1217              	.L81:
+ 342:Core/Src/adf4351.c **** 
+ 1218              		.loc 1 342 30 discriminator 4 view .LVU337
+ 1219 0090 1343     		orrs	r3, r3, r2
+ 1220 0092 3C4A     		ldr	r2, .L101
+ 1221 0094 5361     		str	r3, [r2, #20]
  346:Core/Src/adf4351.c **** 			ADF4350_REG3_12BIT_CSR_EN : 0;
- 1202              		.loc 1 346 2 is_stmt 1 discriminator 4 view .LVU332
+ 1222              		.loc 1 346 2 is_stmt 1 discriminator 4 view .LVU338
  346:Core/Src/adf4351.c **** 			ADF4350_REG3_12BIT_CSR_EN : 0;
- 1203              		.loc 1 346 42 is_stmt 0 discriminator 4 view .LVU333
- 1204 0096 9DF83130 		ldrb	r3, [sp, #49]	@ zero_extendqisi2
+ 1223              		.loc 1 346 42 is_stmt 0 discriminator 4 view .LVU339
+ 1224 0096 9DF83130 		ldrb	r3, [sp, #49]	@ zero_extendqisi2
  347:Core/Src/adf4351.c **** 	st->pdata->r3_user_settings |= init_param.charge_cancellation_enable ?
- 1205              		.loc 1 347 30 discriminator 4 view .LVU334
- 1206 009a 002B     		cmp	r3, #0
- 1207 009c 63D0     		beq	.L93
+ 1225              		.loc 1 347 30 discriminator 4 view .LVU340
+ 1226 009a 002B     		cmp	r3, #0
+ 1227 009c 63D0     		beq	.L93
  347:Core/Src/adf4351.c **** 	st->pdata->r3_user_settings |= init_param.charge_cancellation_enable ?
- 1208              		.loc 1 347 30 view .LVU335
- 1209 009e 4FF48023 		mov	r3, #262144
- 1210              	.L82:
+ 1228              		.loc 1 347 30 view .LVU341
+ 1229 009e 4FF48023 		mov	r3, #262144
+ 1230              	.L82:
  346:Core/Src/adf4351.c **** 			ADF4350_REG3_12BIT_CSR_EN : 0;
- 1211              		.loc 1 346 30 view .LVU336
- 1212 00a2 384A     		ldr	r2, .L101
- 1213 00a4 9361     		str	r3, [r2, #24]
+ 1231              		.loc 1 346 30 view .LVU342
+ 1232 00a2 384A     		ldr	r2, .L101
+ 1233 00a4 9361     		str	r3, [r2, #24]
  348:Core/Src/adf4351.c **** 			ADF4351_REG3_CHARGE_CANCELLATION_EN : 0;
- 1214              		.loc 1 348 2 is_stmt 1 view .LVU337
+ 1234              		.loc 1 348 2 is_stmt 1 view .LVU343
  348:Core/Src/adf4351.c **** 			ADF4351_REG3_CHARGE_CANCELLATION_EN : 0;
- 1215              		.loc 1 348 43 is_stmt 0 view .LVU338
- 1216 00a6 9DF83220 		ldrb	r2, [sp, #50]	@ zero_extendqisi2
+ 1235              		.loc 1 348 43 is_stmt 0 view .LVU344
+ 1236 00a6 9DF83220 		ldrb	r2, [sp, #50]	@ zero_extendqisi2
  349:Core/Src/adf4351.c **** 	st->pdata->r3_user_settings |= init_param.anti_backlash_3ns_enable ?
- 1217              		.loc 1 349 40 view .LVU339
- 1218 00aa 002A     		cmp	r2, #0
- 1219 00ac 5DD0     		beq	.L94
- 1220 00ae 4FF40012 		mov	r2, #2097152
- 1221              	.L83:
+ 1237              		.loc 1 349 40 view .LVU345
+ 1238 00aa 002A     		cmp	r2, #0
+ARM GAS  /tmp/ccdp6r1y.s 			page 32
+
+
+ 1239 00ac 5DD0     		beq	.L94
+ 1240 00ae 4FF40012 		mov	r2, #2097152
+ 1241              	.L83:
  348:Core/Src/adf4351.c **** 			ADF4351_REG3_CHARGE_CANCELLATION_EN : 0;
- 1222              		.loc 1 348 30 view .LVU340
- 1223 00b2 1343     		orrs	r3, r3, r2
- 1224 00b4 334A     		ldr	r2, .L101
- 1225 00b6 9361     		str	r3, [r2, #24]
+ 1242              		.loc 1 348 30 view .LVU346
+ 1243 00b2 1343     		orrs	r3, r3, r2
+ 1244 00b4 334A     		ldr	r2, .L101
+ 1245 00b6 9361     		str	r3, [r2, #24]
  350:Core/Src/adf4351.c **** 			ADF4351_REG3_ANTI_BACKLASH_3ns_EN : 0;
- 1226              		.loc 1 350 2 is_stmt 1 view .LVU341
+ 1246              		.loc 1 350 2 is_stmt 1 view .LVU347
  350:Core/Src/adf4351.c **** 			ADF4351_REG3_ANTI_BACKLASH_3ns_EN : 0;
- 1227              		.loc 1 350 43 is_stmt 0 view .LVU342
- 1228 00b8 9DF83320 		ldrb	r2, [sp, #51]	@ zero_extendqisi2
+ 1247              		.loc 1 350 43 is_stmt 0 view .LVU348
+ 1248 00b8 9DF83320 		ldrb	r2, [sp, #51]	@ zero_extendqisi2
  351:Core/Src/adf4351.c **** 	st->pdata->r3_user_settings |= init_param.band_select_clock_mode_high_enable ?
- 1229              		.loc 1 351 38 view .LVU343
- 1230 00bc 002A     		cmp	r2, #0
- 1231 00be 56D0     		beq	.L95
- 1232 00c0 4FF48002 		mov	r2, #4194304
- 1233              	.L84:
+ 1249              		.loc 1 351 38 view .LVU349
+ 1250 00bc 002A     		cmp	r2, #0
+ 1251 00be 56D0     		beq	.L95
+ 1252 00c0 4FF48002 		mov	r2, #4194304
+ 1253              	.L84:
  350:Core/Src/adf4351.c **** 			ADF4351_REG3_ANTI_BACKLASH_3ns_EN : 0;
- 1234              		.loc 1 350 30 view .LVU344
- 1235 00c4 1343     		orrs	r3, r3, r2
- 1236 00c6 2F4A     		ldr	r2, .L101
-ARM GAS  C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s 			page 32
-
-
- 1237 00c8 9361     		str	r3, [r2, #24]
+ 1254              		.loc 1 350 30 view .LVU350
+ 1255 00c4 1343     		orrs	r3, r3, r2
+ 1256 00c6 2F4A     		ldr	r2, .L101
+ 1257 00c8 9361     		str	r3, [r2, #24]
  352:Core/Src/adf4351.c **** 			ADF4351_REG3_BAND_SEL_CLOCK_MODE_HIGH : 0;
- 1238              		.loc 1 352 2 is_stmt 1 view .LVU345
+ 1258              		.loc 1 352 2 is_stmt 1 view .LVU351
  352:Core/Src/adf4351.c **** 			ADF4351_REG3_BAND_SEL_CLOCK_MODE_HIGH : 0;
- 1239              		.loc 1 352 43 is_stmt 0 view .LVU346
- 1240 00ca 9DF83420 		ldrb	r2, [sp, #52]	@ zero_extendqisi2
+ 1259              		.loc 1 352 43 is_stmt 0 view .LVU352
+ 1260 00ca 9DF83420 		ldrb	r2, [sp, #52]	@ zero_extendqisi2
  353:Core/Src/adf4351.c **** 	st->pdata->r3_user_settings |= ADF4350_REG3_12BIT_CLKDIV(init_param.clk_divider_12bit);
- 1241              		.loc 1 353 42 view .LVU347
- 1242 00ce 002A     		cmp	r2, #0
- 1243 00d0 4FD0     		beq	.L96
- 1244 00d2 4FF40002 		mov	r2, #8388608
- 1245              	.L85:
+ 1261              		.loc 1 353 42 view .LVU353
+ 1262 00ce 002A     		cmp	r2, #0
+ 1263 00d0 4FD0     		beq	.L96
+ 1264 00d2 4FF40002 		mov	r2, #8388608
+ 1265              	.L85:
  352:Core/Src/adf4351.c **** 			ADF4351_REG3_BAND_SEL_CLOCK_MODE_HIGH : 0;
- 1246              		.loc 1 352 30 view .LVU348
- 1247 00d6 1343     		orrs	r3, r3, r2
- 1248 00d8 2A4A     		ldr	r2, .L101
- 1249 00da 9361     		str	r3, [r2, #24]
+ 1266              		.loc 1 352 30 view .LVU354
+ 1267 00d6 1343     		orrs	r3, r3, r2
+ 1268 00d8 2A4A     		ldr	r2, .L101
+ 1269 00da 9361     		str	r3, [r2, #24]
  354:Core/Src/adf4351.c **** 	st->pdata->r3_user_settings |= ADF4350_REG3_12BIT_CLKDIV_MODE(init_param.clk_divider_mode);
- 1250              		.loc 1 354 2 is_stmt 1 view .LVU349
+ 1270              		.loc 1 354 2 is_stmt 1 view .LVU355
  354:Core/Src/adf4351.c **** 	st->pdata->r3_user_settings |= ADF4350_REG3_12BIT_CLKDIV_MODE(init_param.clk_divider_mode);
- 1251              		.loc 1 354 30 is_stmt 0 view .LVU350
- 1252 00dc 0E99     		ldr	r1, [sp, #56]
- 1253 00de 43EAC103 		orr	r3, r3, r1, lsl #3
- 1254 00e2 9361     		str	r3, [r2, #24]
+ 1271              		.loc 1 354 30 is_stmt 0 view .LVU356
+ 1272 00dc 0E99     		ldr	r1, [sp, #56]
+ 1273 00de 43EAC103 		orr	r3, r3, r1, lsl #3
+ 1274 00e2 9361     		str	r3, [r2, #24]
  355:Core/Src/adf4351.c **** 
- 1255              		.loc 1 355 2 is_stmt 1 view .LVU351
+ 1275              		.loc 1 355 2 is_stmt 1 view .LVU357
  355:Core/Src/adf4351.c **** 
- 1256              		.loc 1 355 30 is_stmt 0 view .LVU352
- 1257 00e4 0F99     		ldr	r1, [sp, #60]
- 1258 00e6 43EA0143 		orr	r3, r3, r1, lsl #16
- 1259 00ea 9361     		str	r3, [r2, #24]
+ 1276              		.loc 1 355 30 is_stmt 0 view .LVU358
+ 1277 00e4 0F99     		ldr	r1, [sp, #60]
+ 1278 00e6 43EA0143 		orr	r3, r3, r1, lsl #16
+ 1279 00ea 9361     		str	r3, [r2, #24]
  359:Core/Src/adf4351.c **** 			ADF4350_REG4_AUX_OUTPUT_EN : 0;
- 1260              		.loc 1 359 2 is_stmt 1 view .LVU353
+ 1280              		.loc 1 359 2 is_stmt 1 view .LVU359
  359:Core/Src/adf4351.c **** 			ADF4350_REG4_AUX_OUTPUT_EN : 0;
- 1261              		.loc 1 359 42 is_stmt 0 view .LVU354
- 1262 00ec 9DF84030 		ldrb	r3, [sp, #64]	@ zero_extendqisi2
+ARM GAS  /tmp/ccdp6r1y.s 			page 33
+
+
+ 1281              		.loc 1 359 42 is_stmt 0 view .LVU360
+ 1282 00ec 9DF84030 		ldrb	r3, [sp, #64]	@ zero_extendqisi2
  360:Core/Src/adf4351.c **** 	st->pdata->r4_user_settings |= init_param.aux_output_fundamental_enable ?
- 1263              		.loc 1 360 31 view .LVU355
- 1264 00f0 002B     		cmp	r3, #0
- 1265 00f2 40D0     		beq	.L97
- 1266 00f4 4FF48073 		mov	r3, #256
- 1267              	.L86:
+ 1283              		.loc 1 360 31 view .LVU361
+ 1284 00f0 002B     		cmp	r3, #0
+ 1285 00f2 40D0     		beq	.L97
+ 1286 00f4 4FF48073 		mov	r3, #256
+ 1287              	.L86:
  359:Core/Src/adf4351.c **** 			ADF4350_REG4_AUX_OUTPUT_EN : 0;
- 1268              		.loc 1 359 30 view .LVU356
- 1269 00f8 224A     		ldr	r2, .L101
- 1270 00fa D361     		str	r3, [r2, #28]
+ 1288              		.loc 1 359 30 view .LVU362
+ 1289 00f8 224A     		ldr	r2, .L101
+ 1290 00fa D361     		str	r3, [r2, #28]
  361:Core/Src/adf4351.c **** 			ADF4350_REG4_AUX_OUTPUT_FUND : 0;
- 1271              		.loc 1 361 2 is_stmt 1 view .LVU357
+ 1291              		.loc 1 361 2 is_stmt 1 view .LVU363
  361:Core/Src/adf4351.c **** 			ADF4350_REG4_AUX_OUTPUT_FUND : 0;
- 1272              		.loc 1 361 43 is_stmt 0 view .LVU358
- 1273 00fc 9DF84120 		ldrb	r2, [sp, #65]	@ zero_extendqisi2
+ 1292              		.loc 1 361 43 is_stmt 0 view .LVU364
+ 1293 00fc 9DF84120 		ldrb	r2, [sp, #65]	@ zero_extendqisi2
  362:Core/Src/adf4351.c **** 	st->pdata->r4_user_settings |= init_param.mute_till_lock_enable ?
- 1274              		.loc 1 362 33 view .LVU359
- 1275 0100 002A     		cmp	r2, #0
- 1276 0102 3AD0     		beq	.L98
- 1277 0104 4FF40072 		mov	r2, #512
- 1278              	.L87:
-ARM GAS  C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s 			page 33
-
-
+ 1294              		.loc 1 362 33 view .LVU365
+ 1295 0100 002A     		cmp	r2, #0
+ 1296 0102 3AD0     		beq	.L98
+ 1297 0104 4FF40072 		mov	r2, #512
+ 1298              	.L87:
  361:Core/Src/adf4351.c **** 			ADF4350_REG4_AUX_OUTPUT_FUND : 0;
- 1279              		.loc 1 361 30 view .LVU360
- 1280 0108 1343     		orrs	r3, r3, r2
- 1281 010a 1E4A     		ldr	r2, .L101
- 1282 010c D361     		str	r3, [r2, #28]
+ 1299              		.loc 1 361 30 view .LVU366
+ 1300 0108 1343     		orrs	r3, r3, r2
+ 1301 010a 1E4A     		ldr	r2, .L101
+ 1302 010c D361     		str	r3, [r2, #28]
  363:Core/Src/adf4351.c **** 			ADF4350_REG4_MUTE_TILL_LOCK_EN : 0;
- 1283              		.loc 1 363 2 is_stmt 1 view .LVU361
+ 1303              		.loc 1 363 2 is_stmt 1 view .LVU367
  363:Core/Src/adf4351.c **** 			ADF4350_REG4_MUTE_TILL_LOCK_EN : 0;
- 1284              		.loc 1 363 43 is_stmt 0 view .LVU362
- 1285 010e 9DF84220 		ldrb	r2, [sp, #66]	@ zero_extendqisi2
+ 1304              		.loc 1 363 43 is_stmt 0 view .LVU368
+ 1305 010e 9DF84220 		ldrb	r2, [sp, #66]	@ zero_extendqisi2
  364:Core/Src/adf4351.c **** 	st->pdata->r4_user_settings |= ADF4350_REG4_OUTPUT_PWR(init_param.output_power);
- 1286              		.loc 1 364 35 view .LVU363
- 1287 0112 002A     		cmp	r2, #0
- 1288 0114 33D0     		beq	.L99
- 1289 0116 4FF48062 		mov	r2, #1024
- 1290              	.L88:
+ 1306              		.loc 1 364 35 view .LVU369
+ 1307 0112 002A     		cmp	r2, #0
+ 1308 0114 33D0     		beq	.L99
+ 1309 0116 4FF48062 		mov	r2, #1024
+ 1310              	.L88:
  363:Core/Src/adf4351.c **** 			ADF4350_REG4_MUTE_TILL_LOCK_EN : 0;
- 1291              		.loc 1 363 30 view .LVU364
- 1292 011a 1343     		orrs	r3, r3, r2
- 1293 011c 194A     		ldr	r2, .L101
- 1294 011e D361     		str	r3, [r2, #28]
+ 1311              		.loc 1 363 30 view .LVU370
+ 1312 011a 1343     		orrs	r3, r3, r2
+ 1313 011c 194A     		ldr	r2, .L101
+ 1314 011e D361     		str	r3, [r2, #28]
  365:Core/Src/adf4351.c **** 	st->pdata->r4_user_settings |= ADF4350_REG4_AUX_OUTPUT_PWR(init_param.aux_output_power);
- 1295              		.loc 1 365 2 is_stmt 1 view .LVU365
+ 1315              		.loc 1 365 2 is_stmt 1 view .LVU371
  365:Core/Src/adf4351.c **** 	st->pdata->r4_user_settings |= ADF4350_REG4_AUX_OUTPUT_PWR(init_param.aux_output_power);
- 1296              		.loc 1 365 30 is_stmt 0 view .LVU366
- 1297 0120 1199     		ldr	r1, [sp, #68]
- 1298 0122 43EAC103 		orr	r3, r3, r1, lsl #3
- 1299 0126 D361     		str	r3, [r2, #28]
+ 1316              		.loc 1 365 30 is_stmt 0 view .LVU372
+ 1317 0120 1199     		ldr	r1, [sp, #68]
+ 1318 0122 43EAC103 		orr	r3, r3, r1, lsl #3
+ 1319 0126 D361     		str	r3, [r2, #28]
  366:Core/Src/adf4351.c **** 
- 1300              		.loc 1 366 2 is_stmt 1 view .LVU367
+ 1320              		.loc 1 366 2 is_stmt 1 view .LVU373
  366:Core/Src/adf4351.c **** 
- 1301              		.loc 1 366 30 is_stmt 0 view .LVU368
- 1302 0128 1299     		ldr	r1, [sp, #72]
- 1303 012a 43EA8113 		orr	r3, r3, r1, lsl #6
- 1304 012e D361     		str	r3, [r2, #28]
+ 1321              		.loc 1 366 30 is_stmt 0 view .LVU374
+ 1322 0128 1299     		ldr	r1, [sp, #72]
+ 1323 012a 43EA8113 		orr	r3, r3, r1, lsl #6
+ARM GAS  /tmp/ccdp6r1y.s 			page 34
+
+
+ 1324 012e D361     		str	r3, [r2, #28]
  368:Core/Src/adf4351.c **** 	adf4350_out_altvoltage0_frequency_resolution(st->pdata->channel_spacing);
- 1305              		.loc 1 368 2 is_stmt 1 view .LVU369
- 1306 0130 0024     		movs	r4, #0
- 1307 0132 2146     		mov	r1, r4
- 1308 0134 FFF7FEFF 		bl	adf4350_out_altvoltage0_refin_frequency
- 1309              	.LVL86:
+ 1325              		.loc 1 368 2 is_stmt 1 view .LVU375
+ 1326 0130 0024     		movs	r4, #0
+ 1327 0132 2146     		mov	r1, r4
+ 1328 0134 FFF7FEFF 		bl	adf4350_out_altvoltage0_refin_frequency
+ 1329              	.LVL89:
  369:Core/Src/adf4351.c **** 	adf4350_out_altvoltage0_frequency(st->pdata->power_up_frequency);
- 1310              		.loc 1 369 2 view .LVU370
+ 1330              		.loc 1 369 2 view .LVU376
  369:Core/Src/adf4351.c **** 	adf4350_out_altvoltage0_frequency(st->pdata->power_up_frequency);
- 1311              		.loc 1 369 49 is_stmt 0 view .LVU371
- 1312 0138 134D     		ldr	r5, .L101+4
- 1313 013a 2B68     		ldr	r3, [r5]
+ 1331              		.loc 1 369 49 is_stmt 0 view .LVU377
+ 1332 0138 134D     		ldr	r5, .L101+4
+ 1333 013a 2B68     		ldr	r3, [r5]
  369:Core/Src/adf4351.c **** 	adf4350_out_altvoltage0_frequency(st->pdata->power_up_frequency);
- 1314              		.loc 1 369 2 view .LVU372
- 1315 013c 5868     		ldr	r0, [r3, #4]
- 1316 013e FFF7FEFF 		bl	adf4350_out_altvoltage0_frequency_resolution
- 1317              	.LVL87:
+ 1334              		.loc 1 369 2 view .LVU378
+ 1335 013c 5868     		ldr	r0, [r3, #4]
+ 1336 013e FFF7FEFF 		bl	adf4350_out_altvoltage0_frequency_resolution
+ 1337              	.LVL90:
  370:Core/Src/adf4351.c **** 
- 1318              		.loc 1 370 2 is_stmt 1 view .LVU373
+ 1338              		.loc 1 370 2 is_stmt 1 view .LVU379
  370:Core/Src/adf4351.c **** 
- 1319              		.loc 1 370 38 is_stmt 0 view .LVU374
- 1320 0142 2B68     		ldr	r3, [r5]
-ARM GAS  C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s 			page 34
-
-
+ 1339              		.loc 1 370 38 is_stmt 0 view .LVU380
+ 1340 0142 2B68     		ldr	r3, [r5]
  370:Core/Src/adf4351.c **** 
- 1321              		.loc 1 370 2 view .LVU375
- 1322 0144 D3E90201 		ldrd	r0, [r3, #8]
- 1323 0148 FFF7FEFF 		bl	adf4350_out_altvoltage0_frequency
- 1324              	.LVL88:
+ 1341              		.loc 1 370 2 view .LVU381
+ 1342 0144 D3E90201 		ldrd	r0, [r3, #8]
+ 1343 0148 FFF7FEFF 		bl	adf4350_out_altvoltage0_frequency
+ 1344              	.LVL91:
  380:Core/Src/adf4351.c **** }
- 1325              		.loc 1 380 5 is_stmt 1 view .LVU376
+ 1345              		.loc 1 380 5 is_stmt 1 view .LVU382
  381:Core/Src/adf4351.c **** 
- 1326              		.loc 1 381 1 is_stmt 0 view .LVU377
- 1327 014c 2046     		mov	r0, r4
- 1328 014e BDE83840 		pop	{r3, r4, r5, lr}
- 1329              	.LCFI18:
- 1330              		.cfi_remember_state
- 1331              		.cfi_restore 14
- 1332              		.cfi_restore 5
- 1333              		.cfi_restore 4
- 1334              		.cfi_restore 3
- 1335              		.cfi_def_cfa_offset 16
- 1336 0152 04B0     		add	sp, sp, #16
- 1337              	.LCFI19:
- 1338              		.cfi_def_cfa_offset 0
- 1339 0154 7047     		bx	lr
- 1340              	.L89:
- 1341              	.LCFI20:
- 1342              		.cfi_restore_state
+ 1346              		.loc 1 381 1 is_stmt 0 view .LVU383
+ 1347 014c 2046     		mov	r0, r4
+ 1348 014e BDE83840 		pop	{r3, r4, r5, lr}
+ 1349              	.LCFI18:
+ 1350              		.cfi_remember_state
+ 1351              		.cfi_restore 14
+ 1352              		.cfi_restore 5
+ 1353              		.cfi_restore 4
+ 1354              		.cfi_restore 3
+ 1355              		.cfi_def_cfa_offset 16
+ 1356 0152 04B0     		add	sp, sp, #16
+ 1357              	.LCFI19:
+ 1358              		.cfi_def_cfa_offset 0
+ 1359 0154 7047     		bx	lr
+ 1360              	.L89:
+ 1361              	.LCFI20:
+ 1362              		.cfi_restore_state
  335:Core/Src/adf4351.c **** 	st->pdata->r2_user_settings |= init_param.lock_detect_precision_6ns_enable ?
- 1343              		.loc 1 335 33 view .LVU378
- 1344 0156 0023     		movs	r3, #0
- 1345 0158 6EE7     		b	.L78
- 1346              	.L90:
+ 1363              		.loc 1 335 33 view .LVU384
+ 1364 0156 0023     		movs	r3, #0
+ 1365 0158 6EE7     		b	.L78
+ 1366              	.L90:
  337:Core/Src/adf4351.c **** 	st->pdata->r2_user_settings |= init_param.lock_detect_function_integer_n_enable ?
- 1347              		.loc 1 337 25 view .LVU379
- 1348 015a 0022     		movs	r2, #0
- 1349 015c 74E7     		b	.L79
- 1350              	.L91:
+ 1367              		.loc 1 337 25 view .LVU385
+ 1368 015a 0022     		movs	r2, #0
+ 1369 015c 74E7     		b	.L79
+ARM GAS  /tmp/ccdp6r1y.s 			page 35
+
+
+ 1370              	.L91:
  339:Core/Src/adf4351.c **** 	st->pdata->r2_user_settings |= ADF4350_REG2_CHARGE_PUMP_CURR_uA(init_param.charge_pump_current);
- 1351              		.loc 1 339 27 view .LVU380
- 1352 015e 0022     		movs	r2, #0
- 1353 0160 7CE7     		b	.L80
- 1354              	.L92:
+ 1371              		.loc 1 339 27 view .LVU386
+ 1372 015e 0022     		movs	r2, #0
+ 1373 0160 7CE7     		b	.L80
+ 1374              	.L92:
  342:Core/Src/adf4351.c **** 
- 1355              		.loc 1 342 96 view .LVU381
- 1356 0162 0022     		movs	r2, #0
- 1357 0164 94E7     		b	.L81
- 1358              	.L93:
+ 1375              		.loc 1 342 96 view .LVU387
+ 1376 0162 0022     		movs	r2, #0
+ 1377 0164 94E7     		b	.L81
+ 1378              	.L93:
  347:Core/Src/adf4351.c **** 	st->pdata->r3_user_settings |= init_param.charge_cancellation_enable ?
- 1359              		.loc 1 347 30 view .LVU382
- 1360 0166 0023     		movs	r3, #0
- 1361 0168 9BE7     		b	.L82
- 1362              	.L94:
+ 1379              		.loc 1 347 30 view .LVU388
+ 1380 0166 0023     		movs	r3, #0
+ 1381 0168 9BE7     		b	.L82
+ 1382              	.L94:
  349:Core/Src/adf4351.c **** 	st->pdata->r3_user_settings |= init_param.anti_backlash_3ns_enable ?
- 1363              		.loc 1 349 40 view .LVU383
- 1364 016a 0022     		movs	r2, #0
- 1365 016c A1E7     		b	.L83
- 1366              	.L95:
+ 1383              		.loc 1 349 40 view .LVU389
+ 1384 016a 0022     		movs	r2, #0
+ 1385 016c A1E7     		b	.L83
+ 1386              	.L95:
  351:Core/Src/adf4351.c **** 	st->pdata->r3_user_settings |= init_param.band_select_clock_mode_high_enable ?
- 1367              		.loc 1 351 38 view .LVU384
-ARM GAS  C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s 			page 35
-
-
- 1368 016e 0022     		movs	r2, #0
- 1369 0170 A8E7     		b	.L84
- 1370              	.L96:
+ 1387              		.loc 1 351 38 view .LVU390
+ 1388 016e 0022     		movs	r2, #0
+ 1389 0170 A8E7     		b	.L84
+ 1390              	.L96:
  353:Core/Src/adf4351.c **** 	st->pdata->r3_user_settings |= ADF4350_REG3_12BIT_CLKDIV(init_param.clk_divider_12bit);
- 1371              		.loc 1 353 42 view .LVU385
- 1372 0172 0022     		movs	r2, #0
- 1373 0174 AFE7     		b	.L85
- 1374              	.L97:
+ 1391              		.loc 1 353 42 view .LVU391
+ 1392 0172 0022     		movs	r2, #0
+ 1393 0174 AFE7     		b	.L85
+ 1394              	.L97:
  360:Core/Src/adf4351.c **** 	st->pdata->r4_user_settings |= init_param.aux_output_fundamental_enable ?
- 1375              		.loc 1 360 31 view .LVU386
- 1376 0176 0023     		movs	r3, #0
- 1377 0178 BEE7     		b	.L86
- 1378              	.L98:
+ 1395              		.loc 1 360 31 view .LVU392
+ 1396 0176 0023     		movs	r3, #0
+ 1397 0178 BEE7     		b	.L86
+ 1398              	.L98:
  362:Core/Src/adf4351.c **** 	st->pdata->r4_user_settings |= init_param.mute_till_lock_enable ?
- 1379              		.loc 1 362 33 view .LVU387
- 1380 017a 0022     		movs	r2, #0
- 1381 017c C4E7     		b	.L87
- 1382              	.L99:
+ 1399              		.loc 1 362 33 view .LVU393
+ 1400 017a 0022     		movs	r2, #0
+ 1401 017c C4E7     		b	.L87
+ 1402              	.L99:
  364:Core/Src/adf4351.c **** 	st->pdata->r4_user_settings |= ADF4350_REG4_OUTPUT_PWR(init_param.output_power);
- 1383              		.loc 1 364 35 view .LVU388
- 1384 017e 0022     		movs	r2, #0
- 1385 0180 CBE7     		b	.L88
- 1386              	.L102:
- 1387 0182 00BF     		.align	2
- 1388              	.L101:
- 1389 0184 00000000 		.word	.LANCHOR1
- 1390 0188 00000000 		.word	.LANCHOR0
- 1391 018c 1BA4411A 		.word	440509467
- 1392              		.cfi_endproc
- 1393              	.LFE73:
- 1395              		.section	.text.adf4350_out_altvoltage0_powerdown,"ax",%progbits
- 1396              		.align	1
- 1397              		.global	adf4350_out_altvoltage0_powerdown
- 1398              		.syntax unified
- 1399              		.thumb
- 1400              		.thumb_func
- 1402              	adf4350_out_altvoltage0_powerdown:
- 1403              	.LVL89:
- 1404              	.LFB77:
+ 1403              		.loc 1 364 35 view .LVU394
+ 1404 017e 0022     		movs	r2, #0
+ 1405 0180 CBE7     		b	.L88
+ 1406              	.L102:
+ 1407 0182 00BF     		.align	2
+ 1408              	.L101:
+ 1409 0184 00000000 		.word	.LANCHOR1
+ 1410 0188 00000000 		.word	.LANCHOR0
+ 1411 018c 1BA4411A 		.word	440509467
+ 1412              		.cfi_endproc
+ 1413              	.LFE73:
+ 1415              		.section	.text.adf4350_out_altvoltage0_powerdown,"ax",%progbits
+ 1416              		.align	1
+ 1417              		.global	adf4350_out_altvoltage0_powerdown
+ 1418              		.syntax unified
+ARM GAS  /tmp/ccdp6r1y.s 			page 36
+
+
+ 1419              		.thumb
+ 1420              		.thumb_func
+ 1421              		.fpu softvfp
+ 1423              	adf4350_out_altvoltage0_powerdown:
+ 1424              	.LVL92:
+ 1425              	.LFB77:
  428:Core/Src/adf4351.c **** 
  429:Core/Src/adf4351.c **** /***************************************************************************//**
  430:Core/Src/adf4351.c ****  * @brief Powers down the PLL.
@@ -2092,40 +2119,37 @@ ARM GAS  C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s 			page 1
  437:Core/Src/adf4351.c **** *******************************************************************************/
  438:Core/Src/adf4351.c **** int32_t adf4350_out_altvoltage0_powerdown(int32_t pwd)
  439:Core/Src/adf4351.c **** {
- 1405              		.loc 1 439 1 is_stmt 1 view -0
- 1406              		.cfi_startproc
- 1407              		@ args = 0, pretend = 0, frame = 0
- 1408              		@ frame_needed = 0, uses_anonymous_args = 0
- 1409              		.loc 1 439 1 is_stmt 0 view .LVU390
- 1410 0000 10B5     		push	{r4, lr}
-ARM GAS  C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s 			page 36
-
-
- 1411              	.LCFI21:
- 1412              		.cfi_def_cfa_offset 8
- 1413              		.cfi_offset 4, -8
- 1414              		.cfi_offset 14, -4
- 1415 0002 0446     		mov	r4, r0
+ 1426              		.loc 1 439 1 is_stmt 1 view -0
+ 1427              		.cfi_startproc
+ 1428              		@ args = 0, pretend = 0, frame = 0
+ 1429              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1430              		.loc 1 439 1 is_stmt 0 view .LVU396
+ 1431 0000 10B5     		push	{r4, lr}
+ 1432              	.LCFI21:
+ 1433              		.cfi_def_cfa_offset 8
+ 1434              		.cfi_offset 4, -8
+ 1435              		.cfi_offset 14, -4
+ 1436 0002 0446     		mov	r4, r0
  440:Core/Src/adf4351.c **** 	struct adf4350_state *st = &adf4350_st;
- 1416              		.loc 1 440 2 is_stmt 1 view .LVU391
- 1417              	.LVL90:
+ 1437              		.loc 1 440 2 is_stmt 1 view .LVU397
+ 1438              	.LVL93:
  441:Core/Src/adf4351.c **** 
  442:Core/Src/adf4351.c **** 	if(pwd == 1)
- 1418              		.loc 1 442 2 view .LVU392
- 1419              		.loc 1 442 4 is_stmt 0 view .LVU393
- 1420 0004 0128     		cmp	r0, #1
- 1421 0006 05D0     		beq	.L107
- 1422              	.LVL91:
- 1423              	.L104:
+ 1439              		.loc 1 442 2 view .LVU398
+ 1440              		.loc 1 442 4 is_stmt 0 view .LVU399
+ 1441 0004 0128     		cmp	r0, #1
+ 1442 0006 05D0     		beq	.L107
+ 1443              	.LVL94:
+ 1444              	.L104:
  443:Core/Src/adf4351.c **** 	{
  444:Core/Src/adf4351.c **** 		st->regs[ADF4350_REG2] |= ADF4350_REG2_POWER_DOWN_EN;
  445:Core/Src/adf4351.c **** 		adf4350_sync_config(st);
  446:Core/Src/adf4351.c **** 	}
  447:Core/Src/adf4351.c **** 	if(pwd == 0)
- 1424              		.loc 1 447 2 is_stmt 1 view .LVU394
- 1425              		.loc 1 447 4 is_stmt 0 view .LVU395
- 1426 0008 64B1     		cbz	r4, .L108
- 1427              	.L105:
+ 1445              		.loc 1 447 2 is_stmt 1 view .LVU400
+ 1446              		.loc 1 447 4 is_stmt 0 view .LVU401
+ 1447 0008 64B1     		cbz	r4, .L108
+ 1448              	.L105:
  448:Core/Src/adf4351.c **** 	{
  449:Core/Src/adf4351.c **** 		st->regs[ADF4350_REG2] &= ~ADF4350_REG2_POWER_DOWN_EN;
  450:Core/Src/adf4351.c **** 		adf4350_sync_config(st);
@@ -2133,129 +2157,131 @@ ARM GAS  C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s 			page 1
  452:Core/Src/adf4351.c **** 
  453:Core/Src/adf4351.c **** 
  454:Core/Src/adf4351.c **** 	return (st->regs[ADF4350_REG2] & ADF4350_REG2_POWER_DOWN_EN);
- 1428              		.loc 1 454 2 is_stmt 1 view .LVU396
- 1429              		.loc 1 454 18 is_stmt 0 view .LVU397
- 1430 000a 0A4B     		ldr	r3, .L109
- 1431 000c D86A     		ldr	r0, [r3, #44]
+ 1449              		.loc 1 454 2 is_stmt 1 view .LVU402
+ARM GAS  /tmp/ccdp6r1y.s 			page 37
+
+
+ 1450              		.loc 1 454 18 is_stmt 0 view .LVU403
+ 1451 000a 0A4B     		ldr	r3, .L109
+ 1452 000c D86A     		ldr	r0, [r3, #44]
  455:Core/Src/adf4351.c **** }
- 1432              		.loc 1 455 1 view .LVU398
- 1433 000e 00F02000 		and	r0, r0, #32
- 1434 0012 10BD     		pop	{r4, pc}
- 1435              	.LVL92:
- 1436              	.L107:
+ 1453              		.loc 1 455 1 view .LVU404
+ 1454 000e 00F02000 		and	r0, r0, #32
+ 1455 0012 10BD     		pop	{r4, pc}
+ 1456              	.LVL95:
+ 1457              	.L107:
  444:Core/Src/adf4351.c **** 		adf4350_sync_config(st);
- 1437              		.loc 1 444 3 is_stmt 1 view .LVU399
+ 1458              		.loc 1 444 3 is_stmt 1 view .LVU405
  444:Core/Src/adf4351.c **** 		adf4350_sync_config(st);
- 1438              		.loc 1 444 26 is_stmt 0 view .LVU400
- 1439 0014 0748     		ldr	r0, .L109
- 1440              	.LVL93:
+ 1459              		.loc 1 444 26 is_stmt 0 view .LVU406
+ 1460 0014 0748     		ldr	r0, .L109
+ 1461              	.LVL96:
  444:Core/Src/adf4351.c **** 		adf4350_sync_config(st);
- 1441              		.loc 1 444 26 view .LVU401
- 1442 0016 C36A     		ldr	r3, [r0, #44]
- 1443 0018 43F02003 		orr	r3, r3, #32
- 1444 001c C362     		str	r3, [r0, #44]
+ 1462              		.loc 1 444 26 view .LVU407
+ 1463 0016 C36A     		ldr	r3, [r0, #44]
+ 1464 0018 43F02003 		orr	r3, r3, #32
+ 1465 001c C362     		str	r3, [r0, #44]
  445:Core/Src/adf4351.c **** 	}
- 1445              		.loc 1 445 3 is_stmt 1 view .LVU402
- 1446 001e FFF7FEFF 		bl	adf4350_sync_config
- 1447              	.LVL94:
-ARM GAS  C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s 			page 37
-
-
- 1448 0022 F1E7     		b	.L104
- 1449              	.L108:
+ 1466              		.loc 1 445 3 is_stmt 1 view .LVU408
+ 1467 001e FFF7FEFF 		bl	adf4350_sync_config
+ 1468              	.LVL97:
+ 1469 0022 F1E7     		b	.L104
+ 1470              	.L108:
  449:Core/Src/adf4351.c **** 		adf4350_sync_config(st);
- 1450              		.loc 1 449 3 view .LVU403
+ 1471              		.loc 1 449 3 view .LVU409
  449:Core/Src/adf4351.c **** 		adf4350_sync_config(st);
- 1451              		.loc 1 449 26 is_stmt 0 view .LVU404
- 1452 0024 0348     		ldr	r0, .L109
- 1453 0026 C36A     		ldr	r3, [r0, #44]
- 1454 0028 23F02003 		bic	r3, r3, #32
- 1455 002c C362     		str	r3, [r0, #44]
+ 1472              		.loc 1 449 26 is_stmt 0 view .LVU410
+ 1473 0024 0348     		ldr	r0, .L109
+ 1474 0026 C36A     		ldr	r3, [r0, #44]
+ 1475 0028 23F02003 		bic	r3, r3, #32
+ 1476 002c C362     		str	r3, [r0, #44]
  450:Core/Src/adf4351.c **** 	}
- 1456              		.loc 1 450 3 is_stmt 1 view .LVU405
- 1457 002e FFF7FEFF 		bl	adf4350_sync_config
- 1458              	.LVL95:
- 1459 0032 EAE7     		b	.L105
- 1460              	.L110:
- 1461              		.align	2
- 1462              	.L109:
- 1463 0034 00000000 		.word	.LANCHOR0
- 1464              		.cfi_endproc
- 1465              	.LFE77:
- 1467              		.global	platdata
- 1468              		.section	.bss.adf4350_st,"aw",%nobits
- 1469              		.align	2
- 1470              		.set	.LANCHOR0,. + 0
- 1473              	adf4350_st:
- 1474 0000 00000000 		.space	88
- 1474      00000000 
- 1474      00000000 
- 1474      00000000 
- 1474      00000000 
- 1475              		.section	.bss.platdata,"aw",%nobits
- 1476              		.align	3
- 1477              		.set	.LANCHOR1,. + 0
- 1480              	platdata:
- 1481 0000 00000000 		.space	40
- 1481      00000000 
- 1481      00000000 
- 1481      00000000 
- 1481      00000000 
- 1482              		.text
- 1483              	.Letext0:
- 1484              		.file 2 "d:\\programs\\tools\\arm gnu toolchain arm-none-eabi\\11.3 rel1\\arm-none-eabi\\include\\
- 1485              		.file 3 "d:\\programs\\tools\\arm gnu toolchain arm-none-eabi\\11.3 rel1\\arm-none-eabi\\include\\
- 1486              		.file 4 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h"
- 1487              		.file 5 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h"
- 1488              		.file 6 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio.h"
- 1489              		.file 7 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h"
- 1490              		.file 8 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h"
- 1491              		.file 9 "Core/Inc/adf4351.h"
-ARM GAS  C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s 			page 38
+ 1477              		.loc 1 450 3 is_stmt 1 view .LVU411
+ 1478 002e FFF7FEFF 		bl	adf4350_sync_config
+ 1479              	.LVL98:
+ 1480 0032 EAE7     		b	.L105
+ 1481              	.L110:
+ 1482              		.align	2
+ 1483              	.L109:
+ 1484 0034 00000000 		.word	.LANCHOR0
+ 1485              		.cfi_endproc
+ 1486              	.LFE77:
+ 1488              		.global	platdata
+ 1489              		.section	.bss.adf4350_st,"aw",%nobits
+ 1490              		.align	2
+ 1491              		.set	.LANCHOR0,. + 0
+ 1494              	adf4350_st:
+ 1495 0000 00000000 		.space	88
+ 1495      00000000 
+ 1495      00000000 
+ 1495      00000000 
+ 1495      00000000 
+ 1496              		.section	.bss.platdata,"aw",%nobits
+ 1497              		.align	3
+ARM GAS  /tmp/ccdp6r1y.s 			page 38
+
+
+ 1498              		.set	.LANCHOR1,. + 0
+ 1501              	platdata:
+ 1502 0000 00000000 		.space	40
+ 1502      00000000 
+ 1502      00000000 
+ 1502      00000000 
+ 1502      00000000 
+ 1503              		.text
+ 1504              	.Letext0:
+ 1505              		.file 2 "/usr/lib/gcc/arm-none-eabi/10.3.1/include/stdint.h"
+ 1506              		.file 3 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h"
+ 1507              		.file 4 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h"
+ 1508              		.file 5 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h"
+ 1509              		.file 6 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h"
+ 1510              		.file 7 "Core/Inc/adf4351.h"
+ 1511              		.file 8 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio.h"
+ARM GAS  /tmp/ccdp6r1y.s 			page 39
 
 
 DEFINED SYMBOLS
-                            *ABS*:00000000 adf4351.c
-C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s:18     .text.SPI_assert_CS_LD:00000000 $t
-C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s:24     .text.SPI_assert_CS_LD:00000000 SPI_assert_CS_LD
-C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s:54     .text.SPI_assert_CS_LD:0000001c $d
-C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s:59     .text.SPI_deassert_CS_LD:00000000 $t
-C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s:65     .text.SPI_deassert_CS_LD:00000000 SPI_deassert_CS_LD
-C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s:94     .text.SPI_deassert_CS_LD:0000001c $d
-C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s:99     .text.SPI_Write:00000000 $t
-C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s:105    .text.SPI_Write:00000000 SPI_Write
-C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s:139    .text.SPI_Write:00000020 $d
-C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s:144    .text.adf4350_write:00000000 $t
-C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s:150    .text.adf4350_write:00000000 adf4350_write
-C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s:220    .text.adf4350_sync_config:00000000 $t
-C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s:226    .text.adf4350_sync_config:00000000 adf4350_sync_config
-C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s:330    .text.adf4350_tune_r_cnt:00000000 $t
-C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s:336    .text.adf4350_tune_r_cnt:00000000 adf4350_tune_r_cnt
-C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s:419    .text.adf4350_tune_r_cnt:00000044 $d
-C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s:424    .text.gcd:00000000 $t
-C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s:430    .text.gcd:00000000 gcd
-C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s:480    .text.adf4350_set_freq:00000000 $t
-C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s:486    .text.adf4350_set_freq:00000000 adf4350_set_freq
-C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s:949    .text.adf4350_set_freq:00000228 $d
-C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s:960    .text.adf4350_out_altvoltage0_frequency:00000000 $t
-C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s:966    .text.adf4350_out_altvoltage0_frequency:00000000 adf4350_out_altvoltage0_frequency
-C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s:993    .text.adf4350_out_altvoltage0_frequency:00000010 $d
-C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s:998    .text.adf4350_out_altvoltage0_frequency_resolution:00000000 $t
-C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s:1004   .text.adf4350_out_altvoltage0_frequency_resolution:00000000 adf4350_out_altvoltage0_frequency_resolution
-C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s:1032   .text.adf4350_out_altvoltage0_frequency_resolution:00000014 $d
-C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s:1037   .text.adf4350_out_altvoltage0_refin_frequency:00000000 $t
-C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s:1043   .text.adf4350_out_altvoltage0_refin_frequency:00000000 adf4350_out_altvoltage0_refin_frequency
-C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s:1073   .text.adf4350_out_altvoltage0_refin_frequency:00000018 $d
-C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s:1078   .text.adf4350_setup:00000000 $t
-C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s:1084   .text.adf4350_setup:00000000 adf4350_setup
-C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s:1389   .text.adf4350_setup:00000184 $d
-C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s:1396   .text.adf4350_out_altvoltage0_powerdown:00000000 $t
-C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s:1402   .text.adf4350_out_altvoltage0_powerdown:00000000 adf4350_out_altvoltage0_powerdown
-C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s:1463   .text.adf4350_out_altvoltage0_powerdown:00000034 $d
-C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s:1480   .bss.platdata:00000000 platdata
-C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s:1469   .bss.adf4350_st:00000000 $d
-C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s:1473   .bss.adf4350_st:00000000 adf4350_st
-C:\Users\ardav\AppData\Local\Temp\cc37iM3u.s:1476   .bss.platdata:00000000 $d
+                            *ABS*:0000000000000000 adf4351.c
+     /tmp/ccdp6r1y.s:16     .text.SPI_assert_CS_LD:0000000000000000 $t
+     /tmp/ccdp6r1y.s:24     .text.SPI_assert_CS_LD:0000000000000000 SPI_assert_CS_LD
+     /tmp/ccdp6r1y.s:54     .text.SPI_assert_CS_LD:000000000000001c $d
+     /tmp/ccdp6r1y.s:59     .text.SPI_deassert_CS_LD:0000000000000000 $t
+     /tmp/ccdp6r1y.s:66     .text.SPI_deassert_CS_LD:0000000000000000 SPI_deassert_CS_LD
+     /tmp/ccdp6r1y.s:95     .text.SPI_deassert_CS_LD:000000000000001c $d
+     /tmp/ccdp6r1y.s:100    .text.SPI_Write:0000000000000000 $t
+     /tmp/ccdp6r1y.s:107    .text.SPI_Write:0000000000000000 SPI_Write
+     /tmp/ccdp6r1y.s:141    .text.SPI_Write:0000000000000020 $d
+     /tmp/ccdp6r1y.s:146    .text.adf4350_write:0000000000000000 $t
+     /tmp/ccdp6r1y.s:153    .text.adf4350_write:0000000000000000 adf4350_write
+     /tmp/ccdp6r1y.s:223    .text.adf4350_sync_config:0000000000000000 $t
+     /tmp/ccdp6r1y.s:230    .text.adf4350_sync_config:0000000000000000 adf4350_sync_config
+     /tmp/ccdp6r1y.s:336    .text.adf4350_tune_r_cnt:0000000000000000 $t
+     /tmp/ccdp6r1y.s:343    .text.adf4350_tune_r_cnt:0000000000000000 adf4350_tune_r_cnt
+     /tmp/ccdp6r1y.s:427    .text.adf4350_tune_r_cnt:0000000000000044 $d
+     /tmp/ccdp6r1y.s:432    .text.gcd:0000000000000000 $t
+     /tmp/ccdp6r1y.s:439    .text.gcd:0000000000000000 gcd
+     /tmp/ccdp6r1y.s:489    .text.adf4350_set_freq:0000000000000000 $t
+     /tmp/ccdp6r1y.s:496    .text.adf4350_set_freq:0000000000000000 adf4350_set_freq
+     /tmp/ccdp6r1y.s:965    .text.adf4350_set_freq:0000000000000228 $d
+     /tmp/ccdp6r1y.s:976    .text.adf4350_out_altvoltage0_frequency:0000000000000000 $t
+     /tmp/ccdp6r1y.s:983    .text.adf4350_out_altvoltage0_frequency:0000000000000000 adf4350_out_altvoltage0_frequency
+     /tmp/ccdp6r1y.s:1010   .text.adf4350_out_altvoltage0_frequency:0000000000000010 $d
+     /tmp/ccdp6r1y.s:1015   .text.adf4350_out_altvoltage0_frequency_resolution:0000000000000000 $t
+     /tmp/ccdp6r1y.s:1022   .text.adf4350_out_altvoltage0_frequency_resolution:0000000000000000 adf4350_out_altvoltage0_frequency_resolution
+     /tmp/ccdp6r1y.s:1050   .text.adf4350_out_altvoltage0_frequency_resolution:0000000000000014 $d
+     /tmp/ccdp6r1y.s:1055   .text.adf4350_out_altvoltage0_refin_frequency:0000000000000000 $t
+     /tmp/ccdp6r1y.s:1062   .text.adf4350_out_altvoltage0_refin_frequency:0000000000000000 adf4350_out_altvoltage0_refin_frequency
+     /tmp/ccdp6r1y.s:1092   .text.adf4350_out_altvoltage0_refin_frequency:0000000000000018 $d
+     /tmp/ccdp6r1y.s:1097   .text.adf4350_setup:0000000000000000 $t
+     /tmp/ccdp6r1y.s:1104   .text.adf4350_setup:0000000000000000 adf4350_setup
+     /tmp/ccdp6r1y.s:1409   .text.adf4350_setup:0000000000000184 $d
+     /tmp/ccdp6r1y.s:1416   .text.adf4350_out_altvoltage0_powerdown:0000000000000000 $t
+     /tmp/ccdp6r1y.s:1423   .text.adf4350_out_altvoltage0_powerdown:0000000000000000 adf4350_out_altvoltage0_powerdown
+     /tmp/ccdp6r1y.s:1484   .text.adf4350_out_altvoltage0_powerdown:0000000000000034 $d
+     /tmp/ccdp6r1y.s:1501   .bss.platdata:0000000000000000 platdata
+     /tmp/ccdp6r1y.s:1490   .bss.adf4350_st:0000000000000000 $d
+     /tmp/ccdp6r1y.s:1494   .bss.adf4350_st:0000000000000000 adf4350_st
+     /tmp/ccdp6r1y.s:1497   .bss.platdata:0000000000000000 $d
 
 UNDEFINED SYMBOLS
 HAL_GPIO_WritePin
