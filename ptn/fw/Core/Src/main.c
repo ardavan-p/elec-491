@@ -22,12 +22,14 @@
 #include "can.h"
 #include "spi.h"
 #include "tim.h"
+#include "usart.h"
 #include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "adf4351.h"
-#include "nrf24l01p.h"
+#include "nrf24l01.h"
+#include <stdio.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -77,6 +79,7 @@ const uint64_t fhss_freqs[FHSS_NUM_FREQS] = {
 void SystemClock_Config(void);
 /* USER CODE BEGIN PFP */
 void cmd_sm_init(void);
+void read_back_config(void);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -101,10 +104,12 @@ int main(void)
   HAL_Init();
 
   /* USER CODE BEGIN Init */
-
+  setvbuf(stdout, NULL, _IONBF, 0);
   // Set up initial state for SPI IO pins:
   HAL_GPIO_WritePin(SPI1_CSn_GPIO_Port, SPI1_CSn_Pin, 1);
   HAL_GPIO_WritePin(SPI1_LD_GPIO_Port, SPI1_LD_Pin, 1);
+
+
   
   /* USER CODE END Init */
 
@@ -121,10 +126,15 @@ int main(void)
   MX_TIM2_Init();
   MX_SPI2_Init();
   MX_CAN_Init();
+  MX_USART3_UART_Init();
   /* USER CODE BEGIN 2 */
   cmd_sm_init();
   // HAL_TIM_Base_Start_IT(&htim2);
 
+  // NRF CE:
+  HAL_GPIO_WritePin(CHIP_ENABLE_GPIO_Port, CHIP_ENABLE_Pin, 1);
+
+  // CAN Setup:
   CAN_FilterTypeDef can_filter = {
       .FilterIdHigh = (uint32_t)(PTN_REQUEST_ID << 5 | 0x0000),
       .FilterIdLow = 0,
@@ -160,20 +170,112 @@ int main(void)
   CAN_RxHeaderTypeDef rx_header = {0};
   uint32_t can_tx_mailbox = 0;
 
+  // NRF24L01 Setup:
+  uint8_t tx_payload[MAX_DATA_BYTES] = {0};
+  uint8_t rf_payload[PAYLOAD_SZ_BYTES] = {0};
+  // [REQUIRED] make sure to power on the device
+  tx_payload[0] = 0b00111111;
+  tx_spi_cmd(&hspi2, W_REGISTER(CONFIG_REGISTER), tx_payload, 1);
+  HAL_Delay(500);
+  
+  // [REQUIRED] make sure to power on the device
+  tx_payload[0] = 0b00111111;
+  tx_spi_cmd(&hspi2, W_REGISTER(CONFIG_REGISTER), tx_payload, 1);
+
+  // [REQUIRED] set payload size for pipe 0
+  tx_payload[0] = PAYLOAD_SZ_BYTES;
+  tx_spi_cmd(&hspi2, W_REGISTER(RX_PW_P0), tx_payload, 1);
+
+  // [REQUIRED] set the RF configuration
+  NrfRfSetup_t rf_config = {.data_power = ZERO_DBM, .data_rate = TWO_MBPS};
+  nrf24l01_setup_rf(&hspi2, &rf_config);
+
+  tx_spi_cmd(&hspi2, FLUSH_RX, NULL, 0);
+
+  read_back_config();
+
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   
   adf4350_out_altvoltage0_powerdown(1);
+  printf("\n\rWaiting for CAN");
   while(HAL_CAN_GetRxFifoFillLevel(&hcan, CAN_RX_FIFO0) <= 0);
-
+  printf("\n\rCAN received");
   can_rx_status = HAL_CAN_GetRxMessage(&hcan, CAN_RX_FIFO0, &rx_header, can_rx_payload);
 
   adf4350_out_altvoltage0_powerdown(0);
-  adf4350_out_altvoltage0_frequency(915e6);
-  HAL_Delay(2000);
+  HAL_TIM_Base_Start_IT(&htim2);
+  // adf4350_out_altvoltage0_frequency(915e6);
+
+  int num_rx_msgs = 0;
+  int num_uniq_msgs = 0;
+  uint32_t prev_rand_id = 0;
+
+  uint8_t cur_status = 0;
+  uint8_t rx_fifo_empty = 1;
+  uint8_t fifo_status = 0;
+  uint8_t rxbuffer[RX_BUF_SZ_BYTES] = {0};
+
+  uint32_t ref_time = HAL_GetTick();
+  uint32_t millis_time = HAL_GetTick() - ref_time;
+  // Poll until you receive something
+  printf("\n\rWaiting for NRF");
+  while((!STATUS_RX_DR(nrf24l01_get_status(&hspi2))) && millis_time < 5000)
+  {
+    millis_time = HAL_GetTick() - ref_time;
+  }
+  printf("\n\rNRF received");
+
+  sensor_msg_t rx_msg = {0};
+
+  if (millis_time < 5000)
+  {
+    do {
+      
+      // step 1: read the RX payload
+      tx_rx_spi_cmd(&hspi2, R_RX_PAYLOAD, NULL, 0, rxbuffer, PAYLOAD_SZ_BYTES + 1);
+
+      num_rx_msgs++;
+
+      
+
+      // unpack the message into its components
+      memcpy((void*)(&rx_msg), (void*)(&rxbuffer), PAYLOAD_SZ_BYTES);
+
+      if (rx_msg.msg_id != prev_rand_id) {
+        num_uniq_msgs++;
+        prev_rand_id = rx_msg.msg_id;
+      }
+
+      printf("[m: %d] [u: %d] Received message with id = 0x%04x, node_id = 0x%02x! pressure = %d, temp = %d\r\n",
+          num_rx_msgs, num_uniq_msgs, rx_msg.msg_id, rx_msg.node_id, rx_msg.pressure, rx_msg.temperature);
+
+      // clear out the RX buffer
+      memset(&rxbuffer, 0, sizeof(rxbuffer));
+
+      // step 2: clear the RX_DR IRQ bit
+      tx_payload[0] = 0b01000000;
+      tx_spi_cmd(&hspi2, W_REGISTER(STATUS), tx_payload, 1);
+
+      // step 3: check FIFO_STATUS to see if there's any more messages
+      tx_rx_spi_cmd(&hspi2, R_REGISTER(FIFO_STATUS), NULL, 0, rxbuffer, 1);
+      fifo_status = rxbuffer[0];
+      rx_fifo_empty = FIFO_STATUS_RX_EMPTY(fifo_status);
+
+    } while (!rx_fifo_empty);
+  }
+  else
+  {
+    printf("\n\rERROR: Timeout");
+  }
+  
+  HAL_TIM_Base_Stop_IT(&htim2);
   adf4350_out_altvoltage0_powerdown(1);
+  *((uint16_t*)can_tx_payload) = rx_msg.pressure;
+  *((uint16_t*)can_tx_payload + 1) = rx_msg.temperature;
   while (HAL_CAN_GetTxMailboxesFreeLevel(&hcan) <= 0);
   can_tx_status = HAL_CAN_AddTxMessage(&hcan, &tx_header, can_tx_payload, &can_tx_mailbox);
   while (1)
@@ -270,6 +372,67 @@ void cmd_sm_init()
   adf4350_out_altvoltage0_powerdown(0); // power down PLL
   adf4350_setup(pll_config);
 }
+
+void read_back_config(void)
+{
+  uint8_t rx_buffer[RX_BUF_SZ_BYTES] = {0};
+
+  tx_rx_spi_cmd(&hspi2, R_REGISTER(CONFIG_REGISTER), NULL, 0, rx_buffer, 1);
+  uint8_t config = rx_buffer[0];
+  printf("\n\rConfig: %x", config);
+  memset(&rx_buffer, 0, sizeof(rx_buffer));
+
+  tx_rx_spi_cmd(&hspi2, R_REGISTER(EN_RXADDR), NULL, 0, rx_buffer, 1);
+  uint8_t endp = rx_buffer[0];
+  printf("\n\rEnabled Data Pipes: %x", endp);
+  memset(&rx_buffer, 0, sizeof(rx_buffer));
+
+  tx_rx_spi_cmd(&hspi2, R_REGISTER(SETUP_RETR), NULL, 0, rx_buffer, 1);
+  uint8_t setup_retr = rx_buffer[0];
+  printf("\n\rSetup Retry: %x", setup_retr);
+  memset(&rx_buffer, 0, sizeof(rx_buffer));
+
+  tx_rx_spi_cmd(&hspi2, R_REGISTER(RF_CH), NULL, 0, rx_buffer, 1);
+  uint8_t rfch = rx_buffer[0];
+  printf("\n\rRF Channel: %x", rfch);
+  memset(&rx_buffer, 0, sizeof(rx_buffer));
+
+  tx_rx_spi_cmd(&hspi2, R_REGISTER(RF_SETUP), NULL, 0, rx_buffer, 1);
+  uint8_t rfsetup = rx_buffer[0];
+  printf("\n\rRF Setup: %x", rfsetup);
+  memset(&rx_buffer, 0, sizeof(rx_buffer));
+
+  tx_rx_spi_cmd(&hspi2, R_REGISTER(RX_ADDR_P0), NULL, 0, rx_buffer, 5);
+  uint32_t rx_addr_p0_hi = *((uint32_t*)rx_buffer);
+  uint32_t rx_addr_p0_lo = *((uint32_t*)rx_buffer + 1);
+  printf("\n\rRX Address High: %lx\n\rRX Address Low: %lx", rx_addr_p0_hi, rx_addr_p0_lo);
+  memset(&rx_buffer, 0, sizeof(rx_buffer));
+
+  tx_rx_spi_cmd(&hspi2, R_REGISTER(RX_PW_P0), NULL, 0, rx_buffer, 5);
+  uint8_t rx_pw_p0 = rx_buffer[0];
+  printf("\n\rRX_PW_P0: %x", rx_pw_p0);
+  memset(&rx_buffer, 0, sizeof(rx_buffer));
+
+  tx_rx_spi_cmd(&hspi2, R_REGISTER(FEATURE), NULL, 0, rx_buffer, 1);
+  uint8_t feature = rx_buffer[0];
+  printf("\n\rFeature: %x", feature);
+  memset(&rx_buffer, 0, sizeof(rx_buffer));
+}
+
+#ifdef __GNUC__
+  /* With GCC, small printf (option LD Linker->Libraries->Small printf
+     set to 'Yes') calls __io_putchar() */
+int __io_putchar(int ch)
+#else
+int fputc(int ch, FILE *f)
+#endif /* __GNUC__ */
+{
+  /* Place your implementation of fputc here */
+  /* e.g. write a character to the UART3 and Loop until the end of transmission */
+  HAL_UART_Transmit(&huart3, (uint8_t *)&ch, 1, HAL_MAX_DELAY);
+  return ch;
+}
+
 /* USER CODE END 4 */
 
 /**

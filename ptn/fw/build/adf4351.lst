@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccdp6r1y.s 			page 1
+ARM GAS  /tmp/ccjOg5Oo.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccdp6r1y.s 			page 1
   33              		.cfi_def_cfa_offset 8
   34              		.cfi_offset 4, -8
   35              		.cfi_offset 14, -4
-ARM GAS  /tmp/ccdp6r1y.s 			page 2
+ARM GAS  /tmp/ccjOg5Oo.s 			page 2
 
 
   24:Core/Src/adf4351.c **** 	HAL_GPIO_WritePin(SPI1_CSn_GPIO_Port, SPI1_CSn_Pin, 0);
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccdp6r1y.s 			page 1
   82 000a FFF7FEFF 		bl	HAL_GPIO_WritePin
   83              	.LVL2:
   34:Core/Src/adf4351.c **** 	HAL_GPIO_WritePin(SPI1_LD_GPIO_Port, SPI1_LD_Pin, 1);
-ARM GAS  /tmp/ccdp6r1y.s 			page 3
+ARM GAS  /tmp/ccjOg5Oo.s 			page 3
 
 
   84              		.loc 1 34 2 view .LVU6
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccdp6r1y.s 			page 1
  132              		.loc 1 42 1 view .LVU12
  133 0018 03B0     		add	sp, sp, #12
  134              	.LCFI4:
-ARM GAS  /tmp/ccdp6r1y.s 			page 4
+ARM GAS  /tmp/ccjOg5Oo.s 			page 4
 
 
  135              		.cfi_def_cfa_offset 4
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccdp6r1y.s 			page 1
  161 0000 F0B5     		push	{r4, r5, r6, r7, lr}
  162              	.LCFI5:
  163              		.cfi_def_cfa_offset 20
-ARM GAS  /tmp/ccdp6r1y.s 			page 5
+ARM GAS  /tmp/ccjOg5Oo.s 			page 5
 
 
  164              		.cfi_offset 4, -20
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccdp6r1y.s 			page 1
  205 0036 2046     		mov	r0, r4
  206 0038 FFF7FEFF 		bl	SPI_Write
  207              	.LVL12:
-ARM GAS  /tmp/ccdp6r1y.s 			page 6
+ARM GAS  /tmp/ccjOg5Oo.s 			page 6
 
 
   86:Core/Src/adf4351.c **** 	SPI_deassert_CS_LD();
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccdp6r1y.s 			page 1
  248              		.loc 1 101 2 view .LVU35
   99:Core/Src/adf4351.c **** 	int32_t ret, i, doublebuf = 0;
  249              		.loc 1 99 18 is_stmt 0 view .LVU36
-ARM GAS  /tmp/ccdp6r1y.s 			page 7
+ARM GAS  /tmp/ccjOg5Oo.s 			page 7
 
 
  250 0004 0026     		movs	r6, #0
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccdp6r1y.s 			page 1
  287 0028 04F10E03 		add	r3, r4, #14
  288 002c 05EB8303 		add	r3, r5, r3, lsl #2
  289 0030 5A60     		str	r2, [r3, #4]
-ARM GAS  /tmp/ccdp6r1y.s 			page 8
+ARM GAS  /tmp/ccjOg5Oo.s 			page 8
 
 
  290              	.LVL19:
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccdp6r1y.s 			page 1
  123:Core/Src/adf4351.c **** }
  329              		.loc 1 123 1 view .LVU65
  330 005e 70BD     		pop	{r4, r5, r6, pc}
-ARM GAS  /tmp/ccdp6r1y.s 			page 9
+ARM GAS  /tmp/ccjOg5Oo.s 			page 9
 
 
  331              		.loc 1 123 1 view .LVU66
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccdp6r1y.s 			page 1
  142:Core/Src/adf4351.c **** 			   (r_cnt * (pdata->ref_div2_en ? 2 : 1));
  369              		.loc 1 142 40 view .LVU73
  370 000c 0122     		movs	r2, #1
-ARM GAS  /tmp/ccdp6r1y.s 			page 10
+ARM GAS  /tmp/ccjOg5Oo.s 			page 10
 
 
  371              	.L28:
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccdp6r1y.s 			page 1
  410 003a E7D0     		beq	.L31
  142:Core/Src/adf4351.c **** 	} while (st->fpfd > ADF4350_MAX_FREQ_PFD);
  411              		.loc 1 142 40 view .LVU91
-ARM GAS  /tmp/ccdp6r1y.s 			page 11
+ARM GAS  /tmp/ccjOg5Oo.s 			page 11
 
 
  412 003c 0222     		movs	r2, #2
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccdp6r1y.s 			page 1
  454 0006 28BF     		it	cs
  455 0008 0346     		movcs	r3, r0
  456              	.LVL30:
-ARM GAS  /tmp/ccdp6r1y.s 			page 12
+ARM GAS  /tmp/ccjOg5Oo.s 			page 12
 
 
  158:Core/Src/adf4351.c **** 
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccdp6r1y.s 			page 1
  167:Core/Src/adf4351.c **** 
  168:Core/Src/adf4351.c **** /***************************************************************************//**
  169:Core/Src/adf4351.c ****  * @brief Sets the ADF4350 frequency.
-ARM GAS  /tmp/ccdp6r1y.s 			page 13
+ARM GAS  /tmp/ccjOg5Oo.s 			page 13
 
 
  170:Core/Src/adf4351.c ****  *
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccdp6r1y.s 			page 1
  537 0012 69F10002 		sbc	r2, r9, #0
  538              	.LVL36:
  539              		.loc 1 185 5 view .LVU123
-ARM GAS  /tmp/ccdp6r1y.s 			page 14
+ARM GAS  /tmp/ccjOg5Oo.s 			page 14
 
 
  540 0016 8549     		ldr	r1, .L63+4
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccdp6r1y.s 			page 1
  576 004c F7E7     		b	.L41
  577              	.LVL39:
  578              	.L43:
-ARM GAS  /tmp/ccdp6r1y.s 			page 15
+ARM GAS  /tmp/ccjOg5Oo.s 			page 15
 
 
  201:Core/Src/adf4351.c **** 	{
@@ -898,7 +898,7 @@ ARM GAS  /tmp/ccdp6r1y.s 			page 1
  619              	.L47:
  214:Core/Src/adf4351.c **** 
  215:Core/Src/adf4351.c **** 	do
-ARM GAS  /tmp/ccdp6r1y.s 			page 16
+ARM GAS  /tmp/ccjOg5Oo.s 			page 16
 
 
  216:Core/Src/adf4351.c **** 	{
@@ -958,7 +958,7 @@ ARM GAS  /tmp/ccdp6r1y.s 			page 1
  652 00a2 3246     		mov	r2, r6
  653 00a4 5B46     		mov	r3, fp
  654 00a6 FFF7FEFF 		bl	__aeabi_uldivmod
-ARM GAS  /tmp/ccdp6r1y.s 			page 17
+ARM GAS  /tmp/ccjOg5Oo.s 			page 17
 
 
  655              	.LVL50:
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/ccdp6r1y.s 			page 1
  695              		.loc 1 222 18 view .LVU178
  696 00d4 EE61     		str	r6, [r5, #28]
  223:Core/Src/adf4351.c **** 						{
-ARM GAS  /tmp/ccdp6r1y.s 			page 18
+ARM GAS  /tmp/ccjOg5Oo.s 			page 18
 
 
  697              		.loc 1 223 7 is_stmt 1 view .LVU179
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/ccdp6r1y.s 			page 1
  739              	.L50:
  740              	.LVL58:
  245:Core/Src/adf4351.c **** 					st->fpfd / ADF4350_MAX_BANDSEL_CLK;
-ARM GAS  /tmp/ccdp6r1y.s 			page 19
+ARM GAS  /tmp/ccjOg5Oo.s 			page 19
 
 
  246:Core/Src/adf4351.c **** 
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/ccdp6r1y.s 			page 1
  255:Core/Src/adf4351.c **** 		st->r1_mod = 1;
  784              		.loc 1 255 3 is_stmt 1 view .LVU211
  785              		.loc 1 255 14 is_stmt 0 view .LVU212
-ARM GAS  /tmp/ccdp6r1y.s 			page 20
+ARM GAS  /tmp/ccjOg5Oo.s 			page 20
 
 
  786 0140 0123     		movs	r3, #1
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/ccdp6r1y.s 			page 1
  824 0178 4FF00072 		mov	r2, #33554432
  825              	.L53:
  267:Core/Src/adf4351.c **** 		ADF4350_REG2_DOUBLE_BUFF_EN |
-ARM GAS  /tmp/ccdp6r1y.s 			page 21
+ARM GAS  /tmp/ccjOg5Oo.s 			page 21
 
 
  826              		.loc 1 267 31 view .LVU227
@@ -1258,7 +1258,7 @@ ARM GAS  /tmp/ccdp6r1y.s 			page 1
  283:Core/Src/adf4351.c **** 		ADF4350_REG4_8BIT_BAND_SEL_CLKDIV(band_sel_div) |
  863              		.loc 1 283 3 view .LVU241
  864 01ba 3B03     		lsls	r3, r7, #12
-ARM GAS  /tmp/ccdp6r1y.s 			page 22
+ARM GAS  /tmp/ccjOg5Oo.s 			page 22
 
 
  282:Core/Src/adf4351.c **** 		ADF4350_REG4_8BIT_BAND_SEL_CLKDIV(band_sel_div) |
@@ -1318,7 +1318,7 @@ ARM GAS  /tmp/ccdp6r1y.s 			page 1
  899              		.loc 1 300 48 view .LVU257
  900 01e8 02FB0011 		mla	r1, r2, r0, r1
  901              		.loc 1 300 78 view .LVU258
-ARM GAS  /tmp/ccdp6r1y.s 			page 23
+ARM GAS  /tmp/ccjOg5Oo.s 			page 23
 
 
  902 01ec E868     		ldr	r0, [r5, #12]
@@ -1378,7 +1378,7 @@ ARM GAS  /tmp/ccdp6r1y.s 			page 1
  948              	.LVL77:
  297:Core/Src/adf4351.c **** 	}
  949              		.loc 1 297 10 view .LVU271
-ARM GAS  /tmp/ccdp6r1y.s 			page 24
+ARM GAS  /tmp/ccjOg5Oo.s 			page 24
 
 
  950 021c C917     		asrs	r1, r1, #31
@@ -1438,7 +1438,7 @@ ARM GAS  /tmp/ccdp6r1y.s 			page 1
  322:Core/Src/adf4351.c **** 
  323:Core/Src/adf4351.c **** 	st->pdata->clkin = init_param.clkin;
  324:Core/Src/adf4351.c **** 
-ARM GAS  /tmp/ccdp6r1y.s 			page 25
+ARM GAS  /tmp/ccjOg5Oo.s 			page 25
 
 
  325:Core/Src/adf4351.c **** 	st->pdata->channel_spacing = init_param.channel_spacing;
@@ -1498,7 +1498,7 @@ ARM GAS  /tmp/ccdp6r1y.s 			page 1
  379:Core/Src/adf4351.c **** 
  380:Core/Src/adf4351.c ****     return 0;
  381:Core/Src/adf4351.c **** }
-ARM GAS  /tmp/ccdp6r1y.s 			page 26
+ARM GAS  /tmp/ccjOg5Oo.s 			page 26
 
 
  382:Core/Src/adf4351.c **** 
@@ -1558,7 +1558,7 @@ ARM GAS  /tmp/ccdp6r1y.s 			page 1
  399:Core/Src/adf4351.c ****  *
  400:Core/Src/adf4351.c ****  * @return Returns the selected frequency.
  401:Core/Src/adf4351.c **** *******************************************************************************/
-ARM GAS  /tmp/ccdp6r1y.s 			page 27
+ARM GAS  /tmp/ccjOg5Oo.s 			page 27
 
 
  402:Core/Src/adf4351.c **** int32_t adf4350_out_altvoltage0_frequency_resolution(int32_t Hz)
@@ -1618,7 +1618,7 @@ ARM GAS  /tmp/ccdp6r1y.s 			page 1
  418:Core/Src/adf4351.c **** *******************************************************************************/
  419:Core/Src/adf4351.c **** int64_t adf4350_out_altvoltage0_refin_frequency(int64_t Hz)
  420:Core/Src/adf4351.c **** {
-ARM GAS  /tmp/ccdp6r1y.s 			page 28
+ARM GAS  /tmp/ccjOg5Oo.s 			page 28
 
 
  1065              		.loc 1 420 1 is_stmt 1 view -0
@@ -1678,7 +1678,7 @@ ARM GAS  /tmp/ccdp6r1y.s 			page 1
  1113 0002 38B5     		push	{r3, r4, r5, lr}
  1114              	.LCFI17:
  1115              		.cfi_def_cfa_offset 32
-ARM GAS  /tmp/ccdp6r1y.s 			page 29
+ARM GAS  /tmp/ccjOg5Oo.s 			page 29
 
 
  1116              		.cfi_offset 3, -32
@@ -1738,7 +1738,7 @@ ARM GAS  /tmp/ccdp6r1y.s 			page 1
  330:Core/Src/adf4351.c **** 
  1153              		.loc 1 330 37 is_stmt 0 view .LVU315
  1154 0026 9DF82120 		ldrb	r2, [sp, #33]	@ zero_extendqisi2
-ARM GAS  /tmp/ccdp6r1y.s 			page 30
+ARM GAS  /tmp/ccjOg5Oo.s 			page 30
 
 
  330:Core/Src/adf4351.c **** 
@@ -1798,7 +1798,7 @@ ARM GAS  /tmp/ccdp6r1y.s 			page 1
  1194 0062 0A9A     		ldr	r2, [sp, #40]
  1195 0064 A2F59C72 		sub	r2, r2, #312
  1196 0068 D208     		lsrs	r2, r2, #3
-ARM GAS  /tmp/ccdp6r1y.s 			page 31
+ARM GAS  /tmp/ccjOg5Oo.s 			page 31
 
 
  1197 006a 484C     		ldr	r4, .L101+8
@@ -1858,7 +1858,7 @@ ARM GAS  /tmp/ccdp6r1y.s 			page 1
  349:Core/Src/adf4351.c **** 	st->pdata->r3_user_settings |= init_param.anti_backlash_3ns_enable ?
  1237              		.loc 1 349 40 view .LVU345
  1238 00aa 002A     		cmp	r2, #0
-ARM GAS  /tmp/ccdp6r1y.s 			page 32
+ARM GAS  /tmp/ccjOg5Oo.s 			page 32
 
 
  1239 00ac 5DD0     		beq	.L94
@@ -1918,7 +1918,7 @@ ARM GAS  /tmp/ccdp6r1y.s 			page 1
  359:Core/Src/adf4351.c **** 			ADF4350_REG4_AUX_OUTPUT_EN : 0;
  1280              		.loc 1 359 2 is_stmt 1 view .LVU359
  359:Core/Src/adf4351.c **** 			ADF4350_REG4_AUX_OUTPUT_EN : 0;
-ARM GAS  /tmp/ccdp6r1y.s 			page 33
+ARM GAS  /tmp/ccjOg5Oo.s 			page 33
 
 
  1281              		.loc 1 359 42 is_stmt 0 view .LVU360
@@ -1978,7 +1978,7 @@ ARM GAS  /tmp/ccdp6r1y.s 			page 1
  1321              		.loc 1 366 30 is_stmt 0 view .LVU374
  1322 0128 1299     		ldr	r1, [sp, #72]
  1323 012a 43EA8113 		orr	r3, r3, r1, lsl #6
-ARM GAS  /tmp/ccdp6r1y.s 			page 34
+ARM GAS  /tmp/ccjOg5Oo.s 			page 34
 
 
  1324 012e D361     		str	r3, [r2, #28]
@@ -2038,7 +2038,7 @@ ARM GAS  /tmp/ccdp6r1y.s 			page 1
  1367              		.loc 1 337 25 view .LVU385
  1368 015a 0022     		movs	r2, #0
  1369 015c 74E7     		b	.L79
-ARM GAS  /tmp/ccdp6r1y.s 			page 35
+ARM GAS  /tmp/ccjOg5Oo.s 			page 35
 
 
  1370              	.L91:
@@ -2098,7 +2098,7 @@ ARM GAS  /tmp/ccdp6r1y.s 			page 1
  1416              		.align	1
  1417              		.global	adf4350_out_altvoltage0_powerdown
  1418              		.syntax unified
-ARM GAS  /tmp/ccdp6r1y.s 			page 36
+ARM GAS  /tmp/ccjOg5Oo.s 			page 36
 
 
  1419              		.thumb
@@ -2158,7 +2158,7 @@ ARM GAS  /tmp/ccdp6r1y.s 			page 1
  453:Core/Src/adf4351.c **** 
  454:Core/Src/adf4351.c **** 	return (st->regs[ADF4350_REG2] & ADF4350_REG2_POWER_DOWN_EN);
  1449              		.loc 1 454 2 is_stmt 1 view .LVU402
-ARM GAS  /tmp/ccdp6r1y.s 			page 37
+ARM GAS  /tmp/ccjOg5Oo.s 			page 37
 
 
  1450              		.loc 1 454 18 is_stmt 0 view .LVU403
@@ -2218,7 +2218,7 @@ ARM GAS  /tmp/ccdp6r1y.s 			page 1
  1495      00000000 
  1496              		.section	.bss.platdata,"aw",%nobits
  1497              		.align	3
-ARM GAS  /tmp/ccdp6r1y.s 			page 38
+ARM GAS  /tmp/ccjOg5Oo.s 			page 38
 
 
  1498              		.set	.LANCHOR1,. + 0
@@ -2237,51 +2237,51 @@ ARM GAS  /tmp/ccdp6r1y.s 			page 1
  1509              		.file 6 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h"
  1510              		.file 7 "Core/Inc/adf4351.h"
  1511              		.file 8 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_gpio.h"
-ARM GAS  /tmp/ccdp6r1y.s 			page 39
+ARM GAS  /tmp/ccjOg5Oo.s 			page 39
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 adf4351.c
-     /tmp/ccdp6r1y.s:16     .text.SPI_assert_CS_LD:0000000000000000 $t
-     /tmp/ccdp6r1y.s:24     .text.SPI_assert_CS_LD:0000000000000000 SPI_assert_CS_LD
-     /tmp/ccdp6r1y.s:54     .text.SPI_assert_CS_LD:000000000000001c $d
-     /tmp/ccdp6r1y.s:59     .text.SPI_deassert_CS_LD:0000000000000000 $t
-     /tmp/ccdp6r1y.s:66     .text.SPI_deassert_CS_LD:0000000000000000 SPI_deassert_CS_LD
-     /tmp/ccdp6r1y.s:95     .text.SPI_deassert_CS_LD:000000000000001c $d
-     /tmp/ccdp6r1y.s:100    .text.SPI_Write:0000000000000000 $t
-     /tmp/ccdp6r1y.s:107    .text.SPI_Write:0000000000000000 SPI_Write
-     /tmp/ccdp6r1y.s:141    .text.SPI_Write:0000000000000020 $d
-     /tmp/ccdp6r1y.s:146    .text.adf4350_write:0000000000000000 $t
-     /tmp/ccdp6r1y.s:153    .text.adf4350_write:0000000000000000 adf4350_write
-     /tmp/ccdp6r1y.s:223    .text.adf4350_sync_config:0000000000000000 $t
-     /tmp/ccdp6r1y.s:230    .text.adf4350_sync_config:0000000000000000 adf4350_sync_config
-     /tmp/ccdp6r1y.s:336    .text.adf4350_tune_r_cnt:0000000000000000 $t
-     /tmp/ccdp6r1y.s:343    .text.adf4350_tune_r_cnt:0000000000000000 adf4350_tune_r_cnt
-     /tmp/ccdp6r1y.s:427    .text.adf4350_tune_r_cnt:0000000000000044 $d
-     /tmp/ccdp6r1y.s:432    .text.gcd:0000000000000000 $t
-     /tmp/ccdp6r1y.s:439    .text.gcd:0000000000000000 gcd
-     /tmp/ccdp6r1y.s:489    .text.adf4350_set_freq:0000000000000000 $t
-     /tmp/ccdp6r1y.s:496    .text.adf4350_set_freq:0000000000000000 adf4350_set_freq
-     /tmp/ccdp6r1y.s:965    .text.adf4350_set_freq:0000000000000228 $d
-     /tmp/ccdp6r1y.s:976    .text.adf4350_out_altvoltage0_frequency:0000000000000000 $t
-     /tmp/ccdp6r1y.s:983    .text.adf4350_out_altvoltage0_frequency:0000000000000000 adf4350_out_altvoltage0_frequency
-     /tmp/ccdp6r1y.s:1010   .text.adf4350_out_altvoltage0_frequency:0000000000000010 $d
-     /tmp/ccdp6r1y.s:1015   .text.adf4350_out_altvoltage0_frequency_resolution:0000000000000000 $t
-     /tmp/ccdp6r1y.s:1022   .text.adf4350_out_altvoltage0_frequency_resolution:0000000000000000 adf4350_out_altvoltage0_frequency_resolution
-     /tmp/ccdp6r1y.s:1050   .text.adf4350_out_altvoltage0_frequency_resolution:0000000000000014 $d
-     /tmp/ccdp6r1y.s:1055   .text.adf4350_out_altvoltage0_refin_frequency:0000000000000000 $t
-     /tmp/ccdp6r1y.s:1062   .text.adf4350_out_altvoltage0_refin_frequency:0000000000000000 adf4350_out_altvoltage0_refin_frequency
-     /tmp/ccdp6r1y.s:1092   .text.adf4350_out_altvoltage0_refin_frequency:0000000000000018 $d
-     /tmp/ccdp6r1y.s:1097   .text.adf4350_setup:0000000000000000 $t
-     /tmp/ccdp6r1y.s:1104   .text.adf4350_setup:0000000000000000 adf4350_setup
-     /tmp/ccdp6r1y.s:1409   .text.adf4350_setup:0000000000000184 $d
-     /tmp/ccdp6r1y.s:1416   .text.adf4350_out_altvoltage0_powerdown:0000000000000000 $t
-     /tmp/ccdp6r1y.s:1423   .text.adf4350_out_altvoltage0_powerdown:0000000000000000 adf4350_out_altvoltage0_powerdown
-     /tmp/ccdp6r1y.s:1484   .text.adf4350_out_altvoltage0_powerdown:0000000000000034 $d
-     /tmp/ccdp6r1y.s:1501   .bss.platdata:0000000000000000 platdata
-     /tmp/ccdp6r1y.s:1490   .bss.adf4350_st:0000000000000000 $d
-     /tmp/ccdp6r1y.s:1494   .bss.adf4350_st:0000000000000000 adf4350_st
-     /tmp/ccdp6r1y.s:1497   .bss.platdata:0000000000000000 $d
+     /tmp/ccjOg5Oo.s:16     .text.SPI_assert_CS_LD:0000000000000000 $t
+     /tmp/ccjOg5Oo.s:24     .text.SPI_assert_CS_LD:0000000000000000 SPI_assert_CS_LD
+     /tmp/ccjOg5Oo.s:54     .text.SPI_assert_CS_LD:000000000000001c $d
+     /tmp/ccjOg5Oo.s:59     .text.SPI_deassert_CS_LD:0000000000000000 $t
+     /tmp/ccjOg5Oo.s:66     .text.SPI_deassert_CS_LD:0000000000000000 SPI_deassert_CS_LD
+     /tmp/ccjOg5Oo.s:95     .text.SPI_deassert_CS_LD:000000000000001c $d
+     /tmp/ccjOg5Oo.s:100    .text.SPI_Write:0000000000000000 $t
+     /tmp/ccjOg5Oo.s:107    .text.SPI_Write:0000000000000000 SPI_Write
+     /tmp/ccjOg5Oo.s:141    .text.SPI_Write:0000000000000020 $d
+     /tmp/ccjOg5Oo.s:146    .text.adf4350_write:0000000000000000 $t
+     /tmp/ccjOg5Oo.s:153    .text.adf4350_write:0000000000000000 adf4350_write
+     /tmp/ccjOg5Oo.s:223    .text.adf4350_sync_config:0000000000000000 $t
+     /tmp/ccjOg5Oo.s:230    .text.adf4350_sync_config:0000000000000000 adf4350_sync_config
+     /tmp/ccjOg5Oo.s:336    .text.adf4350_tune_r_cnt:0000000000000000 $t
+     /tmp/ccjOg5Oo.s:343    .text.adf4350_tune_r_cnt:0000000000000000 adf4350_tune_r_cnt
+     /tmp/ccjOg5Oo.s:427    .text.adf4350_tune_r_cnt:0000000000000044 $d
+     /tmp/ccjOg5Oo.s:432    .text.gcd:0000000000000000 $t
+     /tmp/ccjOg5Oo.s:439    .text.gcd:0000000000000000 gcd
+     /tmp/ccjOg5Oo.s:489    .text.adf4350_set_freq:0000000000000000 $t
+     /tmp/ccjOg5Oo.s:496    .text.adf4350_set_freq:0000000000000000 adf4350_set_freq
+     /tmp/ccjOg5Oo.s:965    .text.adf4350_set_freq:0000000000000228 $d
+     /tmp/ccjOg5Oo.s:976    .text.adf4350_out_altvoltage0_frequency:0000000000000000 $t
+     /tmp/ccjOg5Oo.s:983    .text.adf4350_out_altvoltage0_frequency:0000000000000000 adf4350_out_altvoltage0_frequency
+     /tmp/ccjOg5Oo.s:1010   .text.adf4350_out_altvoltage0_frequency:0000000000000010 $d
+     /tmp/ccjOg5Oo.s:1015   .text.adf4350_out_altvoltage0_frequency_resolution:0000000000000000 $t
+     /tmp/ccjOg5Oo.s:1022   .text.adf4350_out_altvoltage0_frequency_resolution:0000000000000000 adf4350_out_altvoltage0_frequency_resolution
+     /tmp/ccjOg5Oo.s:1050   .text.adf4350_out_altvoltage0_frequency_resolution:0000000000000014 $d
+     /tmp/ccjOg5Oo.s:1055   .text.adf4350_out_altvoltage0_refin_frequency:0000000000000000 $t
+     /tmp/ccjOg5Oo.s:1062   .text.adf4350_out_altvoltage0_refin_frequency:0000000000000000 adf4350_out_altvoltage0_refin_frequency
+     /tmp/ccjOg5Oo.s:1092   .text.adf4350_out_altvoltage0_refin_frequency:0000000000000018 $d
+     /tmp/ccjOg5Oo.s:1097   .text.adf4350_setup:0000000000000000 $t
+     /tmp/ccjOg5Oo.s:1104   .text.adf4350_setup:0000000000000000 adf4350_setup
+     /tmp/ccjOg5Oo.s:1409   .text.adf4350_setup:0000000000000184 $d
+     /tmp/ccjOg5Oo.s:1416   .text.adf4350_out_altvoltage0_powerdown:0000000000000000 $t
+     /tmp/ccjOg5Oo.s:1423   .text.adf4350_out_altvoltage0_powerdown:0000000000000000 adf4350_out_altvoltage0_powerdown
+     /tmp/ccjOg5Oo.s:1484   .text.adf4350_out_altvoltage0_powerdown:0000000000000034 $d
+     /tmp/ccjOg5Oo.s:1501   .bss.platdata:0000000000000000 platdata
+     /tmp/ccjOg5Oo.s:1490   .bss.adf4350_st:0000000000000000 $d
+     /tmp/ccjOg5Oo.s:1494   .bss.adf4350_st:0000000000000000 adf4350_st
+     /tmp/ccjOg5Oo.s:1497   .bss.platdata:0000000000000000 $d
 
 UNDEFINED SYMBOLS
 HAL_GPIO_WritePin

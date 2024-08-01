@@ -36,7 +36,19 @@ extern "C" {
 
 /* Exported types ------------------------------------------------------------*/
 /* USER CODE BEGIN ET */
+typedef struct {
+  // byte [0]
+  uint8_t node_id;
+  // bytes [1:2]
+  uint16_t pressure;
+  // bytes [3:4]
+  int16_t temperature;
+  // bytes [5:6]
+  uint16_t msg_id;
+  uint8_t rsvd;
+} __attribute__((packed, aligned(1))) sensor_msg_t;
 
+_Static_assert(sizeof(sensor_msg_t) == 8, "struct not correct size");
 /* USER CODE END ET */
 
 /* Exported constants --------------------------------------------------------*/

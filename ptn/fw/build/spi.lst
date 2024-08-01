@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccbfkvAP.s 			page 1
+ARM GAS  /tmp/cc4cUteq.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccbfkvAP.s 			page 1
   30:Core/Src/spi.c **** /* SPI1 init function */
   31:Core/Src/spi.c **** void MX_SPI1_Init(void)
   32:Core/Src/spi.c **** {
-ARM GAS  /tmp/ccbfkvAP.s 			page 2
+ARM GAS  /tmp/cc4cUteq.s 			page 2
 
 
   27              		.loc 1 32 1 view -0
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccbfkvAP.s 			page 1
   65 0020 C261     		str	r2, [r0, #28]
   49:Core/Src/spi.c ****   hspi1.Init.FirstBit = SPI_FIRSTBIT_MSB;
   66              		.loc 1 49 3 is_stmt 1 view .LVU17
-ARM GAS  /tmp/ccbfkvAP.s 			page 3
+ARM GAS  /tmp/cc4cUteq.s 			page 3
 
 
   67              		.loc 1 49 23 is_stmt 0 view .LVU18
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccbfkvAP.s 			page 1
  110              	MX_SPI2_Init:
  111              	.LFB66:
   62:Core/Src/spi.c **** /* SPI2 init function */
-ARM GAS  /tmp/ccbfkvAP.s 			page 4
+ARM GAS  /tmp/cc4cUteq.s 			page 4
 
 
   63:Core/Src/spi.c **** void MX_SPI2_Init(void)
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccbfkvAP.s 			page 1
  148              		.loc 1 80 32 is_stmt 0 view .LVU47
  149 001e C361     		str	r3, [r0, #28]
   81:Core/Src/spi.c ****   hspi2.Init.FirstBit = SPI_FIRSTBIT_MSB;
-ARM GAS  /tmp/ccbfkvAP.s 			page 5
+ARM GAS  /tmp/cc4cUteq.s 			page 5
 
 
  150              		.loc 1 81 3 is_stmt 1 view .LVU48
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccbfkvAP.s 			page 1
  192              		.fpu softvfp
  194              	HAL_SPI_MspInit:
  195              	.LVL4:
-ARM GAS  /tmp/ccbfkvAP.s 			page 6
+ARM GAS  /tmp/cc4cUteq.s 			page 6
 
 
  196              	.LFB67:
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccbfkvAP.s 			page 1
  120:Core/Src/spi.c ****   }
  121:Core/Src/spi.c ****   else if(spiHandle->Instance==SPI2)
  224              		.loc 1 121 8 is_stmt 1 view .LVU69
-ARM GAS  /tmp/ccbfkvAP.s 			page 7
+ARM GAS  /tmp/cc4cUteq.s 			page 7
 
 
  225              		.loc 1 121 10 is_stmt 0 view .LVU70
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccbfkvAP.s 			page 1
  248 0024 42F48052 		orr	r2, r2, #4096
  249 0028 9A61     		str	r2, [r3, #24]
  105:Core/Src/spi.c **** 
-ARM GAS  /tmp/ccbfkvAP.s 			page 8
+ARM GAS  /tmp/cc4cUteq.s 			page 8
 
 
  250              		.loc 1 105 5 view .LVU75
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccbfkvAP.s 			page 1
  115:Core/Src/spi.c **** 
  289              		.loc 1 115 5 is_stmt 0 view .LVU91
  290 0056 FFF7FEFF 		bl	HAL_GPIO_Init
-ARM GAS  /tmp/ccbfkvAP.s 			page 9
+ARM GAS  /tmp/cc4cUteq.s 			page 9
 
 
  291              	.LVL8:
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccbfkvAP.s 			page 1
  330              		.loc 1 136 5 is_stmt 1 view .LVU106
  136:Core/Src/spi.c ****     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
  331              		.loc 1 136 26 is_stmt 0 view .LVU107
-ARM GAS  /tmp/ccbfkvAP.s 			page 10
+ARM GAS  /tmp/cc4cUteq.s 			page 10
 
 
  332 0088 0223     		movs	r3, #2
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccbfkvAP.s 			page 1
  376              		.align	1
  377              		.global	HAL_SPI_MspDeInit
  378              		.syntax unified
-ARM GAS  /tmp/ccbfkvAP.s 			page 11
+ARM GAS  /tmp/cc4cUteq.s 			page 11
 
 
  379              		.thumb
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccbfkvAP.s 			page 1
  174:Core/Src/spi.c ****   /* USER CODE BEGIN SPI2_MspDeInit 0 */
  175:Core/Src/spi.c **** 
  176:Core/Src/spi.c ****   /* USER CODE END SPI2_MspDeInit 0 */
-ARM GAS  /tmp/ccbfkvAP.s 			page 12
+ARM GAS  /tmp/cc4cUteq.s 			page 12
 
 
  177:Core/Src/spi.c ****     /* Peripheral clock disable */
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccbfkvAP.s 			page 1
  443              	.L28:
  444              		.align	2
  445              	.L27:
-ARM GAS  /tmp/ccbfkvAP.s 			page 13
+ARM GAS  /tmp/cc4cUteq.s 			page 13
 
 
  446 0040 00300140 		.word	1073819648
@@ -757,27 +757,27 @@ ARM GAS  /tmp/ccbfkvAP.s 			page 1
  476              		.file 7 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_spi.h"
  477              		.file 8 "Core/Inc/spi.h"
  478              		.file 9 "Core/Inc/main.h"
-ARM GAS  /tmp/ccbfkvAP.s 			page 14
+ARM GAS  /tmp/cc4cUteq.s 			page 14
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 spi.c
-     /tmp/ccbfkvAP.s:16     .text.MX_SPI1_Init:0000000000000000 $t
-     /tmp/ccbfkvAP.s:24     .text.MX_SPI1_Init:0000000000000000 MX_SPI1_Init
-     /tmp/ccbfkvAP.s:97     .text.MX_SPI1_Init:000000000000003c $d
-     /tmp/ccbfkvAP.s:103    .text.MX_SPI2_Init:0000000000000000 $t
-     /tmp/ccbfkvAP.s:110    .text.MX_SPI2_Init:0000000000000000 MX_SPI2_Init
-     /tmp/ccbfkvAP.s:181    .text.MX_SPI2_Init:0000000000000038 $d
-     /tmp/ccbfkvAP.s:187    .text.HAL_SPI_MspInit:0000000000000000 $t
-     /tmp/ccbfkvAP.s:194    .text.HAL_SPI_MspInit:0000000000000000 HAL_SPI_MspInit
-     /tmp/ccbfkvAP.s:367    .text.HAL_SPI_MspInit:00000000000000b0 $d
-     /tmp/ccbfkvAP.s:376    .text.HAL_SPI_MspDeInit:0000000000000000 $t
-     /tmp/ccbfkvAP.s:383    .text.HAL_SPI_MspDeInit:0000000000000000 HAL_SPI_MspDeInit
-     /tmp/ccbfkvAP.s:446    .text.HAL_SPI_MspDeInit:0000000000000040 $d
-     /tmp/ccbfkvAP.s:467    .bss.hspi2:0000000000000000 hspi2
-     /tmp/ccbfkvAP.s:460    .bss.hspi1:0000000000000000 hspi1
-     /tmp/ccbfkvAP.s:456    .bss.hspi1:0000000000000000 $d
-     /tmp/ccbfkvAP.s:463    .bss.hspi2:0000000000000000 $d
+     /tmp/cc4cUteq.s:16     .text.MX_SPI1_Init:0000000000000000 $t
+     /tmp/cc4cUteq.s:24     .text.MX_SPI1_Init:0000000000000000 MX_SPI1_Init
+     /tmp/cc4cUteq.s:97     .text.MX_SPI1_Init:000000000000003c $d
+     /tmp/cc4cUteq.s:103    .text.MX_SPI2_Init:0000000000000000 $t
+     /tmp/cc4cUteq.s:110    .text.MX_SPI2_Init:0000000000000000 MX_SPI2_Init
+     /tmp/cc4cUteq.s:181    .text.MX_SPI2_Init:0000000000000038 $d
+     /tmp/cc4cUteq.s:187    .text.HAL_SPI_MspInit:0000000000000000 $t
+     /tmp/cc4cUteq.s:194    .text.HAL_SPI_MspInit:0000000000000000 HAL_SPI_MspInit
+     /tmp/cc4cUteq.s:367    .text.HAL_SPI_MspInit:00000000000000b0 $d
+     /tmp/cc4cUteq.s:376    .text.HAL_SPI_MspDeInit:0000000000000000 $t
+     /tmp/cc4cUteq.s:383    .text.HAL_SPI_MspDeInit:0000000000000000 HAL_SPI_MspDeInit
+     /tmp/cc4cUteq.s:446    .text.HAL_SPI_MspDeInit:0000000000000040 $d
+     /tmp/cc4cUteq.s:467    .bss.hspi2:0000000000000000 hspi2
+     /tmp/cc4cUteq.s:460    .bss.hspi1:0000000000000000 hspi1
+     /tmp/cc4cUteq.s:456    .bss.hspi1:0000000000000000 $d
+     /tmp/cc4cUteq.s:463    .bss.hspi2:0000000000000000 $d
 
 UNDEFINED SYMBOLS
 HAL_SPI_Init
