@@ -83,7 +83,8 @@ void Error_Handler(void);
 #define NRF24L01_RX_TIMEOUT (5000)
 
 #define PTN_OK (0)
-#define PTN_ERROR (1)
+#define PTN_ERROR_TIMEOUT (1)
+#define PTN_ERROR_MISMATCH (2)
 
 #define PTN_1 (1)
 #define PTN_2 (2)

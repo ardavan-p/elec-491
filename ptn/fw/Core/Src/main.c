@@ -216,6 +216,9 @@ int main(void)
   // Read back the configs (for debugging):
   read_back_config();
 
+  // Initialize PTN status variable:
+  uint8_t ptn_status = PTN_OK;
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -265,7 +268,8 @@ int main(void)
     }
 
 request_handle:
-    // When CAN message received, turn in RF power and frequency hopping:
+    // When CAN message received, turn on RF power and frequency hopping:
+    printf("\n\rRF power ON");
     adf4350_out_altvoltage0_powerdown(0);
     HAL_TIM_Base_Start_IT(&htim2);
 
@@ -282,23 +286,29 @@ request_handle:
     uint32_t ref_time = HAL_GetTick();
     uint32_t millis_time = HAL_GetTick() - ref_time;
 
-    uint8_t ptn_err = PTN_OK;
-
+    
     // Poll the NRF24L01 until data is received. Start a timeout timer so RF output is not on indefinitely:
     printf("\n\rWaiting for NRF");
     while((!STATUS_RX_DR(nrf24l01_get_status(&hspi2))) && millis_time < NRF24L01_RX_TIMEOUT)
     {
       millis_time = HAL_GetTick() - ref_time;
     }
-    printf("\n\rNRF received");
+  
+    // Power down the RF output:
+    printf("\n\rRF power OFF");
+    HAL_TIM_Base_Stop_IT(&htim2);
+    adf4350_out_altvoltage0_powerdown(1);
 
+    // If timeout timer did not expire (i.e., NRF24L01 received data), then go ahead and store the payload:
     sensor_msg_t rx_msg = {0};
-
     if (millis_time < NRF24L01_RX_TIMEOUT)
     {
-      ptn_err = PTN_OK;
-      do {
-        
+      printf("\n\rNRF received data");
+
+      ptn_status = PTN_OK;
+
+      do
+      {
         // Step 1 - Read the RX payload:
         tx_rx_spi_cmd(&hspi2, R_RX_PAYLOAD, NULL, 0, rxbuffer, PAYLOAD_SZ_BYTES + 1);
 
@@ -307,7 +317,8 @@ request_handle:
         // Unpack the message into its components:
         memcpy((void*)(&rx_msg), (void*)(&rxbuffer), PAYLOAD_SZ_BYTES);
 
-        if (rx_msg.msg_id != prev_rand_id) {
+        if (rx_msg.msg_id != prev_rand_id)
+        {
           num_uniq_msgs++;
           prev_rand_id = rx_msg.msg_id;
         }
@@ -328,41 +339,43 @@ request_handle:
         rx_fifo_empty = FIFO_STATUS_RX_EMPTY(fifo_status);
 
       } while (!rx_fifo_empty);
+
+      // If the PTN is not paired to any SN, then pair the received SN to this PTN
+      // The bool 'ptn_sn_paired' is only false after a reset command from the master ECU
+      // 'ptn_sn_paired' will remain false unless a sensor node responds to this PTN 
+      if (ptn_sn_paired == false)
+      {
+        paired_sn_id = rx_msg.node_id;
+        ptn_sn_paired = true;
+      }
+
+      // Detect if there is a mismatch by comparing to the sensor node ID stored during pairing:
+      if (paired_sn_id != rx_msg.node_id)
+      {
+        ptn_status = PTN_ERROR_MISMATCH;
+      }
     }
-    else
+    else  // Else, timeout timer expired, so set an error:
     {
-      ptn_err = PTN_ERROR;
+      ptn_status = PTN_ERROR_TIMEOUT;
       printf("\n\rERROR: Timeout");
     }
-    
-    // Power down the RF output:
-    HAL_TIM_Base_Stop_IT(&htim2);
-    adf4350_out_altvoltage0_powerdown(1);
 
-    // If this request is right after a reset command, pair the received SN to this PTN:
-    if (ptn_sn_paired == false)
-    {
-      paired_sn_id = rx_msg.node_id;
-      ptn_sn_paired = true;
-    }
-    
-    if ((ptn_sn_paired == true) && (paired_sn_id == rx_msg.node_id))
-    {
-      // Pack and transmit CAN message if the SN ID is correct:
-      printf("\n\rSending back PTN RESPONSE");
-      *((uint16_t*)can_tx_payload) = rx_msg.pressure;
-      *((uint16_t*)can_tx_payload + 1) = rx_msg.temperature;
-      *((uint8_t*)can_tx_payload + 4) = ptn_id;
-      *((uint8_t*)can_tx_payload + 5) = rx_msg.node_id;
-      *((uint8_t*)can_tx_payload + 6) = ptn_err;
+    // Pack and transmit CAN message:
+    printf("\n\rSending back PTN RESPONSE");
+    *((uint16_t*)can_tx_payload) = rx_msg.pressure;
+    *((uint16_t*)can_tx_payload + 1) = rx_msg.temperature;
+    *((uint8_t*)can_tx_payload + 4) = ptn_id;
+    *((uint8_t*)can_tx_payload + 5) = rx_msg.node_id;
+    *((uint8_t*)can_tx_payload + 6) = ptn_status;
+    *((uint8_t*)can_tx_payload + 7) = (uint8_t)ptn_sn_paired;
 
-      while (HAL_CAN_GetTxMailboxesFreeLevel(&hcan) <= 0);
-      can_tx_status = HAL_CAN_AddTxMessage(&hcan, &tx_header, can_tx_payload, &can_tx_mailbox);
-    }
+    while (HAL_CAN_GetTxMailboxesFreeLevel(&hcan) <= 0);
+    can_tx_status = HAL_CAN_AddTxMessage(&hcan, &tx_header, can_tx_payload, &can_tx_mailbox);
 
 
 end_while:
-    // Ensure the 
+    // Ensure the RF output is off:
     adf4350_out_altvoltage0_powerdown(1);
     /* USER CODE END WHILE */
 
