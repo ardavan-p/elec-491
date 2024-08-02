@@ -76,6 +76,19 @@ void Error_Handler(void);
 
 #define SPI1_LD_GPIO_Port GPIOA
 #define SPI1_LD_Pin GPIO_PIN_10
+
+#define PTN_ID_Port GPIOA
+#define PTN_ID_Pin GPIO_PIN_0
+
+#define NRF24L01_RX_TIMEOUT (5000)
+
+#define PTN_OK (0)
+#define PTN_ERROR (1)
+
+#define PTN_1 (1)
+#define PTN_2 (2)
+
+#define SN_ID_UNPAIRED (0)
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus

@@ -30,6 +30,7 @@
 #include "adf4351.h"
 #include "nrf24l01.h"
 #include <stdio.h>
+#include <stdbool.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -104,13 +105,10 @@ int main(void)
   HAL_Init();
 
   /* USER CODE BEGIN Init */
+
+  // Disable buffering for stdout:
   setvbuf(stdout, NULL, _IONBF, 0);
-  // Set up initial state for SPI IO pins:
-  HAL_GPIO_WritePin(SPI1_CSn_GPIO_Port, SPI1_CSn_Pin, 1);
-  HAL_GPIO_WritePin(SPI1_LD_GPIO_Port, SPI1_LD_Pin, 1);
 
-
-  
   /* USER CODE END Init */
 
   /* Configure the system clock */
@@ -128,17 +126,38 @@ int main(void)
   MX_CAN_Init();
   MX_USART3_UART_Init();
   /* USER CODE BEGIN 2 */
-  cmd_sm_init();
-  // HAL_TIM_Base_Start_IT(&htim2);
 
-  // NRF CE:
+  // Set up initial state for SPI IO pins:
+  HAL_GPIO_WritePin(SPI1_CSn_GPIO_Port, SPI1_CSn_Pin, 1);
+  HAL_GPIO_WritePin(SPI1_LD_GPIO_Port, SPI1_LD_Pin, 1);
+
+  // PTN - SN pair status:
+  bool ptn_sn_paired = false;
+  uint8_t paired_sn_id = SN_ID_UNPAIRED;
+
+  // PTN ID Detection:
+  uint8_t ptn_id = 0;
+  if (HAL_GPIO_ReadPin(PTN_ID_Port, PTN_ID_Pin) == 1)
+  {
+    ptn_id = PTN_1;
+  }
+  else
+  {
+    ptn_id = PTN_2;
+  }
+  
+  // Initialize the ADF4351 and keep it off:
+  cmd_sm_init();
+  adf4350_out_altvoltage0_powerdown(1);
+
+  // NRF24L01 chip enable (CE):
   HAL_GPIO_WritePin(CHIP_ENABLE_GPIO_Port, CHIP_ENABLE_Pin, 1);
 
   // CAN Setup:
   CAN_FilterTypeDef can_filter = {
       .FilterIdHigh = (uint32_t)(PTN_REQUEST_ID << 5 | 0x0000),
       .FilterIdLow = 0,
-      .FilterMaskIdHigh = 0,
+      .FilterMaskIdHigh = (uint32_t)(PTN_RESET << 5 | 0x0000),
       .FilterMaskIdLow = 0,
       .FilterFIFOAssignment = CAN_FILTER_FIFO0,
       .FilterBank = 0,
@@ -170,124 +189,185 @@ int main(void)
   CAN_RxHeaderTypeDef rx_header = {0};
   uint32_t can_tx_mailbox = 0;
 
+
   // NRF24L01 Setup:
   uint8_t tx_payload[MAX_DATA_BYTES] = {0};
   uint8_t rf_payload[PAYLOAD_SZ_BYTES] = {0};
-  // [REQUIRED] make sure to power on the device
+
+  // [REQUIRED] Make sure to power on the device
   tx_payload[0] = 0b00111111;
   tx_spi_cmd(&hspi2, W_REGISTER(CONFIG_REGISTER), tx_payload, 1);
   HAL_Delay(500);
   
-  // [REQUIRED] make sure to power on the device
+  // [REQUIRED] Make sure to power on the device
   tx_payload[0] = 0b00111111;
   tx_spi_cmd(&hspi2, W_REGISTER(CONFIG_REGISTER), tx_payload, 1);
 
-  // [REQUIRED] set payload size for pipe 0
+  // [REQUIRED] Set payload size for pipe 0
   tx_payload[0] = PAYLOAD_SZ_BYTES;
   tx_spi_cmd(&hspi2, W_REGISTER(RX_PW_P0), tx_payload, 1);
 
-  // [REQUIRED] set the RF configuration
+  // [REQUIRED] Set the RF configuration
   NrfRfSetup_t rf_config = {.data_power = ZERO_DBM, .data_rate = TWO_MBPS};
   nrf24l01_setup_rf(&hspi2, &rf_config);
 
   tx_spi_cmd(&hspi2, FLUSH_RX, NULL, 0);
 
+  // Read back the configs (for debugging):
   read_back_config();
-
 
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  
-  adf4350_out_altvoltage0_powerdown(1);
-  printf("\n\rWaiting for CAN");
-  while(HAL_CAN_GetRxFifoFillLevel(&hcan, CAN_RX_FIFO0) <= 0);
-  printf("\n\rCAN received");
-  can_rx_status = HAL_CAN_GetRxMessage(&hcan, CAN_RX_FIFO0, &rx_header, can_rx_payload);
-
-  adf4350_out_altvoltage0_powerdown(0);
-  HAL_TIM_Base_Start_IT(&htim2);
-  // adf4350_out_altvoltage0_frequency(915e6);
-
-  int num_rx_msgs = 0;
-  int num_uniq_msgs = 0;
-  uint32_t prev_rand_id = 0;
-
-  uint8_t cur_status = 0;
-  uint8_t rx_fifo_empty = 1;
-  uint8_t fifo_status = 0;
-  uint8_t rxbuffer[RX_BUF_SZ_BYTES] = {0};
-
-  uint32_t ref_time = HAL_GetTick();
-  uint32_t millis_time = HAL_GetTick() - ref_time;
-  // Poll until you receive something
-  printf("\n\rWaiting for NRF");
-  while((!STATUS_RX_DR(nrf24l01_get_status(&hspi2))) && millis_time < 5000)
-  {
-    millis_time = HAL_GetTick() - ref_time;
-  }
-  printf("\n\rNRF received");
-
-  sensor_msg_t rx_msg = {0};
-
-  if (millis_time < 5000)
-  {
-    do {
-      
-      // step 1: read the RX payload
-      tx_rx_spi_cmd(&hspi2, R_RX_PAYLOAD, NULL, 0, rxbuffer, PAYLOAD_SZ_BYTES + 1);
-
-      num_rx_msgs++;
-
-      
-
-      // unpack the message into its components
-      memcpy((void*)(&rx_msg), (void*)(&rxbuffer), PAYLOAD_SZ_BYTES);
-
-      if (rx_msg.msg_id != prev_rand_id) {
-        num_uniq_msgs++;
-        prev_rand_id = rx_msg.msg_id;
-      }
-
-      printf("[m: %d] [u: %d] Received message with id = 0x%04x, node_id = 0x%02x! pressure = %d, temp = %d\r\n",
-          num_rx_msgs, num_uniq_msgs, rx_msg.msg_id, rx_msg.node_id, rx_msg.pressure, rx_msg.temperature);
-
-      // clear out the RX buffer
-      memset(&rxbuffer, 0, sizeof(rxbuffer));
-
-      // step 2: clear the RX_DR IRQ bit
-      tx_payload[0] = 0b01000000;
-      tx_spi_cmd(&hspi2, W_REGISTER(STATUS), tx_payload, 1);
-
-      // step 3: check FIFO_STATUS to see if there's any more messages
-      tx_rx_spi_cmd(&hspi2, R_REGISTER(FIFO_STATUS), NULL, 0, rxbuffer, 1);
-      fifo_status = rxbuffer[0];
-      rx_fifo_empty = FIFO_STATUS_RX_EMPTY(fifo_status);
-
-    } while (!rx_fifo_empty);
-  }
-  else
-  {
-    printf("\n\rERROR: Timeout");
-  }
-  
-  HAL_TIM_Base_Stop_IT(&htim2);
-  adf4350_out_altvoltage0_powerdown(1);
-  *((uint16_t*)can_tx_payload) = rx_msg.pressure;
-  *((uint16_t*)can_tx_payload + 1) = rx_msg.temperature;
-  while (HAL_CAN_GetTxMailboxesFreeLevel(&hcan) <= 0);
-  can_tx_status = HAL_CAN_AddTxMessage(&hcan, &tx_header, can_tx_payload, &can_tx_mailbox);
   while (1)
-  {}
+  {
+    // Ensure that RF output is off:
+    adf4350_out_altvoltage0_powerdown(1);
 
+    // Wait for CAN message:
+    printf("\n\rWaiting for CAN");
+    while(HAL_CAN_GetRxFifoFillLevel(&hcan, CAN_RX_FIFO0) <= 0);
+    printf("\n\rCAN received");
+    can_rx_status = HAL_CAN_GetRxMessage(&hcan, CAN_RX_FIFO0, &rx_header, can_rx_payload);
+
+    // Decode the CAN message:
+    const uint16_t ptn_can_id = rx_header.StdId;
+    const uint16_t received_ptn_id = can_rx_payload[0];
+    switch (ptn_can_id)
+    {
+      case (PTN_REQUEST_ID):
+      {
+        if (received_ptn_id == ptn_id)
+        {
+          goto request_handle;
+        }
+        else
+        {
+          goto end_while;
+        }
+      }
+      break;
+
+      case (PTN_RESET):
+      {
+        ptn_sn_paired = false;
+        paired_sn_id = SN_ID_UNPAIRED;
+        goto end_while;
+      }
+      break;
+
+      default:
+      {
+        goto end_while;
+      }
+      break;
+    }
+
+request_handle:
+    // When CAN message received, turn in RF power and frequency hopping:
+    adf4350_out_altvoltage0_powerdown(0);
+    HAL_TIM_Base_Start_IT(&htim2);
+
+    // Prepare to receive data from NRF24L01:
+    int num_rx_msgs = 0;
+    int num_uniq_msgs = 0;
+    uint32_t prev_rand_id = 0;
+
+    uint8_t cur_status = 0;
+    uint8_t rx_fifo_empty = 1;
+    uint8_t fifo_status = 0;
+    uint8_t rxbuffer[RX_BUF_SZ_BYTES] = {0};
+
+    uint32_t ref_time = HAL_GetTick();
+    uint32_t millis_time = HAL_GetTick() - ref_time;
+
+    uint8_t ptn_err = PTN_OK;
+
+    // Poll the NRF24L01 until data is received. Start a timeout timer so RF output is not on indefinitely:
+    printf("\n\rWaiting for NRF");
+    while((!STATUS_RX_DR(nrf24l01_get_status(&hspi2))) && millis_time < NRF24L01_RX_TIMEOUT)
+    {
+      millis_time = HAL_GetTick() - ref_time;
+    }
+    printf("\n\rNRF received");
+
+    sensor_msg_t rx_msg = {0};
+
+    if (millis_time < NRF24L01_RX_TIMEOUT)
+    {
+      ptn_err = PTN_OK;
+      do {
+        
+        // Step 1 - Read the RX payload:
+        tx_rx_spi_cmd(&hspi2, R_RX_PAYLOAD, NULL, 0, rxbuffer, PAYLOAD_SZ_BYTES + 1);
+
+        num_rx_msgs++;
+
+        // Unpack the message into its components:
+        memcpy((void*)(&rx_msg), (void*)(&rxbuffer), PAYLOAD_SZ_BYTES);
+
+        if (rx_msg.msg_id != prev_rand_id) {
+          num_uniq_msgs++;
+          prev_rand_id = rx_msg.msg_id;
+        }
+
+        printf("[m: %d] [u: %d] Received message with id = 0x%04x, node_id = 0x%02x! pressure = %d, temp = %d\r\n",
+            num_rx_msgs, num_uniq_msgs, rx_msg.msg_id, rx_msg.node_id, rx_msg.pressure, rx_msg.temperature);
+
+        // Clear out the RX buffer:
+        memset(&rxbuffer, 0, sizeof(rxbuffer));
+
+        // Step 2 - Clear the RX_DR IRQ bit:
+        tx_payload[0] = 0b01000000;
+        tx_spi_cmd(&hspi2, W_REGISTER(STATUS), tx_payload, 1);
+
+        // Step 3 - Check FIFO_STATUS to see if there's any more messages:
+        tx_rx_spi_cmd(&hspi2, R_REGISTER(FIFO_STATUS), NULL, 0, rxbuffer, 1);
+        fifo_status = rxbuffer[0];
+        rx_fifo_empty = FIFO_STATUS_RX_EMPTY(fifo_status);
+
+      } while (!rx_fifo_empty);
+    }
+    else
+    {
+      ptn_err = PTN_ERROR;
+      printf("\n\rERROR: Timeout");
+    }
     
+    // Power down the RF output:
+    HAL_TIM_Base_Stop_IT(&htim2);
+    adf4350_out_altvoltage0_powerdown(1);
+
+    // If this request is right after a reset command, pair the received SN to this PTN:
+    if (ptn_sn_paired == false)
+    {
+      paired_sn_id = rx_msg.node_id;
+      ptn_sn_paired = true;
+    }
+    
+    if ((ptn_sn_paired == true) && (paired_sn_id == rx_msg.node_id))
+    {
+      // Pack and transmit CAN message if the SN ID is correct:
+      printf("\n\rSending back PTN RESPONSE");
+      *((uint16_t*)can_tx_payload) = rx_msg.pressure;
+      *((uint16_t*)can_tx_payload + 1) = rx_msg.temperature;
+      *((uint8_t*)can_tx_payload + 4) = ptn_id;
+      *((uint8_t*)can_tx_payload + 5) = rx_msg.node_id;
+      *((uint8_t*)can_tx_payload + 6) = ptn_err;
+
+      while (HAL_CAN_GetTxMailboxesFreeLevel(&hcan) <= 0);
+      can_tx_status = HAL_CAN_AddTxMessage(&hcan, &tx_header, can_tx_payload, &can_tx_mailbox);
+    }
 
 
+end_while:
+    // Ensure the 
+    adf4350_out_altvoltage0_powerdown(1);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-  
+  }  
   /* USER CODE END 3 */
 }
 
