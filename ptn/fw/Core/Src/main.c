@@ -149,9 +149,7 @@ int main(void)
   // Initialize the ADF4351 and keep it off:
   cmd_sm_init();
   adf4350_out_altvoltage0_powerdown(1);
-
-  // NRF24L01 chip enable (CE):
-  HAL_GPIO_WritePin(CHIP_ENABLE_GPIO_Port, CHIP_ENABLE_Pin, 1);
+  HAL_GPIO_WritePin(PTN_RF_ON_LED_Port, PTN_RF_ON_LED_Pin, 0);
 
   // CAN Setup:
   CAN_FilterTypeDef can_filter = {
@@ -227,6 +225,7 @@ int main(void)
   {
     // Ensure that RF output is off:
     adf4350_out_altvoltage0_powerdown(1);
+    HAL_GPIO_WritePin(PTN_RF_ON_LED_Port, PTN_RF_ON_LED_Pin, 0);
 
     // Wait for CAN message:
     printf("\n\rWaiting for CAN");
@@ -268,8 +267,13 @@ int main(void)
     }
 
 request_handle:
+    // NRF24L01 chip enable (CE):
+    HAL_GPIO_WritePin(CHIP_ENABLE_GPIO_Port, CHIP_ENABLE_Pin, 1);
+    tx_spi_cmd(&hspi2, FLUSH_RX, NULL, 0);
+
     // When CAN message received, turn on RF power and frequency hopping:
     printf("\n\rRF power ON");
+    HAL_GPIO_WritePin(PTN_RF_ON_LED_Port, PTN_RF_ON_LED_Pin, 1);
     adf4350_out_altvoltage0_powerdown(0);
     HAL_TIM_Base_Start_IT(&htim2);
 
@@ -298,6 +302,7 @@ request_handle:
     printf("\n\rRF power OFF");
     HAL_TIM_Base_Stop_IT(&htim2);
     adf4350_out_altvoltage0_powerdown(1);
+    HAL_GPIO_WritePin(PTN_RF_ON_LED_Port, PTN_RF_ON_LED_Pin, 0);
 
     // If timeout timer did not expire (i.e., NRF24L01 received data), then go ahead and store the payload:
     sensor_msg_t rx_msg = {0};
@@ -361,6 +366,9 @@ request_handle:
       printf("\n\rERROR: Timeout");
     }
 
+    // NRF24L01 chip enable (CE):
+    HAL_GPIO_WritePin(CHIP_ENABLE_GPIO_Port, CHIP_ENABLE_Pin, 0);
+
     // Pack and transmit CAN message:
     printf("\n\rSending back PTN RESPONSE");
     *((uint16_t*)can_tx_payload) = rx_msg.pressure;
@@ -377,6 +385,7 @@ request_handle:
 end_while:
     // Ensure the RF output is off:
     adf4350_out_altvoltage0_powerdown(1);
+    HAL_GPIO_WritePin(PTN_RF_ON_LED_Port, PTN_RF_ON_LED_Pin, 0);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

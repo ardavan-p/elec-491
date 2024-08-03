@@ -75,10 +75,13 @@ void Error_Handler(void);
 #define SPI1_CSn_Pin GPIO_PIN_4
 
 #define SPI1_LD_GPIO_Port GPIOA
-#define SPI1_LD_Pin GPIO_PIN_10
+#define SPI1_LD_Pin GPIO_PIN_4
 
 #define PTN_ID_Port GPIOA
 #define PTN_ID_Pin GPIO_PIN_0
+
+#define PTN_RF_ON_LED_Port GPIOA
+#define PTN_RF_ON_LED_Pin GPIO_PIN_10
 
 #define NRF24L01_RX_TIMEOUT (5000)
 
