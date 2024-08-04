@@ -17,3 +17,4 @@ build/
 *.lib
 *.a
 sensor-node-v1/STM32U031R8Tx_FLASH.ld
+env/
