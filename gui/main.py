@@ -18,6 +18,12 @@ JETBRAINS_BOLD = ("JetBrainsMono NF", 11, "bold")
 
 # Color definitions
 
+LIGHT_RED = "#ffb8b8"
+LIGHT_ORANGE = "#f7d0a6"
+LIGHT_YELLOW = "#f7f0a6"
+LIGHT_GREEN = "#a6f7bb"
+LIGHT_GREY = "#b5b5b5"
+
 # Constant definitions
 
 LOG_MSG_LEN = 3
@@ -36,6 +42,12 @@ class MessageId(Enum):
     LOG_MSG = "log"
     ECU_MSG = "ecu"
     PTN_MSG = "ptn"
+
+
+class PtnStatusCode(Enum):
+    PTN_OK = 0
+    PTN_TIMEOUT = 1
+    PTN_MISMATCH = 2
 
 # Datatype definitions
 
@@ -102,12 +114,12 @@ def create_tire_label_box(canvas, x: int, y: int, tag: str) -> TireLabelBoxRef:
     # add the last updated label objects
 
     bfr = TireLabelBoxFieldRef(
-        ptn_id=tk.Label(tlb_frame, text="N/A", relief="ridge", borderwidth=2, bg="#ffb8b8", padx=30, pady=5, font=JETBRAINS_BOLD),
-        pressure=tk.Label(tlb_frame, text="N/A", relief="ridge", borderwidth=2, bg="#ffb8b8", padx=30, pady=5, font=JETBRAINS_BOLD),
-        temperature=tk.Label(tlb_frame, text="N/A", relief="ridge", borderwidth=2, bg="#ffb8b8", padx=30, pady=5, font=JETBRAINS_BOLD),
-        sn_id=tk.Label(tlb_frame, text="N/A", relief="ridge", borderwidth=2, bg="#ffb8b8", padx=30, pady=5, font=JETBRAINS_BOLD),
-        status_code=tk.Label(tlb_frame, text="N/A", relief="ridge", borderwidth=2, bg="#ffb8b8", padx=30, pady=5, font=JETBRAINS_BOLD),
-        pair_status=tk.Label(tlb_frame, text="N/A", relief="ridge", borderwidth=2, bg="#ffb8b8", padx=30, pady=5, font=JETBRAINS_BOLD),
+        ptn_id=tk.Label(tlb_frame, text="N/A", relief="ridge", borderwidth=2, bg=LIGHT_GREY, padx=30, pady=5, font=JETBRAINS_BOLD),
+        pressure=tk.Label(tlb_frame, text="N/A", relief="ridge", borderwidth=2, bg=LIGHT_GREY, padx=30, pady=5, font=JETBRAINS_BOLD),
+        temperature=tk.Label(tlb_frame, text="N/A", relief="ridge", borderwidth=2, bg=LIGHT_GREY, padx=30, pady=5, font=JETBRAINS_BOLD),
+        sn_id=tk.Label(tlb_frame, text="N/A", relief="ridge", borderwidth=2, bg=LIGHT_GREY, padx=30, pady=5, font=JETBRAINS_BOLD),
+        status_code=tk.Label(tlb_frame, text="N/A", relief="ridge", borderwidth=2, bg=LIGHT_RED, padx=30, pady=5, font=JETBRAINS_BOLD),
+        pair_status=tk.Label(tlb_frame, text="N/A", relief="ridge", borderwidth=2, bg=LIGHT_RED, padx=30, pady=5, font=JETBRAINS_BOLD),
         last_updated=tk.Label(tlb_frame, text="Last updated: N/A", padx=30, pady=5, fg="blue", font=JETBRAINS_BOLD),
     )
 
@@ -167,8 +179,8 @@ class SerialGUI:
 
         # Create all the tire rectangles
         # NOTE: Dimensions of the tire rectangles are: W=43, L=171
-        self.left_tire = self.ui_panel.create_rectangle(642, 343, 685, 514, fill="#b5b5b5", tag="left_tire")
-        self.right_tire = self.ui_panel.create_rectangle(711, 343, 754, 514, fill="#b5b5b5", tag="right_tire")
+        self.left_tire = self.ui_panel.create_rectangle(642, 343, 685, 514, fill=LIGHT_GREY, tag="left_tire")
+        self.right_tire = self.ui_panel.create_rectangle(711, 343, 754, 514, fill=LIGHT_GREY, tag="right_tire")
 
         # create the other inactive tires
         self.ui_panel.create_rectangle(258, 343, 301, 514, fill="gray")
@@ -388,10 +400,23 @@ class SerialGUI:
         tlb.fields.temperature.configure(text=str(ptn_msg.temperature))
         tlb.fields.status_code.configure(text=str(ptn_msg.status_code))
 
+        match ptn_msg.status_code:
+            case 0:
+                # PTN OK
+                tlb.fields.status_code.configure(text=f"{PtnStatusCode(ptn_msg.status_code).name} (0x{ptn_msg.status_code})", bg=LIGHT_GREEN)
+            case 1:
+                # PTN TIMEOUT
+                tlb.fields.status_code.configure(text=f"{PtnStatusCode(ptn_msg.status_code).name} (0x{ptn_msg.status_code})", bg=LIGHT_ORANGE)
+            case 2:
+                # PTN MISMATCH
+                tlb.fields.status_code.configure(text=f"{PtnStatusCode(ptn_msg.status_code).name} (0x{ptn_msg.status_code})", bg=LIGHT_RED)
+            case _:
+                tlb.fields.status_code.configure(text=f"{PtnStatusCode(ptn_msg.status_code).name} (0x{ptn_msg.status_code})", bg=LIGHT_RED)
+
         if ptn_msg.paired:
-            tlb.fields.pair_status.configure(text="TRUE", bg="lightgreen")
+            tlb.fields.pair_status.configure(text="TRUE", bg=LIGHT_GREEN)
         else:
-            tlb.fields.pair_status.configure(text="FALSE", bg="#ffb8b8")
+            tlb.fields.pair_status.configure(text="FALSE", bg=LIGHT_RED)
 
         # TODO: depending on the values of the message, we need to update
         # the colour of the tire
