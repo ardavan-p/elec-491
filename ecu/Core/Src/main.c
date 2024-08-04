@@ -48,7 +48,7 @@
 #define PTN_RESPONSE_TIMEOUT_MS (10000)
 
 // Amount of time to keep trying to send a PTN_RESET message.
-#define PTN_RESET_TIMEOUT_MS (5000)
+#define PTN_RESET_TIMEOUT_MS (3000)
 
 // Amount of time between consecutive PTN_RESET messages to different PTNs.
 #define CONSECUTIVE_RESET_MSG_DELAY_MS (50)
@@ -58,7 +58,7 @@
 #define CAN_TX_TO_RX_DELAY_MS (1000)
 
 // Amount of time between attempting consecutive PTN read.
-#define PTN_READ_DELAY_MS (10000)
+#define PTN_READ_DELAY_MS (5000)
 
 /* USER CODE END PD */
 
@@ -167,7 +167,8 @@ int main(void) {
   for (uint8_t idx = 0; idx < NUM_PTNS; idx++) {
     uint8_t cur_ptn_id = ptn_list[idx];
 
-    printf("Attempting to send PTN_RESET CAN message (ID=0x%x) to PTN ID = 0x%x...\r\n",
+    printf("Attempting to send PTN_RESET CAN message (ID=0x%x) to PTN ID = "
+           "0x%x...\r\n",
            reset_header.StdId, cur_ptn_id);
 
     status = HAL_CAN_AddTxMessagePolling(&hcan, &reset_header, can_tx_payload,
@@ -232,11 +233,14 @@ int main(void) {
     for (uint8_t idx = 0; idx < NUM_PTNS; idx++) {
       uint8_t cur_ptn_id = ptn_list[idx];
 
-      printf("Attempting to send PTN_REQUEST CAN message (ID=0x%x) to PTN ID = 0x%x...\r\n",
+      printf("Attempting to send PTN_REQUEST CAN message (ID=0x%x) to PTN ID = "
+             "0x%x...\r\n",
              req_header.StdId, cur_ptn_id);
 
       // payload must contain the PTN ID it is targeting
       can_tx_payload[0] = cur_ptn_id;
+
+      // TODO: add a CAN Rx Fifo flush here
 
       status = HAL_CAN_AddTxMessagePolling(&hcan, &req_header, can_tx_payload,
                                            &mailbox, PTN_REQUEST_TIMEOUT_MS);
@@ -260,14 +264,28 @@ int main(void) {
         continue;
       }
 
-      printf("[PTN: 0x%x] Waiting to receive PTN_RESPONSE CAN message with ID=0x%x...\r\n",
+      printf("[PTN: 0x%x] Waiting to receive PTN_RESPONSE CAN message with "
+             "ID=0x%x...\r\n",
              cur_ptn_id, PTN_RESPONSE_ID);
 
       // CAN message transmitted correctly so now poll for CAN message
-      // reception...
-      status =
-          HAL_CAN_GetRxMessagePolling(&hcan, CAN_RX_FIFO0, &rx_header,
-                                      can_rx_payload, PTN_RESPONSE_TIMEOUT_MS);
+      // reception
+
+      // NOTE: we need to do this in a while loop since we may have gotten
+      // a response message from another PTN
+      uint32_t start_time = HAL_GetTick();
+      do {
+        status = HAL_CAN_GetRxMessagePolling(&hcan, CAN_RX_FIFO0, &rx_header,
+                                             can_rx_payload,
+                                             PTN_RESPONSE_TIMEOUT_MS);
+
+        // check if the PTN ID in the payload matches the one we're expecting
+        PtnResponseMsg_t *response = (PtnResponseMsg_t *)(can_rx_payload);
+        printf("[PTN: 0x%x] Received PTN_RESPONSE CAN message (ID=0x%x) from PTN=0x%x\r\n", cur_ptn_id, PTN_RESPONSE_ID, response->ptn_id);
+        if (response->ptn_id == cur_ptn_id) {
+          break;
+        }
+      } while (HAL_GetTick() - start_time <= PTN_RESPONSE_TIMEOUT_MS);
 
       switch (status) {
       case HAL_OK: {
@@ -275,9 +293,10 @@ int main(void) {
         PtnResponseMsg_t *response = (PtnResponseMsg_t *)(can_rx_payload);
 
         printf("[PTN: 0x%x]: status HAL_OK, response: PRESSURE = %d, TEMP = "
-               "%d, PTN_ID = 0x%x, SN_ID = 0x%x, ERROR_CODE = 0x%x\r\n",
+               "%d, PTN_ID = 0x%x, SN_ID = 0x%x, STATUS_CODE = 0x%x, PAIRED = "
+               "%d\r\n",
                cur_ptn_id, response->pressure, response->temp, response->ptn_id,
-               response->sn_id, response->error_code);
+               response->sn_id, response->status_code, response->paired);
         break;
       }
       case HAL_TIMEOUT: {

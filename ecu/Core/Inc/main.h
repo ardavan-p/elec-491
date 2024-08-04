@@ -37,13 +37,19 @@ extern "C" {
 /* Exported types ------------------------------------------------------------*/
 /* USER CODE BEGIN ET */
 
+typedef enum {
+  PTN_OK = (uint8_t)0x0,
+  PTN_ERROR_TIMEOUT = (uint8_t)0x1,
+  PTN_ERROR_MISMATCH = (uint8_t)0x2,
+} __attribute__((packed, aligned(1))) PtnStatusCode_e;
+
 typedef struct {
   uint16_t pressure;
   int16_t temp;
   uint8_t ptn_id;
   uint8_t sn_id;
-  uint8_t error_code;
-  uint8_t rsvd;
+  PtnStatusCode_e status_code;
+  uint8_t paired;
 } __attribute__((packed, aligned(1))) PtnResponseMsg_t;
 
 _Static_assert(sizeof(PtnResponseMsg_t) == 8, "struct not correct size");
