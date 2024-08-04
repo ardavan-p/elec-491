@@ -15,6 +15,27 @@ from PIL import Image, ImageTk
 JETBRAINS_BOLD = ("JetBrainsMono NF", 11, "bold")
 
 
+def create_tire_label_box(canvas, x: int, y: int, tag: str):
+    LABELS = ["PTN ID", "Pressure (kPA)", "Temperature (degC)", "Sensor ID", "Status Code", "Pair Status"]
+
+    tire_label_box = ttk.Frame(canvas, width=100, height=50, relief="ridge", borderwidth=2, padding="10 10 10 10")
+
+    # TODO: consider adding tags so its easy to refer back to the object
+    # NOTE: could also iterate over the returned object
+
+    for row_idx, label_str in enumerate(LABELS):
+        # create label objects
+        label = tk.Label(tire_label_box, text=label_str, justify="left", font=JETBRAINS_BOLD)
+        label_text = tk.Label(tire_label_box, text="N/A", relief="ridge", borderwidth=2, bg="#ffb8b8", padx=30, pady=5)
+        # configure the grid locations for them
+        label.grid(column=0, row=row_idx, sticky="w")
+        label_text.grid(column=1, row=row_idx, sticky="w")
+
+    window = canvas.create_window(x, y, window=tire_label_box, anchor="nw", tag=tag)
+
+    return window
+
+
 class SerialGUI:
     def __init__(self, master):
         self.master = master
@@ -62,44 +83,18 @@ class SerialGUI:
         self.right_tire = self.ui_panel.create_rectangle(711, 343, 754, 514, fill="#b5b5b5", tag="right-tire")
         self.left_tire = self.ui_panel.create_rectangle(642, 343, 685, 514, fill="#b5b5b5", tag="left-tire")
 
-        self.inactive_tire_1 = self.ui_panel.create_rectangle(258, 343, 301, 514, fill="gray", tag="inactive-tire-1")
-        self.inactive_tire_2 = self.ui_panel.create_rectangle(327, 343, 370, 514, fill="gray", tag="inactive-tire-2")
+        self.ui_panel.create_rectangle(258, 343, 301, 514, fill="gray")
+        self.ui_panel.create_rectangle(327, 343, 370, 514, fill="gray")
 
         # --- Create the tire label boxes ---
 
-        # TODO: put this in a function
+        self.tlb_left = create_tire_label_box(self.ui_panel, x=800, y=600, tag="tlb_left")
+        self.tlb_right = create_tire_label_box(self.ui_panel, x=800, y=100, tag="tlb_right")
 
-        self.tire_label_box = ttk.Frame(self.ui_panel, width=100, height=50, relief="ridge", borderwidth=2, padding="10 10 10 10")
+        # --- Create the arrows ---
 
-        self.id_label = tk.Label(self.tire_label_box, text="PTN ID", justify="left", font=JETBRAINS_BOLD)
-        self.pressure_label = tk.Label(self.tire_label_box, text="Pressure (kPA)", font=JETBRAINS_BOLD)
-        self.temp_label = tk.Label(self.tire_label_box, text="Temperature (degC)", font=JETBRAINS_BOLD)
-        sn_id_label = tk.Label(self.tire_label_box, text="Sensor ID", font=JETBRAINS_BOLD)
-        status_code = tk.Label(self.tire_label_box, text="Status Code", font=JETBRAINS_BOLD)
-        pair_status = tk.Label(self.tire_label_box, text="Pair Status", font=JETBRAINS_BOLD)
-
-        self.id_label_text = tk.Label(self.tire_label_box, text="N/A", relief="ridge", borderwidth=2, bg="#ffb8b8", padx=30, pady=5)
-        self.pressure_label_text = tk.Label(self.tire_label_box, text="N/A", relief="ridge", borderwidth=2, bg="#ffb8b8", padx=30, pady=5)
-        self.temp_label_text = tk.Label(self.tire_label_box, text="N/A", relief="ridge", borderwidth=2, bg="#ffb8b8", padx=30, pady=5)
-        sn_id_label_text = tk.Label(self.tire_label_box, text="N/A", relief="ridge", borderwidth=2, bg="#ffb8b8", padx=30, pady=5)
-        status_code_text = tk.Label(self.tire_label_box, text="N/A", relief="ridge", borderwidth=2, bg="#ffb8b8", padx=30, pady=5)
-        pair_status_text = tk.Label(self.tire_label_box, text="N/A", relief="ridge", borderwidth=2, bg="#ffb8b8", padx=30, pady=5)
-
-        self.window = self.ui_panel.create_window(100, 100, window=self.tire_label_box, anchor="nw")
-
-        self.id_label.grid(column=0, row=0, sticky="w")
-        self.pressure_label.grid(column=0, row=1, sticky="w")
-        self.temp_label.grid(column=0, row=2, sticky="w")
-        sn_id_label.grid(column=0, row=3, sticky="w")
-        status_code.grid(column=0, row=4, sticky="w")
-        pair_status.grid(column=0, row=5, sticky="w")
-
-        self.id_label_text.grid(column=1, row=0, sticky="w")
-        self.pressure_label_text.grid(column=1, row=1, sticky="w")
-        self.temp_label_text.grid(column=1, row=2, sticky="w")
-        sn_id_label_text.grid(column=1, row=3, sticky="w")
-        status_code_text.grid(column=1, row=4, sticky="w")
-        pair_status_text.grid(column=1, row=5, sticky="w")
+        self.ui_panel.create_line(799, 197, 688, 342, width=2, smooth=True, arrow=tk.BOTH, fill="black", capstyle=tk.ROUND)
+        self.ui_panel.create_line(757, 517, 799, 599, width=2, smooth=True, arrow=tk.BOTH, fill="black", capstyle=tk.ROUND)
 
         # --- Grid configuration ---
 
