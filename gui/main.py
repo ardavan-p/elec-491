@@ -1,10 +1,13 @@
 #!/usr/bin/env python
 import tkinter as tk
 from tkinter import ttk
+from tkinter import font
 import serial
 import threading
 from datetime import datetime
 
+
+# TODO: set the fonts correctly
 
 class SerialGUI:
     def __init__(self, master):
@@ -21,15 +24,15 @@ class SerialGUI:
         self.title_label = ttk.Label(self.main_frame, text="TL-81: Wirelessly-Powered Tire Pressure Monitoring System")
 
         # Log pane
-        self.log_frame = ttk.LabelFrame(self.main_frame, text="Log pane", padding="3 3 12 12")
+        self.log_frame = ttk.LabelFrame(self.main_frame, text="Log pane", padding="10 10 10 10")
         self.log_pane = tk.Text(self.log_frame, state='disabled')
 
         # Main UI panel
-        self.ui_frame = ttk.LabelFrame(self.main_frame, text="System view", padding="3 3 12 12")
+        self.ui_frame = ttk.LabelFrame(self.main_frame, text="System view", padding="10 10 10 10")
         self.ui_panel = tk.Canvas(self.ui_frame, bg="lightblue")
 
         # State panel
-        self.state_frame = ttk.LabelFrame(self.main_frame, text="System state", padding="3 3 12 12")
+        self.state_frame = ttk.LabelFrame(self.main_frame, text="System state", padding="10 10 10 10")
         self.state_pane = tk.Canvas(self.state_frame, bg="lightgreen")
 
         # Footer panel
@@ -45,10 +48,23 @@ class SerialGUI:
         # Grid configuration
         master.columnconfigure(0, weight=1)
         master.rowconfigure(0, weight=1)
-        self.main_frame.columnconfigure(0, weight=1)
+
+        self.main_frame.columnconfigure(0, weight=10)
         self.main_frame.columnconfigure(1, weight=1)
+
         self.main_frame.rowconfigure(0, weight=1)
         self.main_frame.rowconfigure(1, weight=5)
+        self.main_frame.rowconfigure(2, weight=5)
+
+        # seems to make the contents stretch to fill the space of the frame
+        self.state_frame.columnconfigure(1, weight=1)
+        self.state_frame.rowconfigure(1, weight=1)
+
+        self.ui_frame.columnconfigure(0, weight=1)
+        self.ui_frame.rowconfigure(2, weight=1)
+
+        self.log_frame.columnconfigure(1, weight=1)
+        self.log_frame.rowconfigure(2, weight=1)
 
         self.main_frame.grid(column=0, row=0, sticky=(tk.N, tk.W, tk.E, tk.S))
         self.title_label.grid(column=0, row=0, columnspan=2)
