@@ -74,6 +74,7 @@ class TireLabelBoxFieldRef:
     sn_id: tk.Label
     status_code: tk.Label
     pair_status: tk.Label
+    last_updated: tk.Label
 
 
 @dataclass
@@ -87,32 +88,36 @@ def create_tire_label_box(canvas, x: int, y: int, tag: str) -> TireLabelBoxRef:
     LABELS = ["PTN ID", "Pressure (kPA)", "Temperature (degC)", "Sensor ID", "Status Code", "Pair Status"]
 
     tlb_frame = tk.Frame(canvas, width=100, height=50, relief="ridge", borderwidth=2)
-    tlb_frame.grid(padx=10, pady=10)
+    tlb_frame.grid(padx=20, pady=20)
 
     # TODO: consider adding tags so its easy to refer back to the object
     # NOTE: could also iterate over the returned object
 
     for row_idx, label_str in enumerate(LABELS):
         # create label objects
-        label = tk.Label(tlb_frame, text=label_str, justify="left", font=JETBRAINS_BOLD)
+        label = tk.Label(tlb_frame, text=label_str, justify="left", font=JETBRAINS_BOLD, padx=10)
         # configure the grid locations for them
         label.grid(column=0, row=row_idx, sticky="w")
 
+    # add the last updated label objects
+
     bfr = TireLabelBoxFieldRef(
-        ptn_id=tk.Label(tlb_frame, text="N/A", relief="ridge", borderwidth=2, bg="#ffb8b8", padx=30, pady=5),
-        pressure=tk.Label(tlb_frame, text="N/A", relief="ridge", borderwidth=2, bg="#ffb8b8", padx=30, pady=5),
-        temperature=tk.Label(tlb_frame, text="N/A", relief="ridge", borderwidth=2, bg="#ffb8b8", padx=30, pady=5),
-        sn_id=tk.Label(tlb_frame, text="N/A", relief="ridge", borderwidth=2, bg="#ffb8b8", padx=30, pady=5),
-        status_code=tk.Label(tlb_frame, text="N/A", relief="ridge", borderwidth=2, bg="#ffb8b8", padx=30, pady=5),
-        pair_status=tk.Label(tlb_frame, text="N/A", relief="ridge", borderwidth=2, bg="#ffb8b8", padx=30, pady=5),
+        ptn_id=tk.Label(tlb_frame, text="N/A", relief="ridge", borderwidth=2, bg="#ffb8b8", padx=30, pady=5, font=JETBRAINS_BOLD),
+        pressure=tk.Label(tlb_frame, text="N/A", relief="ridge", borderwidth=2, bg="#ffb8b8", padx=30, pady=5, font=JETBRAINS_BOLD),
+        temperature=tk.Label(tlb_frame, text="N/A", relief="ridge", borderwidth=2, bg="#ffb8b8", padx=30, pady=5, font=JETBRAINS_BOLD),
+        sn_id=tk.Label(tlb_frame, text="N/A", relief="ridge", borderwidth=2, bg="#ffb8b8", padx=30, pady=5, font=JETBRAINS_BOLD),
+        status_code=tk.Label(tlb_frame, text="N/A", relief="ridge", borderwidth=2, bg="#ffb8b8", padx=30, pady=5, font=JETBRAINS_BOLD),
+        pair_status=tk.Label(tlb_frame, text="N/A", relief="ridge", borderwidth=2, bg="#ffb8b8", padx=30, pady=5, font=JETBRAINS_BOLD),
+        last_updated=tk.Label(tlb_frame, text="Last updated: N/A", padx=30, pady=5, fg="blue", font=JETBRAINS_BOLD),
     )
 
-    bfr.ptn_id.grid(column=1, row=0, sticky="w")
-    bfr.pressure.grid(column=1, row=1, sticky="w")
-    bfr.temperature.grid(column=1, row=2, sticky="w")
-    bfr.sn_id.grid(column=1, row=3, sticky="w")
-    bfr.status_code.grid(column=1, row=4, sticky="w")
-    bfr.pair_status.grid(column=1, row=5, sticky="w")
+    bfr.ptn_id.grid(column=1, row=0, sticky="ew")
+    bfr.pressure.grid(column=1, row=1, sticky="ew")
+    bfr.temperature.grid(column=1, row=2, sticky="ew")
+    bfr.sn_id.grid(column=1, row=3, sticky="ew")
+    bfr.status_code.grid(column=1, row=4, sticky="ew")
+    bfr.pair_status.grid(column=1, row=5, sticky="ew")
+    bfr.last_updated.grid(column=0, columnspan=2, row=6, sticky="ew")
 
     window = canvas.create_window(x, y, window=tlb_frame, anchor="nw", tag=tag)
 
@@ -127,7 +132,8 @@ class SerialGUI:
         # Register keyboard shortcuts
         # TODO: check out what else I can bind
         self.master.bind("<Control-c>", self.on_ctrl_c)
-        self.master.bind("<Button-1>", self.on_mouse_motion)
+        # NOTE: disable for now
+        # self.master.bind("<Button-1>", self.on_mouse_motion)
 
         # Main frame
         self.main_frame = ttk.Frame(master, padding="12 12 12 12", relief="ridge")
@@ -245,7 +251,31 @@ class SerialGUI:
         self.systick_thread = threading.Thread(target=self.systick)
         self.systick_thread.start()
 
+        # Start the LUT update thread for the left and right tire TLBs
+        self.lut_update_left_thread = threading.Thread(target=self.update_last_updated_time, args=[self.tlb_left])
+        self.lut_update_left_thread.start()
+
+        self.lut_update_right_thread = threading.Thread(target=self.update_last_updated_time, args=[self.tlb_right])
+        self.lut_update_right_thread.start()
+
     # ---- THREADS ----
+
+    def update_last_updated_time(self, tlb: TireLabelBoxRef):
+        while True:
+            # check the current value of the last updated label
+            last_updated_time_val: str = tlb.fields.last_updated["text"]
+            last_updated_time_val: str = last_updated_time_val.split(" ")[2]
+
+            if (last_updated_time_val == "N/A"):
+                time.sleep(1.000)
+                continue
+
+            # if there actually is an updated time, then increment it
+            last_updated_time_val: int = int(last_updated_time_val)
+            new_lut = last_updated_time_val + 1
+
+            tlb.fields.last_updated.configure(text=f"Last updated: {new_lut} seconds ago")
+            time.sleep(1.000)
 
     def read_from_file(self):
         while self.is_running:
@@ -342,7 +372,7 @@ class SerialGUI:
                         print(f"ERROR: Received an unexpected PTN ID \"{ptn_id}\".")
 
             case MessageId.ECU_MSG.value:
-                raise NotImplementedError
+                print(f"ERROR: ECU message decoding not implemented yet!")
 
             case _:
                 print(f"ERROR: Received an unexpected message type \"{msg_id}\".")
@@ -366,7 +396,8 @@ class SerialGUI:
         # TODO: depending on the values of the message, we need to update
         # the colour of the tire
 
-        # TODO: also need to update the last updated time value
+        # update the last updated time value
+        tlb.fields.last_updated.configure(text="Last updated: 0 seconds ago")
 
     # ---- ASYNC EVENT HANDLERS ----
 
