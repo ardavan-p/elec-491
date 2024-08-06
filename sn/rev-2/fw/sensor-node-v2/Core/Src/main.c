@@ -40,17 +40,21 @@
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
 
-#define TRUE (1)
+#define TRUE  (1)
 #define FALSE (0)
 
 #define BURST_MSG_NUM 3
 
-#define START_DELAY_MS 0
-#define STOP_DELAY_MS 0
-#define CONSECUTIVE_BURST_DELAY_MS 0
-#define SETUP_TO_TX_DELAY_MS 1
+#define REF_VOLTAGE_MEASUREMENT    (2250)
+#define VOLTAGE_PRESSURE_SLOPE_ONE (0.2679)
+#define VOLTAGE_PRESSURE_SLOPE_TWO (0.5611)
 
-#define POWERCAST_RESET TRUE
+#define START_DELAY_MS             0
+#define STOP_DELAY_MS              0
+#define CONSECUTIVE_BURST_DELAY_MS 0
+#define SETUP_TO_TX_DELAY_MS       1
+
+#define POWERCAST_RESET FALSE
 
 /* USER CODE END PD */
 
@@ -86,9 +90,8 @@ int main(void) {
   /* USER CODE BEGIN 1 */
 
   uint8_t tx_payload[MAX_DATA_BYTES] = {0};
-  uint8_t rx_buffer[MAX_DATA_BYTES] = {0};
-
   uint8_t rf_payload[PAYLOAD_SZ_BYTES] = {0};
+  uint8_t rx_buffer[MAX_DATA_BYTES] = {0};
 
   HAL_StatusTypeDef send_status = HAL_ERROR;
 
@@ -159,15 +162,28 @@ int main(void) {
   // required when MCU clock speed is more than or equal to 24MHz
   HAL_Delay(STOP_DELAY_MS);
 
+  // NOTE: reference voltage looks to be around 2250.
+
   uint32_t pressure_val = HAL_ADC_GetValue(&hadc1);
-  uint16_t pressure_val_lo = pressure_val & 0xffff;
+
+#if (SENSOR_NODE_ID == SENSOR_NODE_ID_ONE)
+  double pressure_val_proc =
+      (REF_VOLTAGE_MEASUREMENT - (pressure_val & 0xffff)) *
+      VOLTAGE_PRESSURE_SLOPE_ONE;
+#else
+  double pressure_val_proc =
+      (REF_VOLTAGE_MEASUREMENT - (pressure_val & 0xffff)) *
+      VOLTAGE_PRESSURE_SLOPE_TWO;
+#endif
+
+  uint16_t pressure_val_final = (uint16_t)(pressure_val_proc);
 
   // generate random number so that each burst message has an ID
   uint32_t random_id = 0;
   HAL_RNG_GenerateRandomNumber(&hrng, &random_id);
 
   sensor_msg_t message = {.node_id = SENSOR_NODE_ID,
-                          .pressure = pressure_val_lo,
+                          .pressure = pressure_val_final,
                           .temperature = -127,
                           .msg_id = random_id};
 
