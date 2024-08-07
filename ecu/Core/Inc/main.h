@@ -37,6 +37,15 @@ extern "C" {
 /* Exported types ------------------------------------------------------------*/
 /* USER CODE BEGIN ET */
 
+// Number of PTNs in the entire system.
+#define NUM_PTNS (2)
+
+typedef enum {
+  ECU_RESET = 0x0,
+  ECU_AUTOLOCALIZATION = 0x1,
+  ECU_NORMAL_OPERATION = 0x2,
+} EcuState_e;
+
 typedef enum {
   PTN_OK = (uint8_t)0x0,
   PTN_ERROR_TIMEOUT = (uint8_t)0x1,
@@ -51,6 +60,15 @@ typedef struct {
   PtnStatusCode_e status_code;
   uint8_t paired;
 } __attribute__((packed, aligned(1))) PtnResponseMsg_t;
+
+typedef struct {
+  PtnStatusCode_e status_code;
+  uint8_t paired;
+} PtnState_t;
+
+typedef struct {
+  PtnState_t ptn_states[NUM_PTNS];
+} AllPtnState_t;
 
 _Static_assert(sizeof(PtnResponseMsg_t) == 8, "struct not correct size");
 

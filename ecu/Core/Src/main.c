@@ -38,9 +38,6 @@
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
 
-// Number of PTNs in the entire system.
-#define NUM_PTNS (2)
-
 // Amount of time to keep trying to send a PTN_REQUEST message.
 #define PTN_REQUEST_TIMEOUT_MS (1000)
 
@@ -76,6 +73,8 @@
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 /* USER CODE BEGIN PFP */
+
+void print_ecu_state(EcuState_e state);
 
 /* USER CODE END PFP */
 
@@ -113,6 +112,9 @@ int main(void) {
   /* USER CODE BEGIN 1 */
 
   HAL_StatusTypeDef status = HAL_OK;
+  EcuState_e ecu_state = ECU_RESET;
+
+  AllPtnState_t all_ptns_state = {0};
 
   /* USER CODE END 1 */
 
@@ -139,6 +141,15 @@ int main(void) {
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
 
+  // send the RESET message to the GUI
+  printf("reset,reset,reset\r\n");
+
+  print_ecu_state(ecu_state);
+
+  // delay between the reset message and actually starting to send CAN messages
+  // to PTNs
+  HAL_Delay(5000);
+
   setvbuf(stdout, NULL, _IONBF, 0);
 
   CAN_FilterTypeDef can_filter = {
@@ -163,6 +174,9 @@ int main(void) {
   CAN_RxHeaderTypeDef rx_header = {0};
 
   uint8_t uart_msg[256] = {0};
+
+  ecu_state = ECU_AUTOLOCALIZATION;
+  print_ecu_state(ecu_state);
 
   for (uint8_t idx = 0; idx < NUM_PTNS; idx++) {
     uint8_t cur_ptn_id = ptn_list[idx];
@@ -213,7 +227,7 @@ int main(void) {
     HAL_Delay(CONSECUTIVE_RESET_MSG_DELAY_MS);
   }
 
-  printf("Finished initialization!\r\n");
+  printf("log,info,Finished initialization!\r\n");
 
   // On reset, ECU must:
   // 1) Send a RESET message to the PTNs
@@ -281,7 +295,9 @@ int main(void) {
 
         // check if the PTN ID in the payload matches the one we're expecting
         PtnResponseMsg_t *response = (PtnResponseMsg_t *)(can_rx_payload);
-        printf("[PTN: 0x%x] Received PTN_RESPONSE CAN message (ID=0x%x) from PTN=0x%x\r\n", cur_ptn_id, PTN_RESPONSE_ID, response->ptn_id);
+        printf("[PTN: 0x%x] Received PTN_RESPONSE CAN message (ID=0x%x) from "
+               "PTN=0x%x\r\n",
+               cur_ptn_id, PTN_RESPONSE_ID, response->ptn_id);
         if (response->ptn_id == cur_ptn_id) {
           break;
         }
@@ -297,6 +313,14 @@ int main(void) {
                "%d\r\n",
                cur_ptn_id, response->pressure, response->temp, response->ptn_id,
                response->sn_id, response->status_code, response->paired);
+        printf("ptn,%d,%d,%d,%d,%d,%d\r\n", cur_ptn_id, response->sn_id,
+               response->pressure, response->temp, response->status_code,
+               response->paired);
+
+        // put information in the PTN state struct so we can check if
+        // auto-localization is complete or not
+        all_ptns_state.ptn_states[cur_ptn_id].paired = response->paired;
+        all_ptns_state.ptn_states[cur_ptn_id].status_code = response->status_code;
         break;
       }
       case HAL_TIMEOUT: {
@@ -325,6 +349,14 @@ int main(void) {
                "to receive CAN message!\r\n",
                cur_ptn_id, status);
       }
+      }
+
+      // check whether both tires are paired or not
+      // if they are paired, autolocalization is complete...
+      if (all_ptns_state.ptn_states[0].paired && all_ptns_state.ptn_states[1].paired)
+      {
+        ecu_state = ECU_NORMAL_OPERATION;
+        print_ecu_state(ecu_state);
       }
 
       HAL_Delay(PTN_READ_DELAY_MS);
@@ -368,6 +400,10 @@ void SystemClock_Config(void) {
 }
 
 /* USER CODE BEGIN 4 */
+
+void print_ecu_state(EcuState_e state) {
+  printf("ecu,%d,null\r\n", state);
+}
 
 #ifdef __GNUC__
 /* With GCC, small printf (option LD Linker->Libraries->Small printf
