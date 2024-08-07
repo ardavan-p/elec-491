@@ -381,7 +381,9 @@ class SerialGUI:
                     print(line)
                     self.process_serial_data(line)
             else:
-                time.sleep(2.000)
+                # small delay required here for Tkinter reasons
+                # removing the delay makes things slow down
+                time.sleep(0.200)
 
     # ---- HELPER FUNCTIONS ----
 
@@ -584,7 +586,7 @@ class SerialGUI:
             try:
                 self.ser = serial.Serial(SERIAL_PORT_PATH, 115200, timeout=1)  # Adjust COM port as needed
             except Exception as exc:
-                self.update_gui(data=f"Exception encountered when trying to open serial port {exc}")
+                self.update_gui(data=f"{exc}")
             else:
                 self.is_running = True
                 self.is_connected = True
