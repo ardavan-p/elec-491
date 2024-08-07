@@ -61,6 +61,8 @@ typedef struct {
   uint8_t paired;
 } __attribute__((packed, aligned(1))) PtnResponseMsg_t;
 
+_Static_assert(sizeof(PtnResponseMsg_t) == 8, "struct not correct size");
+
 typedef struct {
   PtnStatusCode_e status_code;
   uint8_t paired;
@@ -69,8 +71,6 @@ typedef struct {
 typedef struct {
   PtnState_t ptn_states[NUM_PTNS];
 } AllPtnState_t;
-
-_Static_assert(sizeof(PtnResponseMsg_t) == 8, "struct not correct size");
 
 /* USER CODE END ET */
 
