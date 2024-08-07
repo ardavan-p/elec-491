@@ -13,8 +13,22 @@ from typing import Any, List
 
 from dataclasses import dataclass
 
+# TODO: Switch mismatch colour to orange and timeout color to red
+# TODO: Add PTN active processing and colours
+# TODO: Add ECU state parsing
+# TODO: Maybe add running message statistics
+# TODO: Add single click pressure measurement (going to need supporting FW for this)
+# TODO: Add a function to hot-connect the serial port when it's connected and disconnected
+
+# Configuration
+
+SERIAL_PORT_PATH = "/dev/serial/by-id/usb-Silicon_Labs_CP2102_USB_to_UART_Bridge_Controller_0001-if00-port0"
+DEBUG = False
+
 # Font definitions
+
 JETBRAINS_BOLD = ("JetBrainsMono NF", 11, "bold")
+JETBRAINS_REGULAR = ("JetBrainsMono NF", 11)
 
 # Color definitions
 
@@ -29,6 +43,7 @@ LIGHT_GREY = "#b5b5b5"
 LOG_MSG_LEN = 3
 ECU_MSG_LEN = 3
 PTN_MSG_LEN = 7
+RESET_MSG_LEN = 3
 
 # Enum definitions
 
@@ -42,12 +57,13 @@ class MessageId(Enum):
     LOG_MSG = "log"
     ECU_MSG = "ecu"
     PTN_MSG = "ptn"
+    RESET_MSG = "reset"
 
 
 class PtnStatusCode(Enum):
-    PTN_OK = 0
-    PTN_TIMEOUT = 1
-    PTN_MISMATCH = 2
+    OK = 0
+    TIMEOUT = 1
+    MISMATCH = 2
 
 # Datatype definitions
 
@@ -97,7 +113,7 @@ class TireLabelBoxRef:
 
 
 def create_tire_label_box(canvas, x: int, y: int, tag: str) -> TireLabelBoxRef:
-    LABELS = ["PTN ID", "Pressure (kPA)", "Temperature (degC)", "Sensor ID", "Status Code", "Pair Status"]
+    LABELS = ["PTN ID", "Pressure (kPa)", "Temperature (degC)", "Sensor ID", "Status Code", "Pair Status"]
 
     tlb_frame = tk.Frame(canvas, width=100, height=50, relief="ridge", borderwidth=2)
     tlb_frame.grid(padx=20, pady=20)
@@ -145,6 +161,7 @@ class SerialGUI:
         # TODO: check out what else I can bind
         self.master.bind("<Control-c>", self.on_ctrl_c)
         # NOTE: disable for now
+        # TODO: make sure to disable
         # self.master.bind("<Button-1>", self.on_mouse_motion)
 
         # Main frame
@@ -165,6 +182,9 @@ class SerialGUI:
         self.state_frame = ttk.LabelFrame(self.main_frame, text="System state", padding="10 10 10 10")
         self.current_time_label = ttk.Label(self.state_frame, padding="10 10 10 10")
 
+        self.current_ecu_state_label = ttk.Label(self.state_frame, padding="10 10 10 10", text="ECU State:", justify="left", font=JETBRAINS_BOLD)
+        self.current_ecu_state_text = tk.Label(self.state_frame, text="N/A", relief="ridge", borderwidth=2, bg=LIGHT_GREY, padx=30, pady=5, font=JETBRAINS_REGULAR)
+
         # Footer panel
         self.footer_frame = ttk.Frame(self.main_frame)
 
@@ -174,28 +194,28 @@ class SerialGUI:
         # --- Main UI canvas configuration ---
 
         # place background truck image and center it
-        self.truck_image = tk.PhotoImage(file="./assets/truck-downsized.png")
-        self.ui_panel.create_image(150, 20, image=self.truck_image, anchor="nw")
+        self.truck_image = tk.PhotoImage(file="./assets/gui_visual_v1.png")
+        self.ui_panel.create_image(-50, 30, image=self.truck_image, anchor="nw")
 
         # Create all the tire rectangles
         # NOTE: Dimensions of the tire rectangles are: W=43, L=171
-        self.left_tire = self.ui_panel.create_rectangle(642, 343, 685, 514, fill=LIGHT_GREY, tag="left_tire")
-        self.right_tire = self.ui_panel.create_rectangle(711, 343, 754, 514, fill=LIGHT_GREY, tag="right_tire")
+        self.left_tire = self.ui_panel.create_rectangle(582, 230, 628, 408, fill=LIGHT_GREY, tag="left_tire")
+        self.right_tire = self.ui_panel.create_rectangle(656, 230, 702, 408, fill=LIGHT_GREY, tag="right_tire")
 
         # create the other inactive tires
-        self.ui_panel.create_rectangle(258, 343, 301, 514, fill="gray")
-        self.ui_panel.create_rectangle(327, 343, 370, 514, fill="gray")
+        self.ui_panel.create_rectangle(170, 230, 217, 408, fill="gray")
+        self.ui_panel.create_rectangle(245, 230, 293, 408, fill="gray")
 
-        self.ui_panel.create_rectangle(258, 581, 301, 752, fill="gray")
-        self.ui_panel.create_rectangle(327, 581, 370, 752, fill="gray")
+        self.ui_panel.create_rectangle(170, 481, 217, 649, fill="gray")
+        self.ui_panel.create_rectangle(245, 481, 293, 649, fill="gray")
 
-        self.ui_panel.create_rectangle(642, 581, 685, 752, fill="gray")
-        self.ui_panel.create_rectangle(711, 581, 754, 752, fill="gray")
+        self.ui_panel.create_rectangle(582, 481, 628, 649, fill="gray")
+        self.ui_panel.create_rectangle(656, 481, 702, 649, fill="gray")
 
         # --- Create the tire label boxes ---
 
-        self.tlb_right: TireLabelBoxRef = create_tire_label_box(self.ui_panel, x=800, y=600, tag="right_tire")
-        self.tlb_left: TireLabelBoxRef = create_tire_label_box(self.ui_panel, x=800, y=100, tag="left_tire")
+        self.tlb_right: TireLabelBoxRef = create_tire_label_box(self.ui_panel, x=730, y=500, tag="")
+        self.tlb_left: TireLabelBoxRef = create_tire_label_box(self.ui_panel, x=730, y=100, tag="")
 
         # bind event handlers
 
@@ -207,8 +227,8 @@ class SerialGUI:
 
         # --- Create the arrows ---
 
-        self.ui_panel.create_line(799, 197, 688, 342, width=2, smooth=True, arrow=tk.BOTH, fill="black", capstyle=tk.ROUND)
-        self.ui_panel.create_line(757, 517, 799, 599, width=2, smooth=True, arrow=tk.BOTH, fill="black", capstyle=tk.ROUND)
+        self.ui_panel.create_line(759, 150, 629, 231, width=2, smooth=True, arrow=tk.BOTH, fill="black", capstyle=tk.ROUND)
+        self.ui_panel.create_line(760, 499, 704, 407, width=2, smooth=True, arrow=tk.BOTH, fill="black", capstyle=tk.ROUND)
 
         # --- Grid configuration ---
 
@@ -247,16 +267,20 @@ class SerialGUI:
         self.state_frame.grid(column=1, row=1, sticky=(tk.N, tk.W, tk.E, tk.S))
 
         self.current_time_label.grid(column=0, row=0)
+        self.current_ecu_state_label.grid(column=0, row=1)
+        self.current_ecu_state_text.grid(column=1, row=1, sticky="ew")
 
         # Serial setup
-        # TODO: change this back
-        # self.ser = serial.Serial('/dev/ttyACM0', 115200, timeout=1)  # Adjust COM port as needed
-        self.ser = open("temp_serial_port", "r", buffering=1)
+        if (DEBUG):
+            self.ser = open("temp_serial_port", "r", buffering=1)
+            self.thread = threading.Thread(target=self.read_from_file)
+        else:
+            self.ser = serial.Serial(SERIAL_PORT_PATH, 115200, timeout=1)  # Adjust COM port as needed
+            self.thread = threading.Thread(target=self.read_from_serial)
+
         self.is_running = True
 
         # Start serial reading thread
-        # self.thread = threading.Thread(target=self.read_from_serial)
-        self.thread = threading.Thread(target=self.read_from_file)
         self.thread.start()
 
         # Start the systick thread
@@ -275,6 +299,11 @@ class SerialGUI:
     def update_last_updated_time(self, tlb: TireLabelBoxRef):
         while True:
             # check the current value of the last updated label
+            if (tlb.fields.last_updated["text"] == "Updated just now!"):
+                tlb.fields.last_updated.configure(text="Last updated: 1 second(s) ago", fg="blue")
+                time.sleep(1.000)
+                continue
+
             last_updated_time_val: str = tlb.fields.last_updated["text"]
             last_updated_time_val: str = last_updated_time_val.split(" ")[2]
 
@@ -286,7 +315,7 @@ class SerialGUI:
             last_updated_time_val: int = int(last_updated_time_val)
             new_lut = last_updated_time_val + 1
 
-            tlb.fields.last_updated.configure(text=f"Last updated: {new_lut} seconds ago")
+            tlb.fields.last_updated.configure(text=f"Last updated: {new_lut} second(s) ago", fg="blue")
             time.sleep(1.000)
 
     def read_from_file(self):
@@ -308,7 +337,10 @@ class SerialGUI:
     def read_from_serial(self):
         while self.is_running:
             if self.ser.in_waiting:
-                line = self.ser.readline().decode('ascii').strip()
+                try:
+                    line = self.ser.readline().decode('ascii').strip()
+                except UnicodeDecodeError:
+                    pass
                 if (len(line) == 0):
                     continue
                 print(line)
@@ -319,6 +351,16 @@ class SerialGUI:
     def process_serial_data(self, data):
         # Update GUI elements based on the received data
         self.master.after(0, self.update_gui, data)
+
+    def reset_tlb(self, tlb: TireLabelBoxRef, tire_tag: str):
+        tlb.fields.ptn_id.configure(text="N/A", bg=LIGHT_GREY)
+        tlb.fields.pressure.configure(text="N/A", bg=LIGHT_GREY)
+        tlb.fields.temperature.configure(text="N/A", bg=LIGHT_GREY)
+        tlb.fields.sn_id.configure(text="N/A", bg=LIGHT_GREY)
+        tlb.fields.status_code.configure(text="N/A", bg=LIGHT_RED)
+        tlb.fields.pair_status.configure(text="N/A", bg=LIGHT_RED)
+        tlb.fields.last_updated.configure(text="Last updated: N/A", fg="blue")
+        self.ui_panel.itemconfig(tire_tag, fill=LIGHT_GREY)
 
     def update_gui(self, data):
         # TODO: maybe also write messages to an unparsed log pane
@@ -377,22 +419,44 @@ class SerialGUI:
                 # depending on the PTN ID write to a different frame
                 match ptn_id:
                     case PtnId.PTN_ID_ONE.value:
-                        self.update_tire_info(self.tlb_left, ptn_msg_obj)
+                        self.update_tire_info(self.tlb_left, ptn_msg_obj, "left_tire")
                     case PtnId.PTN_ID_TWO.value:
-                        self.update_tire_info(self.tlb_right, ptn_msg_obj)
+                        self.update_tire_info(self.tlb_right, ptn_msg_obj, "right_tire")
                     case _:
                         print(f"ERROR: Received an unexpected PTN ID \"{ptn_id}\".")
 
             case MessageId.ECU_MSG.value:
                 print(f"ERROR: ECU message decoding not implemented yet!")
+            case MessageId.RESET_MSG.value:
+                # check for the length
+                if (len(split_message) != LOG_MSG_LEN):
+                    print(f"Received `reset` message of incorrect length. Expected {RESET_MSG_LEN}, got {len(split_message)}")
+                    return
+
+                if (split_message[1] != "reset" or split_message[2] != "reset"):
+                    print(f"Received `reset` message of incorrect format. Expected \"reset,reset,reset\"")
+                    return
+
+                # perform GUI reset
+                self.reset_tlb(self.tlb_left, "left_tire")
+                self.reset_tlb(self.tlb_right, "right_tire")
 
             case _:
                 print(f"ERROR: Received an unexpected message type \"{msg_id}\".")
 
+                # generate a timestamp and append to log line
+                current_time = datetime.now()
+                line = f"[{current_time}] :: {data}\n"
+
+                self.log_pane['state'] = 'normal'
+                self.log_pane.insert(tk.END, line)
+                self.log_pane.see(tk.END)
+                self.log_pane['state'] = 'disable'
+
         # self.ui_panel.itemconfig(self.right_tire, fill=color)
         # self.ui_panel.itemconfig(self.text, text=f"Value: {value}")
 
-    def update_tire_info(self, tlb: TireLabelBoxRef, ptn_msg: PtnMessage):
+    def update_tire_info(self, tlb: TireLabelBoxRef, ptn_msg: PtnMessage, tire_tag: str):
         # update the fields in the TLB based on the received PTN message
         tlb.fields.ptn_id.configure(text=str(ptn_msg.ptn_id))
         tlb.fields.sn_id.configure(text=str(ptn_msg.sensor_id))
@@ -404,14 +468,18 @@ class SerialGUI:
             case 0:
                 # PTN OK
                 tlb.fields.status_code.configure(text=f"{PtnStatusCode(ptn_msg.status_code).name} (0x{ptn_msg.status_code})", bg=LIGHT_GREEN)
+                self.ui_panel.itemconfig(tire_tag, fill=LIGHT_GREEN)
             case 1:
                 # PTN TIMEOUT
                 tlb.fields.status_code.configure(text=f"{PtnStatusCode(ptn_msg.status_code).name} (0x{ptn_msg.status_code})", bg=LIGHT_ORANGE)
+                self.ui_panel.itemconfig(tire_tag, fill=LIGHT_ORANGE)
             case 2:
                 # PTN MISMATCH
                 tlb.fields.status_code.configure(text=f"{PtnStatusCode(ptn_msg.status_code).name} (0x{ptn_msg.status_code})", bg=LIGHT_RED)
+                self.ui_panel.itemconfig(tire_tag, fill=LIGHT_RED)
             case _:
                 tlb.fields.status_code.configure(text=f"{PtnStatusCode(ptn_msg.status_code).name} (0x{ptn_msg.status_code})", bg=LIGHT_RED)
+                self.ui_panel.itemconfig(tire_tag, fill=LIGHT_RED)
 
         if ptn_msg.paired:
             tlb.fields.pair_status.configure(text="TRUE", bg=LIGHT_GREEN)
@@ -422,7 +490,7 @@ class SerialGUI:
         # the colour of the tire
 
         # update the last updated time value
-        tlb.fields.last_updated.configure(text="Last updated: 0 seconds ago")
+        tlb.fields.last_updated.configure(text="Updated just now!", fg="green")
 
     # ---- ASYNC EVENT HANDLERS ----
 
