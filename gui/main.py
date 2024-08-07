@@ -232,13 +232,11 @@ class SerialGUI:
         self.tlb_right.frame.bind("<Enter>", self.on_enter_tire_right)
         self.tlb_right.frame.bind("<Leave>", self.on_leave_tire_right)
 
-        self.ui_panel.tag_bind("left_tire", "<Enter>", self.on_enter_tire_left)
-        self.ui_panel.tag_bind("right_tire", "<Leave>", self.on_leave_tire_left)
+        self.ui_panel.tag_bind("left_tire", "<Enter>", self.on_enter_tire_left_extended)
+        self.ui_panel.tag_bind("left_tire", "<Leave>", self.on_leave_tire_left_extended)
 
-        # --- Create the arrows ---
-
-        # self.ui_panel.create_line(759, 110, 629, 231, width=2, smooth=True, arrow=tk.BOTH, fill="black", capstyle=tk.ROUND)
-        # self.ui_panel.create_line(760, 499, 704, 407, width=2, smooth=True, arrow=tk.BOTH, fill="black", capstyle=tk.ROUND)
+        self.ui_panel.tag_bind("right_tire", "<Enter>", self.on_enter_tire_right_extended)
+        self.ui_panel.tag_bind("right_tire", "<Leave>", self.on_leave_tire_right_extended)
 
         # --- Grid configuration ---
 
@@ -521,6 +519,22 @@ class SerialGUI:
 
     def on_enter_tire_left(self, event):
         self.ui_panel.itemconfig(self.left_tire, outline="black", width=4)
+
+    def on_enter_tire_left_extended(self, event):
+        self.ui_panel.itemconfig(self.left_tire, outline="black", width=4)
+        self.tlb_left.frame.configure(relief="solid", width=4)
+
+    def on_leave_tire_left_extended(self, event):
+        self.ui_panel.itemconfig(self.left_tire, outline="black", width=1)
+        self.tlb_left.frame.configure(relief="ridge", width=1)
+
+    def on_enter_tire_right_extended(self, event):
+        self.ui_panel.itemconfig(self.right_tire, outline="black", width=4)
+        self.tlb_right.frame.configure(relief="solid", width=4)
+
+    def on_leave_tire_right_extended(self, event):
+        self.ui_panel.itemconfig(self.right_tire, outline="black", width=1)
+        self.tlb_right.frame.configure(relief="ridge", width=1)
 
     def on_leave_tire_left(self, event):
         self.ui_panel.itemconfig(self.left_tire, outline="black", width=1)
