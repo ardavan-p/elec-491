@@ -13,11 +13,8 @@ from typing import Any, List
 
 from dataclasses import dataclass
 
-# TODO: Switch mismatch colour to orange and timeout color to red
 # TODO: Add PTN active processing and colours
-# TODO: Add ECU state parsing
 # TODO: Maybe add running message statistics
-# TODO: Add single click pressure measurement (going to need supporting FW for this)
 # TODO: Add a function to hot-connect the serial port when it's connected and disconnected
 
 # Configuration
@@ -30,6 +27,7 @@ DEBUG = True
 JETBRAINS_BOLD = ("JetBrainsMono NF", 11, "bold")
 JETBRAINS_LARGE_BOLD = ("JetBrainsMono NF", 24, "bold")
 JETBRAINS_REGULAR = ("JetBrainsMono NF", 11)
+JETBRAINS_BOLD_LARGE_LABEL = ("JetBrainsMono NF", 16)
 
 # Color definitions
 
@@ -165,10 +163,8 @@ class SerialGUI:
         master.title("Wirelessly-Powered Tire Pressure Monitoring System - GUI")
 
         # Register keyboard shortcuts
-        # TODO: check out what else I can bind
         self.master.bind("<Control-c>", self.on_ctrl_c)
         # NOTE: disable for now
-        # TODO: make sure to disable
         # self.master.bind("<Button-1>", self.on_mouse_motion)
 
         # Main frame
@@ -201,13 +197,13 @@ class SerialGUI:
         # --- Main UI canvas configuration ---
 
         # place background truck image and center it
-        self.truck_image = tk.PhotoImage(file="./assets/gui_visual_v1.png")
+        self.truck_image = tk.PhotoImage(file="./assets/gui_visual_v2.png")
         self.ui_panel.create_image(-100, 30, image=self.truck_image, anchor="nw")
 
         # Create all the tire rectangles
         # NOTE: Dimensions of the tire rectangles are: W=43, L=171
         self.left_tire = self.ui_panel.create_rectangle(532, 230, 578, 408, fill=LIGHT_GREY, tag="left_tire")
-        self.right_tire = self.ui_panel.create_rectangle(606, 230, 652, 408, fill=LIGHT_GREY, tag="right_tire")
+        self.right_tire = self.ui_panel.create_rectangle(607, 229, 652, 408, fill=LIGHT_GREY, tag="right_tire")
 
         # create the other inactive tires
         self.ui_panel.create_rectangle(120, 230, 167, 408, fill="gray")
@@ -218,6 +214,9 @@ class SerialGUI:
 
         self.ui_panel.create_rectangle(532, 481, 578, 649, fill="gray")
         self.ui_panel.create_rectangle(606, 481, 652, 649, fill="gray")
+
+        self.ui_panel.create_text(556, 170, text="(1)", font=JETBRAINS_BOLD_LARGE_LABEL, anchor=tk.CENTER)
+        self.ui_panel.create_text(629, 170, text="(2)", font=JETBRAINS_BOLD_LARGE_LABEL, anchor=tk.CENTER)
 
         # --- Create the tire label boxes ---
 
