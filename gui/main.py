@@ -8,19 +8,17 @@ import threading
 from datetime import datetime
 from enum import Enum
 from tkinter import ttk
-from tkinter import font
 from typing import Any, List
 
 from dataclasses import dataclass
 
 # TODO: Add PTN active processing and colours
-# TODO: Maybe add running message statistics
-# TODO: Add a function to hot-connect the serial port when it's connected and disconnected
+# TODO: Add running message statistics
 
 # Configuration
 
 SERIAL_PORT_PATH = "/dev/serial/by-id/usb-Silicon_Labs_CP2102_USB_to_UART_Bridge_Controller_0001-if00-port0"
-DEBUG = True
+DEBUG = False
 
 # Font definitions
 
@@ -123,9 +121,6 @@ def create_tire_label_box(canvas, x: int, y: int, tag: str) -> TireLabelBoxRef:
     tlb_frame = tk.Frame(canvas, width=100, height=50, relief="ridge", borderwidth=2)
     tlb_frame.grid(padx=20, pady=20)
 
-    # TODO: consider adding tags so its easy to refer back to the object
-    # NOTE: could also iterate over the returned object
-
     for row_idx, label_str in enumerate(LABELS):
         # create label objects
         label = tk.Label(tlb_frame, text=label_str, justify="left", font=JETBRAINS_BOLD, padx=10)
@@ -185,7 +180,10 @@ class SerialGUI:
         self.state_frame = ttk.LabelFrame(self.main_frame, text="System state", padding="10 10 10 10")
         self.current_time_label = ttk.Label(self.state_frame, padding="10 10 10 10", justify="right")
 
-        self.current_ecu_state_label = ttk.Label(self.state_frame, text="ECU State", justify="left", font=JETBRAINS_BOLD)
+        self.current_connection_status_label = ttk.Label(self.state_frame, text="Link Status", justify="left", padding="0 0 20 0", font=JETBRAINS_BOLD)
+        self.current_connection_status_text = tk.Label(self.state_frame, text="N/A", relief="ridge", borderwidth=2, bg=LIGHT_GREY, padx=30, pady=5, font=JETBRAINS_REGULAR)
+
+        self.current_ecu_state_label = ttk.Label(self.state_frame, text="ECU State", justify="left", padding="0 0 20 0", font=JETBRAINS_BOLD)
         self.current_ecu_state_text = tk.Label(self.state_frame, text="N/A", relief="ridge", borderwidth=2, bg=LIGHT_GREY, padx=30, pady=5, font=JETBRAINS_REGULAR)
 
         # Footer panel
@@ -193,6 +191,9 @@ class SerialGUI:
 
         # Quit button
         self.quit_button = ttk.Button(self.footer_frame, text="Quit", command=self.on_closing)
+
+        # Connect button
+        self.connect_button = ttk.Button(self.footer_frame, text="Connect", command=self.on_connect_serial)
 
         # --- Main UI canvas configuration ---
 
@@ -266,29 +267,48 @@ class SerialGUI:
         self.ui_panel.grid(column=0, row=1, rowspan=3, sticky=(tk.N, tk.W, tk.E, tk.S))
 
         self.footer_frame.grid(column=0, row=4, columnspan=2, sticky=(tk.N, tk.W, tk.E, tk.S))
-        self.quit_button.grid(column=0, row=4, sticky=tk.E, padx=5, pady=5)
+        self.connect_button.grid(column=0, row=4, sticky=tk.E, padx=5, pady=5)
+        self.quit_button.grid(column=1, row=4, sticky=tk.E, padx=5, pady=5)
 
         self.log_frame.grid(column=1, row=2, sticky=(tk.N, tk.W, tk.E, tk.S))
         self.log_pane.grid(column=1, row=2, sticky=(tk.N, tk.W, tk.E, tk.S))
 
         self.state_frame.grid(column=1, row=1, sticky=(tk.N, tk.W, tk.E, tk.S))
 
-        self.current_time_label.grid(column=0, row=0)
-        self.current_ecu_state_label.grid(column=0, row=1)
-        self.current_ecu_state_text.grid(column=1, row=1, sticky="ew")
+        self.state_frame.rowconfigure(0, weight=5)
+        self.state_frame.rowconfigure(1, weight=1)
+        self.state_frame.rowconfigure(2, weight=1)
+
+        self.current_time_label.grid(column=1, row=0, sticky="ne")
+        self.current_connection_status_label.grid(column=0, row=1, sticky="ew")
+        self.current_connection_status_text.grid(column=1, row=1, sticky="ew")
+        self.current_ecu_state_label.grid(column=0, row=2, sticky="ew")
+        self.current_ecu_state_text.grid(column=1, row=2, sticky="ew")
+
+        self.is_running = False
+        self.is_connected = False
 
         # Serial setup
         if (DEBUG):
             self.ser = open("temp_serial_port", "r", buffering=1)
             self.thread = threading.Thread(target=self.read_from_file)
+            self.is_running = True
+            self.is_connected = True
+            self.current_connection_status_text.configure(text="CONNECTED", bg=LIGHT_GREEN)
+            self.thread.start()
         else:
-            self.ser = serial.Serial(SERIAL_PORT_PATH, 115200, timeout=1)  # Adjust COM port as needed
-            self.thread = threading.Thread(target=self.read_from_serial)
-
-        self.is_running = True
-
-        # Start serial reading thread
-        self.thread.start()
+            try:
+                self.ser = serial.Serial(SERIAL_PORT_PATH, 115200, timeout=1)  # Adjust COM port as needed
+            except OSError as exc:
+                self.current_connection_status_text.configure(text="DISCONNECTED", bg=LIGHT_RED)
+                self.update_gui(data=f"{exc}")
+            else:
+                self.is_running = True
+                self.is_connected = True
+                self.current_connection_status_text.configure(text="CONNECTED", bg=LIGHT_GREEN)
+                self.update_gui(data=f"Successfully connected to {SERIAL_PORT_PATH}!")
+                self.thread = threading.Thread(target=self.read_from_serial)
+                self.thread.start()
 
         # Start the systick thread
         self.systick_thread = threading.Thread(target=self.systick)
@@ -343,15 +363,25 @@ class SerialGUI:
 
     def read_from_serial(self):
         while self.is_running:
-            if self.ser.in_waiting:
+            if self.is_connected:
                 try:
-                    line = self.ser.readline().decode('ascii').strip()
+                    if self.ser.in_waiting:
+                        line = self.ser.readline().decode('ascii').strip()
+                    else:
+                        line = ""
                 except UnicodeDecodeError:
                     pass
-                if (len(line) == 0):
-                    continue
-                print(line)
-                self.process_serial_data(line)
+                except OSError:
+                    self.is_connected = False
+                    self.current_connection_status_text.configure(text="DISCONNECTED", bg=LIGHT_RED)
+                    self.update_gui(f"Disconnected from serial port {self.ser.name}")
+                else:
+                    if (len(line) == 0):
+                        continue
+                    print(line)
+                    self.process_serial_data(line)
+            else:
+                time.sleep(2.000)
 
     # ---- HELPER FUNCTIONS ----
 
@@ -459,7 +489,7 @@ class SerialGUI:
                     return
 
                 if (split_message[1] != "reset" or split_message[2] != "reset"):
-                    print(f"Received `reset` message of incorrect format. Expected \"reset,reset,reset\"")
+                    print("Received `reset` message of incorrect format. Expected \"reset,reset,reset\"")
                     return
 
                 # perform GUI reset
@@ -548,9 +578,24 @@ class SerialGUI:
         x, y = event.x, event.y
         self.process_serial_data(f"mouse position: {x=}, {y=}")
 
+    def on_connect_serial(self):
+        # create the serial port object
+        if self.is_connected is False:
+            try:
+                self.ser = serial.Serial(SERIAL_PORT_PATH, 115200, timeout=1)  # Adjust COM port as needed
+            except Exception as exc:
+                self.update_gui(data=f"Exception encountered when trying to open serial port {exc}")
+            else:
+                self.is_running = True
+                self.is_connected = True
+                # mark system connection state as "CONNECTED"
+                self.current_connection_status_text.configure(text="CONNECTED", bg=LIGHT_GREEN)
+                self.update_gui(data=f"Successfully connected to {SERIAL_PORT_PATH}!")
+
     def on_closing(self):
         self.is_running = False
-        self.ser.close()
+        if (self.__dict__.get("ser")):
+            self.ser.close()
         self.master.destroy()
 
 
