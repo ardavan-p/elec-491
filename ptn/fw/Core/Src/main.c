@@ -236,6 +236,7 @@ int main(void)
     // Decode the CAN message:
     const uint16_t ptn_can_id = rx_header.StdId;
     const uint16_t received_ptn_id = can_rx_payload[0];
+    const uint16_t ptn_timeout = *((uint16_t*)(can_rx_payload) + 1);
     switch (ptn_can_id)
     {
       case (PTN_REQUEST_ID):
@@ -293,7 +294,7 @@ request_handle:
     
     // Poll the NRF24L01 until data is received. Start a timeout timer so RF output is not on indefinitely:
     printf("\n\rWaiting for NRF");
-    while((!STATUS_RX_DR(nrf24l01_get_status(&hspi2))) && millis_time < NRF24L01_RX_TIMEOUT)
+    while((!STATUS_RX_DR(nrf24l01_get_status(&hspi2))) && millis_time < ptn_timeout)
     {
       millis_time = HAL_GetTick() - ref_time;
     }
@@ -306,7 +307,7 @@ request_handle:
 
     // If timeout timer did not expire (i.e., NRF24L01 received data), then go ahead and store the payload:
     sensor_msg_t rx_msg = {0};
-    if (millis_time < NRF24L01_RX_TIMEOUT)
+    if (millis_time < ptn_timeout)
     {
       printf("\n\rNRF received data");
 

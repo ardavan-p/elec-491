@@ -83,8 +83,6 @@ void Error_Handler(void);
 #define PTN_RF_ON_LED_Port GPIOA
 #define PTN_RF_ON_LED_Pin GPIO_PIN_10
 
-#define NRF24L01_RX_TIMEOUT (5000)
-
 #define PTN_OK (0)
 #define PTN_ERROR_TIMEOUT (1)
 #define PTN_ERROR_MISMATCH (2)
