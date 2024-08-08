@@ -41,8 +41,6 @@
 // Amount of time to keep trying to send a PTN_REQUEST message.
 #define PTN_REQUEST_TIMEOUT_MS (1000)
 
-// Amount of time to poll for a CAN message response from a PTN.
-#define PTN_RESPONSE_TIMEOUT_MS (10000)
 
 // Amount of time to keep trying to send a PTN_RESET message.
 #define PTN_RESET_TIMEOUT_MS (3000)
@@ -56,6 +54,12 @@
 
 // Amount of time between attempting consecutive PTN read.
 #define PTN_READ_DELAY_MS (5000)
+
+// WARNING: ensure this is between 5000ms (5s) and 15000ms (15s)
+#define PTN_ON_TIMEOUT ((uint16_t)15000)
+
+// Amount of time to poll for a CAN message response from a PTN.
+#define PTN_RESPONSE_TIMEOUT_MS (PTN_ON_TIMEOUT + (uint16_t)2000)
 
 /* USER CODE END PD */
 
@@ -141,14 +145,21 @@ int main(void) {
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
 
+  printf("log,info,ECU resetting!\r\n");
+
   // send the RESET message to the GUI
   printf("reset,reset,reset\r\n");
-
-  print_ecu_state(ecu_state);
 
   // delay between the reset message and actually starting to send CAN messages
   // to PTNs
   HAL_Delay(5000);
+
+  // send another RESET message to the GUI
+  printf("reset,reset,reset\r\n");
+
+  print_ecu_state(ecu_state);
+
+  HAL_Delay(2500);
 
   setvbuf(stdout, NULL, _IONBF, 0);
 
@@ -251,8 +262,15 @@ int main(void) {
              "0x%x...\r\n",
              req_header.StdId, cur_ptn_id);
 
-      // payload must contain the PTN ID it is targeting
+      // byte 0 is the target PTN ID
       can_tx_payload[0] = cur_ptn_id;
+
+      // byte 1 is left empty
+
+      // byte 2-3 is the timeout value in milliseconds
+      *((uint16_t *)(can_tx_payload) + 1) = PTN_ON_TIMEOUT;
+
+      printf("[PTN: 0x%x] Setting the PTN with timeout = %d ms\r\n", cur_ptn_id, PTN_ON_TIMEOUT);
 
       // TODO: add a CAN Rx Fifo flush here
 
@@ -319,8 +337,8 @@ int main(void) {
 
         // put information in the PTN state struct so we can check if
         // auto-localization is complete or not
-        all_ptns_state.ptn_states[cur_ptn_id].paired = response->paired;
-        all_ptns_state.ptn_states[cur_ptn_id].status_code = response->status_code;
+        all_ptns_state.ptn_states[idx].paired = response->paired;
+        all_ptns_state.ptn_states[idx].status_code = response->status_code;
         break;
       }
       case HAL_TIMEOUT: {
@@ -353,8 +371,8 @@ int main(void) {
 
       // check whether both tires are paired or not
       // if they are paired, autolocalization is complete...
-      if (all_ptns_state.ptn_states[0].paired && all_ptns_state.ptn_states[1].paired)
-      {
+      if (all_ptns_state.ptn_states[0].paired &&
+          all_ptns_state.ptn_states[1].paired) {
         ecu_state = ECU_NORMAL_OPERATION;
         print_ecu_state(ecu_state);
       }
@@ -401,9 +419,7 @@ void SystemClock_Config(void) {
 
 /* USER CODE BEGIN 4 */
 
-void print_ecu_state(EcuState_e state) {
-  printf("ecu,%d,null\r\n", state);
-}
+void print_ecu_state(EcuState_e state) { printf("ecu,%d,null\r\n", state); }
 
 #ifdef __GNUC__
 /* With GCC, small printf (option LD Linker->Libraries->Small printf
