@@ -116,7 +116,7 @@ class TireLabelBoxRef:
 
 
 def create_tire_label_box(canvas, x: int, y: int, tag: str) -> TireLabelBoxRef:
-    LABELS = ["PTN ID", "Pressure (kPa)", "Temperature (degC)", "Sensor ID", "Status Code", "Pair Status"]
+    LABELS = ["PTN ID", "Sensor ID", "Pressure (kPa)", "Temperature (degC)", "Status Code", "Pair Status"]
 
     tlb_frame = tk.Frame(canvas, width=100, height=50, relief="ridge", borderwidth=2)
     tlb_frame.grid(padx=20, pady=20)
@@ -131,18 +131,18 @@ def create_tire_label_box(canvas, x: int, y: int, tag: str) -> TireLabelBoxRef:
 
     bfr = TireLabelBoxFieldRef(
         ptn_id=tk.Label(tlb_frame, text="N/A", relief="ridge", borderwidth=2, bg=LIGHT_GREY, padx=30, pady=5, font=JETBRAINS_BOLD),
+        sn_id=tk.Label(tlb_frame, text="N/A", relief="ridge", borderwidth=2, bg=LIGHT_GREY, padx=30, pady=5, font=JETBRAINS_BOLD),
         pressure=tk.Label(tlb_frame, text="N/A", relief="ridge", borderwidth=2, bg=LIGHT_GREY, padx=30, pady=5, font=JETBRAINS_BOLD),
         temperature=tk.Label(tlb_frame, text="N/A", relief="ridge", borderwidth=2, bg=LIGHT_GREY, padx=30, pady=5, font=JETBRAINS_BOLD),
-        sn_id=tk.Label(tlb_frame, text="N/A", relief="ridge", borderwidth=2, bg=LIGHT_GREY, padx=30, pady=5, font=JETBRAINS_BOLD),
         status_code=tk.Label(tlb_frame, text="N/A", relief="ridge", borderwidth=2, bg=LIGHT_RED, padx=10, pady=5, font=JETBRAINS_BOLD),
         pair_status=tk.Label(tlb_frame, text="N/A", relief="ridge", borderwidth=2, bg=LIGHT_RED, padx=30, pady=5, font=JETBRAINS_BOLD),
         last_updated=tk.Label(tlb_frame, text="Last updated: N/A", padx=30, pady=5, fg="blue", font=JETBRAINS_BOLD),
     )
 
     bfr.ptn_id.grid(column=1, row=0, sticky="ew")
-    bfr.pressure.grid(column=1, row=1, sticky="ew")
-    bfr.temperature.grid(column=1, row=2, sticky="ew")
-    bfr.sn_id.grid(column=1, row=3, sticky="ew")
+    bfr.sn_id.grid(column=1, row=1, sticky="ew")
+    bfr.pressure.grid(column=1, row=2, sticky="ew")
+    bfr.temperature.grid(column=1, row=3, sticky="ew")
     bfr.status_code.grid(column=1, row=4, sticky="ew")
     bfr.pair_status.grid(column=1, row=5, sticky="ew")
     bfr.last_updated.grid(column=0, columnspan=2, row=6, sticky="ew")
@@ -285,7 +285,7 @@ class SerialGUI:
         self.current_ecu_state_label.grid(column=0, row=2, sticky="ew")
         self.current_ecu_state_text.grid(column=1, row=2, sticky="ew")
 
-        self.is_running = False
+        self.is_running = True
         self.is_connected = False
 
         # Serial setup
@@ -374,6 +374,8 @@ class SerialGUI:
                 except OSError:
                     self.is_connected = False
                     self.current_connection_status_text.configure(text="DISCONNECTED", bg=LIGHT_RED)
+                    self.reset_tlb(self.tlb_left, "left_tire")
+                    self.reset_tlb(self.tlb_right, "right_tire")
                     self.update_gui(f"Disconnected from serial port {self.ser.name}")
                 else:
                     if (len(line) == 0):
