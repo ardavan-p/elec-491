@@ -36,7 +36,19 @@ extern "C" {
 
 /* Exported types ------------------------------------------------------------*/
 /* USER CODE BEGIN ET */
+typedef struct {
+  // byte [0]
+  uint8_t node_id;
+  // bytes [1:2]
+  uint16_t pressure;
+  // bytes [3:4]
+  int16_t temperature;
+  // bytes [5:6]
+  uint16_t msg_id;
+  uint8_t rsvd;
+} __attribute__((packed, aligned(1))) sensor_msg_t;
 
+_Static_assert(sizeof(sensor_msg_t) == 8, "struct not correct size");
 /* USER CODE END ET */
 
 /* Exported constants --------------------------------------------------------*/
@@ -63,7 +75,22 @@ void Error_Handler(void);
 #define SPI1_CSn_Pin GPIO_PIN_4
 
 #define SPI1_LD_GPIO_Port GPIOA
-#define SPI1_LD_Pin GPIO_PIN_10
+#define SPI1_LD_Pin GPIO_PIN_4
+
+#define PTN_ID_Port GPIOA
+#define PTN_ID_Pin GPIO_PIN_0
+
+#define PTN_RF_ON_LED_Port GPIOA
+#define PTN_RF_ON_LED_Pin GPIO_PIN_10
+
+#define PTN_OK (0)
+#define PTN_ERROR_TIMEOUT (1)
+#define PTN_ERROR_MISMATCH (2)
+
+#define PTN_1 (1)
+#define PTN_2 (2)
+
+#define SN_ID_UNPAIRED (0)
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus
