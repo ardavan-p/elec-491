@@ -1,21 +1,21 @@
 /* USER CODE BEGIN Header */
 /**
-  ******************************************************************************
-  * @file           : main.h
-  * @brief          : Header for main.c file.
-  *                   This file contains the common defines of the application.
-  ******************************************************************************
-  * @attention
-  *
-  * Copyright (c) 2024 STMicroelectronics.
-  * All rights reserved.
-  *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
-  *
-  ******************************************************************************
-  */
+ ******************************************************************************
+ * @file           : main.h
+ * @brief          : Header for main.c file.
+ *                   This file contains the common defines of the application.
+ ******************************************************************************
+ * @attention
+ *
+ * Copyright (c) 2024 STMicroelectronics.
+ * All rights reserved.
+ *
+ * This software is licensed under terms that can be found in the LICENSE file
+ * in the root directory of this software component.
+ * If no LICENSE file comes with this software, it is provided AS-IS.
+ *
+ ******************************************************************************
+ */
 /* USER CODE END Header */
 
 /* Define to prevent recursive inclusion -------------------------------------*/
@@ -36,6 +36,20 @@ extern "C" {
 
 /* Exported types ------------------------------------------------------------*/
 /* USER CODE BEGIN ET */
+
+typedef struct {
+  // byte [0]
+  uint8_t node_id;
+  // bytes [1:2]
+  uint16_t pressure;
+  // bytes [3:4]
+  int16_t temperature;
+  // bytes [5:6]
+  uint16_t msg_id;
+  uint8_t rsvd;
+} __attribute__((packed, aligned(1))) sensor_msg_t;
+
+_Static_assert(sizeof(sensor_msg_t) == 8, "struct not correct size");
 
 /* USER CODE END ET */
 
@@ -89,6 +103,26 @@ void Error_Handler(void);
 #define NRF_CE_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
+
+#ifndef SENSOR_NODE_ID_ONE
+#ifndef SENSOR_NODE_ID_TWO
+#error "No sensor node IDs defined!"
+#endif  // !SENSOR_NODE_ID_TWO
+#endif  // !SENSOR_NODE_ID_ONE
+
+#ifdef SENSOR_NODE_ID_ONE
+#ifdef SENSOR_NODE_ID_TWO
+#error "Both sensor node IDs defined"
+#endif  // SENSOR_NODE_ID_TWO
+#endif  // SENSOR_NODE_ID_ONE
+
+#ifdef SENSOR_NODE_ID_ONE
+#define SENSOR_NODE_ID SENSOR_NODE_ID_ONE
+#endif  // SENSOR_NODE_ID_ONE
+
+#ifdef SENSOR_NODE_ID_TWO
+#define SENSOR_NODE_ID SENSOR_NODE_ID_TWO
+#endif  // SENSOR_NODE_ID_TWO
 
 /* USER CODE END Private defines */
 
