@@ -189,9 +189,15 @@ int main(void)
   uint32_t random_id = 0;
   HAL_RNG_GenerateRandomNumber(&hrng, &random_id);
 
+  int16_t temperature = 22;
+
+  if (random_id > (0xffffffff >> 1)) {
+    temperature++;
+  }
+
   sensor_msg_t message = {.node_id = SENSOR_NODE_ID,
                           .pressure = pressure_val_final,
-                          .temperature = -127,
+                          .temperature = temperature,
                           .msg_id = random_id};
 
   // copy message into buffer
