@@ -13,13 +13,13 @@ The source code for the GUI which was designed for demonstration purposes is loc
 The firmware for the master ECU used in the demonstration is located in the `ecu/` folder. It is all written in C, for the STM32F103RCT6 microcontroller.
 
 ### Power Transmitter Node
-All design files for the power transmitter node is located in the `ptn/` and `enclosures/ptn/` directories. <br>
+All design files for the power transmitter node is located in the `ptn/` and `enclosure/ptn/` directories. <br>
 
 The PCB design files for the power transmitter node are located in `ptn/pcb/`. The PCB is designed using the KiCad PCB design software. <br>
 
 The firmware source code for the power transmitter node is located in `ptn/fw/`. It is all written in C, for the STM32F103C8T6 microcontroller. <br>
 
-The physical enclosure for the power transmitter node is located in `enclosures/ptn/`. The PTN enclosure was designed using SolidWorks.
+The physical enclosure for the power transmitter node is located in `enclosure/ptn/`. The PTN enclosure was designed using SolidWorks.
 
 ### Sensor Node
 All design files for the sensor node is located in the `sn/` directory. <br>
